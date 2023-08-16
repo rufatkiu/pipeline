@@ -13,7 +13,6 @@
       <default>false</default>
       <summary>Window maximized state</summary>
     </key>
-
     <key name="player" type="s">
       <default>"mpv"</default>
       <summary>The player to use</summary>
@@ -26,7 +25,6 @@
       <default>"https://pipedapi.kavin.rocks"</default>
       <summary>The piped api url</summary>
     </key>
-
     <key name="only-videos-yesterday" type="b">
       <default>false</default>
       <summary>Only show videos of yesterday.</summary>
