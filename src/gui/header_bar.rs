@@ -102,7 +102,7 @@ pub mod imp {
                     .expect("about.ui to have at least one object about");
                 about.add_link(
                     &gettextrs::gettext("Donate"),
-                    "https://www.tubefeeder.de/donate.html",
+                    "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
                 );
                 about.set_transient_for(Some(&obj.window()));
                 about.show();
