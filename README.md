@@ -1,29 +1,25 @@
-<img align="left" style="vertical-align: middle" width="120" height="120" src="/data/icons/de.schmidhuberj.tubefeeder.svg">
-
 # Pipeline
 
-Pipeline is a YouTube, LBRY and PeerTube client for Linux.
+[![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/%23tubefeeder:matrix.org)
 
-###
-
-[![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/#tubefeeder:matrix.org)
+Pipeline lets you watch and download videos from YouTube, LBRY and PeerTube, all without needing to navigate through different websites.
 
 ## Screenshots
 <table>
   <tr>
     <td>
-      <img src="/data/screenshots/tubefeeder_screenshot_feed.png" alt="Feed" width="400"/>
+      <img src="/data/screenshots/feed.png" alt="Feed" width="400"/>
     </td>
     <td>
-      <img src="/data/screenshots/tubefeeder_screenshot_watch_later.png" alt="Feed" width="400"/>
+      <img src="/data/screenshots/watch_later.png" alt="Watch later" width="400"/>
     </td>
     <td>
-      <img src="/data/screenshots/tubefeeder_screenshot_filters.png" alt="Feed" width="400"/>
+      <img src="/data/screenshots/filters.png" alt="Filters" width="400"/>
     </td>
     <td>
-      <img src="/data/screenshots/tubefeeder_screenshot_subscriptions.png" alt="Subscriptions" width="400"/>
+      <img src="/data/screenshots/subscriptions.png" alt="Subscriptions" width="400"/>
     </td>
-    <tr>
+  </tr>
 </table>
 
 ## Installation
@@ -31,45 +27,45 @@ Pipeline is a YouTube, LBRY and PeerTube client for Linux.
 <table>
   <tr>
     <td>Flatpak</td>
-    <td>AUR</td>
-  </tr>
-  <tr>
     <td>
       <a href='https://flathub.org/apps/details/de.schmidhuberj.tubefeeder'><img width='130' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
     </td>
-    <td>
-      <a href='https://aur.archlinux.org/packages/tubefeeder'>Stable</a> - <a href='https://aur.archlinux.org/packages/tubefeeder-git'>Git</a>
-    </td>
+  </tr>
+  <tr>
+    <td>Arch Linux (AUR - stable)</td>
+    <td>[tubefeeder](https://aur.archlinux.org/packages/tubefeeder)</td>
+  </tr>
+  <tr>
+    <td>Arch Linux (AUR - git)</td>
+    <td>[tubefeeder-git](https://aur.archlinux.org/packages/tubefeeder-git)</td>
   </tr>
 </table>
 
 ## Features
+
 - Subscribe to channels
-- Play videos with MPV (or any other video player)
+- Play videos with any video player
 - Filter out unwanted videos in the feed
-- Import data from [NewPipe](https://github.com/TeamNewPipe/NewPipe/)
+- Import subscriptions from [NewPipe](https://github.com/TeamNewPipe/NewPipe/) or YouTube
+- Multiple platforms
+    - YouTube (using Piped as the backend to prevent throttling)
+    - PeerTube
+    - LBRY
+    - suggest any other platform with a good API and it will be considered
 
 ## Contributing
 
 See the [Contributing page](CONTRIBUTING.md).
 
-## Supported Platforms
-
-- YouTube (using Piped as the backend to prevent throttling)
-- PeerTube
-- LBRY
-
-Suggest any other platform, if it has a good-enough API, I will consider adding it.
-
 ## Wiki
 
-Please also take a look at the [wiki](http://www.tubefeeder.de/wiki/) if you have any problems (e.g. mpv being slow on the PinePhone) or don't know how to do something (e.g. subscribing to a channel)
+Please also take a look at the [wiki](https://gitlab.com/schmiddi-on-mobile/pipeline/-/wikis/home) for more information on how to use the app.
 
-## Donating
+## Donate
 
 If you like this project and have some spare Monero left, consider donating to my Monero address:
 
-Monero: 
-~~~
+Monero:
+```
 82pRFY4iUjVUWm48ykaTKbjYeDksdMunWPHbrDbTmyKF7PWAxNX8FXM7G6B1n4NFvHfr3ztEg411A2gCjJjNJ8PtEnmcehf
-~~~
+```

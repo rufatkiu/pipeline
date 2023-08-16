@@ -148,35 +148,39 @@
     </p>
     <ul>
       <li>Subscribe to channels</li>
-      <li>Play videos with MPV (or any other video player)</li>
+      <li>Play videos with any video player</li>
       <li>Filter out unwanted videos in the feed</li>
-      <li>Import data from NewPipe</li>
+      <li>Import subscriptions from NewPipe or YouTube</li>
+      <li>Multiple platforms</li>
     </ul>
   </description>
 
   <screenshots>
     <screenshot type="default">
-      <caption>The feed</caption>
-      <image>https://github.com/Tubefeeder/Pipeline/blob/master/data/screenshots/tubefeeder_screenshot_feed.png?raw=true</image>
+      <caption>Feed</caption>
+      <image>https://gitlab.com/schmiddi-on-mobile/pipeline/blob/master/data/screenshots/feed.png?raw=true</image>
     </screenshot>
     <screenshot type="default">
-      <caption>The watch later list</caption>
-      <image>https://github.com/Tubefeeder/Pipeline/blob/master/data/screenshots/tubefeeder_screenshot_watch_later.png?raw=true</image>
+      <caption>Watch later</caption>
+      <image>https://gitlab.com/schmiddi-on-mobile/pipeline/blob/master/data/screenshots/watch_later.png?raw=true</image>
     </screenshot>
     <screenshot type="default">
-      <caption>The filter</caption>
-      <image>https://github.com/Tubefeeder/Pipeline/blob/master/data/screenshots/tubefeeder_screenshot_filters.png?raw=true</image>
+      <caption>Filter</caption>
+      <image>https://gitlab.com/schmiddi-on-mobile/pipeline/blob/master/data/screenshots/filters.png?raw=true</image>
     </screenshot>
     <screenshot>
-      <caption>The subscriptions</caption>
-      <image>https://github.com/Tubefeeder/Pipeline/blob/master/data/screenshots/tubefeeder_screenshot_subscriptions.png?raw=true</image>
+      <caption>Subscriptions</caption>
+      <image>https://gitlab.com/schmiddi-on-mobile/pipeline/blob/master/data/screenshots/subscriptions.png?raw=true</image>
     </screenshot>
   </screenshots>
 
-  <url type="homepage">https://www.tubefeeder.de/</url>
-  <url type="bugtracker">https://github.com/Tubefeeder/Pipeline/issues</url>
-  <url type="help">http://www.tubefeeder.de/wiki/</url>
-  <url type="donation">https://www.tubefeeder.de/donate</url>
+  <url type="homepage">https://mobile.schmidhuberj.de/pipeline/</url>
+  <url type="bugtracker">https://gitlab.com/schmiddi-on-mobile/pipeline/issues</url>
+  <url type="help">https://gitlab.com/schmiddi-on-mobile/pipeline/-/wikis/home</url>
+  <url type="donation">https://gitlab.com/schmiddi-on-mobile/pipeline#donate</url>
+  <url type="contact">https://matrix.to/#/#tubefeeder:matrix.org</url>
+  <url type="vcs-browser">https://gitlab.com/schmiddi-on-mobile/pipeline</url>
+  <url type="contribute">https://gitlab.com/schmiddi-on-mobile/pipeline/-/blob/master/CONTRIBUTING.md</url>
 
   <provides>
     <binary>tubefeeder</binary>
