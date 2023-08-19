@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <requires lib="libadwaita" version="1.0"/>
+
+  <object class="AdwWindow" id="window">
+    <property name="default-width">450</property>
+    <property name="default-height">600</property>
+    <property name="destroy-with-parent">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="spacing">15</property>
+        <child>
+          <object class="AdwHeaderBar">
+            <style>
+              <class name="flat"/>
+            </style>
+            <property name="title-widget">
+              <object class="AdwWindowTitle">
+                <property name="title" translatable="true">Video Information</property>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="homogeneous">true</property>
+            <child>
+              <object class="GtkBox" id="box_likes">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">thumbs-up-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_likes"/>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="box_dislikes">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">thumbs-down-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_dislikes"/>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="box_views">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">eye-open-symbolic</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_views"/>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">true</property>
+            <child>
+              <object class="GtkLabel" id="label_description">
+                <property name="wrap">true</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

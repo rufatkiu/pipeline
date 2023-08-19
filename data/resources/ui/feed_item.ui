@@ -175,6 +175,10 @@
         <attribute name="label" translatable="yes">Copy to Clipboard</attribute>
         <attribute name="action">item.clipboard</attribute>
       </item>
+      <item>
+        <attribute name="label" translatable="yes">More Information</attribute>
+        <attribute name="action">item.information</attribute>
+      </item>
     </section>
   </menu>
 </interface>

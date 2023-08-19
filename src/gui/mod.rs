@@ -25,5 +25,6 @@ mod import_window;
 mod preferences_window;
 mod subscription;
 mod utility;
+mod video_information_window;
 mod watch_later;
 pub mod window;

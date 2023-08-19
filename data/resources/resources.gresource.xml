@@ -17,12 +17,16 @@
     <file preprocess="xml-stripblanks">ui/watch_later.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences_window.ui</file>
     <file preprocess="xml-stripblanks">ui/import_window.ui</file>
+    <file preprocess="xml-stripblanks">ui/video_information_window.ui</file>
     <file preprocess="xml-stripblanks">ui/about.ui</file>
   </gresource>
   <gresource prefix="/de/schmidhuberj/tubefeeder/icons/">
     <file alias="icon.svg">../icons/de.schmidhuberj.tubefeeder.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/funnel-symbolic.svg">../icons/funnel-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="scalable/actions/library-artists-symbolic.svg">../icons/library-artists-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="scalable/actions/eye-open-symbolic.svg">../icons/eye-open-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="scalable/actions/thumbs-up-symbolic.svg">../icons/thumbs-up-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="scalable/actions/thumbs-down-symbolic.svg">../icons/thumbs-down-symbolic.svg</file>
   </gresource>
   <gresource prefix="/de/schmidhuberj/tubefeeder/">
     <file compressed="true">style.css</file>
