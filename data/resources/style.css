@@ -1,10 +1,10 @@
 .osd {
-  border-radius: 6pt
+  border-radius: 6pt;
 }
 .feed-list {
   background-color: @card_bg_color;
-  color: @card_fg_color
+  color: @card_fg_color;
 }
 .feed-list row {
-  transition: background-color .2s cubic-bezier(.25, .46, .45, .94)
+  transition: background-color .2s cubic-bezier(.25, .46, .45, .94);
 }

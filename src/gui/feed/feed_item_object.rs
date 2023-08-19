@@ -20,13 +20,14 @@
 
 use std::cell::RefCell;
 
+use chrono::Duration;
 use gdk::glib;
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk::{
     glib::{clone, MainContext, Object, PRIORITY_DEFAULT},
     prelude::{Continue, ObjectExt},
 };
-use tf_core::Video;
+use tf_core::{ExtraVideoInfo, Video};
 use tf_join::AnyVideo;
 
 use crate::downloader::download;
@@ -73,6 +74,23 @@ gtk::glib::wrapper! {
     pub struct VideoObject(ObjectSubclass<imp::VideoObject>);
 }
 
+fn format_duration(d: Duration) -> String {
+    if d.num_hours() > 0 {
+        format!(
+            "{}:{:0>2}:{:0>2}",
+            d.num_hours(),
+            (d - Duration::hours(d.num_hours())).num_minutes(),
+            (d - Duration::minutes(d.num_minutes())).num_seconds()
+        )
+    } else {
+        format!(
+            "{:0>2}:{:0>2}",
+            d.num_minutes(),
+            (d - Duration::minutes(d.num_minutes())).num_seconds()
+        )
+    }
+}
+
 impl VideoObject {
     pub fn new(video: AnyVideo) -> Self {
         let s: Self = Object::builder::<Self>()
@@ -88,6 +106,7 @@ impl VideoObject {
                     .format(&gettextrs::gettext("%F %T"))
                     .to_string(),
             )
+            .property("duration", video.duration().map(format_duration))
             .property("playing", &false)
             .build();
         s.imp().video.swap(&RefCell::new(Some(video)));
@@ -140,6 +159,16 @@ impl VideoObject {
             }),
         );
     }
+
+    pub async fn extra_info(&self) -> Result<Option<ExtraVideoInfo>, tf_join::AnyFetchError> {
+        self.imp()
+            .video
+            .borrow()
+            .as_ref()
+            .expect("Video to be set")
+            .extra_information_with_client(&reqwest::Client::new())
+            .await
+    }
 }
 
 mod imp {
@@ -163,6 +192,7 @@ mod imp {
         url: RefCell<Option<String>>,
         thumbnail_url: RefCell<Option<String>>,
         local_path: RefCell<Option<String>>,
+        duration: RefCell<Option<String>>,
 
         playing: Cell<bool>,
         downloading: Cell<bool>,
@@ -188,6 +218,7 @@ mod imp {
                     str_prop!("platform"),
                     str_prop!("date"),
                     str_prop!("local-path"),
+                    str_prop!("duration"),
                     ParamSpecBoolean::builder("playing").build(),
                     ParamSpecBoolean::builder("downloading").build(),
                     ParamSpecBoolean::builder("is-local").build(),
@@ -223,7 +254,9 @@ mod imp {
                 "date",
                 self.date,
                 "local-path",
-                self.local_path
+                self.local_path,
+                "duration",
+                self.duration
             );
         }
 
@@ -252,7 +285,9 @@ mod imp {
                 "date",
                 self.date,
                 "local-path",
-                self.local_path
+                self.local_path,
+                "duration",
+                self.duration
             )
         }
     }

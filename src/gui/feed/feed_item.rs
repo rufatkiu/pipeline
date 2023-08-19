@@ -19,7 +19,8 @@
  */
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
-use gtk::glib::Object;
+use gdk_pixbuf::prelude::Cast;
+use gtk::{glib::Object, traits::WidgetExt};
 use tf_join::AnyVideo;
 use tf_playlist::PlaylistManager;
 
@@ -35,6 +36,13 @@ impl FeedItem {
         let s: Self = Object::builder::<Self>().build();
         s.imp().playlist_manager.replace(Some(playlist_manager));
         s
+    }
+
+    fn window(&self) -> crate::gui::window::Window {
+        self.root()
+            .expect("FeedItem to have root")
+            .downcast::<crate::gui::window::Window>()
+            .expect("Root to be window")
     }
 }
 
@@ -60,6 +68,7 @@ pub mod imp {
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::thumbnail::Thumbnail;
     use crate::gui::utility::Utility;
+    use crate::gui::video_information_window::video_information_window;
 
     #[derive(CompositeTemplate, Default)]
     #[template(resource = "/ui/feed_item.ui")]
@@ -92,8 +101,17 @@ pub mod imp {
             let action_clipboard = SimpleAction::new("clipboard", None);
             action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
                 let clipboard = obj.display().clipboard();
-                // Replace // with / because of simple bug I am too lazy to fix in the youtube-extractor.
-                clipboard.set_text(&video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url().replace("//watch", "/watch"));
+                clipboard.set_text(&video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url());
+            }));
+            let action_clipboard = SimpleAction::new("information", None);
+            action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
+                let ctx = glib::MainContext::default();
+                ctx.spawn_local(clone!(@strong video, @strong obj => async move {
+                    let info = &video.borrow().as_ref().expect("Video should be set up").extra_info().await;
+                    if let Ok(Some(info)) = info {
+                        video_information_window(info, &obj.window()).show();
+                    }
+                }));
             }));
 
             let actions = SimpleActionGroup::new();

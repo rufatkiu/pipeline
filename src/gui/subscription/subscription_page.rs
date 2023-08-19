@@ -85,7 +85,7 @@ pub mod imp {
     use tf_core::Generator;
     use tf_join::AnySubscriptionList;
     use tf_join::Platform;
-    use tf_lbry::LbrySubscription;
+    // use tf_lbry::LbrySubscription;
     use tf_pt::PTSubscription;
     use tf_yt::YTSubscription;
 
@@ -163,7 +163,7 @@ pub mod imp {
                 0,
                 &[
                     PlatformObject::new(Platform::Youtube),
-                    PlatformObject::new(Platform::Lbry),
+                    // PlatformObject::new(Platform::Lbry),
                     PlatformObject::new(Platform::Peertube),
                 ],
             );
@@ -204,7 +204,7 @@ pub mod imp {
                         .await
                         .map(|s| s.into()),
                     Platform::Peertube => Some(PTSubscription::new(&url, &name_id).into()),
-                    Platform::Lbry => Some(LbrySubscription::new(&name_id).into()),
+                    // Platform::Lbry => Some(LbrySubscription::new(&name_id).into()),
                     // -- Add case here
                 };
                 if let Some(subscription) = subscription {
