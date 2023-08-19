@@ -85,13 +85,13 @@ pub mod imp {
             action_settings.connect_activate(clone!(@weak obj => move |_, _| {
                 let settings = PreferencesWindow::new();
                 settings.set_transient_for(Some(&obj.window()));
-                settings.show();
+                settings.present();
             }));
             let action_import = SimpleAction::new("import", None);
             action_import.connect_activate(clone!(@weak obj => move |_, _| {
                 let window = obj.window();
                 let import = import_window::import_window(window.imp().joiner.borrow().clone().expect("Joiner to be set up"), &window);
-                import.show();
+                import.present();
             }));
 
             let action_about = SimpleAction::new("about", None);
@@ -105,7 +105,7 @@ pub mod imp {
                     "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
                 );
                 about.set_transient_for(Some(&obj.window()));
-                about.show();
+                about.present();
             }));
 
             let actions = SimpleActionGroup::new();

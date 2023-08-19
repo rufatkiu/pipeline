@@ -232,6 +232,7 @@ pub mod imp {
                 .expect("AnySubscriptionList should be set up");
             let instance = self.obj();
             factory.connect_setup(clone!(@strong instance, @strong sorter => move |_, list_item| {
+                let list_item = list_item.downcast_ref::<gtk::ListItem>().unwrap();
                 let subscription_item = SubscriptionItem::new(any_subscription_list.clone());
                 list_item.set_child(Some(&subscription_item));
 

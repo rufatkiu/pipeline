@@ -2,10 +2,8 @@ use gdk_pixbuf::glib::clone;
 use gtk::glib;
 use gtk::prelude::*;
 use gtk::Builder;
-use gtk::FileChooserAction;
-use gtk::FileChooserNative;
+use gtk::FileDialog;
 use gtk::FileFilter;
-use gtk::ResponseType;
 use libadwaita::traits::MessageDialogExt;
 use libadwaita::MessageDialog;
 use tf_join::Joiner;
@@ -32,61 +30,57 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
             log::debug!("Import from NewPipe");
             let filter = FileFilter::new();
             filter.add_mime_type("application/json");
-            let chooser = FileChooserNative::builder()
+            let chooser = FileDialog::builder()
                 .title(&gettextrs::gettext("Select NewPipe subscriptions file"))
-                .transient_for(parent)
                 .modal(true)
-                .filter(&filter)
-                .action(FileChooserAction::Open)
+                .default_filter(&filter)
                 .build();
-            chooser.connect_response(clone!(@strong chooser, @strong joiner => move |_, action| {
-                if action == ResponseType::Accept {
-                    log::trace!("User picked file to import from");
-                    let file = chooser.file();
-                    if let Some(file) = file {
+            chooser.open(
+                Some(parent),
+                None::<&gtk::gio::Cancellable>,
+                clone!(@strong chooser, @strong joiner => move |file| {
+                    if let Ok(file) = file {
+                        log::trace!("User picked file to import from");
                         if let Err(e) = crate::import::import_newpipe(&joiner, file) {
                             let dialog = MessageDialog::builder()
                                 .heading(&gettextrs::gettext("Failure to import subscriptions"))
                                 .body(&format!("{}", e))
                                 .build();
-                            dialog.show();
+                            dialog.present();
                         }
+                    } else {
+                        log::trace!("User did not choose anything to import from");
                     }
-                } else {
-                    log::trace!("User did not choose anything to import from");
-                }
-            }));
-            chooser.show();
+                }),
+            );
         }
         "youtube" => {
             log::debug!("Import from YouTube");
             let filter = FileFilter::new();
             filter.add_mime_type("text/csv");
-            let chooser = FileChooserNative::builder()
+            let chooser = FileDialog::builder()
                 .title(&gettextrs::gettext("Select YouTube subscription file"))
-                .transient_for(parent)
-                .filter(&filter)
                 .modal(true)
-                .action(FileChooserAction::Open)
+                .default_filter(&filter)
                 .build();
-            chooser.connect_response(clone!(@strong chooser, @strong joiner => move |_, action| {
-                if action == ResponseType::Accept {
-                    log::trace!("User picked file to import from");
-                    let file = chooser.file();
-                    if let Some(file) = file {
+            chooser.open(
+                Some(parent),
+                None::<&gtk::gio::Cancellable>,
+                clone!(@strong chooser, @strong joiner => move |file| {
+                    if let Ok(file) = file {
+                        log::trace!("User picked file to import from");
                         if let Err(e) = crate::import::import_youtube(&joiner, file) {
                             let dialog = MessageDialog::builder()
                                 .heading(&gettextrs::gettext("Failure to import subscriptions"))
                                 .body(&format!("{}", e))
                                 .build();
-                            dialog.show();
+                            dialog.present();
                         }
+                    } else {
+                        log::trace!("User did not choose anything to import from");
                     }
-                } else {
-                    log::trace!("User did not choose anything to import from");
-                }
-            }));
-            chooser.show();
+                }),
+            );
         }
         _ => {}
     }
