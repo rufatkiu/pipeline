@@ -1,5 +1,5 @@
 {
-  description = "Watch YouTube, LBRY, and PeerTube videos in one place";
+  description = "Watch YouTube and PeerTube videos in one place";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";

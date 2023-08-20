@@ -2,9 +2,9 @@
 Type=Application
 Icon=de.schmidhuberj.tubefeeder
 Name=Pipeline
-Comment=Watch YouTube, LBRY, and PeerTube videos in one place
-Comment[ar]=عميل YouTube و LBRY و PeerTube
-Comment[it]=Un client per YouTube, LBRY e PeerTube
+Comment=Watch YouTube and PeerTube videos in one place
+Comment[ar]=عميل YouTube و PeerTube
+Comment[it]=Un client per YouTube e PeerTube
 StartupWMClass=Pipeline
 Exec=/app/bin/tubefeeder
 Categories=Video;AudioVideo
