@@ -109,7 +109,7 @@ pub mod imp {
                 ctx.spawn_local(clone!(@strong video, @strong obj => async move {
                     let info = &video.borrow().as_ref().expect("Video should be set up").extra_info().await;
                     if let Ok(Some(info)) = info {
-                        video_information_window(info, &obj.window()).show();
+                        video_information_window(info, &obj.window()).present();
                     }
                 }));
             }));

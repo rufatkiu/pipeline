@@ -178,6 +178,7 @@ pub mod imp {
                 .clone()
                 .expect("FilterGroup should be set up");
             factory.connect_setup(move |_, list_item| {
+                let list_item = list_item.downcast_ref::<gtk::ListItem>().unwrap();
                 let filter_item = FilterItem::new(filter_group.clone());
                 list_item.set_child(Some(&filter_item));
 
