@@ -9,6 +9,23 @@
   <content_rating type="oars-1.1"/>
   <developer_name>Julian Schmidhuber</developer_name>
   <releases>
+    <release version="v1.13.0" date="2023-08-20">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Dialog showing video information including likes, dislikes (not for YouTube), views and video description.</li>
+          <li>Show video duration on video thumbnails.</li>
+        </ul>
+        <p>Removed</p>
+        <ul>
+          <li>Removed Lbry support as it will have to shut down soon.</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>File chooser dialog for importing videos not working.</li>
+        </ul>
+      </description>
+    </release>
     <release version="v1.12.0" date="2023-07-29">
       <description>
         <p>Update dependencies. Fix issue with some Peertube subscriptions.</p>
