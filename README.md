@@ -2,7 +2,7 @@
 
 [![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/%23tubefeeder:matrix.org)
 
-Pipeline lets you watch and download videos from YouTube, LBRY and PeerTube, all without needing to navigate through different websites.
+Pipeline lets you watch and download videos from YouTube and PeerTube, all without needing to navigate through different websites.
 
 ## Screenshots
 <table>
@@ -50,7 +50,6 @@ Pipeline lets you watch and download videos from YouTube, LBRY and PeerTube, all
 - Multiple platforms
     - YouTube (using Piped as the backend to prevent throttling)
     - PeerTube
-    - LBRY
     - suggest any other platform with a good API and it will be considered
 
 ## Contributing
