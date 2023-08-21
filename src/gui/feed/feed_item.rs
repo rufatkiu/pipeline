@@ -103,8 +103,8 @@ pub mod imp {
                 let clipboard = obj.display().clipboard();
                 clipboard.set_text(&video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url());
             }));
-            let action_clipboard = SimpleAction::new("information", None);
-            action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
+            let action_information = SimpleAction::new("information", None);
+            action_information.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
                 let ctx = glib::MainContext::default();
                 ctx.spawn_local(clone!(@strong video, @strong obj => async move {
                     let info = &video.borrow().as_ref().expect("Video should be set up").extra_info().await;
@@ -118,6 +118,7 @@ pub mod imp {
             obj.insert_action_group("item", Some(&actions));
             actions.add_action(&action_download);
             actions.add_action(&action_clipboard);
+            actions.add_action(&action_information);
         }
         fn bind_watch_later(&self) {
             let video = &self.video;

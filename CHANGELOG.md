@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Copy video URL not working anymore.
+
 ## [1.13.0] - 2023-08-20
 
 ### Added
