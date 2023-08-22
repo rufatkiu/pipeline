@@ -22,6 +22,10 @@
                     <style>
                       <class name="flat"/>
                     </style>
+                    <accessibility>
+                      <property name="label" translatable="yes" context="accessibility">Reload</property>
+                    </accessibility>
+                    <property name="tooltip-text" translatable="yes" context="tooltip">Reload</property>
                     <binding name="visible">
                       <closure function="not" type="gboolean">
                         <lookup name="reloading" type="TFFeedPage"></lookup>

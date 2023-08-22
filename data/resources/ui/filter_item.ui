@@ -10,7 +10,11 @@
 
     <child>
       <object class="GtkButton" id="remove">
-          <property name="icon-name">list-remove-symbolic</property>
+        <accessibility>
+          <property name="label" translatable="yes" context="accessibility">Remove Subscription</property>
+        </accessibility>
+        <property name="tooltip-text" translatable="yes" context="tooltip">Remove Subscription</property>
+        <property name="icon-name">list-remove-symbolic</property>
       </object>
     </child>
     <child>

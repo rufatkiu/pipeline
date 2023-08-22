@@ -10,13 +10,21 @@
 
     <child>
       <object class="GtkButton" id="remove">
-          <property name="icon-name">list-remove-symbolic</property>
+        <accessibility>
+          <property name="label" translatable="yes" context="accessibility">Remove Subscription</property>
+        </accessibility>
+        <property name="tooltip-text" translatable="yes" context="tooltip">Remove Subscription</property>
+        <property name="icon-name">list-remove-symbolic</property>
       </object>
     </child>
     <child>
       <object class="GtkButton" id="go-to-videos">
-          <property name="icon-name">go-last-symbolic</property>
-          <signal name="clicked" handler="handle_go_to_videos" swapped="true"/>
+        <accessibility>
+          <property name="label" translatable="yes" context="accessibility">Open videos from subscription</property>
+        </accessibility>
+        <property name="tooltip-text" translatable="yes" context="tooltip">Open videos from subscription</property>
+        <property name="icon-name">go-last-symbolic</property>
+        <signal name="clicked" handler="handle_go_to_videos" swapped="true"/>
       </object>
     </child>
     <child>
