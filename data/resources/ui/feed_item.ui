@@ -140,6 +140,10 @@
                 <property name="halign">end</property>
                 <child>
                   <object class="GtkMenuButton">
+                    <accessibility>
+                      <property name="label" translatable="yes" context="accessibility">More video actions</property>
+                    </accessibility>
+                    <property name="tooltip-text" translatable="yes" context="tooltip">More video actions</property>
                     <property name="menu-model">menu</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -149,6 +153,10 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="watch_later">
+                    <accessibility>
+                      <property name="label" translatable="yes" context="accessibility">Toggle watch-later status</property>
+                    </accessibility>
+                    <property name="tooltip-text" translatable="yes" context="tooltip">Toggle watch-later status</property>
                     <property name="icon-name">appointment-new-symbolic</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>

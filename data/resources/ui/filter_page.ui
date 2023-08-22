@@ -20,6 +20,10 @@
                 <style>
                   <class name="flat"/>
                 </style>
+                <accessibility>
+                  <property name="label" translatable="yes" context="accessibility">Add Filter…</property>
+                </accessibility>
+                <property name="tooltip-text" translatable="yes" context="tooltip">Add Filter…</property>
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkImage">
