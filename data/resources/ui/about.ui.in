@@ -14,18 +14,10 @@
     <property name="version">@VERSION@</property>
     <property name="artists">David Lapshin &lt;ddaudix@gmail.com&gt;</property>
     <property name="release-notes">
-      &lt;p&gt;Added&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Dialog showing video information including likes, dislikes (not for YouTube), views and video description.&lt;/li&gt;
-      &lt;li&gt;Show video duration on video thumbnails.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;Removed&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Removed Lbry support as it will have to shut down soon.&lt;/li&gt;
-      &lt;/ul&gt;
       &lt;p&gt;Fixed&lt;/p&gt;
       &lt;ul&gt;
-      &lt;li&gt;File chooser dialog for importing videos not working.&lt;/li&gt;
+        &lt;li&gt;Copy video URL not working anymore.&lt;/li&gt;
+        &lt;li&gt;Missing accesibility labels.&lt;/li&gt;
       &lt;/ul&gt;
     </property>
   </object>

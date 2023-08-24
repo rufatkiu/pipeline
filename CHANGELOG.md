@@ -6,9 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.13.1] - 2023-08-24
+
 ### Fixed
 
 - Copy video URL not working anymore.
+- Missing accesibility labels.
 
 ## [1.13.0] - 2023-08-20
 
@@ -25,5 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - File chooser dialog for importing videos not working.
 
-[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.13.0...master
+[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.13.1...master
+[1.13.1]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.13.0...v1.13.1
 [1.13.0]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.12.0...v1.13.0
