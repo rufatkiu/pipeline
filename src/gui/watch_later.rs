@@ -44,10 +44,11 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::MainContext;
     use gdk::glib::Sender;
-    use gdk::glib::PRIORITY_DEFAULT;
+    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::prelude::*;
+    use gtk::glib::ControlFlow;
+
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
@@ -80,7 +81,7 @@ pub mod imp {
                 .clone()
                 .expect("Playlist Manager has to exist");
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
 
             let observer = Arc::new(Mutex::new(Box::new(PlaylistPageObserver {
                 sender: sender.clone(),
@@ -114,7 +115,7 @@ pub mod imp {
                             feed_page.remove(video);
                         }
                     }
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
         }

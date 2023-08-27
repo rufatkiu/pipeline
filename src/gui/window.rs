@@ -87,9 +87,9 @@ pub mod imp {
     use gdk_pixbuf::glib::clone;
     use glib::subclass::InitializingObject;
     use gtk::glib;
+    use gtk::glib::Propagation;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
-    use gtk::Inhibit;
 
     use gtk::CompositeTemplate;
     use libadwaita::subclass::prelude::AdwApplicationWindowImpl;
@@ -333,7 +333,7 @@ pub mod imp {
 
     impl WidgetImpl for Window {}
     impl WindowImpl for Window {
-        fn close_request(&self) -> Inhibit {
+        fn close_request(&self) -> Propagation {
             let mut user_cache_dir = glib::user_cache_dir();
             user_cache_dir.push("tubefeeder");
 

@@ -49,11 +49,13 @@ pub mod imp {
     use gdk::glib::MainContext;
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecBoolean;
-    use gdk::glib::PRIORITY_DEFAULT;
+    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::gio::Settings;
     use gtk::glib;
     use gtk::glib::subclass::Signal;
+    use gtk::glib::ControlFlow;
+    
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
 
@@ -122,7 +124,7 @@ pub mod imp {
                 .clone()
                 .expect("Joiner should be set up");
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
             let sender = sender.clone();
             let joiner = joiner.clone();
             let error_store = self.error_store.borrow().clone();
@@ -145,7 +147,7 @@ pub mod imp {
             );
             receiver.attach(
                 None,
-                clone!(@strong obj as s, @strong settings => @default-return Continue(false), move |videos| {
+                clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, move |videos| {
                     let yesterday = chrono::Local::now().date_naive() - chrono::Duration::days(1);
                     let video_objects_iter = videos.into_iter().map(VideoObject::new);
 
@@ -156,7 +158,7 @@ pub mod imp {
                     };
                     s.imp().feed_list.get().set_items(video_objects);
                     s.set_property("reloading", &false);
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
 

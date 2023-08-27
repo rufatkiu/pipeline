@@ -171,7 +171,7 @@ pub mod imp {
     use crate::gui::feed::feed_item::FeedItem;
     use crate::gui::feed::feed_item_object::VideoObject;
 
-    #[derive(CompositeTemplate, Default)]
+    #[derive(CompositeTemplate)]
     #[template(resource = "/ui/feed_list.ui")]
     pub struct FeedList {
         #[template_child]
@@ -188,9 +188,23 @@ pub mod imp {
         pub(super) more_available: Cell<bool>,
     }
 
+    impl Default for FeedList {
+        fn default() -> Self {
+            Self {
+                feed_list: Default::default(),
+                scrolled_window: Default::default(),
+                items: Default::default(),
+                model: RefCell::new(ListStore::new::<FeedItem>()),
+                loaded_count: Default::default(),
+                playlist_manager: Default::default(),
+                more_available: Default::default(),
+            }
+        }
+    }
+
     impl FeedList {
         pub(super) fn setup(&self) {
-            let model = gtk::gio::ListStore::new(VideoObject::static_type());
+            let model = gtk::gio::ListStore::new::<VideoObject>();
             let selection_model = gtk::NoSelection::new(Some(model.clone()));
             self.feed_list.get().set_model(Some(&selection_model));
 

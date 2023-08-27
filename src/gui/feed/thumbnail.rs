@@ -19,10 +19,12 @@
  */
 
 use gdk::{
-    glib::{clone, MainContext, PRIORITY_DEFAULT},
-    prelude::{Continue, ObjectExt},
+    glib::{clone, MainContext},
+    prelude::ObjectExt,
     subclass::prelude::ObjectSubclassIsExt,
 };
+use gdk_pixbuf::glib::Priority;
+use gtk::glib::ControlFlow;
 
 async fn download(thumbnail_url: String) -> Option<image::DynamicImage> {
     log::debug!("Getting thumbnail from url {}", thumbnail_url);
@@ -66,7 +68,7 @@ impl Thumbnail {
             .map(|v| v.property::<Option<String>>("url"))
             .flatten();
         if let (Some(thumbnail_url), Some(url)) = (thumbnail_url, url) {
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
             tokio::spawn(async move {
                 let mut user_cache_dir = gtk::glib::user_cache_dir();
                 user_cache_dir.push("tubefeeder");
@@ -87,9 +89,9 @@ impl Thumbnail {
 
             receiver.attach(
                 None,
-                clone!(@strong thumbnail => @default-return Continue(false), move |path| {
+                clone!(@strong thumbnail => @default-return ControlFlow::Continue, move |path| {
                     thumbnail.set_filename(Some(&path));
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
         }
