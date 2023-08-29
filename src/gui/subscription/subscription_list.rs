@@ -106,13 +106,15 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::MainContext;
     use gdk::glib::Sender;
-    use gdk::glib::PRIORITY_DEFAULT;
     use gdk_pixbuf::glib::subclass::Signal;
     use gdk_pixbuf::glib::ParamSpec;
     use gdk_pixbuf::glib::ParamSpecBoolean;
+    use gdk_pixbuf::glib::Priority;
     use gdk_pixbuf::glib::Value;
     use glib::subclass::InitializingObject;
     use gtk::glib;
+    use gtk::glib::ControlFlow;
+    
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::CustomSorter;
@@ -131,7 +133,7 @@ pub mod imp {
     use crate::gui::subscription::subscription_item::SubscriptionItem;
     use crate::gui::subscription::subscription_item_object::SubscriptionObject;
 
-    #[derive(CompositeTemplate, Default)]
+    #[derive(CompositeTemplate)]
     #[template(resource = "/ui/subscription_list.ui")]
     pub struct SubscriptionList {
         #[template_child]
@@ -145,6 +147,18 @@ pub mod imp {
             RefCell<Option<Arc<Mutex<Box<dyn Observer<SubscriptionEvent> + Send>>>>>,
     }
 
+    impl Default for SubscriptionList {
+        fn default() -> Self {
+            Self {
+                subscription_list: Default::default(),
+                model: RefCell::new(ListStore::new::<SubscriptionObject>()),
+                sorter: Default::default(),
+                any_subscription_list: Default::default(),
+                _subscription_observer: Default::default(),
+            }
+        }
+    }
+
     impl SubscriptionList {
         pub(super) fn setup(&self, obj: &super::SubscriptionList) {
             self.setup_list();
@@ -154,7 +168,7 @@ pub mod imp {
                 .clone()
                 .expect("AnySubscriptionList should be set up");
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
 
             let observer = Arc::new(Mutex::new(Box::new(SubscriptionPageObserver {
                 sender: sender.clone(),
@@ -186,13 +200,13 @@ pub mod imp {
                             obj.update(s);
                         }
                     }
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
         }
 
         pub fn setup_list(&self) {
-            let model = gtk::gio::ListStore::new(SubscriptionObject::static_type());
+            let model = gtk::gio::ListStore::new::<SubscriptionObject>();
 
             let sorter = CustomSorter::new(move |obj1, obj2| {
                 let subscription_object_1 = obj1

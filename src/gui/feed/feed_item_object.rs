@@ -24,9 +24,11 @@ use chrono::Duration;
 use gdk::glib;
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk::{
-    glib::{clone, MainContext, Object, PRIORITY_DEFAULT},
-    prelude::{Continue, ObjectExt},
+    glib::{clone, MainContext, Object},
+    prelude::ObjectExt,
 };
+use gdk_pixbuf::glib::Priority;
+use gtk::glib::ControlFlow;
 use tf_core::{ExtraVideoInfo, Video};
 use tf_join::AnyVideo;
 
@@ -123,7 +125,7 @@ impl VideoObject {
 
     pub fn play(&self) {
         self.set_property("playing", true);
-        let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+        let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
         play(
             self.property::<Option<String>>("local-path")
                 .unwrap_or_else(|| self.property::<Option<String>>("url").unwrap_or_default()),
@@ -133,16 +135,16 @@ impl VideoObject {
         );
         receiver.attach(
             None,
-            clone!(@weak self as s => @default-return Continue(false), move |_| {
+            clone!(@weak self as s => @default-return ControlFlow::Continue, move |_| {
                 s.set_property("playing", false);
-                Continue(true)
+                ControlFlow::Continue
             }),
         );
     }
 
     pub fn download(&self) {
         self.set_property("downloading", true);
-        let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+        let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
         download(
             self.property::<Option<String>>("url").unwrap_or_default(),
             move |local_path| {
@@ -151,11 +153,11 @@ impl VideoObject {
         );
         receiver.attach(
             None,
-            clone!(@weak self as s => @default-return Continue(false), move |local_path| {
+            clone!(@weak self as s => @default-return ControlFlow::Continue, move |local_path| {
                 s.set_property("downloading", false);
                 s.set_property("local-path", local_path);
                 s.notify("is-local");
-                Continue(true)
+                ControlFlow::Continue
             }),
         );
     }

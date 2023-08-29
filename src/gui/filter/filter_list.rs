@@ -85,11 +85,13 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::MainContext;
     use gdk::glib::Sender;
-    use gdk::glib::PRIORITY_DEFAULT;
+    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
+    use gtk::glib::ControlFlow;
     use gtk::glib::ParamSpec;
     use gtk::glib::ParamSpecBoolean;
+    
     use gtk::glib::Value;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
@@ -107,7 +109,7 @@ pub mod imp {
     use crate::gui::filter::filter_item::FilterItem;
     use crate::gui::filter::filter_item_object::FilterObject;
 
-    #[derive(CompositeTemplate, Default)]
+    #[derive(CompositeTemplate)]
     #[template(resource = "/ui/filter_list.ui")]
     pub struct FilterList {
         #[template_child]
@@ -120,6 +122,17 @@ pub mod imp {
             RefCell<Option<Arc<Mutex<Box<dyn Observer<FilterEvent<AnyVideoFilter>> + Send>>>>>,
     }
 
+    impl Default for FilterList {
+        fn default() -> Self {
+            Self {
+                filter_list: Default::default(),
+                model: RefCell::new(ListStore::new::<FilterObject>()),
+                filter_group: Default::default(),
+                _filter_observer: Default::default(),
+            }
+        }
+    }
+
     impl FilterList {
         pub(super) fn setup(&self, obj: &super::FilterList) {
             self.setup_list();
@@ -129,7 +142,7 @@ pub mod imp {
                 .clone()
                 .expect("FilterGroup should be set up");
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
 
             let observer = Arc::new(Mutex::new(Box::new(FilterPageObserver {
                 sender: sender.clone(),
@@ -159,13 +172,13 @@ pub mod imp {
                             obj.remove(filter);
                         }
                     }
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
         }
 
         pub fn setup_list(&self) {
-            let model = gtk::gio::ListStore::new(FilterObject::static_type());
+            let model = gtk::gio::ListStore::new::<FilterObject>();
             let selection_model = gtk::NoSelection::new(Some(model.clone()));
             self.filter_list.get().set_model(Some(&selection_model));
 

@@ -71,10 +71,12 @@ pub mod imp {
     use gdk::glib::MainContext;
     use gdk::glib::Object;
     use gdk::glib::ParamSpec;
-    use gdk::glib::PRIORITY_DEFAULT;
     use gdk_pixbuf::glib::subclass::Signal;
+    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
+    use gtk::glib::ControlFlow;
+    
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::ConstantExpression;
@@ -157,7 +159,7 @@ pub mod imp {
                     "name",
                 )));
 
-            let model = ListStore::new(PlatformObject::static_type());
+            let model = ListStore::new::<PlatformObject>();
             model.splice(
                 0,
                 0,
@@ -196,7 +198,7 @@ pub mod imp {
             in_url.set_text("");
             in_name_id.set_text("");
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
             let sender = sender.clone();
             tokio::spawn(async move {
                 let subscription = match platform {
@@ -224,7 +226,7 @@ pub mod imp {
                        move |sub| {
                            list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
                            obj.emit_by_name::<()>("subscription-added", &[]);
-                           Continue(true)
+                           ControlFlow::Continue
                        }
                 )
             );
@@ -248,7 +250,7 @@ pub mod imp {
 
             let error_store = tf_core::ErrorStore::new();
 
-            let (sender, receiver) = MainContext::channel(PRIORITY_DEFAULT);
+            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
             tokio::spawn(async move {
                 let videos = joiner.generate(&error_store).await;
                 let _ = sender.send(videos);
@@ -256,10 +258,10 @@ pub mod imp {
             let obj = self.obj();
             receiver.attach(
                 None,
-                clone!(@strong obj as s => @default-return Continue(false), move |videos| {
+                clone!(@strong obj as s => @default-return ControlFlow::Continue, move |videos| {
                     let video_objects = videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
                     s.imp().subscription_video_list.get().set_items(video_objects);
-                    Continue(true)
+                    ControlFlow::Continue
                 }),
             );
         }
