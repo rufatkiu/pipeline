@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A dropdown for some popular video players.
+
 ### Changed
 
 - Removed buttons in the list in favor of a menu shown on right-click or long-press (touch-screen only). 

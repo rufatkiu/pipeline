@@ -79,6 +79,7 @@ impl Window {
 
 pub mod imp {
     use crate::config::{APP_ID, PROFILE};
+    use crate::gui::predefined_player::PredefinedPlayer;
 
     use std::cell::RefCell;
     use std::sync::Arc;
@@ -307,6 +308,7 @@ pub mod imp {
         fn class_init(klass: &mut Self::Class) {
             // Make sure HeaderBar is loaded.
             crate::gui::header_bar::HeaderBar::ensure_type();
+            PredefinedPlayer::ensure_type();
             Self::bind_template(klass);
         }
 

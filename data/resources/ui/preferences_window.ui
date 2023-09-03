@@ -11,6 +11,20 @@
         <child>
           <object class="AdwPreferencesGroup" id="group_programs">
             <property name="title" translatable="yes">Programs</property>
+
+            <child>
+              <object class="AdwComboRow" id="combo_predefined_player">
+                <property name="title" translatable="yes">Player</property>
+                <binding name="model">
+                  <closure function="predefined_players" type="GListStore" swapped="true"/>
+                </binding>
+                <property name="expression">
+                  <lookup name="name" type="TFPredefinedPlayer"/>
+                </property>
+                <signal name="notify::selected-item" handler="handle_selection_player" swapped="true"/>
+              </object>
+            </child>
+
             <child>
               <object class="AdwEntryRow" id="entry_player">
                 <property name="title" translatable="yes">Player</property>
