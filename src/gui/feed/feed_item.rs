@@ -86,7 +86,7 @@ pub mod imp {
         thumbnail: TemplateChild<Thumbnail>,
 
         #[template_child]
-        watch_later: TemplateChild<gtk::Button>,
+        popover_menu: TemplateChild<gtk::PopoverMenu>,
 
         video: RefCell<Option<VideoObject>>,
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
@@ -94,6 +94,16 @@ pub mod imp {
 
     impl FeedItem {
         fn setup_actions(&self, obj: &super::FeedItem) {
+            let action_watch_later = SimpleAction::new("watch-later", None);
+            action_watch_later.connect_activate(
+                clone!(@strong self.video as video, @strong self.playlist_manager as playlist_manager => move |_, _| {
+                    let video = video.borrow().as_ref().map(|v| v.video()).flatten();
+                    if let Some(video) = video {
+                        let mut playlist_manager = playlist_manager.borrow_mut();
+                        playlist_manager.as_mut().unwrap().toggle(&"WATCHLATER".to_owned(), &video);
+                    }
+                }),
+            );
             let action_download = SimpleAction::new("download", None);
             action_download.connect_activate(clone!(@strong self.video as video => move |_, _| {
                 video.borrow().as_ref().expect("Video should be set up").download();
@@ -116,22 +126,18 @@ pub mod imp {
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));
+            actions.add_action(&action_watch_later);
             actions.add_action(&action_download);
             actions.add_action(&action_clipboard);
             actions.add_action(&action_information);
         }
-        fn bind_watch_later(&self) {
-            let video = &self.video;
-            let playlist_manager = &self.playlist_manager;
-            self.watch_later.connect_clicked(
-                clone!(@strong video, @strong playlist_manager => move |_| {
-                    let video = video.borrow().as_ref().map(|v| v.video()).flatten();
-                    if let Some(video) = video {
-                        let mut playlist_manager = playlist_manager.borrow_mut();
-                        playlist_manager.as_mut().unwrap().toggle(&"WATCHLATER".to_owned(), &video);
-                    }
-                }),
-            );
+    }
+
+    #[gtk::template_callbacks]
+    impl FeedItem {
+        #[template_callback]
+        fn handle_clicked(&self) {
+            self.popover_menu.popup();
         }
     }
 
@@ -143,6 +149,7 @@ pub mod imp {
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
+            Self::bind_template_callbacks(klass);
             Utility::bind_template_callbacks(klass);
         }
 
@@ -168,7 +175,6 @@ pub mod imp {
                     let value: Option<VideoObject> =
                         value.get().expect("Property video of incorrect type");
                     self.video.replace(value);
-                    self.bind_watch_later();
                     self.setup_actions(&self.obj());
                 }
                 _ => unimplemented!(),

@@ -48,6 +48,8 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::ParamSpecObject;
     use gdk::glib::Value;
+    use gdk_pixbuf::gio::SimpleAction;
+    use gdk_pixbuf::gio::SimpleActionGroup;
     use glib::subclass::InitializingObject;
     use glib::ParamSpec;
     use gtk::glib;
@@ -69,24 +71,32 @@ pub mod imp {
         #[template_child]
         label_channel: TemplateChild<gtk::Label>,
         #[template_child]
-        remove: TemplateChild<gtk::Button>,
+        popover_menu: TemplateChild<gtk::Popover>,
 
         filter: RefCell<Option<FilterObject>>,
         pub(super) filter_group: RefCell<Option<Arc<Mutex<FilterGroup<AnyVideoFilter>>>>>,
     }
 
+    #[gtk::template_callbacks]
     impl FilterItem {
-        fn bind_remove(&self) {
-            let filter = &self.filter;
-            let filter_group = &self.filter_group.clone();
-            self.remove
-                .connect_clicked(clone!(@strong filter, @strong filter_group => move |_| {
-                    let filter = filter.borrow().as_ref().map(|s| s.filter()).flatten();
-                    if let Some(filter) = filter {
-                        let filter_group = filter_group.borrow();
-                        filter_group.as_ref().expect("FilterGroup to be set up").lock().expect("FilterGroup to be lockable").remove(&filter);
-                    }
-                }));
+        #[template_callback]
+        fn handle_clicked(&self) {
+            self.popover_menu.popup();
+        }
+
+        fn setup_actions(&self, obj: &super::FilterItem) {
+            let action_remove = SimpleAction::new("remove", None);
+            action_remove.connect_activate(clone!(@weak obj => move |_, _| {
+                let filter = obj.imp().filter.borrow().as_ref().map(|s| s.filter()).flatten();
+                let filter_group = obj.imp().filter_group.borrow_mut();
+                if let Some(filter) = filter {
+                    filter_group.as_ref().expect("FilterGroup to be set up").lock().expect("FilterGroup to be lockable").remove(&filter);
+                }
+            }));
+
+            let actions = SimpleActionGroup::new();
+            obj.insert_action_group("item", Some(&actions));
+            actions.add_action(&action_remove);
         }
     }
 
@@ -98,6 +108,7 @@ pub mod imp {
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
+            Self::bind_template_callbacks(klass);
             Utility::bind_template_callbacks(klass);
         }
 
@@ -109,6 +120,7 @@ pub mod imp {
     impl ObjectImpl for FilterItem {
         fn constructed(&self) {
             self.parent_constructed();
+            self.setup_actions(&self.obj());
         }
 
         fn properties() -> &'static [ParamSpec] {
@@ -123,7 +135,6 @@ pub mod imp {
                     let value: Option<FilterObject> =
                         value.get().expect("Property filter of incorrect type");
                     self.filter.replace(value);
-                    self.bind_remove();
                 }
                 _ => unimplemented!(),
             }
