@@ -13,6 +13,22 @@
     <property name="margin-bottom">5</property>
 
     <child>
+      <object class="GtkGestureClick">
+        <property name="button">3</property>
+        <property name="exclusive">true</property>
+        <signal name="pressed" handler="handle_clicked" swapped="true"/>
+      </object>
+    </child>
+
+    <child>
+      <object class="GtkGestureLongPress">
+        <property name="touch-only">true</property>
+        <property name="exclusive">true</property>
+        <signal name="pressed" handler="handle_clicked" swapped="true"/>
+      </object>
+    </child>
+
+    <child>
       <object class="TFThumbnail" id="thumbnail">
         <binding name="video">
           <lookup name="video" type="TFFeedItem">
@@ -129,52 +145,23 @@
                 </child>
               </object>
             </child>
-
-            <child>
-              <object class="GtkBox">
-                <style>
-                  <class name="linked"/>
-                </style>
-                <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
-                <property name="hexpand">true</property>
-                <property name="halign">end</property>
-                <child>
-                  <object class="GtkMenuButton">
-                    <accessibility>
-                      <property name="label" translatable="yes" context="accessibility">More video actions</property>
-                    </accessibility>
-                    <property name="tooltip-text" translatable="yes" context="tooltip">More video actions</property>
-                    <property name="menu-model">menu</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="hexpand">false</property>
-                    <property name="vexpand">false</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton" id="watch_later">
-                    <accessibility>
-                      <property name="label" translatable="yes" context="accessibility">Toggle watch-later status</property>
-                    </accessibility>
-                    <property name="tooltip-text" translatable="yes" context="tooltip">Toggle watch-later status</property>
-                    <property name="icon-name">appointment-new-symbolic</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="vexpand">false</property>
-                    <property name="hexpand">false</property>
-                    <property name="margin-end">7</property>
-                  </object>
-                </child>
-              </object>
-            </child>
           </object>
         </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkPopoverMenu" id="popover_menu">
+        <property name="menu-model">menu</property>
       </object>
     </child>
   </template>
 
   <menu id="menu">
     <section>
+      <item>
+        <attribute name="label" translatable="yes">Watch Later</attribute>
+        <attribute name="action">item.watch-later</attribute>
+      </item>
       <item>
         <attribute name="label" translatable="yes">Download</attribute>
         <attribute name="action">item.download</attribute>

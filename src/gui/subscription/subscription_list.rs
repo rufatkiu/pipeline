@@ -114,7 +114,7 @@ pub mod imp {
     use glib::subclass::InitializingObject;
     use gtk::glib;
     use gtk::glib::ControlFlow;
-    
+
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::CustomSorter;

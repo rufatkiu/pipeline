@@ -12,16 +12,22 @@
       <object class="GtkScrolledWindow">
         <property name="hscrollbar-policy">GTK_POLICY_NEVER</property>
         <child>
-          <object class="GtkBox">
-            <property name="orientation">vertical</property>
-            <property name="vexpand">True</property>
-            <property name="valign">GTK_ALIGN_FILL</property>
-            <property name="hexpand">True</property>
-            <property name="halign">GTK_ALIGN_FILL</property>
+          <object class="AdwClampScrollable">
             <child>
               <object class="GtkListView" id="subscription_list">
+                <style>
+                  <class name="card"/>
+                  <class name="separators"/>
+                  <class name="feed-list"/>
+                </style>
+
+                <property name="margin-start">5</property>
+                <property name="margin-end">5</property>
+                <property name="margin-top">5</property>
+                <property name="margin-bottom">5</property>
+
                 <property name="vexpand">True</property>
-                <property name="valign">GTK_ALIGN_FILL</property>
+                <property name="valign">GTK_ALIGN_START</property>
                 <property name="hexpand">True</property>
                 <property name="halign">GTK_ALIGN_FILL</property>
               </object>

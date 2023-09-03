@@ -43,6 +43,8 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::ParamSpecObject;
     use gdk::glib::Value;
+    use gdk_pixbuf::gio::SimpleAction;
+    use gdk_pixbuf::gio::SimpleActionGroup;
     use gdk_pixbuf::glib::subclass::Signal;
     use glib::subclass::InitializingObject;
     use glib::ParamSpec;
@@ -64,7 +66,7 @@ pub mod imp {
         #[template_child]
         label_platform: TemplateChild<gtk::Label>,
         #[template_child]
-        remove: TemplateChild<gtk::Button>,
+        popover_menu: TemplateChild<gtk::PopoverMenu>,
 
         subscription: RefCell<Option<SubscriptionObject>>,
         pub(super) subscription_list: RefCell<Option<AnySubscriptionList>>,
@@ -72,25 +74,43 @@ pub mod imp {
 
     #[gtk::template_callbacks]
     impl SubscriptionItem {
-        fn bind_remove(&self) {
-            let subscription = &self.subscription;
-            let subscription_list = &self.subscription_list;
-            self.remove.connect_clicked(
-                clone!(@strong subscription, @strong subscription_list => move |_| {
-                    let subscription = subscription.borrow().as_ref().map(|s| s.subscription()).flatten();
+        #[template_callback]
+        fn handle_right_clicked(&self) {
+            self.popover_menu.popup();
+        }
+
+        #[template_callback]
+        fn handle_clicked(&self) {
+            let subscription = self.subscription.borrow();
+            if let Some(sub) = subscription.as_ref() {
+                self.obj().emit_by_name::<()>("go-to-videos", &[&sub]);
+            }
+        }
+
+        fn setup_actions(&self, obj: &super::SubscriptionItem) {
+            let action_remove = SimpleAction::new("remove", None);
+            action_remove.connect_activate(
+                clone!(@weak obj => move |_, _| {
+                    let subscription_list = obj.imp().subscription_list.borrow_mut();
+                    let subscription = obj.imp().subscription.borrow().as_ref().map(|s| s.subscription()).flatten();
                     if let Some(subscription) = subscription {
-                        let mut subscription_list = subscription_list.borrow_mut();
+                        let mut subscription_list = subscription_list;
                         subscription_list.as_mut().unwrap().remove(subscription);
                     }
                 }),
             );
-        }
+            let action_view_videos = SimpleAction::new("view-videos", None);
+            action_view_videos.connect_activate(clone!(@strong obj => move |_, _| {
+                let subscription = obj.imp().subscription.borrow();
+                if let Some(sub) = subscription.as_ref() {
+                    obj.emit_by_name::<()>("go-to-videos", &[&sub]);
+                }
+            }));
 
-        #[template_callback]
-        fn handle_go_to_videos(&self) {
-            if let Some(sub) = self.subscription.borrow().as_ref() {
-                self.obj().emit_by_name::<()>("go-to-videos", &[&sub]);
-            }
+            let actions = SimpleActionGroup::new();
+            obj.insert_action_group("item", Some(&actions));
+            actions.add_action(&action_remove);
+            actions.add_action(&action_view_videos);
         }
     }
 
@@ -111,11 +131,11 @@ pub mod imp {
         }
     }
 
-    impl SubscriptionItem {}
-
     impl ObjectImpl for SubscriptionItem {
         fn constructed(&self) {
+            let obj = self.obj();
             self.parent_constructed();
+            self.setup_actions(&obj);
         }
 
         fn properties() -> &'static [ParamSpec] {
@@ -132,7 +152,6 @@ pub mod imp {
                         .get()
                         .expect("Property subscription of incorrect type");
                     self.subscription.replace(value);
-                    self.bind_remove();
                 }
                 _ => unimplemented!(),
             }
