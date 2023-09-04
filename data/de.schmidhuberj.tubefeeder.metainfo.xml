@@ -217,7 +217,7 @@
   <url type="bugtracker">https://gitlab.com/schmiddi-on-mobile/pipeline/issues</url>
   <url type="help">https://gitlab.com/schmiddi-on-mobile/pipeline/-/wikis/home</url>
   <url type="donation">https://gitlab.com/schmiddi-on-mobile/pipeline#donate</url>
-  <url type="contact">https://matrix.to/#/#tubefeeder:matrix.org</url>
+  <url type="contact">https://matrix.to/#/#pipelineapp:matrix.org</url>
   <url type="vcs-browser">https://gitlab.com/schmiddi-on-mobile/pipeline</url>
   <url type="contribute">https://gitlab.com/schmiddi-on-mobile/pipeline/-/blob/master/CONTRIBUTING.md</url>
   <provides>

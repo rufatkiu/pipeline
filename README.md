@@ -1,6 +1,6 @@
 # Pipeline
 
-[![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/%23tubefeeder:matrix.org)
+[![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/%23pipelineapp:matrix.org)
 
 Pipeline lets you watch and download videos from YouTube and PeerTube, all without needing to navigate through different websites.
 
