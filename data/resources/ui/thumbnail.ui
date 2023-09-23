@@ -90,7 +90,7 @@
                   <class name="card"/>
                 </style>
                 <property name="hexpand">true</property>
-                <property name="vexpand">true</property>
+                <property name="vexpand">false</property>
               </object>
             </child>
           </object>
