@@ -100,7 +100,7 @@ pub mod imp {
 
             let feed_page = &self.feed_page.clone();
             feed_page.set_playlist_manager(playlist_manager);
-            feed_page.set_items(existing);
+            feed_page.set_items_ordered(existing);
 
             receiver.attach(
                 None,
@@ -108,7 +108,7 @@ pub mod imp {
                     match playlist_event {
                         PlaylistEvent::Add(v) => {
                             let video = VideoObject::new(v);
-                            feed_page.prepend(video);
+                            feed_page.insert_ordered_time(video);
                         }
                         PlaylistEvent::Remove(v) => {
                             let video = VideoObject::new(v);

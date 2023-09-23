@@ -18,7 +18,7 @@
  *
  */
 
-use std::cmp::min;
+use std::cmp::{min, Reverse};
 
 use gdk::{
     gio::{SimpleAction, SimpleActionGroup},
@@ -98,6 +98,12 @@ impl FeedList {
         self.notify("is-empty");
     }
 
+    pub fn set_items_ordered(&self, new_items: Vec<VideoObject>) {
+        let mut new_items = new_items;
+        new_items.sort_unstable_by_key(|v| Reverse(v.uploaded().unwrap_or_default()));
+        self.set_items(new_items);
+    }
+
     pub fn prepend(&self, new_item: VideoObject) {
         let imp = self.imp();
         let items = &imp.items;
@@ -107,6 +113,31 @@ impl FeedList {
         let _ = items.borrow_mut().insert(0, new_item.clone());
         model.borrow_mut().insert(0, &new_item);
         loaded_count.set(loaded_count.get() + 1);
+
+        self.set_more_available();
+        self.notify("is-empty");
+    }
+
+    pub fn insert_ordered_time(&self, new_item: VideoObject) {
+        // Extra block needed to end the mutable borrow of `items`.
+        {
+            let imp = self.imp();
+            let mut items = imp.items.borrow_mut();
+            let model = imp.model.borrow();
+            let loaded_count = &imp.loaded_count;
+
+            let idx = items
+                .binary_search_by_key(&Reverse(new_item.uploaded().unwrap_or_default()), |v| {
+                    Reverse(v.uploaded().unwrap_or_default())
+                })
+                .unwrap_or_else(|i| i);
+
+            let _ = items.insert(idx, new_item.clone());
+            if idx <= model.n_items() as usize {
+                model.insert(idx as u32, &new_item);
+                loaded_count.set(loaded_count.get() + 1);
+            }
+        }
 
         self.set_more_available();
         self.notify("is-empty");
