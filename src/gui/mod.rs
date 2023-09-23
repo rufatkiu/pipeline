@@ -22,6 +22,7 @@ mod feed;
 mod filter;
 mod header_bar;
 mod import_window;
+mod predefined_player;
 mod preferences_window;
 mod subscription;
 mod utility;

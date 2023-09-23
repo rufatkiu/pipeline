@@ -16,16 +16,21 @@ impl PreferencesWindow {
 pub mod imp {
     use gdk::gio::Settings;
     use gdk::gio::SettingsBindFlags;
+    use gdk_pixbuf::gio::ListStore;
+    use gdk_pixbuf::glib::ParamSpec;
     use glib::subclass::InitializingObject;
     use gtk::glib;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::CompositeTemplate;
     use gtk::Switch;
+    use libadwaita::prelude::*;
     use libadwaita::subclass::prelude::AdwWindowImpl;
     use libadwaita::subclass::prelude::PreferencesWindowImpl;
     use libadwaita::traits::PreferencesGroupExt;
     use libadwaita::EntryRow;
+
+    use crate::gui::predefined_player::PredefinedPlayer;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/ui/preferences_window.ui")]
@@ -34,6 +39,9 @@ pub mod imp {
         entry_player: TemplateChild<EntryRow>,
         #[template_child]
         entry_downloader: TemplateChild<EntryRow>,
+
+        #[template_child]
+        combo_predefined_player: TemplateChild<libadwaita::ComboRow>,
 
         #[template_child]
         entry_piped_api: TemplateChild<EntryRow>,
@@ -49,8 +57,63 @@ pub mod imp {
 
     #[gtk::template_callbacks]
     impl PreferencesWindow {
+        fn predefined_players_vec(&self) -> Vec<PredefinedPlayer> {
+            vec![
+                PredefinedPlayer::new("MPV (Flatpak)", "flatpak run io.mpv.Mpv"),
+                PredefinedPlayer::new("MPV", "mpv"),
+                PredefinedPlayer::new(
+                    "Clapper (Flatpak)",
+                    "flatpak run com.github.rafostar.Clapper",
+                ),
+                PredefinedPlayer::new("Clapper", "clapper"),
+                PredefinedPlayer::new(
+                    "Celluloid (Flatpak)",
+                    "flatpak run io.github.celluloid_player.Celluloid",
+                ),
+                PredefinedPlayer::new("Celluloid", "celluloid"),
+                PredefinedPlayer::new("Custom", ""),
+            ]
+        }
+        #[template_callback]
+        fn predefined_players(&self) -> ListStore {
+            let store = ListStore::new::<PredefinedPlayer>();
+            store.extend_from_slice(&self.predefined_players_vec());
+            store
+        }
+
+        #[template_callback]
+        fn handle_selection_player(&self, _: ParamSpec, r: libadwaita::ComboRow) {
+            if let Ok(player) = r.selected_item().and_dynamic_cast::<PredefinedPlayer>() {
+                self.entry_player.set_visible(player.command().is_empty());
+                if !player.command().is_empty() {
+                    self.entry_player.set_text(&player.command());
+                }
+            }
+        }
+
         fn init_flatpak(&self) {
             self.group_programs.set_description(Some(&gettextrs::gettext("Note that on Flatpak, there are some more steps required when using a player external to the Flatpak. For more information, please consult the wiki.")));
+        }
+
+        fn init_predefined_player(&self) {
+            let val_env = std::env::var_os("PLAYER");
+            let val_settings = self.settings.string("player");
+            if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
+                self.combo_predefined_player.set_sensitive(false);
+            }
+            if let Some(idx) = self
+                .predefined_players_vec()
+                .iter()
+                .position(|o| o.command() == val_settings)
+            {
+                self.combo_predefined_player
+                    .set_selected(idx.try_into().unwrap_or_default());
+                self.entry_player.set_visible(false);
+            } else {
+                // Select "Custom".
+                self.combo_predefined_player
+                    .set_selected(self.predefined_players_vec().len().try_into().unwrap_or(1) - 1);
+            }
         }
 
         fn init_string_setting(&self, env: &'static str, settings: &'static str, entry: EntryRow) {
@@ -80,6 +143,8 @@ pub mod imp {
                 )
                 .flags(SettingsBindFlags::DEFAULT)
                 .build();
+
+            self.init_predefined_player();
         }
     }
 
@@ -96,6 +161,7 @@ pub mod imp {
                 entry_player: TemplateChild::default(),
                 entry_downloader: TemplateChild::default(),
                 entry_piped_api: TemplateChild::default(),
+                combo_predefined_player: Default::default(),
                 switch_only_videos_yesterday: Default::default(),
             }
         }
