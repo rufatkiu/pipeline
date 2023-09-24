@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Removed buttons in the list in favor of a menu shown on right-click or long-press (touch-screen only). 
 
+### Fixed
+
+- Inconsistent size of video thumbnails.
+
 ## [1.13.1] - 2023-08-24
 
 ### Fixed
