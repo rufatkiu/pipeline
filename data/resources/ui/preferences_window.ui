@@ -40,10 +40,22 @@
         <child>
           <object class="AdwPreferencesGroup">
             <property name="title" translatable="yes">APIs</property>
-            <property name="description" translatable="yes">For a list of public APIs, see the &lt;a href="https://github.com/TeamPiped/Piped/wiki/Instances"&gt;Instances page&lt;/a&gt;.</property>
+            <property name="description" translatable="yes">For a complete list of public APIs, see the &lt;a href="https://github.com/TeamPiped/Piped/wiki/Instances"&gt;Instances page&lt;/a&gt;.</property>
+            <child>
+              <object class="AdwComboRow" id="combo_predefined_piped_api">
+                <property name="title" translatable="yes">Piped API</property>
+                <binding name="model">
+                  <closure function="predefined_piped_apis" type="GListStore" swapped="true"/>
+                </binding>
+                <property name="expression">
+                  <lookup name="name" type="TFPredefinedPlayer"/>
+                </property>
+                <signal name="notify::selected-item" handler="handle_selection_piped_api" swapped="true"/>
+              </object>
+            </child>
             <child>
               <object class="AdwEntryRow" id="entry_piped_api">
-                <property name="title" translatable="yes">Piped API</property>
+                <property name="title" translatable="yes">Custom Piped API</property>
               </object>
             </child>
           </object>

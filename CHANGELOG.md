@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - A dropdown for some popular video players.
+- A dropdown for some popular Piped APIs.
 
 ### Changed
 

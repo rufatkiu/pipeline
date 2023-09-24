@@ -30,6 +30,7 @@ pub mod imp {
     use libadwaita::traits::PreferencesGroupExt;
     use libadwaita::EntryRow;
 
+    use crate::gui::predefined_piped_api::PredefinedPipedApi;
     use crate::gui::predefined_player::PredefinedPlayer;
 
     #[derive(CompositeTemplate)]
@@ -42,6 +43,8 @@ pub mod imp {
 
         #[template_child]
         combo_predefined_player: TemplateChild<libadwaita::ComboRow>,
+        #[template_child]
+        combo_predefined_piped_api: TemplateChild<libadwaita::ComboRow>,
 
         #[template_child]
         entry_piped_api: TemplateChild<EntryRow>,
@@ -74,10 +77,31 @@ pub mod imp {
                 PredefinedPlayer::new("Custom", ""),
             ]
         }
+
         #[template_callback]
         fn predefined_players(&self) -> ListStore {
             let store = ListStore::new::<PredefinedPlayer>();
             store.extend_from_slice(&self.predefined_players_vec());
+            store
+        }
+
+        fn predefined_piped_apis_vec(&self) -> Vec<PredefinedPipedApi> {
+            vec![
+                PredefinedPipedApi::new("kavin.rocks (official)", "https://pipedapi.kavin.rocks"),
+                PredefinedPipedApi::new(
+                    "kavin.rocks (libre, official)",
+                    "https://pipedapi-libre.kavin.rocks",
+                ),
+                PredefinedPipedApi::new("tokhmi.xyz", "https://pipedapi.tokhmi.xyz"),
+                PredefinedPipedApi::new("lunar.icu", "https://piped-api.lunar.icu"),
+                PredefinedPipedApi::new("Custom", ""),
+            ]
+        }
+
+        #[template_callback]
+        fn predefined_piped_apis(&self) -> ListStore {
+            let store = ListStore::new::<PredefinedPipedApi>();
+            store.extend_from_slice(&self.predefined_piped_apis_vec());
             store
         }
 
@@ -87,6 +111,16 @@ pub mod imp {
                 self.entry_player.set_visible(player.command().is_empty());
                 if !player.command().is_empty() {
                     self.entry_player.set_text(&player.command());
+                }
+            }
+        }
+
+        #[template_callback]
+        fn handle_selection_piped_api(&self, _: ParamSpec, r: libadwaita::ComboRow) {
+            if let Ok(api) = r.selected_item().and_dynamic_cast::<PredefinedPipedApi>() {
+                self.entry_piped_api.set_visible(api.url().is_empty());
+                if !api.url().is_empty() {
+                    self.entry_piped_api.set_text(&api.url());
                 }
             }
         }
@@ -113,6 +147,32 @@ pub mod imp {
                 // Select "Custom".
                 self.combo_predefined_player
                     .set_selected(self.predefined_players_vec().len().try_into().unwrap_or(1) - 1);
+            }
+        }
+
+        fn init_predefined_piped_api(&self) {
+            let val_env = std::env::var_os("PIPED_API_URL");
+            let val_settings = self.settings.string("piped-url");
+            if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
+                self.combo_predefined_player.set_sensitive(false);
+            }
+            if let Some(idx) = self
+                .predefined_piped_apis_vec()
+                .iter()
+                .position(|o| o.url() == val_settings)
+            {
+                self.combo_predefined_piped_api
+                    .set_selected(idx.try_into().unwrap_or_default());
+                self.entry_piped_api.set_visible(false);
+            } else {
+                // Select "Custom".
+                self.combo_predefined_piped_api.set_selected(
+                    self.predefined_piped_apis_vec()
+                        .len()
+                        .try_into()
+                        .unwrap_or(1)
+                        - 1,
+                );
             }
         }
 
@@ -145,6 +205,7 @@ pub mod imp {
                 .build();
 
             self.init_predefined_player();
+            self.init_predefined_piped_api();
         }
     }
 
@@ -162,6 +223,7 @@ pub mod imp {
                 entry_downloader: TemplateChild::default(),
                 entry_piped_api: TemplateChild::default(),
                 combo_predefined_player: Default::default(),
+                combo_predefined_piped_api: Default::default(),
                 switch_only_videos_yesterday: Default::default(),
             }
         }
