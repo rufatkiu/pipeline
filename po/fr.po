@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-09 13:48+0200\n"
-"PO-Revision-Date: 2023-04-17 14:59+0200\n"
-"Last-Translator: Irénée Thirion <irenee.thirion@e.email>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2023-10-10 17:01+0000\n"
+"Last-Translator: rene-coty <irenee.thirion@e.email>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: data/resources/ui/feed_item.ui:162 data/resources/ui/watch_later.ui:16
 #: data/resources/ui/window.ui:29
@@ -33,7 +34,7 @@ msgstr "Copier le lien vers le presse-papiers"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "More Information"
-msgstr ""
+msgstr "Plus d’informations"
 
 #: data/resources/ui/feed_page.ui:16 data/resources/ui/window.ui:19
 msgid "Feed"
@@ -42,12 +43,12 @@ msgstr "Flux"
 #: data/resources/ui/feed_page.ui:26
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Recharger"
 
 #: data/resources/ui/feed_page.ui:28
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Recharger"
 
 #: data/resources/ui/feed_page.ui:72
 msgid "No Videos Found"
@@ -60,23 +61,21 @@ msgstr "S’abonner à une chaîne…"
 #: data/resources/ui/filter_item.ui:88
 #: data/resources/ui/subscription_item.ui:104
 msgid "Remove"
-msgstr ""
+msgstr "Retirer"
 
 #: data/resources/ui/filter_page.ui:16 data/resources/ui/window.ui:38
 msgid "Filters"
 msgstr "Filtres"
 
 #: data/resources/ui/filter_page.ui:24
-#, fuzzy
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr "Ajouter un filtre"
+msgstr "Ajouter un filtre…"
 
 #: data/resources/ui/filter_page.ui:26
-#, fuzzy
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr "Ajouter un filtre"
+msgstr "Ajouter un filtre…"
 
 #: data/resources/ui/filter_page.ui:50
 msgid "No Filters"
@@ -84,7 +83,7 @@ msgstr "Aucun filtre"
 
 #: data/resources/ui/filter_page.ui:67
 msgid "Add Filter…"
-msgstr "Ajouter un filtre"
+msgstr "Ajouter un filtre…"
 
 #: data/resources/ui/filter_page.ui:77
 msgid "Add Filter"
@@ -111,12 +110,12 @@ msgstr "Ajouter"
 #: data/resources/ui/header_bar.ui:36
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: data/resources/ui/header_bar.ui:38
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: data/resources/ui/header_bar.ui:49
 msgid "Preferences"
@@ -172,30 +171,28 @@ msgid "APIs"
 msgstr "APIs"
 
 #: data/resources/ui/preferences_window.ui:43
-#, fuzzy
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
-"Consultez la <a href=\"https://github.com/TeamPiped/Piped/wiki/"
-"Instances\">page des instances</a> pour une liste d’APIs publiques."
+"Consultez la <a href=\"https://github.com/TeamPiped/Piped/wiki/Instances\""
+">page des instances</a> pour une liste complète des APIs publiques."
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
 msgstr "API Piped"
 
 #: data/resources/ui/preferences_window.ui:58
-#, fuzzy
 msgid "Custom Piped API"
-msgstr "API Piped"
+msgstr "API Piped personnalisée"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Uniquement afficher les vidéos depuis hier"
 
 #: data/resources/ui/subscription_page.ui:21
 #: data/resources/ui/subscription_page.ui:90 data/resources/ui/window.ui:47
@@ -203,31 +200,28 @@ msgid "Subscriptions"
 msgstr "Abonnements"
 
 #: data/resources/ui/subscription_page.ui:29
-#, fuzzy
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr "Ajouter un abonnement"
+msgstr "Ajouter un abonnement…"
 
 #: data/resources/ui/subscription_page.ui:31
-#, fuzzy
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr "Ajouter un abonnement"
+msgstr "Ajouter un abonnement…"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "No Subscriptions"
 msgstr "Aucun abonnement"
 
 #: data/resources/ui/subscription_page.ui:95
-#, fuzzy
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr "Aucun abonnement"
+msgstr "Retourner à la liste des abonnements"
 
 #: data/resources/ui/subscription_page.ui:97
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Retour"
 
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add Subscription"
