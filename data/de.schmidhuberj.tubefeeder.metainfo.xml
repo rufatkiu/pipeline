@@ -213,6 +213,7 @@
       <image>https://gitlab.com/schmiddi-on-mobile/pipeline/-/raw/master/data/screenshots/subscriptions.png</image>
     </screenshot>
   </screenshots>
+
   <url type="homepage">https://mobile.schmidhuberj.de/pipeline/</url>
   <url type="bugtracker">https://gitlab.com/schmiddi-on-mobile/pipeline/issues</url>
   <url type="help">https://gitlab.com/schmiddi-on-mobile/pipeline/-/wikis/home</url>
@@ -220,6 +221,8 @@
   <url type="contact">https://matrix.to/#/#pipelineapp:matrix.org</url>
   <url type="vcs-browser">https://gitlab.com/schmiddi-on-mobile/pipeline</url>
   <url type="contribute">https://gitlab.com/schmiddi-on-mobile/pipeline/-/blob/master/CONTRIBUTING.md</url>
+  <url type="translate">https://hosted.weblate.org/engage/schmiddi-on-mobile/</url>
+
   <provides>
     <binary>tubefeeder</binary>
   </provides>

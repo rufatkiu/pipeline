@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-17 14:38+0200\n"
+"POT-Creation-Date: 2023-10-09 13:48+0200\n"
 "PO-Revision-Date: 2022-04-17 14:46+0100\n"
 "Last-Translator: Julian Schmidhuber <internationalization@schmiddi.anonaddy."
 "com>\n"
@@ -18,73 +18,115 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: data/resources/ui/feed_item.ui:171
+#: data/resources/ui/feed_item.ui:162 data/resources/ui/watch_later.ui:16
+#: data/resources/ui/window.ui:29
+msgid "Watch Later"
+msgstr "Später Ansehen"
+
+#: data/resources/ui/feed_item.ui:166
 msgid "Download"
 msgstr "Herunterladen"
 
-#: data/resources/ui/feed_item.ui:175
+#: data/resources/ui/feed_item.ui:170
 msgid "Copy to Clipboard"
 msgstr "Kopieren zum Clipboard"
 
-#: data/resources/ui/feed_list.ui:49
-msgid "Load more"
-msgstr "Lade mehr"
+#: data/resources/ui/feed_item.ui:174
+msgid "More Information"
+msgstr ""
 
 #: data/resources/ui/feed_page.ui:16 data/resources/ui/window.ui:19
 msgid "Feed"
 msgstr "Feed"
 
-#: data/resources/ui/feed_page.ui:68
+#: data/resources/ui/feed_page.ui:26
+msgctxt "accessibility"
+msgid "Reload"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:28
+msgctxt "tooltip"
+msgid "Reload"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:72
 msgid "No Videos Found"
 msgstr "Keine Videos Gefunden"
 
-#: data/resources/ui/feed_page.ui:80 data/resources/ui/subscription_page.ui:69
+#: data/resources/ui/feed_page.ui:84 data/resources/ui/subscription_page.ui:73
 msgid "Subscribe to a Channel…"
 msgstr "Einen Kanal Abbonieren…"
+
+#: data/resources/ui/filter_item.ui:88
+#: data/resources/ui/subscription_item.ui:104
+msgid "Remove"
+msgstr ""
 
 #: data/resources/ui/filter_page.ui:16 data/resources/ui/window.ui:38
 msgid "Filters"
 msgstr "Filter"
 
-#: data/resources/ui/filter_page.ui:46
-msgid "No Filters"
-msgstr "Keine Filter"
-
-#: data/resources/ui/filter_page.ui:63
+#: data/resources/ui/filter_page.ui:24
+#, fuzzy
+msgctxt "accessibility"
 msgid "Add Filter…"
 msgstr "Filter Hinzufügen…"
 
-#: data/resources/ui/filter_page.ui:73
+#: data/resources/ui/filter_page.ui:26
+#, fuzzy
+msgctxt "tooltip"
+msgid "Add Filter…"
+msgstr "Filter Hinzufügen…"
+
+#: data/resources/ui/filter_page.ui:50
+msgid "No Filters"
+msgstr "Keine Filter"
+
+#: data/resources/ui/filter_page.ui:67
+msgid "Add Filter…"
+msgstr "Filter Hinzufügen…"
+
+#: data/resources/ui/filter_page.ui:77
 msgid "Add Filter"
 msgstr "Filter Hinzufügen"
 
-#: data/resources/ui/filter_page.ui:82
+#: data/resources/ui/filter_page.ui:86
 msgid "Title"
 msgstr "Titel"
 
-#: data/resources/ui/filter_page.ui:87
+#: data/resources/ui/filter_page.ui:91
 msgid "Channel Name"
 msgstr "Kanal-Name"
 
-#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:155
+#: data/resources/ui/filter_page.ui:98 data/resources/ui/import_window.ui:16
+#: data/resources/ui/subscription_page.ui:163
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: data/resources/ui/filter_page.ui:95
-#: data/resources/ui/subscription_page.ui:156
+#: data/resources/ui/filter_page.ui:99
+#: data/resources/ui/subscription_page.ui:164
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: data/resources/ui/header_bar.ui:45
+#: data/resources/ui/header_bar.ui:36
+msgctxt "accessibility"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/header_bar.ui:38
+msgctxt "tooltip"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/header_bar.ui:49
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: data/resources/ui/header_bar.ui:49
+#: data/resources/ui/header_bar.ui:53
 msgid "Import…"
 msgstr "Importieren…"
 
-#: data/resources/ui/header_bar.ui:53
+#: data/resources/ui/header_bar.ui:57
 msgid "About Pipeline"
 msgstr "Über Pipeline"
 
@@ -114,54 +156,88 @@ msgstr "Allgemein"
 msgid "Programs"
 msgstr "Programme"
 
-#: data/resources/ui/preferences_window.ui:16
+#: data/resources/ui/preferences_window.ui:17
+#: data/resources/ui/preferences_window.ui:30
 msgid "Player"
 msgstr "Spieler"
 
-#: data/resources/ui/preferences_window.ui:21
+#: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
 msgstr "Herunterladen"
 
-#: data/resources/ui/preferences_window.ui:28
+#: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
 msgstr "APIs"
 
-#: data/resources/ui/preferences_window.ui:29
+#: data/resources/ui/preferences_window.ui:43
+#, fuzzy
 msgid ""
-"For a list of public APIs, see the <a href=\"https://github.com/TeamPiped/"
-"Piped/wiki/Instances\">Instances page</a>."
+"For a complete list of public APIs, see the <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
-"Für eine Liste an öffentlichen APIs, siehe <a href=\"https://github.com/TeamPiped/"
-"Piped/wiki/Instances\">Instances Page</a>."
+"Für eine Liste an öffentlichen APIs, siehe <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">Instances Page</a>."
 
-#: data/resources/ui/preferences_window.ui:32
+#: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
 msgstr "Piped API"
 
+#: data/resources/ui/preferences_window.ui:58
+#, fuzzy
+msgid "Custom Piped API"
+msgstr "Piped API"
+
+#: data/resources/ui/preferences_window.ui:65
+msgid "Other"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:68
+msgid "Show only Videos from Yesterday"
+msgstr ""
+
 #: data/resources/ui/subscription_page.ui:21
-#: data/resources/ui/subscription_page.ui:86 data/resources/ui/window.ui:47
+#: data/resources/ui/subscription_page.ui:90 data/resources/ui/window.ui:47
 msgid "Subscriptions"
 msgstr "Abonnenten"
 
-#: data/resources/ui/subscription_page.ui:52
+#: data/resources/ui/subscription_page.ui:29
+#, fuzzy
+msgctxt "accessibility"
+msgid "Add Subscription…"
+msgstr "Abonnement Hinzufügen"
+
+#: data/resources/ui/subscription_page.ui:31
+#, fuzzy
+msgctxt "tooltip"
+msgid "Add Subscription…"
+msgstr "Abonnement Hinzufügen"
+
+#: data/resources/ui/subscription_page.ui:56
 msgid "No Subscriptions"
 msgstr "Keine Abonnenten"
 
-#: data/resources/ui/subscription_page.ui:114
+#: data/resources/ui/subscription_page.ui:95
+#, fuzzy
+msgctxt "accessibility"
+msgid "Go back to subscription list"
+msgstr "Keine Abonnenten"
+
+#: data/resources/ui/subscription_page.ui:97
+msgctxt "tooltip"
+msgid "Go back"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:122
 msgid "Add Subscription"
 msgstr "Abonnement Hinzufügen"
 
-#: data/resources/ui/subscription_page.ui:135
+#: data/resources/ui/subscription_page.ui:143
 msgid "Base URL"
 msgstr "Basis URL"
 
-#: data/resources/ui/subscription_page.ui:147
+#: data/resources/ui/subscription_page.ui:155
 msgid "Channel ID or Name"
 msgstr "Kanal Name oder ID"
-
-#: data/resources/ui/watch_later.ui:16 data/resources/ui/window.ui:29
-msgid "Watch Later"
-msgstr "Später Ansehen"
 
 #: data/resources/ui/watch_later.ui:32
 msgid "Everything Watched"
@@ -171,41 +247,41 @@ msgstr "Alles Angesehen"
 msgid "How about going outside?"
 msgstr "Wie wäre es einmal rauszugehen?"
 
-#: src/gui/feed/error_label.rs:101
+#: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
 msgstr "Netzwerkfehler"
 
-#: src/gui/feed/error_label.rs:103
+#: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "Konnte ein Abbonnement nicht analysieren"
 msgstr[1] "Konnte {} Abonnements nicht analysieren"
 
-#: src/gui/feed/error_label.rs:106
+#: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
 msgstr "Ein Fehler ist aufgetreten"
 
-#: src/gui/feed/feed_item_object.rs:88
+#: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
 msgstr "%x %T"
 
-#: src/gui/header_bar.rs:105
+#: src/gui/header_bar.rs:104
 msgid "Donate"
 msgstr "Spenden"
 
-#: src/gui/import_window.rs:36
+#: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
 msgstr "Wähle Datei mit NewPipe Abonnenten"
 
-#: src/gui/import_window.rs:49 src/gui/import_window.rs:79
+#: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
 msgstr "Konnte Abbonements nicht importieren"
 
-#: src/gui/import_window.rs:66
+#: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
 msgstr "Wähle Datei mit YouTube Abonnenten"
 
-#: src/gui/preferences_window.rs:49
+#: src/gui/preferences_window.rs:129
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
@@ -213,6 +289,9 @@ msgstr ""
 "Bei Installation mit Flatpak sind außerdem weitere Schritte zur Änderung des "
 "Spielers auf ein Programm außerhalb des Flatpaks nötig. Beachten Sie bitte "
 "das Wiki."
+
+#~ msgid "Load more"
+#~ msgstr "Lade mehr"
 
 #~ msgid "Settings"
 #~ msgstr "Einstellungen"
