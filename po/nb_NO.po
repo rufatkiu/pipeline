@@ -8,271 +8,289 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-09 13:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-10-10 18:16+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: data/resources/ui/feed_item.ui:162 data/resources/ui/watch_later.ui:16
 #: data/resources/ui/window.ui:29
 msgid "Watch Later"
-msgstr ""
+msgstr "Se senere"
 
 #: data/resources/ui/feed_item.ui:166
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 #: data/resources/ui/feed_item.ui:170
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopier til utklippstavle"
 
 #: data/resources/ui/feed_item.ui:174
+#, fuzzy
 msgid "More Information"
-msgstr ""
+msgstr "Mer info"
 
 #: data/resources/ui/feed_page.ui:16 data/resources/ui/window.ui:19
 msgid "Feed"
-msgstr ""
+msgstr "Informasjonskanal"
 
 #: data/resources/ui/feed_page.ui:26
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Last inn igjen"
 
 #: data/resources/ui/feed_page.ui:28
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Last inn igjen"
 
 #: data/resources/ui/feed_page.ui:72
 msgid "No Videos Found"
-msgstr ""
+msgstr "Fant ingen videoer"
 
 #: data/resources/ui/feed_page.ui:84 data/resources/ui/subscription_page.ui:73
+#, fuzzy
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "Abonner på en kanal …"
 
 #: data/resources/ui/filter_item.ui:88
 #: data/resources/ui/subscription_item.ui:104
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #: data/resources/ui/filter_page.ui:16 data/resources/ui/window.ui:38
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #: data/resources/ui/filter_page.ui:24
+#, fuzzy
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Legg til filter …"
 
 #: data/resources/ui/filter_page.ui:26
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Legg til filter …"
 
 #: data/resources/ui/filter_page.ui:50
 msgid "No Filters"
-msgstr ""
+msgstr "Ingen filter"
 
 #: data/resources/ui/filter_page.ui:67
 msgid "Add Filter…"
-msgstr ""
+msgstr "Legg til filter …"
 
 #: data/resources/ui/filter_page.ui:77
 msgid "Add Filter"
-msgstr ""
+msgstr "Legg til filter …"
 
 #: data/resources/ui/filter_page.ui:86
 msgid "Title"
-msgstr ""
+msgstr "Navn"
 
 #: data/resources/ui/filter_page.ui:91
 msgid "Channel Name"
-msgstr ""
+msgstr "Kanalnavn"
 
 #: data/resources/ui/filter_page.ui:98 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:163
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: data/resources/ui/filter_page.ui:99
 #: data/resources/ui/subscription_page.ui:164
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 #: data/resources/ui/header_bar.ui:36
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Hovedmeny"
 
 #: data/resources/ui/header_bar.ui:38
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Hovedmeny"
 
 #: data/resources/ui/header_bar.ui:49
 msgid "Preferences"
-msgstr ""
+msgstr "Innstillinger"
 
 #: data/resources/ui/header_bar.ui:53
 msgid "Import…"
-msgstr ""
+msgstr "Importer …"
 
 #: data/resources/ui/header_bar.ui:57
+#, fuzzy
 msgid "About Pipeline"
-msgstr ""
+msgstr "Om"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "Importer abonnementer"
 
 #: data/resources/ui/import_window.ui:8
+#, fuzzy
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
 msgstr ""
+"Dette importerer abonnementene dine fra data eksportert fra NewPipe eller "
+"YouTube."
 
 #: data/resources/ui/import_window.ui:14
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.ui:15
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "Programmer"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
 msgid "Player"
-msgstr ""
+msgstr "Avspiller"
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "Nedlaster"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "API-er"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"En fullstendig liste over API-er er å finne på <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">instanssiden</a>."
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr ""
+msgstr "Piped-API"
 
 #: data/resources/ui/preferences_window.ui:58
 msgid "Custom Piped API"
-msgstr ""
+msgstr "Egendefinert Piped-API"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "Annet"
 
 #: data/resources/ui/preferences_window.ui:68
+#, fuzzy
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Vis kun videoer fra i går"
 
 #: data/resources/ui/subscription_page.ui:21
 #: data/resources/ui/subscription_page.ui:90 data/resources/ui/window.ui:47
 msgid "Subscriptions"
-msgstr ""
+msgstr "Abonnementer"
 
 #: data/resources/ui/subscription_page.ui:29
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Legg til abonnement …"
 
 #: data/resources/ui/subscription_page.ui:31
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Legg til abonnement …"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "No Subscriptions"
-msgstr ""
+msgstr "Ingen abonnementer"
 
 #: data/resources/ui/subscription_page.ui:95
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "Gå tilbake til abonnementsliste"
 
 #: data/resources/ui/subscription_page.ui:97
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Gå tilbake"
 
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add Subscription"
-msgstr ""
+msgstr "Legg til abonnement"
 
 #: data/resources/ui/subscription_page.ui:143
 msgid "Base URL"
-msgstr ""
+msgstr "Grunn-nettadresse"
 
 #: data/resources/ui/subscription_page.ui:155
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "Kanal-ID eller navn"
 
 #: data/resources/ui/watch_later.ui:32
 msgid "Everything Watched"
-msgstr ""
+msgstr "Alt sett"
 
 #: data/resources/ui/watch_later.ui:33
 msgid "How about going outside?"
-msgstr ""
+msgstr "Hva med å gå en tur ut?"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "Kunne ikke koble til nettverket"
 
 #: src/gui/feed/error_label.rs:104
+#, fuzzy
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kunne ikke tolke ett abonnement"
+msgstr[1] "Kunne ikke tolke {} abonnementer"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
-msgstr ""
+msgstr "Noe gikk galt"
 
 #: src/gui/feed/feed_item_object.rs:108
+#, fuzzy
 msgid "%F %T"
-msgstr ""
+msgstr "%F %T"
 
 #: src/gui/header_bar.rs:104
 msgid "Donate"
-msgstr ""
+msgstr "Doner"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "Velg NewPipe-abonnementsfil"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
+#, fuzzy
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "Kunne ikke importere abonnementer"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Velg YouTube-abonnementsfil"
 
 #: src/gui/preferences_window.rs:129
+#, fuzzy
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"Merk at med Flatpak er det litt flere steg ved bruk av en avspiller som ikke "
+"er å finne i Flatpak-filen. Mer info er å finn på wiki-en."
