@@ -26,9 +26,11 @@ use gtk::traits::WidgetExt;
 use tf_filter::FilterGroup;
 use tf_join::AnyVideoFilter;
 
+use crate::gui::stack_page::StackPage;
+
 gtk::glib::wrapper! {
     pub struct FilterPage(ObjectSubclass<imp::FilterPage>)
-        @extends gtk::Box, gtk::Widget,
+        @extends StackPage, libadwaita::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -60,12 +62,15 @@ pub mod imp {
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
+    use libadwaita::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use regex::Regex;
     use tf_filter::FilterGroup;
     use tf_join::AnyVideoFilter;
 
     use crate::gui::filter::filter_list::FilterList;
+    use crate::gui::stack_page::StackPage;
+    use crate::gui::stack_page::StackPageImpl;
     use crate::gui::utility::Utility;
 
     #[derive(CompositeTemplate, Default)]
@@ -168,7 +173,7 @@ pub mod imp {
     impl ObjectSubclass for FilterPage {
         const NAME: &'static str = "TFFilterPage";
         type Type = super::FilterPage;
-        type ParentType = gtk::Box;
+        type ParentType = StackPage;
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -202,5 +207,6 @@ pub mod imp {
     }
 
     impl WidgetImpl for FilterPage {}
-    impl BoxImpl for FilterPage {}
+    impl BinImpl for FilterPage {}
+    impl StackPageImpl for FilterPage {}
 }

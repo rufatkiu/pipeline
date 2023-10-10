@@ -22,9 +22,11 @@ use gdk::subclass::prelude::ObjectSubclassIsExt;
 use tf_join::AnyVideo;
 use tf_playlist::PlaylistManager;
 
+use super::stack_page::StackPage;
+
 gtk::glib::wrapper! {
     pub struct WatchLaterPage(ObjectSubclass<imp::WatchLaterPage>)
-        @extends gtk::Box, gtk::Widget,
+        @extends StackPage, libadwaita::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -41,17 +43,17 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
-    use gdk::glib::clone;
     use gdk::glib::MainContext;
     use gdk::glib::Sender;
     use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
+    use glib::{clone, ControlFlow};
     use gtk::glib;
-    use gtk::glib::ControlFlow;
 
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
+    use libadwaita::subclass::prelude::BinImpl;
     use tf_join::AnyVideo;
     use tf_observer::Observer;
     use tf_playlist::PlaylistEvent;
@@ -59,6 +61,8 @@ pub mod imp {
 
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
+    use crate::gui::stack_page::StackPage;
+    use crate::gui::stack_page::StackPageImpl;
     use crate::gui::utility::Utility;
 
     #[derive(CompositeTemplate, Default)]
@@ -125,7 +129,7 @@ pub mod imp {
     impl ObjectSubclass for WatchLaterPage {
         const NAME: &'static str = "TFWatchLaterPage";
         type Type = super::WatchLaterPage;
-        type ParentType = gtk::Box;
+        type ParentType = StackPage;
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -144,7 +148,8 @@ pub mod imp {
     }
 
     impl WidgetImpl for WatchLaterPage {}
-    impl BoxImpl for WatchLaterPage {}
+    impl BinImpl for WatchLaterPage {}
+    impl StackPageImpl for WatchLaterPage {}
 
     pub struct PlaylistPageObserver {
         sender: Sender<PlaylistEvent<AnyVideo>>,

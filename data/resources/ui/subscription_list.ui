@@ -30,6 +30,8 @@
                 <property name="valign">GTK_ALIGN_START</property>
                 <property name="hexpand">True</property>
                 <property name="halign">GTK_ALIGN_FILL</property>
+
+                <property name="tab-behavior">item</property>
               </object>
             </child>
           </object>

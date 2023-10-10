@@ -79,22 +79,26 @@ impl Window {
 
 pub mod imp {
     use crate::config::{APP_ID, PROFILE};
+    use crate::gui::import_window;
     use crate::gui::predefined_player::PredefinedPlayer;
+    use crate::gui::preferences_window::PreferencesWindow;
 
     use std::cell::RefCell;
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use gdk_pixbuf::gio::{SimpleAction, SimpleActionGroup};
     use gdk_pixbuf::glib::clone;
     use glib::subclass::InitializingObject;
-    use gtk::glib;
     use gtk::glib::Propagation;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
+    use gtk::{glib, Builder};
 
     use gtk::CompositeTemplate;
     use libadwaita::subclass::prelude::AdwApplicationWindowImpl;
     use libadwaita::subclass::prelude::AdwWindowImpl;
+    use libadwaita::AboutWindow;
 
     use tf_filter::FilterEvent;
     use tf_join::AnySubscriptionList;
@@ -122,7 +126,7 @@ pub mod imp {
         pub(in crate::gui) application_stack: TemplateChild<libadwaita::ViewStack>,
 
         #[template_child]
-        pub(in crate::gui) application_stack_bar: TemplateChild<libadwaita::ViewSwitcherBar>,
+        pub(in crate::gui) switcher_bar: TemplateChild<libadwaita::ViewSwitcherBar>,
 
         pub settings: gtk::gio::Settings,
 
@@ -151,7 +155,7 @@ pub mod imp {
             Self {
                 settings: gtk::gio::Settings::new(APP_ID),
                 application_stack: Default::default(),
-                application_stack_bar: Default::default(),
+                switcher_bar: Default::default(),
                 feed_page: Default::default(),
                 watchlater_page: Default::default(),
                 filter_page: Default::default(),
@@ -167,6 +171,40 @@ pub mod imp {
     }
 
     impl Window {
+        fn setup_actions(&self, obj: &super::Window) {
+            let action_settings = SimpleAction::new("settings", None);
+            action_settings.connect_activate(clone!(@weak obj => move |_, _| {
+                let settings = PreferencesWindow::new();
+                settings.set_transient_for(Some(&obj));
+                settings.present();
+            }));
+            let action_import = SimpleAction::new("import", None);
+            action_import.connect_activate(clone!(@weak obj => move |_, _| {
+                let import = import_window::import_window(obj.imp().joiner.borrow().clone().expect("Joiner to be set up"), &obj);
+                import.present();
+            }));
+
+            let action_about = SimpleAction::new("about", None);
+            action_about.connect_activate(clone!(@weak obj => move |_, _| {
+                let builder = Builder::from_resource("/ui/about.ui");
+                let about: AboutWindow = builder
+                    .object("about")
+                    .expect("about.ui to have at least one object about");
+                about.add_link(
+                    &gettextrs::gettext("Donate"),
+                    "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
+                );
+                about.set_transient_for(Some(&obj));
+                about.present();
+            }));
+
+            let actions = SimpleActionGroup::new();
+            obj.insert_action_group("win", Some(&actions));
+            actions.add_action(&action_import);
+            actions.add_action(&action_settings);
+            actions.add_action(&action_about);
+        }
+
         fn setup_feed(&self) {
             self.feed_page.connect_local(
                 "add-subscription",
@@ -306,8 +344,7 @@ pub mod imp {
         type ParentType = libadwaita::ApplicationWindow;
 
         fn class_init(klass: &mut Self::Class) {
-            // Make sure HeaderBar is loaded.
-            crate::gui::header_bar::HeaderBar::ensure_type();
+            crate::gui::stack_page::StackPage::ensure_type();
             PredefinedPlayer::ensure_type();
             Self::bind_template(klass);
         }
@@ -320,6 +357,7 @@ pub mod imp {
     impl ObjectImpl for Window {
         fn constructed(&self) {
             self.parent_constructed();
+            self.setup_actions(&self.obj());
             self.setup_feed();
             self.setup_watch_later();
             self.setup_subscriptions();

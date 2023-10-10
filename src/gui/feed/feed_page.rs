@@ -22,9 +22,11 @@ use gdk::subclass::prelude::ObjectSubclassIsExt;
 use tf_join::{AnyVideo, Joiner};
 use tf_playlist::PlaylistManager;
 
+use crate::gui::stack_page::StackPage;
+
 gtk::glib::wrapper! {
     pub struct FeedPage(ObjectSubclass<imp::FeedPage>)
-        @extends gtk::Box, gtk::Widget,
+        @extends StackPage, libadwaita::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -49,17 +51,19 @@ pub mod imp {
     use gdk::glib::MainContext;
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecBoolean;
+    use gdk::prelude::{ObjectExt, SettingsExt, ToValue};
     use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
+    use glib::ControlFlow;
     use gtk::gio::Settings;
     use gtk::glib;
     use gtk::glib::subclass::Signal;
-    use gtk::glib::ControlFlow;
-    
-    use gtk::prelude::*;
+    use gtk::prelude::ButtonExt;
+
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
+    use libadwaita::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use tf_core::ErrorStore;
     use tf_core::Generator;
@@ -71,6 +75,8 @@ pub mod imp {
     use crate::gui::feed::error_label::ErrorLabel;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
+    use crate::gui::stack_page::StackPage;
+    use crate::gui::stack_page::StackPageImpl;
     use crate::gui::utility::Utility;
 
     #[derive(CompositeTemplate)]
@@ -195,7 +201,7 @@ pub mod imp {
     impl ObjectSubclass for FeedPage {
         const NAME: &'static str = "TFFeedPage";
         type Type = super::FeedPage;
-        type ParentType = gtk::Box;
+        type ParentType = StackPage;
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -246,5 +252,6 @@ pub mod imp {
     }
 
     impl WidgetImpl for FeedPage {}
-    impl BoxImpl for FeedPage {}
+    impl BinImpl for FeedPage {}
+    impl StackPageImpl for FeedPage {}
 }

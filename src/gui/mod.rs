@@ -20,11 +20,11 @@
 
 mod feed;
 mod filter;
-mod header_bar;
 mod import_window;
 mod predefined_piped_api;
 mod predefined_player;
 mod preferences_window;
+mod stack_page;
 mod subscription;
 mod utility;
 mod video_information_window;

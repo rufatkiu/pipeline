@@ -3,7 +3,26 @@
   <requires lib="gtk+" version="3.24"/>
   <requires lib="libadwaita" version="1.0"/>
 
-  <template class="TFFilterPage" parent="GtkBox">
+  <template class="TFFilterPage" parent="TFStackPage">
+    <property name="name" translatable="yes">Filters</property>
+    <property name="header-widget">
+      <object class="GtkButton" id="btn_toggle_add_filter">
+        <style>
+          <class name="flat"/>
+        </style>
+        <accessibility>
+          <property name="label" translatable="yes" context="accessibility">Add Filter…</property>
+        </accessibility>
+        <property name="tooltip-text" translatable="yes" context="tooltip">Add Filter…</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkImage">
+            <property name="icon-name">list-add-symbolic</property>
+          </object>
+        </child>
+      </object>
+    </property>
+
     <property name="vexpand">True</property>
     <property name="valign">GTK_ALIGN_FILL</property>
     <property name="hexpand">True</property>
@@ -11,29 +30,6 @@
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
-        <child>
-          <object class="TFHeaderBar">
-            <property name="title" translatable="yes">Filters</property>
-
-            <property name="child">
-              <object class="GtkButton" id="btn_toggle_add_filter">
-                <style>
-                  <class name="flat"/>
-                </style>
-                <accessibility>
-                  <property name="label" translatable="yes" context="accessibility">Add Filter…</property>
-                </accessibility>
-                <property name="tooltip-text" translatable="yes" context="tooltip">Add Filter…</property>
-                <property name="visible">True</property>
-                <child>
-                  <object class="GtkImage">
-                    <property name="icon-name">list-add-symbolic</property>
-                  </object>
-                </child>
-              </object>
-            </property>
-          </object>
-        </child>
         <child>
           <object class="TFFilterList" id="filter_list">
             <binding name="visible">
