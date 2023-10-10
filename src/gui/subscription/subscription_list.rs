@@ -137,7 +137,7 @@ pub mod imp {
     #[template(resource = "/ui/subscription_list.ui")]
     pub struct SubscriptionList {
         #[template_child]
-        pub(super) subscription_list: TemplateChild<gtk::ListView>,
+        pub(super) subscription_list: TemplateChild<gtk::GridView>,
 
         pub(super) model: RefCell<ListStore>,
         pub(super) sorter: RefCell<Option<CustomSorter>>,
