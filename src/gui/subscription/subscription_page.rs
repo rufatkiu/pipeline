@@ -24,9 +24,11 @@ use gtk::traits::WidgetExt;
 use tf_join::{AnySubscriptionList, AnyVideo};
 use tf_playlist::PlaylistManager;
 
+use crate::gui::stack_page::StackPage;
+
 gtk::glib::wrapper! {
     pub struct SubscriptionPage(ObjectSubclass<imp::SubscriptionPage>)
-        @extends gtk::Box, gtk::Widget,
+        @extends StackPage, libadwaita::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -76,13 +78,14 @@ pub mod imp {
     use glib::subclass::InitializingObject;
     use gtk::glib;
     use gtk::glib::ControlFlow;
-    
+
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::ConstantExpression;
     use gtk::PropertyExpression;
 
     use gtk::CompositeTemplate;
+    use libadwaita::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use tf_core::Generator;
     use tf_join::AnySubscriptionList;
@@ -93,6 +96,8 @@ pub mod imp {
 
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
+    use crate::gui::stack_page::StackPage;
+    use crate::gui::stack_page::StackPageImpl;
     use crate::gui::subscription::platform::PlatformObject;
     use crate::gui::subscription::subscription_item_object::SubscriptionObject;
     use crate::gui::subscription::subscription_list::SubscriptionList;
@@ -108,6 +113,8 @@ pub mod imp {
         pub(super) btn_toggle_add_subscription: TemplateChild<gtk::Button>,
         #[template_child]
         pub(super) btn_add_subscription: TemplateChild<gtk::Button>,
+        #[template_child]
+        pub(super) btn_go_back: TemplateChild<gtk::Button>,
         #[template_child]
         pub(super) dropdown_platform: TemplateChild<gtk::DropDown>,
         #[template_child]
@@ -264,12 +271,18 @@ pub mod imp {
                     ControlFlow::Continue
                 }),
             );
+
+            self.obj()
+                .set_property("header-widget", &self.btn_go_back.get());
         }
 
         #[template_callback]
         fn handle_go_to_subscriptions_page(&self) {
             log::debug!("Going back to the subscriptions page",);
             self.subscription_stack.set_visible_child_name("page-sub");
+
+            self.obj()
+                .set_property("header-widget", &self.btn_toggle_add_subscription.get());
         }
 
         #[template_callback(function)]
@@ -291,7 +304,7 @@ pub mod imp {
     impl ObjectSubclass for SubscriptionPage {
         const NAME: &'static str = "TFSubscriptionPage";
         type Type = super::SubscriptionPage;
-        type ParentType = gtk::Box;
+        type ParentType = StackPage;
 
         fn class_init(klass: &mut Self::Class) {
             Self::bind_template(klass);
@@ -332,5 +345,6 @@ pub mod imp {
     }
 
     impl WidgetImpl for SubscriptionPage {}
-    impl BoxImpl for SubscriptionPage {}
+    impl BinImpl for SubscriptionPage {}
+    impl StackPageImpl for SubscriptionPage {}
 }

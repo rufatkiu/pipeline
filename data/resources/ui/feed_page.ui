@@ -3,55 +3,52 @@
   <requires lib="gtk+" version="3.24"/>
   <requires lib="libadwaita" version="1.0"/>
 
-  <template class="TFFeedPage" parent="GtkBox">
+  <template class="TFFeedPage" parent="TFStackPage">
     <property name="vexpand">True</property>
     <property name="valign">GTK_ALIGN_FILL</property>
     <property name="hexpand">True</property>
     <property name="halign">GTK_ALIGN_FILL</property>
+
+    <property name="name" translatable="yes">Feed</property>
+    <property name="header-widget">
+      <object class="GtkBox" id="header_widget">
+        <child>
+          <object class="GtkButton" id="btn_reload">
+            <style>
+              <class name="flat"/>
+            </style>
+            <accessibility>
+              <property name="label" translatable="yes" context="accessibility">Reload</property>
+            </accessibility>
+            <property name="tooltip-text" translatable="yes" context="tooltip">Reload</property>
+            <binding name="visible">
+              <closure function="not" type="gboolean">
+                <lookup name="reloading" type="TFFeedPage"></lookup>
+              </closure>
+            </binding>
+            <child>
+              <object class="GtkImage" id="image_refresh">
+                <property name="icon-name">view-refresh-symbolic</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSpinner" id="loading_spinner">
+            <binding name="visible">
+              <lookup name="reloading" type="TFFeedPage"></lookup>
+            </binding>
+            <binding name="spinning">
+              <lookup name="reloading" type="TFFeedPage"></lookup>
+            </binding>
+          </object>
+        </child>
+      </object>
+    </property>
+
     <child>
       <object class="GtkBox">
         <property name="orientation">vertical</property>
-        <child>
-          <object class="TFHeaderBar">
-            <property name="title" translatable="yes">Feed</property>
-
-            <property name="child">
-              <object class="GtkBox" id="box_refresh">
-                <child>
-                  <object class="GtkButton" id="btn_reload">
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                    <accessibility>
-                      <property name="label" translatable="yes" context="accessibility">Reload</property>
-                    </accessibility>
-                    <property name="tooltip-text" translatable="yes" context="tooltip">Reload</property>
-                    <binding name="visible">
-                      <closure function="not" type="gboolean">
-                        <lookup name="reloading" type="TFFeedPage"></lookup>
-                      </closure>
-                    </binding>
-                    <child>
-                      <object class="GtkImage" id="image_refresh">
-                        <property name="icon-name">view-refresh-symbolic</property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSpinner" id="loading_spinner">
-                    <binding name="visible">
-                      <lookup name="reloading" type="TFFeedPage"></lookup>
-                    </binding>
-                    <binding name="spinning">
-                      <lookup name="reloading" type="TFFeedPage"></lookup>
-                    </binding>
-                  </object>
-                </child>
-              </object>
-            </property>
-          </object>
-        </child>
         <child>
           <object class="TFErrorLabel" id="error_label">
           </object>

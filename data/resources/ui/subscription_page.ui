@@ -3,7 +3,13 @@
   <requires lib="gtk+" version="3.24"/>
   <requires lib="libadwaita" version="1.0"/>
 
-  <template class="TFSubscriptionPage" parent="GtkBox">
+  <template class="TFSubscriptionPage" parent="TFStackPage">
+    <property name="name" translatable="yes">Subscriptions</property>
+
+    <property name="header-widget">
+      btn_toggle_add_subscription
+    </property>
+
     <property name="vexpand">True</property>
     <property name="valign">GTK_ALIGN_FILL</property>
     <property name="hexpand">True</property>
@@ -16,29 +22,6 @@
             <property name="child">
               <object class="GtkBox">
                 <property name="orientation">vertical</property>
-                <child>
-                  <object class="TFHeaderBar">
-                    <property name="title" translatable="yes">Subscriptions</property>
-
-                    <property name="child">
-                      <object class="GtkButton" id="btn_toggle_add_subscription">
-                        <style>
-                          <class name="flat"/>
-                        </style>
-                        <accessibility>
-                          <property name="label" translatable="yes" context="accessibility">Add Subscription…</property>
-                        </accessibility>
-                        <property name="tooltip-text" translatable="yes" context="tooltip">Add Subscription…</property>
-                        <property name="visible">True</property>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon-name">list-add-symbolic</property>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
                 <child>
                   <object class="TFSubscriptionList" id="subscription_list">
                     <signal name="go-to-videos" handler="handle_go_to_videos_page" swapped="true"/>
@@ -83,33 +66,7 @@
           <object class="GtkStackPage">
             <property name="name">page-vid</property>
             <property name="child">
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="TFHeaderBar">
-                    <property name="title" translatable="yes">Subscriptions</property>
-
-                    <property name="child">
-                      <object class="GtkButton" id="btn_go_back">
-                        <accessibility>
-                          <property name="label" translatable="yes" context="accessibility">Go back to subscription list</property>
-                        </accessibility>
-                        <property name="tooltip-text" translatable="yes" context="tooltip">Go back</property>
-                        <property name="visible">True</property>
-                        <signal name="clicked" handler="handle_go_to_subscriptions_page" swapped="true"/>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon-name">go-previous-symbolic</property>
-                          </object>
-                        </child>
-                      </object>
-                    </property>
-                  </object>
-                </child>
-                <child>
-                  <object class="TFFeedList" id="subscription_video_list">
-                  </object>
-                </child>
+              <object class="TFFeedList" id="subscription_video_list">
               </object>
             </property>
           </object>
@@ -163,5 +120,35 @@
       <response id="cancel" translatable="yes">Cancel</response>
       <response id="add" translatable="yes" appearance="suggested">Add</response>
     </responses>
+  </object>
+
+  <object class="GtkButton" id="btn_toggle_add_subscription">
+    <style>
+      <class name="flat"/>
+    </style>
+    <accessibility>
+      <property name="label" translatable="yes" context="accessibility">Add Subscription…</property>
+    </accessibility>
+    <property name="tooltip-text" translatable="yes" context="tooltip">Add Subscription…</property>
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkImage">
+        <property name="icon-name">list-add-symbolic</property>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkButton" id="btn_go_back">
+    <accessibility>
+      <property name="label" translatable="yes" context="accessibility">Go back to subscription list</property>
+    </accessibility>
+    <property name="tooltip-text" translatable="yes" context="tooltip">Go back</property>
+    <property name="visible">True</property>
+    <signal name="clicked" handler="handle_go_to_subscriptions_page" swapped="true"/>
+    <child>
+      <object class="GtkImage">
+        <property name="icon-name">go-previous-symbolic</property>
+      </object>
+    </child>
   </object>
 </interface>
