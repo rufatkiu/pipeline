@@ -91,7 +91,7 @@ pub mod imp {
     use gtk::glib::ControlFlow;
     use gtk::glib::ParamSpec;
     use gtk::glib::ParamSpecBoolean;
-    
+
     use gtk::glib::Value;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
@@ -113,7 +113,7 @@ pub mod imp {
     #[template(resource = "/ui/filter_list.ui")]
     pub struct FilterList {
         #[template_child]
-        pub(super) filter_list: TemplateChild<gtk::ListView>,
+        pub(super) filter_list: TemplateChild<gtk::GridView>,
 
         pub(super) model: RefCell<ListStore>,
 

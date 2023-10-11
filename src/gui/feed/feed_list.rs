@@ -18,7 +18,10 @@
  *
  */
 
-use std::cmp::{min, Reverse};
+use std::{
+    cmp::{min, Reverse},
+    time::Duration,
+};
 
 use gdk::{
     gio::{SimpleAction, SimpleActionGroup},
@@ -76,10 +79,15 @@ impl FeedList {
     }
 
     fn load_if_screen_not_filled(&self, adj: &Adjustment) {
-        if self.property("more-available") && adj.upper() <= adj.page_size() {
-            // The screen is not yet filled.
-            let _ = self.activate_action("feed.more", None);
-        }
+        let ctx = glib::MainContext::default();
+        ctx.spawn_local(clone!(@weak self as s, @weak adj => async move {
+            // Add timeout, otherwise there are some critical errors (not sure why).
+            glib::timeout_future(Duration::from_millis(100)).await;
+            if s.property("more-available") && adj.upper() <= adj.page_size() {
+                // The screen is not yet filled.
+                let _ = s.activate_action("feed.more", None);
+            }
+        }));
     }
 
     pub fn set_items(&self, new_items: Vec<VideoObject>) {
@@ -92,9 +100,9 @@ impl FeedList {
         model.borrow().remove_all();
         loaded_count.set(0);
 
+        self.set_more_available();
         let _ = self.activate_action("feed.more", None);
 
-        self.set_more_available();
         self.notify("is-empty");
     }
 
@@ -206,7 +214,7 @@ pub mod imp {
     #[template(resource = "/ui/feed_list.ui")]
     pub struct FeedList {
         #[template_child]
-        pub(super) feed_list: TemplateChild<gtk::ListView>,
+        pub(super) feed_list: TemplateChild<gtk::GridView>,
         #[template_child]
         pub(super) scrolled_window: TemplateChild<gtk::ScrolledWindow>,
 
