@@ -1,7 +1,7 @@
 # Pipeline
 
 [![Matrix](https://img.shields.io/badge/Matrix-Join-brightgreen)](https://matrix.to/#/%23pipelineapp:matrix.org)
-[![Translation status](https://hosted.weblate.org/widgets/schmiddi-on-mobile/-/railway/svg-badge.svg)](https://hosted.weblate.org/engage/schmiddi-on-mobile/)
+[![Translation status](https://hosted.weblate.org/widgets/schmiddi-on-mobile/-/pipeline/svg-badge.svg)](https://hosted.weblate.org/engage/schmiddi-on-mobile/)
 
 
 Pipeline lets you watch and download videos from YouTube and PeerTube, all without needing to navigate through different websites.
