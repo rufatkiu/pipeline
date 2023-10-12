@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed buttons in the list in favor of a menu shown on right-click or long-press (touch-screen only). 
 - Updated to GTK 4.12 and Libadwaita 1.4.
 - Use GridView instead of ListView for all pages.
+- Improvements regarding UI in the add-subscription dialog.
 
 ### Fixed
 
