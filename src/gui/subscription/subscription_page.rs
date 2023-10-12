@@ -67,6 +67,7 @@ impl SubscriptionPage {
 
 pub mod imp {
     use std::cell::RefCell;
+    use std::str::FromStr;
 
     use gdk::gio::ListStore;
     use gdk::glib::clone;
@@ -85,6 +86,7 @@ pub mod imp {
     use gtk::PropertyExpression;
 
     use gtk::CompositeTemplate;
+    use libadwaita::prelude::MessageDialogExt;
     use libadwaita::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use tf_core::Generator;
@@ -94,6 +96,7 @@ pub mod imp {
     use tf_pt::PTSubscription;
     use tf_yt::YTSubscription;
 
+    use crate::config::APP_ID;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
     use crate::gui::stack_page::StackPage;
@@ -103,7 +106,7 @@ pub mod imp {
     use crate::gui::subscription::subscription_list::SubscriptionList;
     use crate::gui::utility::Utility;
 
-    #[derive(CompositeTemplate, Default)]
+    #[derive(CompositeTemplate)]
     #[template(resource = "/ui/subscription_page.ui")]
     pub struct SubscriptionPage {
         #[template_child]
@@ -130,13 +133,51 @@ pub mod imp {
         pub(super) subscription_video_list: TemplateChild<FeedList>,
 
         pub(super) any_subscription_list: RefCell<Option<AnySubscriptionList>>,
+
+        settings: gtk::gio::Settings,
+    }
+
+    impl Default for SubscriptionPage {
+        fn default() -> Self {
+            Self {
+                subscription_list: Default::default(),
+                btn_toggle_add_subscription: Default::default(),
+                btn_add_subscription: Default::default(),
+                btn_go_back: Default::default(),
+                dropdown_platform: Default::default(),
+                entry_url: Default::default(),
+                entry_name_id: Default::default(),
+                dialog_add: Default::default(),
+                subscription_stack: Default::default(),
+                subscription_video_list: Default::default(),
+                any_subscription_list: Default::default(),
+                settings: gtk::gio::Settings::new(APP_ID),
+            }
+        }
     }
 
     impl SubscriptionPage {
         pub(super) fn present_subscribe(&self) {
-            self.dropdown_platform.set_selected(0);
+            let platform = Platform::from_str(&self.settings.string("last-added-platform"))
+                .unwrap_or(Platform::Youtube);
+
+            self.dropdown_platform.set_selected(
+                self.platforms()
+                    .into_iter()
+                    .position(|p| p == &platform)
+                    .unwrap_or_default()
+                    .try_into()
+                    .unwrap_or_default(),
+            );
             self.entry_url.set_text("");
             self.entry_name_id.set_text("");
+
+            // XXX: Duplicated logic with `url_visible`.
+            if platform == Platform::Peertube {
+                self.entry_url.grab_focus();
+            } else {
+                self.entry_name_id.grab_focus();
+            }
 
             // Theoretically only needs to be done once, but when setting up the page does
             // not yet have a root.
@@ -158,6 +199,15 @@ pub mod imp {
                 }));
         }
 
+        fn platforms(&self) -> &'static [Platform] {
+            // XXX: Maybe lazy?
+            &[
+                Platform::Youtube,
+                // PlatformObject::new(Platform::Lbry),
+                Platform::Peertube,
+            ]
+        }
+
         fn setup_platform_dropdown(&self) {
             self.dropdown_platform
                 .set_expression(Some(&PropertyExpression::new(
@@ -170,11 +220,11 @@ pub mod imp {
             model.splice(
                 0,
                 0,
-                &[
-                    PlatformObject::new(Platform::Youtube),
-                    // PlatformObject::new(Platform::Lbry),
-                    PlatformObject::new(Platform::Peertube),
-                ],
+                &self
+                    .platforms()
+                    .into_iter()
+                    .map(|p| PlatformObject::new(p.clone()))
+                    .collect::<Vec<_>>(),
             );
             self.dropdown_platform.set_model(Some(&model));
         }
@@ -182,6 +232,13 @@ pub mod imp {
 
     #[gtk::template_callbacks]
     impl SubscriptionPage {
+        #[template_callback]
+        fn handle_entry_name_id_activate(&self) {
+            self.dialog_add
+                .response(&self.dialog_add.default_response().unwrap_or_default());
+            self.dialog_add.set_visible(false);
+        }
+
         #[template_callback]
         fn handle_add_subscription(&self, response: Option<&str>) {
             if response != Some("add") {
@@ -204,6 +261,9 @@ pub mod imp {
 
             in_url.set_text("");
             in_name_id.set_text("");
+            let _ = self
+                .settings
+                .set_string("last-added-platform", &platform.to_string());
 
             let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
             let sender = sender.clone();

@@ -109,6 +109,7 @@
                 </lookup>
               </closure>
             </binding>
+            <signal name="activate" handler="handle_entry_name_id_activate" swapped="true"/>
             <property name="placeholder-text" translatable="yes">Channel ID or Name</property>
           </object>
         </child>
