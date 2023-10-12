@@ -273,6 +273,21 @@ pub mod imp {
                     Widget::NONE,
                 );
             }));
+
+            self.subscription_list.set_single_click_activate(true);
+            self.subscription_list.connect_activate(
+                clone!(@strong instance => move |list_view, position| {
+                    let model = list_view.model().expect("The model has to exist.");
+                    let sub = model
+                        .item(position)
+                        .expect("The item has to exist.")
+                        .downcast::<SubscriptionObject>()
+                        .expect("The item has to be an `Journey`.");
+
+                    instance.emit_by_name::<()>("go-to-videos", &[&sub]);
+                }),
+            );
+
             self.subscription_list.set_factory(Some(&factory));
         }
     }

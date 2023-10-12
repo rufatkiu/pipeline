@@ -29,5 +29,9 @@
       <default>false</default>
       <summary>Only show videos of yesterday.</summary>
     </key>
+    <key name="last-added-platform" type="s">
+      <default>"youtube"</default>
+      <summary>The type of platform for which the last subscription was added.</summary>
+    </key>
   </schema>
 </schemalist>

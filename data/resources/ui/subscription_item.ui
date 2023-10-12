@@ -31,14 +31,6 @@
     </child>
 
     <child>
-      <object class="GtkGestureClick">
-        <property name="button">1</property>
-        <property name="exclusive">true</property>
-        <signal name="pressed" handler="handle_clicked" swapped="true"/>
-      </object>
-    </child>
-
-    <child>
       <object class="GtkBox">
         <property name="orientation">GTK_ORIENTATION_VERTICAL</property>
         <property name="vexpand">True</property>
