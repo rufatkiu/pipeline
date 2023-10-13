@@ -2,9 +2,20 @@ subdir('icons')
 subdir('resources')
 
 # Desktop file
-install_data(
-  '@0@.desktop'.format(application_id),
-  install_dir: datadir / 'applications'
+desktop_conf = configuration_data()
+desktop_conf.set('app-id', application_id)
+desktop_conf.set('bindir', bindir)
+desktop_file = i18n.merge_file(
+  input: configure_file(
+    input: '@0@.desktop.in.in'.format(base_id),
+    output: '@BASENAME@',
+    configuration: desktop_conf
+  ),
+  output: '@0@.desktop'.format(application_id),
+  type: 'desktop',
+  po_dir: podir,
+  install: true,
+  install_dir: join_paths(datadir, 'applications')
 )
 
 # Metainfo
