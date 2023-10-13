@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=Application
-Icon=de.schmidhuberj.tubefeeder
+Icon=@app-id@
 Name=Pipeline
 Comment=Watch YouTube and PeerTube videos in one place
 Comment[ar]=عميل YouTube و PeerTube
 Comment[it]=Un client per YouTube e PeerTube
 StartupWMClass=Pipeline
-Exec=/app/bin/tubefeeder
+Exec=@bindir@/tubefeeder
 Categories=Video;AudioVideo
 X-Purism-FormFactor=Workstation;Mobile;
 Keywords=youtube;peertube;video;
