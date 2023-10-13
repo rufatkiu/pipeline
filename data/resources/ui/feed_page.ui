@@ -67,18 +67,19 @@
         <child>
           <object class="AdwStatusPage">
             <property name="title" translatable="yes">No Videos Found</property>
+            <property name="description" translatable="yes">Your feed will appear once you've added subscriptions</property>
             <property name="icon-name">go-home-symbolic</property>
             <property name="vexpand">True</property>
 
             <property name="child">
-              <object class="GtkButton" id="btn_add_subscription">
+              <object class="GtkButton" id="btn_manage_subscriptions">
                 <style>
                   <class name="pill"/>
                   <class name="suggested-action"/>
                 </style>
 
                 <property name="halign">center</property>
-                <property name="label" translatable="yes">Subscribe to a Channel…</property>
+                <property name="label" translatable="yes">Manage Subscriptions…</property>
               </object>
             </property>
 

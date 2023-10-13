@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated to GTK 4.12 and Libadwaita 1.4.
 - Use GridView instead of ListView for all pages.
 - Improvements regarding UI in the add-subscription dialog.
+- The button on the empty feed page will now lead to the subscription page instead of directly adding a subscription.
 
 ### Fixed
 

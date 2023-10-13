@@ -207,10 +207,10 @@ pub mod imp {
 
         fn setup_feed(&self) {
             self.feed_page.connect_local(
-                "add-subscription",
+                "go-to-subscriptions",
                 true,
-                clone!(@strong self.subscription_page as s => move |_| {
-                    s.present_subscribe();
+                clone!(@strong self.application_stack as stack, @strong self.subscription_page as s => move |_| {
+                    stack.set_visible_child(&s);
                     None
                 }),
             );

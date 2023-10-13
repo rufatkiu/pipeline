@@ -88,7 +88,7 @@ pub mod imp {
         #[template_child]
         pub(super) btn_reload: TemplateChild<gtk::Button>,
         #[template_child]
-        pub(super) btn_add_subscription: TemplateChild<gtk::Button>,
+        pub(super) btn_manage_subscriptions: TemplateChild<gtk::Button>,
 
         #[template_child]
         pub(super) error_label: TemplateChild<ErrorLabel>,
@@ -107,7 +107,7 @@ pub mod imp {
             Self {
                 feed_list: Default::default(),
                 btn_reload: Default::default(),
-                btn_add_subscription: Default::default(),
+                btn_manage_subscriptions: Default::default(),
                 error_label: Default::default(),
                 reloading: Default::default(),
                 playlist_manager: Default::default(),
@@ -178,10 +178,10 @@ pub mod imp {
             self.joiner.replace(Some(joiner));
         }
 
-        fn setup_add_subscription(&self, obj: &super::FeedPage) {
-            self.btn_add_subscription
+        fn setup_manage_subscriptions(&self, obj: &super::FeedPage) {
+            self.btn_manage_subscriptions
                 .connect_clicked(clone!(@weak obj => move |_| {
-                    obj.emit_by_name::<()>("add-subscription", &[]);
+                    obj.emit_by_name::<()>("go-to-subscriptions", &[]);
                 }));
         }
 
@@ -193,7 +193,7 @@ pub mod imp {
                     .expect("PlaylistManager has to be set up"),
             );
             self.setup_reload(obj);
-            self.setup_add_subscription(obj);
+            self.setup_manage_subscriptions(obj);
         }
     }
 
@@ -246,7 +246,7 @@ pub mod imp {
 
         fn signals() -> &'static [Signal] {
             static SIGNALS: Lazy<Vec<Signal>> =
-                Lazy::new(|| vec![Signal::builder("add-subscription").build()]);
+                Lazy::new(|| vec![Signal::builder("go-to-subscriptions").build()]);
             SIGNALS.as_ref()
         }
     }
