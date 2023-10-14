@@ -14,10 +14,22 @@
     <property name="version">@VERSION@</property>
     <property name="artists">David Lapshin &lt;ddaudix@gmail.com&gt;</property>
     <property name="release-notes">
+      &lt;p&gt;Added&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;A dropdown for some popular video players.&lt;/li&gt;
+      &lt;li&gt;A dropdown for some popular Piped APIs.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;Changed&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Removed buttons in the list in favor of a menu shown on right-click or long-press (touch-screen only).&lt;/li&gt;
+      &lt;li&gt;Updated to GTK 4.12 and Libadwaita 1.4.&lt;/li&gt;
+      &lt;li&gt;Use GridView instead of ListView for all pages.&lt;/li&gt;
+      &lt;li&gt;Improvements regarding UI in the add-subscription dialog.&lt;/li&gt;
+      &lt;li&gt;The button on the empty feed page will now lead to the subscription page instead of directly adding a subscription.&lt;/li&gt;
+      &lt;/ul&gt;
       &lt;p&gt;Fixed&lt;/p&gt;
       &lt;ul&gt;
-        &lt;li&gt;Copy video URL not working anymore.&lt;/li&gt;
-        &lt;li&gt;Missing accesibility labels.&lt;/li&gt;
+      &lt;li&gt;Inconsistent size of video thumbnails.&lt;/li&gt;
       &lt;/ul&gt;
     </property>
   </object>
