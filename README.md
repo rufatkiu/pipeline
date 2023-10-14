@@ -7,22 +7,7 @@
 Pipeline lets you watch and download videos from YouTube and PeerTube, all without needing to navigate through different websites.
 
 ## Screenshots
-<table>
-  <tr>
-    <td>
-      <img src="/data/screenshots/feed.png" alt="Feed" width="400"/>
-    </td>
-    <td>
-      <img src="/data/screenshots/watch_later.png" alt="Watch later" width="400"/>
-    </td>
-    <td>
-      <img src="/data/screenshots/filters.png" alt="Filters" width="400"/>
-    </td>
-    <td>
-      <img src="/data/screenshots/subscriptions.png" alt="Subscriptions" width="400"/>
-    </td>
-  </tr>
-</table>
+![](/data/screenshots/feed.png)
 
 ## Installation
 
