@@ -63,6 +63,22 @@ impl SubscriptionPage {
             .downcast::<crate::gui::window::Window>()
             .expect("Root to be window")
     }
+
+    pub fn emit_watch_later(&self) {
+        self.imp().subscription_video_list.emit_watch_later();
+    }
+
+    pub fn emit_download(&self) {
+        self.imp().subscription_video_list.emit_download();
+    }
+
+    pub fn emit_copy_to_clipboard(&self) {
+        self.imp().subscription_video_list.emit_copy_to_clipboard();
+    }
+
+    pub fn emit_information(&self) {
+        self.imp().subscription_video_list.emit_information();
+    }
 }
 
 pub mod imp {

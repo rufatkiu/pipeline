@@ -30,6 +30,7 @@ use gdk::{
     prelude::{ActionMapExt, ListModelExt, ObjectExt, ToValue},
     subclass::prelude::ObjectSubclassIsExt,
 };
+use gdk_pixbuf::prelude::CastNone;
 use gtk::{
     traits::{AdjustmentExt, WidgetExt},
     Adjustment,
@@ -37,7 +38,7 @@ use gtk::{
 use tf_join::AnyVideo;
 use tf_playlist::PlaylistManager;
 
-use super::feed_item_object::VideoObject;
+use super::{feed_item::FeedItem, feed_item_object::VideoObject};
 
 const LOAD_COUNT: usize = 10;
 
@@ -51,7 +52,6 @@ gtk::glib::wrapper! {
 impl FeedList {
     fn add_actions(&self) {
         let action_more = SimpleAction::new("more", None);
-
         action_more.connect_activate(clone!(@strong self as s => move |_, _| {
             let imp = s.imp();
             let items = &imp.items.borrow();
@@ -69,6 +69,54 @@ impl FeedList {
         let actions = SimpleActionGroup::new();
         self.insert_action_group("feed", Some(&actions));
         actions.add_action(&action_more);
+    }
+
+    pub fn emit_watch_later(&self) {
+        if let Ok(item) = self
+            .imp()
+            .feed_list
+            .focus_child()
+            .and_then(|w| w.first_child())
+            .and_dynamic_cast::<FeedItem>()
+        {
+            let _ = item.activate_action("item.watch-later", None);
+        }
+    }
+
+    pub fn emit_download(&self) {
+        if let Ok(item) = self
+            .imp()
+            .feed_list
+            .focus_child()
+            .and_then(|w| w.first_child())
+            .and_dynamic_cast::<FeedItem>()
+        {
+            let _ = item.activate_action("item.download", None);
+        }
+    }
+
+    pub fn emit_copy_to_clipboard(&self) {
+        if let Ok(item) = self
+            .imp()
+            .feed_list
+            .focus_child()
+            .and_then(|w| w.first_child())
+            .and_dynamic_cast::<FeedItem>()
+        {
+            let _ = item.activate_action("item.clipboard", None);
+        }
+    }
+
+    pub fn emit_information(&self) {
+        if let Ok(item) = self
+            .imp()
+            .feed_list
+            .focus_child()
+            .and_then(|w| w.first_child())
+            .and_dynamic_cast::<FeedItem>()
+        {
+            let _ = item.activate_action("item.information", None);
+        }
     }
 
     fn setup_autoload(&self) {
@@ -194,6 +242,8 @@ pub mod imp {
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecBoolean;
     use gdk::glib::Value;
+    use gdk_pixbuf::glib::clone;
+    use gdk_pixbuf::glib::Propagation;
     use glib::subclass::InitializingObject;
     use gtk::glib;
     use gtk::prelude::*;
@@ -277,6 +327,19 @@ pub mod imp {
 
                 video_object.play();
             });
+
+            let key_events = gtk::EventControllerKey::new();
+            key_events.connect_key_pressed(
+                clone!(@strong self.feed_list as feed_list => @default-return Propagation::Proceed, move |_, key, _, _| {
+                    if key == gdk::Key::Menu {
+                        feed_list.focus_child().and_then(|w| w.first_child()).and_dynamic_cast::<FeedItem>().expect("FeedList to have highlighted FeedItem").click();
+                        Propagation::Stop
+                    } else {
+                        Propagation::Proceed
+                    }
+                }),
+            );
+            self.feed_list.add_controller(key_events);
 
             self.obj().setup_autoload();
         }

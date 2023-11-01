@@ -38,6 +38,10 @@ impl FeedItem {
         s
     }
 
+    pub fn click(&self) {
+        self.imp().handle_clicked();
+    }
+
     fn window(&self) -> crate::gui::window::Window {
         self.root()
             .expect("FeedItem to have root")
@@ -136,7 +140,7 @@ pub mod imp {
     #[gtk::template_callbacks]
     impl FeedItem {
         #[template_callback]
-        fn handle_clicked(&self) {
+        pub fn handle_clicked(&self) {
             self.popover_menu.popup();
         }
     }

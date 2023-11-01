@@ -124,12 +124,16 @@
   <menu id="menubar">
     <section>
       <item>
+        <attribute name="label" translatable="yes">Import…</attribute>
+        <attribute name="action">win.import</attribute>
+      </item>
+      <item>
         <attribute name="label" translatable="yes">Preferences</attribute>
         <attribute name="action">win.settings</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">Import…</attribute>
-        <attribute name="action">win.import</attribute>
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
       </item>
       <item>
         <attribute name="label" translatable="yes">About Pipeline</attribute>
