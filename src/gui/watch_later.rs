@@ -36,6 +36,22 @@ impl WatchLaterPage {
         self.imp().playlist_manager.replace(Some(playlist_manager));
         self.imp().setup();
     }
+
+    pub fn emit_watch_later(&self) {
+        self.imp().feed_page.emit_watch_later();
+    }
+
+    pub fn emit_download(&self) {
+        self.imp().feed_page.emit_download();
+    }
+
+    pub fn emit_copy_to_clipboard(&self) {
+        self.imp().feed_page.emit_copy_to_clipboard();
+    }
+
+    pub fn emit_information(&self) {
+        self.imp().feed_page.emit_information();
+    }
 }
 
 pub mod imp {

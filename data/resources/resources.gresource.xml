@@ -18,6 +18,7 @@
     <file preprocess="xml-stripblanks">ui/import_window.ui</file>
     <file preprocess="xml-stripblanks">ui/video_information_window.ui</file>
     <file preprocess="xml-stripblanks">ui/about.ui</file>
+    <file preprocess="xml-stripblanks">ui/shortcuts.ui</file>
   </gresource>
   <gresource prefix="/de/schmidhuberj/tubefeeder/icons/">
     <file alias="icon.svg">../icons/de.schmidhuberj.tubefeeder.svg</file>

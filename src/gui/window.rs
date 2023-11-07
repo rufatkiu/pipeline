@@ -24,6 +24,7 @@ use gtk::{
     glib::Object,
     traits::{GtkWindowExt, WidgetExt},
 };
+use libadwaita::prelude::GtkApplicationExt;
 
 fn setup_joiner() -> tf_join::Joiner {
     let joiner = tf_join::Joiner::new();
@@ -39,6 +40,21 @@ gtk::glib::wrapper! {
 
 impl Window {
     pub fn new(app: &gtk::Application) -> Self {
+        app.set_accels_for_action("win.settings", &["<Control>comma"]);
+        app.set_accels_for_action("win.about", &["F1"]);
+        app.set_accels_for_action("win.show-help-overlay", &["<Control>question"]);
+        app.set_accels_for_action("window.close", &["<Control>q"]);
+
+        app.set_accels_for_action("feed.watch-later", &["<Control>w"]);
+        app.set_accels_for_action("feed.download", &["<Control>s"]);
+        app.set_accels_for_action("feed.clipboard", &["<Control>c"]);
+        app.set_accels_for_action("feed.information", &["<Control>i"]);
+
+        app.set_accels_for_action("win.feed", &["<Control>1"]);
+        app.set_accels_for_action("win.watch-later", &["<Control>2"]);
+        app.set_accels_for_action("win.filters", &["<Control>3"]);
+        app.set_accels_for_action("win.subscriptions", &["<Control>4"]);
+
         Object::builder::<Self>()
             .property("application", app)
             .build()
@@ -91,9 +107,9 @@ pub mod imp {
     use gdk_pixbuf::glib::clone;
     use glib::subclass::InitializingObject;
     use gtk::glib::Propagation;
-    use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::{glib, Builder};
+    use gtk::{prelude::*, ShortcutsWindow};
 
     use gtk::CompositeTemplate;
     use libadwaita::subclass::prelude::AdwApplicationWindowImpl;
@@ -197,12 +213,102 @@ pub mod imp {
                 about.set_transient_for(Some(&obj));
                 about.present();
             }));
+            let action_show_help_overlay = SimpleAction::new("show-help-overlay", None);
+            action_show_help_overlay.connect_activate(|_, _| {
+                let builder = Builder::from_resource("/ui/shortcuts.ui");
+                let shortcuts_window: ShortcutsWindow = builder
+                    .object("help_overlay")
+                    .expect("shortcuts.ui to have at least one object help_overlay");
+                shortcuts_window.present();
+            });
+
+            let action_feed = SimpleAction::new("feed", None);
+            action_feed.connect_activate(clone!(@weak obj => move |_, _| {
+                obj.imp().application_stack.set_visible_child(&obj.imp().feed_page.get());
+            }));
+            let action_watch_later = SimpleAction::new("watch-later", None);
+            action_watch_later.connect_activate(clone!(@weak obj => move |_, _| {
+                obj.imp().application_stack.set_visible_child(&obj.imp().watchlater_page.get());
+            }));
+            let action_filters = SimpleAction::new("filters", None);
+            action_filters.connect_activate(clone!(@weak obj => move |_, _| {
+                obj.imp().application_stack.set_visible_child(&obj.imp().filter_page.get());
+            }));
+            let action_subscriptions = SimpleAction::new("subscriptions", None);
+            action_subscriptions.connect_activate(clone!(@weak obj => move |_, _| {
+                obj.imp().application_stack.set_visible_child(&obj.imp().subscription_page.get());
+            }));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("win", Some(&actions));
             actions.add_action(&action_import);
             actions.add_action(&action_settings);
+            actions.add_action(&action_show_help_overlay);
             actions.add_action(&action_about);
+            actions.add_action(&action_feed);
+            actions.add_action(&action_watch_later);
+            actions.add_action(&action_filters);
+            actions.add_action(&action_subscriptions);
+
+            let action_feed_watch_later = SimpleAction::new("watch-later", None);
+            action_feed_watch_later.connect_activate(clone!(@weak obj => move |_, _| {
+                let stack = &obj.imp().application_stack;
+                let child = stack.visible_child();
+
+                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                    page.emit_watch_later();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                    page.emit_watch_later();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                    page.emit_watch_later();
+                }
+            }));
+            let action_feed_download = SimpleAction::new("download", None);
+            action_feed_download.connect_activate(clone!(@weak obj => move |_, _| {
+                let stack = &obj.imp().application_stack;
+                let child = stack.visible_child();
+
+                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                    page.emit_download();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                    page.emit_download();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                    page.emit_download();
+                }
+            }));
+            let action_feed_copy_to_clipboard = SimpleAction::new("clipboard", None);
+            action_feed_copy_to_clipboard.connect_activate(clone!(@weak obj => move |_, _| {
+                let stack = &obj.imp().application_stack;
+                let child = stack.visible_child();
+
+                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                    page.emit_copy_to_clipboard();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                    page.emit_copy_to_clipboard();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                    page.emit_copy_to_clipboard();
+                }
+            }));
+            let action_feed_information = SimpleAction::new("information", None);
+            action_feed_information.connect_activate(clone!(@weak obj => move |_, _| {
+                let stack = &obj.imp().application_stack;
+                let child = stack.visible_child();
+
+                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                    page.emit_information();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                    page.emit_information();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                    page.emit_information();
+                }
+            }));
+
+            let actions_feed = SimpleActionGroup::new();
+            obj.insert_action_group("feed", Some(&actions_feed));
+            actions_feed.add_action(&action_feed_watch_later);
+            actions_feed.add_action(&action_feed_download);
+            actions_feed.add_action(&action_feed_copy_to_clipboard);
+            actions_feed.add_action(&action_feed_information);
         }
 
         fn setup_feed(&self) {
