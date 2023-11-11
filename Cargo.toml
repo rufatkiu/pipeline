@@ -11,22 +11,22 @@ edition = "2021"
 
 [dependencies]
 gtk = { version = "0.7.3", package = "gtk4", features = ["v4_12"] }
-gdk-pixbuf = "0.18.0"
+gdk-pixbuf = "0.18.3"
 gdk = { version = "0.7.3", package = "gdk4" }
-pango = "0.18.0"
+pango = "0.18.3"
 libadwaita = { version = "0.5.3", features = ["v1_4"]}
 
-tokio = {version = "1.29.1", features = ["full"]}
-futures = "0.3.28"
-regex = "1.9.1"
-chrono = { version = "0.4.26" }
-csv = "1.2.2"
-reqwest = "0.11.18"
+tokio = {version = "1.34.0", features = ["full"]}
+futures = "0.3.29"
+regex = "1.10.2"
+chrono = { version = "0.4.31" }
+csv = "1.3.0"
+reqwest = "0.11.22"
 
-log = "0.4.19"
-env_logger = "0.9.3"
+log = "0.4.20"
+env_logger = "0.10.1"
 
-image = "0.24.6"
+image = "0.24.7"
 once_cell = "1.18.0"
 
 gettext-rs = "0.7.0"
@@ -34,10 +34,10 @@ gettext-rs = "0.7.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
-tf_core = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305" }
-tf_join = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305" }
-tf_filter = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305" }
-tf_observer = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305" }
-tf_playlist = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305" }
-tf_yt = { package = "tf_platform_youtube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305"  }
-tf_pt = { package = "tf_platform_peertube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "98c9b2d03bb7b9329b1b2cb561b6709e26980305"  }
+tf_core = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
+tf_join = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
+tf_filter = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
+tf_observer = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
+tf_playlist = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
+tf_yt = { package = "tf_platform_youtube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8"  }
+tf_pt = { package = "tf_platform_peertube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8"  }

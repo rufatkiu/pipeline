@@ -6,6 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Keyboard shortcuts for actions.
+
+### Fixed
+
+- Video duration placed out-of-bounds if thumbnail does not load.
+
+### Chores
+
+- Updated dependencies.
+
 ## [1.14.0] - 2023-10-14
 
 ### Added

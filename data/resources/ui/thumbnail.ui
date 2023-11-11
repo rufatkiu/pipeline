@@ -7,12 +7,13 @@
     <property name="valign">GTK_ALIGN_START</property>
     <property name="hexpand">False</property>
     <property name="vexpand">True</property>
-    <property name="height-request">72</property>
-    <property name="width-request">128</property>
     <property name="orientation">vertical</property>
 
     <child>
       <object class="GtkOverlay">
+        <property name="height-request">72</property>
+        <property name="width-request">128</property>
+
         <child type="overlay">
           <object class="GtkLabel">
             <style>
