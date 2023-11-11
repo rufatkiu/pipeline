@@ -9,24 +9,19 @@
   <content_rating type="oars-1.1"/>
   <developer_name>Julian Schmidhuber</developer_name>
   <releases>
-    <release version="v1.14.0" date="2023-10-14">
+    <release version="v1.14.1" date="2023-11-11">
       <description>
         <p>Added</p>
         <ul>
-          <li>A dropdown for some popular video players.</li>
-          <li>A dropdown for some popular Piped APIs.</li>
-        </ul>
-        <p>Changed</p>
-        <ul>
-          <li>Removed buttons in the list in favor of a menu shown on right-click or long-press (touch-screen only).</li>
-          <li>Updated to GTK 4.12 and Libadwaita 1.4.</li>
-          <li>Use GridView instead of ListView for all pages.</li>
-          <li>Improvements regarding UI in the add-subscription dialog.</li>
-          <li>The button on the empty feed page will now lead to the subscription page instead of directly adding a subscription.</li>
+          <li>Keyboard shortcuts for actions.</li>
         </ul>
         <p>Fixed</p>
         <ul>
-          <li>Inconsistent size of video thumbnails.</li>
+          <li>Video duration placed out-of-bounds if thumbnail does not load.</li>
+        </ul>
+        <p>Chores</p>
+        <ul>
+          <li>Updated dependencies.</li>
         </ul>
       </description>
     </release>

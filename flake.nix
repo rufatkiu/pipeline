@@ -27,13 +27,13 @@
                 lockFile = ./Cargo.lock;
 
                 outputHashes = {
-                  "tf_core-0.1.4" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_join-0.1.7" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_filter-0.1.3" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_observer-0.1.3" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_playlist-0.1.4" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_platform_youtube-0.1.7" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
-                  "tf_platform_peertube-0.1.5" = "sha256-nAqoI0/LaHDmdhm/3Z2WLkOMbjkvLU6VD2haEi/YFJc=";
+                  "tf_core-0.1.4" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_join-0.1.7" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_filter-0.1.3" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_observer-0.1.3" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_playlist-0.1.4" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_platform_youtube-0.1.7" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_platform_peertube-0.1.5" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
                 };
               };
               src = ./.;
