@@ -58,6 +58,7 @@ pub mod imp {
     use gdk::glib::clone;
     use gdk::glib::ParamSpecObject;
     use gdk::glib::Value;
+    use gdk_pixbuf::glib::ControlFlow;
     use glib::subclass::InitializingObject;
     use glib::ParamSpec;
     use gtk::glib;
@@ -92,6 +93,9 @@ pub mod imp {
         #[template_child]
         popover_menu: TemplateChild<gtk::PopoverMenu>,
 
+        #[template_child]
+        dialog_error: TemplateChild<libadwaita::MessageDialog>,
+
         video: RefCell<Option<VideoObject>>,
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
     }
@@ -109,8 +113,21 @@ pub mod imp {
                 }),
             );
             let action_download = SimpleAction::new("download", None);
-            action_download.connect_activate(clone!(@strong self.video as video => move |_, _| {
-                video.borrow().as_ref().expect("Video should be set up").download();
+            action_download.connect_activate(clone!(@weak self as s, @strong self.video as video => move |_, _| {
+                let receiver = video.borrow().as_ref().expect("Video should be set up").download();
+                receiver.attach(
+                    None,
+                    clone!(@weak s => @default-return ControlFlow::Break, move |r| {
+                        if let Err(e) = r {
+                            log::error!("Failed to download video: {}", e);
+                            let window = s.obj().window();
+                            let dialog_error = &s.dialog_error;
+                            dialog_error.set_transient_for(Some(&window));
+                            dialog_error.present();
+                        }
+                        ControlFlow::Break
+                    }),
+                );
             }));
             let action_clipboard = SimpleAction::new("clipboard", None);
             action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {

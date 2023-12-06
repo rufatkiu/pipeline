@@ -33,4 +33,14 @@
       </object>
     </child>
   </template>
+
+  <object class="AdwMessageDialog" id="dialog_error">
+    <property name="heading" translatable="yes">Failed to play video</property>
+    <property name="body" translatable="yes">Please check your player in the settings.</property>
+    <property name="default-response">close</property>
+    <property name="hide-on-close">True</property>
+    <responses>
+      <response id="close" translatable="yes">Close</response>
+    </responses>
+  </object>
 </interface>

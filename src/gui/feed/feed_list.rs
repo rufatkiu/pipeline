@@ -30,7 +30,7 @@ use gdk::{
     prelude::{ActionMapExt, ListModelExt, ObjectExt, ToValue},
     subclass::prelude::ObjectSubclassIsExt,
 };
-use gdk_pixbuf::prelude::CastNone;
+use gdk_pixbuf::{glib::Cast, prelude::CastNone};
 use gtk::{
     traits::{AdjustmentExt, WidgetExt},
     Adjustment,
@@ -233,6 +233,13 @@ impl FeedList {
 
         self.set_property("more-available", (items_count != loaded_count).to_value());
     }
+
+    fn window(&self) -> crate::gui::window::Window {
+        self.root()
+            .expect("FeedList to have root")
+            .downcast::<crate::gui::window::Window>()
+            .expect("Root to be window")
+    }
 }
 
 pub mod imp {
@@ -243,6 +250,7 @@ pub mod imp {
     use gdk::glib::ParamSpecBoolean;
     use gdk::glib::Value;
     use gdk_pixbuf::glib::clone;
+    use gdk_pixbuf::glib::ControlFlow;
     use gdk_pixbuf::glib::Propagation;
     use glib::subclass::InitializingObject;
     use gtk::glib;
@@ -268,6 +276,9 @@ pub mod imp {
         #[template_child]
         pub(super) scrolled_window: TemplateChild<gtk::ScrolledWindow>,
 
+        #[template_child]
+        pub(super) dialog_error: TemplateChild<libadwaita::MessageDialog>,
+
         pub(super) items: RefCell<Vec<VideoObject>>,
         pub(super) model: RefCell<ListStore>,
         pub(super) loaded_count: Cell<usize>,
@@ -282,6 +293,7 @@ pub mod imp {
             Self {
                 feed_list: Default::default(),
                 scrolled_window: Default::default(),
+                dialog_error: Default::default(),
                 items: Default::default(),
                 model: RefCell::new(ListStore::new::<FeedItem>()),
                 loaded_count: Default::default(),
@@ -317,16 +329,31 @@ pub mod imp {
             self.feed_list.set_factory(Some(&factory));
             self.feed_list.set_single_click_activate(true);
 
-            self.feed_list.connect_activate(move |list_view, position| {
-                let model = list_view.model().expect("The model has to exist.");
-                let video_object = model
-                    .item(position)
-                    .expect("The item has to exist.")
-                    .downcast::<VideoObject>()
-                    .expect("The item has to be an `VideoObject`.");
+            self.feed_list
+                .connect_activate(clone!(@weak self as s => move |list_view, position| {
+                    let model = list_view.model().expect("The model has to exist.");
+                    let video_object = model
+                        .item(position)
+                        .expect("The item has to exist.")
+                        .downcast::<VideoObject>()
+                        .expect("The item has to be an `VideoObject`.");
 
-                video_object.play();
-            });
+                    let receiver = video_object.play();
+
+                    receiver.attach(
+                        None,
+                        clone!(@weak s => @default-return ControlFlow::Break, move |r| {
+                            if let Err(e) = r {
+                                log::error!("Failed to play video: {}", e);
+                                let window = s.obj().window();
+                                let dialog_error = &s.dialog_error;
+                                dialog_error.set_transient_for(Some(&window));
+                                dialog_error.present();
+                            }
+                            ControlFlow::Break
+                        }),
+                    );
+                }));
 
             let key_events = gtk::EventControllerKey::new();
             key_events.connect_key_pressed(

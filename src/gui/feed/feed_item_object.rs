@@ -123,43 +123,53 @@ impl VideoObject {
         self.video().map(|v| v.uploaded())
     }
 
-    pub fn play(&self) {
+    pub fn play(&self) -> glib::Receiver<Result<(), std::io::Error>> {
         self.set_property("playing", true);
         let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+        let (sender_return, receiver_return) = MainContext::channel(Priority::DEFAULT);
         play(
             self.property::<Option<String>>("local-path")
                 .unwrap_or_else(|| self.property::<Option<String>>("url").unwrap_or_default()),
-            move || {
-                let _ = sender.send(());
+            move |r| {
+                let _ = sender.send(r);
             },
         );
         receiver.attach(
             None,
-            clone!(@weak self as s => @default-return ControlFlow::Continue, move |_| {
+            clone!(@weak self as s => @default-return ControlFlow::Continue, move |r| {
                 s.set_property("playing", false);
-                ControlFlow::Continue
+                let _ = sender_return.send(r);
+                ControlFlow::Break
             }),
         );
+
+        receiver_return
     }
 
-    pub fn download(&self) {
+    pub fn download(&self) -> glib::Receiver<Result<(), std::io::Error>> {
         self.set_property("downloading", true);
         let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+        let (sender_return, receiver_return) = MainContext::channel(Priority::DEFAULT);
         download(
             self.property::<Option<String>>("url").unwrap_or_default(),
-            move |local_path| {
-                let _ = sender.send(local_path);
+            move |r| {
+                let _ = sender.send(r);
             },
         );
         receiver.attach(
             None,
-            clone!(@weak self as s => @default-return ControlFlow::Continue, move |local_path| {
+            clone!(@weak self as s => @default-return ControlFlow::Continue, move |r| {
                 s.set_property("downloading", false);
-                s.set_property("local-path", local_path);
-                s.notify("is-local");
-                ControlFlow::Continue
+                if let Ok(local_path) = &r {
+                    s.set_property("local-path", local_path);
+                    s.notify("is-local");
+                }
+                let _ = sender_return.send(r.map(|_| ()));
+                ControlFlow::Break
             }),
         );
+
+        receiver_return
     }
 
     pub async fn extra_info(&self) -> Result<Option<ExtraVideoInfo>, tf_join::AnyFetchError> {
