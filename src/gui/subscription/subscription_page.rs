@@ -142,6 +142,8 @@ pub mod imp {
         pub(super) entry_name_id: TemplateChild<gtk::Entry>,
         #[template_child]
         pub(super) dialog_add: TemplateChild<libadwaita::MessageDialog>,
+        #[template_child]
+        pub(super) dialog_error: TemplateChild<libadwaita::MessageDialog>,
 
         #[template_child]
         pub(super) subscription_stack: TemplateChild<gtk::Stack>,
@@ -164,6 +166,7 @@ pub mod imp {
                 entry_url: Default::default(),
                 entry_name_id: Default::default(),
                 dialog_add: Default::default(),
+                dialog_error: Default::default(),
                 subscription_stack: Default::default(),
                 subscription_video_list: Default::default(),
                 any_subscription_list: Default::default(),
@@ -292,14 +295,9 @@ pub mod imp {
                     // Platform::Lbry => Some(LbrySubscription::new(&name_id).into()),
                     // -- Add case here
                 };
-                if let Some(subscription) = subscription {
-                    sender
-                        .send(subscription)
-                        .expect("Failed to send message about subscription");
-                } else {
-                    // TODO: Better Error Handling
-                    log::error!("Failed to get subscription with supplied data");
-                }
+                sender
+                    .send(subscription)
+                    .expect("Failed to send message about subscription");
             });
 
             let obj = self.obj();
@@ -307,8 +305,16 @@ pub mod imp {
                 None,
                 clone!(@strong self.any_subscription_list as list, @strong obj =>
                        move |sub| {
-                           list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
-                           obj.emit_by_name::<()>("subscription-added", &[]);
+                           if let Some(sub) = sub {
+                               list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
+                               obj.emit_by_name::<()>("subscription-added", &[]);
+                           } else {
+                               log::error!("Failed to get subscription with supplied data");
+                                let window = obj.window();
+                                let dialog_error = &obj.imp().dialog_error;
+                                dialog_error.set_transient_for(Some(&window));
+                                dialog_error.present();
+                           }
                            ControlFlow::Continue
                        }
                 )
