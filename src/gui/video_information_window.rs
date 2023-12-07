@@ -2,9 +2,10 @@ use gtk::{
     traits::{GtkWindowExt, WidgetExt},
     Builder,
 };
-use tf_core::ExtraVideoInfo;
+use tf_core::{ExtraVideoInfo, Video};
 
 pub fn video_information_window(
+    video: tf_join::AnyVideo,
     video_information: &ExtraVideoInfo,
     parent: &crate::gui::window::Window,
 ) -> libadwaita::Window {
@@ -15,6 +16,11 @@ pub fn video_information_window(
         .expect("video_information_window.ui to have the object window");
     window.set_transient_for(Some(parent));
     window.set_modal(true);
+
+    let label_title: gtk::Label = builder
+        .object("label_title")
+        .expect("video_information_window.ui to have the object label_title");
+    label_title.set_text(&video.title());
 
     if let Some(desc) = &video_information.description {
         let desc = desc.replace("<br>", "\n");

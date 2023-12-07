@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Video title as tooltip of the video.
+- Video title in the video information screen.
+
 ## [1.14.1] - 2023-11-11
 
 ### Added

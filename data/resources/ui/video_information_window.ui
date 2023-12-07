@@ -24,6 +24,14 @@
           </object>
         </child>
         <child>
+          <object class="GtkLabel" id="label_title">
+            <style>
+              <class name="title-3"/>
+            </style>
+            <property name="wrap">true</property>
+          </object>
+        </child>
+        <child>
           <object class="GtkBox">
             <property name="homogeneous">true</property>
             <child>

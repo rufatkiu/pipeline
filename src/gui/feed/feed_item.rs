@@ -118,15 +118,19 @@ pub mod imp {
                 clipboard.set_text(&video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url());
             }));
             let action_information = SimpleAction::new("information", None);
-            action_information.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
-                let ctx = glib::MainContext::default();
-                ctx.spawn_local(clone!(@strong video, @strong obj => async move {
-                    let info = &video.borrow().as_ref().expect("Video should be set up").extra_info().await;
-                    if let Ok(Some(info)) = info {
-                        video_information_window(info, &obj.window()).present();
-                    }
-                }));
-            }));
+            action_information.connect_activate(
+                clone!(@strong self.video as video, @strong obj => move |_, _| {
+                    let ctx = glib::MainContext::default();
+                    ctx.spawn_local(clone!(@strong video, @strong obj => async move {
+                        let video = video.borrow();
+                        let video = video.as_ref().expect("Video should be set up");
+                        let info = &video.extra_info().await;
+                        if let Ok(Some(info)) = info {
+                            video_information_window(video.video().expect("Video to be set up"), info, &obj.window()).present();
+                        }
+                    }));
+                }),
+            );
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));
