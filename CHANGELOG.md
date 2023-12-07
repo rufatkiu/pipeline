@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Video title as tooltip of the video.
 - Video title in the video information screen.
 - Error handling when failing to add a subscription.
+- Error handling when failing to play or download videos.
 
 ## [1.14.1] - 2023-11-11
 

@@ -25,7 +25,7 @@ use std::{
 
 pub fn play<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn() + std::marker::Send + 'static,
+    F: Fn(Result<(), std::io::Error>) + std::marker::Send + 'static,
 >(
     url: S,
     callback: F,
@@ -37,7 +37,7 @@ pub fn play<
 
 pub fn open_with<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn() + std::marker::Send + 'static,
+    F: Fn(Result<(), std::io::Error>) + std::marker::Send + 'static,
 >(
     url: S,
     command: String,
@@ -62,16 +62,18 @@ pub fn open_with<
             Stdio::null()
         };
 
-        let _ = Command::new(&program)
+        let command = Command::new(&program)
             .args(args)
             .arg(url)
             .stdout(stdout)
             .stderr(stderr)
             .stdin(Stdio::null())
-            .spawn()
-            .unwrap()
-            .wait();
+            .spawn();
 
-        callback();
+        if let Ok(mut c) = command {
+            callback(c.wait().map(|_| ()));
+        } else {
+            callback(command.map(|_| ()))
+        }
     });
 }
