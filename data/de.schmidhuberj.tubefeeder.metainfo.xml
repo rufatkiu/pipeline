@@ -9,6 +9,17 @@
   <content_rating type="oars-1.1"/>
   <developer_name>Julian Schmidhuber</developer_name>
   <releases>
+    <release version="v1.14.2" date="2023-12-08">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Video title as tooltip of the video.</li>
+          <li>Video title in the video information screen.</li>
+          <li>Error handling when failing to add a subscription.</li>
+          <li>Error handling when failing to play or download videos.</li>
+        </ul>
+      </description>
+    </release>
     <release version="v1.14.1" date="2023-11-11">
       <description>
         <p>Added</p>

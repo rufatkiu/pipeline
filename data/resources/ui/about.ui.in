@@ -16,15 +16,10 @@
     <property name="release-notes">
       &lt;p&gt;Added&lt;/p&gt;
       &lt;ul&gt;
-      &lt;li&gt;Keyboard shortcuts for actions.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;Fixed&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Video duration placed out-of-bounds if thumbnail does not load.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;Chores&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Updated dependencies.&lt;/li&gt;
+        &lt;li&gt;Video title as tooltip of the video.&lt;/li&gt;
+        &lt;li&gt;Video title in the video information screen.&lt;/li&gt;
+        &lt;li&gt;Error handling when failing to add a subscription.&lt;/li&gt;
+        &lt;li&gt;Error handling when failing to play or download videos.&lt;/li&gt;
       &lt;/ul&gt;
     </property>
   </object>

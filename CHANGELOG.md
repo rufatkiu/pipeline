@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.14.2] - 2023-12-08
+
 ### Added
 
 - Video title as tooltip of the video.
@@ -68,7 +70,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - File chooser dialog for importing videos not working.
 
-[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.1...master
+[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.2...master
+[1.14.2]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.1...v1.14.2
 [1.14.1]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.0...v1.14.1
 [1.14.0]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.13.1...v1.14.0
 [1.13.1]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.13.0...v1.13.1
