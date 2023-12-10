@@ -8,248 +8,252 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-09 13:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-12-11 21:05+0000\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: data/resources/ui/feed_item.ui:162 data/resources/ui/watch_later.ui:16
 #: data/resources/ui/window.ui:29
 msgid "Watch Later"
-msgstr ""
+msgstr "بعداً"
 
 #: data/resources/ui/feed_item.ui:166
 msgid "Download"
-msgstr ""
+msgstr "بارگیری"
 
 #: data/resources/ui/feed_item.ui:170
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "رونوشت در تخته‌گیره"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "More Information"
-msgstr ""
+msgstr "اطّلاعات بیش‌تر"
 
 #: data/resources/ui/feed_page.ui:16 data/resources/ui/window.ui:19
 msgid "Feed"
-msgstr ""
+msgstr "خوراک"
 
 #: data/resources/ui/feed_page.ui:26
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "بازخوانی"
 
 #: data/resources/ui/feed_page.ui:28
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "بازخوانی"
 
 #: data/resources/ui/feed_page.ui:72
 msgid "No Videos Found"
-msgstr ""
+msgstr "هیچ ویدیویی پیدا نشد"
 
 #: data/resources/ui/feed_page.ui:84 data/resources/ui/subscription_page.ui:73
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "اشتراک یک کانال…"
 
 #: data/resources/ui/filter_item.ui:88
 #: data/resources/ui/subscription_item.ui:104
 msgid "Remove"
-msgstr ""
+msgstr "برداشتن"
 
 #: data/resources/ui/filter_page.ui:16 data/resources/ui/window.ui:38
 msgid "Filters"
-msgstr ""
+msgstr "پالایه‌ها"
 
 #: data/resources/ui/filter_page.ui:24
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "افزودن پالایه…"
 
 #: data/resources/ui/filter_page.ui:26
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "افزودن پالایه…"
 
 #: data/resources/ui/filter_page.ui:50
 msgid "No Filters"
-msgstr ""
+msgstr "بدون پالایه"
 
 #: data/resources/ui/filter_page.ui:67
 msgid "Add Filter…"
-msgstr ""
+msgstr "افزودن پالایه…"
 
 #: data/resources/ui/filter_page.ui:77
 msgid "Add Filter"
-msgstr ""
+msgstr "افزودن پالایه"
 
 #: data/resources/ui/filter_page.ui:86
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 #: data/resources/ui/filter_page.ui:91
 msgid "Channel Name"
-msgstr ""
+msgstr "نام کانال"
 
 #: data/resources/ui/filter_page.ui:98 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:163
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #: data/resources/ui/filter_page.ui:99
 #: data/resources/ui/subscription_page.ui:164
 msgid "Add"
-msgstr ""
+msgstr "افزودن"
 
 #: data/resources/ui/header_bar.ui:36
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "فهرست اصلی"
 
 #: data/resources/ui/header_bar.ui:38
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "فهرست اصلی"
 
 #: data/resources/ui/header_bar.ui:49
 msgid "Preferences"
-msgstr ""
+msgstr "ترجیحات"
 
 #: data/resources/ui/header_bar.ui:53
 msgid "Import…"
-msgstr ""
+msgstr "درون‌ریزی…"
 
 #: data/resources/ui/header_bar.ui:57
 msgid "About Pipeline"
-msgstr ""
+msgstr "دربارهٔ خط لوله"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "درون‌ریزی اشتراک‌ها"
 
 #: data/resources/ui/import_window.ui:8
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
-msgstr ""
+msgstr "اشتراک‌هایتان را از نیوپایپ یا یوتوب وارد می‌کند."
 
 #: data/resources/ui/import_window.ui:14
 msgid "NewPipe"
-msgstr ""
+msgstr "نیوپایپ"
 
 #: data/resources/ui/import_window.ui:15
 msgid "YouTube"
-msgstr ""
+msgstr "یوتوب"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "عمومی"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "برنامه‌ها"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
 msgid "Player"
-msgstr ""
+msgstr "پخش‌کننده"
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "بارگیر"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "APIها"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"برای سیاهه‌ای کامل از APIهای همگانی <a href=\"https://github.com/TeamPiped/"
+"Piped/wiki/Instances\">صفحهٔ نمونه‌ها</a> را ببینید."
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr ""
+msgstr "API پایپد"
 
 #: data/resources/ui/preferences_window.ui:58
 msgid "Custom Piped API"
-msgstr ""
+msgstr "API سفارشی پایپد"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "دیگر"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "فقط نمایش ویدیوها از دیروز"
 
 #: data/resources/ui/subscription_page.ui:21
 #: data/resources/ui/subscription_page.ui:90 data/resources/ui/window.ui:47
 msgid "Subscriptions"
-msgstr ""
+msgstr "اشتراک‌ها"
 
 #: data/resources/ui/subscription_page.ui:29
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "افزودن اشتراک…"
 
 #: data/resources/ui/subscription_page.ui:31
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "افزودن اشتراک…"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "No Subscriptions"
-msgstr ""
+msgstr "بدون اشتراک"
 
 #: data/resources/ui/subscription_page.ui:95
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "بازگشت به سیاههٔ اشتراک"
 
 #: data/resources/ui/subscription_page.ui:97
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "بازگشت"
 
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add Subscription"
-msgstr ""
+msgstr "افزودن اشتراک"
 
 #: data/resources/ui/subscription_page.ui:143
 msgid "Base URL"
-msgstr ""
+msgstr "نشانی پایه"
 
 #: data/resources/ui/subscription_page.ui:155
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "شناسه یا نام کانال"
 
 #: data/resources/ui/watch_later.ui:32
 msgid "Everything Watched"
-msgstr ""
+msgstr "همه‌چیز دیده شده"
 
 #: data/resources/ui/watch_later.ui:33
 msgid "How about going outside?"
-msgstr ""
+msgstr "چه‌طور است بیرون بروید؟"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "خطای وصل شدن به شبکه"
 
 #: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "خطای تجزیهٔ یک اشتراک"
+msgstr[1] "خطای تجزیهٔ {} اشتراک"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
-msgstr ""
+msgstr "خطاهایی رخ داد"
 
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
@@ -257,22 +261,24 @@ msgstr ""
 
 #: src/gui/header_bar.rs:104
 msgid "Donate"
-msgstr ""
+msgstr "اعانه"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "گزینش پروندهٔ اشتراک‌های نیوپایپ"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "شکست در درون ریزی اشتراک‌ها"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "گزینش پروندهٔ اشتراک یوتوب"
 
 #: src/gui/preferences_window.rs:129
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"توجّه داشته باشید هنگام استفاده از پخش‌کننده‌ای خارجی روی فلت‌پک، گام‌های "
+"بیش‌تری وحود دارد. برای اطّلاعات بیش‌تر لطفاً از ویکی کمک بگیرید."
