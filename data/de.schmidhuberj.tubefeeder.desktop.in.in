@@ -2,8 +2,10 @@
 Type=Application
 Icon=@app-id@
 Name=Pipeline
+Name[fa]=خط لوله
 Comment=Watch YouTube and PeerTube videos in one place
 Comment[ar]=عميل YouTube و PeerTube
+Comment[fa]=دیدن ویدیوهای یوتوب و پیرتیوب از یک جا
 Comment[it]=Un client per YouTube e PeerTube
 StartupWMClass=Pipeline
 Exec=@bindir@/tubefeeder
