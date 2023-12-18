@@ -1,6 +1,6 @@
 [package]
 name = "tubefeeder"
-description = "Watch YouTube and PeerTube videos in one place"
+description = "Follow video creators"
 homepage = "https://mobile.schmidhuberj.de/pipeline"
 repository = "https://gitlab.com/schmiddi-on-mobile/pipeline"
 version = "1.14.2"

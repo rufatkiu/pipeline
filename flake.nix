@@ -1,5 +1,5 @@
 {
-  description = "Watch YouTube and PeerTube videos in one place";
+  description = "Follow video creators";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixpkgsgnome.url = "github:NixOS/nixpkgs/704a204ff98d07aec17bd741d304c0ea8c30bc49";
