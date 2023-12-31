@@ -19,12 +19,8 @@ Pipeline lets you watch and download videos from YouTube and PeerTube, all witho
     </td>
   </tr>
   <tr>
-    <td>Arch Linux (AUR - stable)</td>
-    <td>[tubefeeder](https://aur.archlinux.org/packages/tubefeeder)</td>
-  </tr>
-  <tr>
-    <td>Arch Linux (AUR - git)</td>
-    <td>[tubefeeder-git](https://aur.archlinux.org/packages/tubefeeder-git)</td>
+    <td>Arch Linux (AUR)</td>
+    <td>[pipeline-gtk](https://aur.archlinux.org/packages/pipeline-gtk)</td>
   </tr>
 </table>
 
