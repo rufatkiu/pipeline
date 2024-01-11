@@ -63,6 +63,7 @@ pub mod imp {
     use std::cell::Cell;
     use std::cell::RefCell;
 
+    use chrono::Duration;
     use gdk::glib::clone;
     use gdk::glib::MainContext;
     use gdk::glib::ParamSpec;
@@ -170,14 +171,18 @@ pub mod imp {
             receiver.attach(
                 None,
                 clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, move |videos| {
-                    let yesterday = chrono::Local::now().date_naive() - chrono::Duration::days(1);
-                    let video_objects_iter = videos.into_iter().map(VideoObject::new);
+                    let yesterday = chrono::Local::now().date_naive() - Duration::days(1);
 
-                    let video_objects = if settings.boolean("only-videos-yesterday") {
-                        video_objects_iter.filter(|v| v.uploaded().map(|d| d.date()) == Some(yesterday)).collect::<Vec<_>>()
-                    } else {
-                        video_objects_iter.collect::<Vec<_>>()
-                    };
+                    let only_yesterday = settings.boolean("only-videos-yesterday");
+                    let remove_short = settings.boolean("remove-short-videos");
+                    
+                    let video_objects = videos
+                        .into_iter()
+                        .map(VideoObject::new)
+                        .filter(|v| !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday))
+                        .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::seconds(61)).unwrap_or_default())) // One more second padding to be sure.
+                        .collect::<Vec<_>>();
+
                     s.imp().feed_list.get().set_items(video_objects);
                     s.set_property("reloading", &false);
                     ControlFlow::Continue

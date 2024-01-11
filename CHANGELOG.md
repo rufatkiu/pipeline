@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - "Livi" video player in the list of predefined video players.
+- Option to hide all short videos.
 
 ## [1.14.2] - 2023-12-08
 
