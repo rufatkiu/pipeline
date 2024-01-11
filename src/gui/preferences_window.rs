@@ -74,6 +74,7 @@ pub mod imp {
                     "flatpak run io.github.celluloid_player.Celluloid",
                 ),
                 PredefinedPlayer::new("Celluloid", "celluloid"),
+                PredefinedPlayer::new("Livi", "livi --yt-dlp"),
                 PredefinedPlayer::new("Custom", ""),
             ]
         }
