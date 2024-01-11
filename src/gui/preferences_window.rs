@@ -54,6 +54,8 @@ pub mod imp {
 
         #[template_child]
         switch_only_videos_yesterday: TemplateChild<Switch>,
+        #[template_child]
+        switch_remove_short_videos: TemplateChild<Switch>,
 
         settings: Settings,
     }
@@ -204,6 +206,14 @@ pub mod imp {
                 )
                 .flags(SettingsBindFlags::DEFAULT)
                 .build();
+            self.settings
+                .bind(
+                    "remove-short-videos",
+                    &self.switch_remove_short_videos.get(),
+                    "active",
+                )
+                .flags(SettingsBindFlags::DEFAULT)
+                .build();
 
             self.init_predefined_player();
             self.init_predefined_piped_api();
@@ -226,6 +236,7 @@ pub mod imp {
                 combo_predefined_player: Default::default(),
                 combo_predefined_piped_api: Default::default(),
                 switch_only_videos_yesterday: Default::default(),
+                switch_remove_short_videos: Default::default(),
             }
         }
 

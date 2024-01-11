@@ -74,6 +74,18 @@
                 </child>
               </object>
             </child>
+            <child>
+              <object class="AdwActionRow">
+                <property name="title" translatable="yes">Remove Short Videos</property>
+                <property name="subtitle" translatable="yes">Removes all videos shorter than 1 minute</property>
+                <child>
+                  <object class="GtkSwitch" id="switch_remove_short_videos">
+                    <property name="valign">center</property>
+                    <property name="halign">center</property>
+                  </object>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
       </object>

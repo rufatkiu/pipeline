@@ -111,6 +111,7 @@ impl VideoObject {
             .property("duration", video.duration().map(format_duration))
             .property("playing", &false)
             .build();
+        s.imp().duration.swap(&RefCell::new(video.duration()));
         s.imp().video.swap(&RefCell::new(Some(video)));
         s
     }
@@ -181,9 +182,14 @@ impl VideoObject {
             .extra_information_with_client(&reqwest::Client::new())
             .await
     }
+
+    pub fn duration(&self) -> Option<Duration> {
+        self.imp().duration.borrow().as_ref().cloned()
+    }
 }
 
 mod imp {
+    use chrono::Duration;
     use gtk::glib::{self, Object};
     use std::cell::{Cell, RefCell};
     use tf_join::AnyVideo;
@@ -204,11 +210,12 @@ mod imp {
         url: RefCell<Option<String>>,
         thumbnail_url: RefCell<Option<String>>,
         local_path: RefCell<Option<String>>,
-        duration: RefCell<Option<String>>,
+        duration_fmt: RefCell<Option<String>>,
 
         playing: Cell<bool>,
         downloading: Cell<bool>,
 
+        pub(super) duration: RefCell<Option<Duration>>,
         pub(super) video: RefCell<Option<AnyVideo>>,
     }
 
@@ -268,7 +275,7 @@ mod imp {
                 "local-path",
                 self.local_path,
                 "duration",
-                self.duration
+                self.duration_fmt
             );
         }
 
@@ -299,7 +306,7 @@ mod imp {
                 "local-path",
                 self.local_path,
                 "duration",
-                self.duration
+                self.duration_fmt
             )
         }
     }
