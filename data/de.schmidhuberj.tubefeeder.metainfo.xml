@@ -9,6 +9,15 @@
   <content_rating type="oars-1.1"/>
   <developer_name>Julian Schmidhuber</developer_name>
   <releases>
+    <release version="v1.14.3" date="2024-01-11">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Livi video player in the list of predefined video players.</li>
+          <li>Option to hide all short videos.</li>
+        </ul>
+      </description>
+    </release>
     <release version="v1.14.2" date="2023-12-08">
       <description>
         <p>Added</p>

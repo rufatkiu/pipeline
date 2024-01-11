@@ -3,7 +3,7 @@ name = "tubefeeder"
 description = "Follow video creators"
 homepage = "https://mobile.schmidhuberj.de/pipeline"
 repository = "https://gitlab.com/schmiddi-on-mobile/pipeline"
-version = "1.14.2"
+version = "1.14.3"
 authors = ["Julian Schmidhuber <schmidhuberj2@protonmail.com>"]
 edition = "2021"
 
