@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-09 13:48+0200\n"
+"POT-Creation-Date: 2024-01-11 17:12+0100\n"
 "PO-Revision-Date: 2023-07-07 17:16+0100\n"
 "Last-Translator: Rayan Nakib <rayan.nakib@tutamail.com>\n"
 "Language-Team: ARABIC\n"
@@ -19,117 +19,127 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: data/resources/ui/feed_item.ui:162 data/resources/ui/watch_later.ui:16
-#: data/resources/ui/window.ui:29
+#: data/resources/ui/about.ui:12
+msgid "translator-credits"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
+#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
 msgid "Watch Later"
 msgstr "المشاهدة لاحقا"
 
-#: data/resources/ui/feed_item.ui:166
+#: data/resources/ui/feed_item.ui:174
 msgid "Download"
 msgstr "نزّل المقطع المرئي"
 
-#: data/resources/ui/feed_item.ui:170
+#: data/resources/ui/feed_item.ui:178
 msgid "Copy to Clipboard"
 msgstr "انسخ إلى الحافظة"
 
-#: data/resources/ui/feed_item.ui:174
+#: data/resources/ui/feed_item.ui:182
 msgid "More Information"
 msgstr ""
 
-#: data/resources/ui/feed_page.ui:16 data/resources/ui/window.ui:19
+#: data/resources/ui/feed_item.ui:190
+msgid "Failed to download video"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:191
+msgid "Please check your downloader in the settings."
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
+#: data/resources/ui/subscription_page.ui:162
+msgid "Close"
+msgstr ""
+
+#: data/resources/ui/feed_list.ui:38
+msgid "Failed to play video"
+msgstr ""
+
+#: data/resources/ui/feed_list.ui:39
+msgid "Please check your player in the settings."
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
+#: data/resources/ui/window.ui:73
 msgid "Feed"
 msgstr "الموجز"
 
-#: data/resources/ui/feed_page.ui:26
+#: data/resources/ui/feed_page.ui:21
 msgctxt "accessibility"
 msgid "Reload"
 msgstr ""
 
-#: data/resources/ui/feed_page.ui:28
+#: data/resources/ui/feed_page.ui:23
 msgctxt "tooltip"
 msgid "Reload"
 msgstr ""
 
-#: data/resources/ui/feed_page.ui:72
+#: data/resources/ui/feed_page.ui:69
 msgid "No Videos Found"
 msgstr "لا توجد مرئيات"
 
-#: data/resources/ui/feed_page.ui:84 data/resources/ui/subscription_page.ui:73
-msgid "Subscribe to a Channel…"
-msgstr "اشترك في قناة..."
+#: data/resources/ui/feed_page.ui:70
+msgid "Your feed will appear once you've added subscriptions"
+msgstr ""
 
-#: data/resources/ui/filter_item.ui:88
-#: data/resources/ui/subscription_item.ui:104
+#: data/resources/ui/feed_page.ui:82
+#, fuzzy
+msgid "Manage Subscriptions…"
+msgstr "أضِف اشتراك"
+
+#: data/resources/ui/filter_item.ui:89
+#: data/resources/ui/subscription_item.ui:97
 msgid "Remove"
 msgstr ""
 
-#: data/resources/ui/filter_page.ui:16 data/resources/ui/window.ui:38
+#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
+#: data/resources/ui/window.ui:94
 msgid "Filters"
 msgstr "مُرشِّحات"
 
-#: data/resources/ui/filter_page.ui:24
+#: data/resources/ui/filter_page.ui:14
 #, fuzzy
 msgctxt "accessibility"
 msgid "Add Filter…"
 msgstr "أضف مرشِّح..."
 
-#: data/resources/ui/filter_page.ui:26
+#: data/resources/ui/filter_page.ui:16
 #, fuzzy
 msgctxt "tooltip"
 msgid "Add Filter…"
 msgstr "أضف مرشِّح..."
 
-#: data/resources/ui/filter_page.ui:50
+#: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
 msgstr "لا توجد مُرشِّحات"
 
-#: data/resources/ui/filter_page.ui:67
+#: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
 msgstr "أضف مرشِّح..."
 
-#: data/resources/ui/filter_page.ui:77
+#: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
 msgstr "أضِف مُرشِّح"
 
-#: data/resources/ui/filter_page.ui:86
+#: data/resources/ui/filter_page.ui:82
 msgid "Title"
 msgstr "عنوان"
 
-#: data/resources/ui/filter_page.ui:91
+#: data/resources/ui/filter_page.ui:87
 msgid "Channel Name"
 msgstr "اسم القناة"
 
-#: data/resources/ui/filter_page.ui:98 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:163
+#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
+#: data/resources/ui/subscription_page.ui:121
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: data/resources/ui/filter_page.ui:99
-#: data/resources/ui/subscription_page.ui:164
+#: data/resources/ui/filter_page.ui:95
+#: data/resources/ui/subscription_page.ui:122
 msgid "Add"
 msgstr "اضِف"
-
-#: data/resources/ui/header_bar.ui:36
-msgctxt "accessibility"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/header_bar.ui:38
-msgctxt "tooltip"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/header_bar.ui:49
-msgid "Preferences"
-msgstr "تفضيلات"
-
-#: data/resources/ui/header_bar.ui:53
-msgid "Import…"
-msgstr "استورد..."
-
-#: data/resources/ui/header_bar.ui:57
-msgid "About Pipeline"
-msgstr "حول Pipeline"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
@@ -197,57 +207,108 @@ msgstr "أخرى"
 msgid "Show only Videos from Yesterday"
 msgstr "أظهر مقاطع الفيديو من الأمس فقط"
 
-#: data/resources/ui/subscription_page.ui:21
-#: data/resources/ui/subscription_page.ui:90 data/resources/ui/window.ui:47
+#: data/resources/ui/preferences_window.ui:79
+msgid "Remove Short Videos"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:80
+msgid "Removes all videos shorter than 1 minute"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
+#: data/resources/ui/window.ui:104
 msgid "Subscriptions"
 msgstr "الاشتراكات"
 
-#: data/resources/ui/subscription_page.ui:29
+#: data/resources/ui/subscription_page.ui:39
+msgid "No Subscriptions"
+msgstr "لا توجد اشتراكات"
+
+#: data/resources/ui/subscription_page.ui:56
+msgid "Subscribe to a Channel…"
+msgstr "اشترك في قناة..."
+
+#: data/resources/ui/subscription_page.ui:79
+msgid "Add Subscription"
+msgstr "أضِف اشتراك"
+
+#: data/resources/ui/subscription_page.ui:100
+msgid "Base URL"
+msgstr "الرابط الرئيسي"
+
+#: data/resources/ui/subscription_page.ui:113
+msgid "Channel ID or Name"
+msgstr "معرًف القناة أو الاسم"
+
+#: data/resources/ui/subscription_page.ui:131
 #, fuzzy
 msgctxt "accessibility"
 msgid "Add Subscription…"
 msgstr "أضِف اشتراك"
 
-#: data/resources/ui/subscription_page.ui:31
+#: data/resources/ui/subscription_page.ui:133
 #, fuzzy
 msgctxt "tooltip"
 msgid "Add Subscription…"
 msgstr "أضِف اشتراك"
 
-#: data/resources/ui/subscription_page.ui:56
-msgid "No Subscriptions"
-msgstr "لا توجد اشتراكات"
-
-#: data/resources/ui/subscription_page.ui:95
+#: data/resources/ui/subscription_page.ui:144
 #, fuzzy
 msgctxt "accessibility"
 msgid "Go back to subscription list"
 msgstr "لا توجد اشتراكات"
 
-#: data/resources/ui/subscription_page.ui:97
+#: data/resources/ui/subscription_page.ui:146
 msgctxt "tooltip"
 msgid "Go back"
 msgstr ""
 
-#: data/resources/ui/subscription_page.ui:122
-msgid "Add Subscription"
-msgstr "أضِف اشتراك"
+#: data/resources/ui/subscription_page.ui:157
+#, fuzzy
+msgid "Failed to add subscription"
+msgstr "خطأ في استيراد الاشتراكات"
 
-#: data/resources/ui/subscription_page.ui:143
-msgid "Base URL"
-msgstr "الرابط الرئيسي"
+#: data/resources/ui/subscription_page.ui:158
+msgid "Please check your input, internet connection and API URL."
+msgstr ""
 
-#: data/resources/ui/subscription_page.ui:155
-msgid "Channel ID or Name"
-msgstr "معرًف القناة أو الاسم"
+#: data/resources/ui/video_information_window.ui:21
+msgid "Video Information"
+msgstr ""
 
-#: data/resources/ui/watch_later.ui:32
+#: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
 msgstr "شاهدت كل شيئ"
 
-#: data/resources/ui/watch_later.ui:33
+#: data/resources/ui/watch_later.ui:29
 msgid "How about going outside?"
 msgstr "ماذا عن الخروج؟"
+
+#: data/resources/ui/window.ui:58
+msgctxt "accessibility"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/window.ui:60
+msgctxt "tooltip"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/window.ui:127
+msgid "Import…"
+msgstr "استورد..."
+
+#: data/resources/ui/window.ui:131
+msgid "Preferences"
+msgstr "تفضيلات"
+
+#: data/resources/ui/window.ui:135
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/resources/ui/window.ui:139
+msgid "About Pipeline"
+msgstr "حول Pipeline"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
@@ -271,10 +332,6 @@ msgstr "حدث خطأ ما"
 msgid "%F %T"
 msgstr "%F %T"
 
-#: src/gui/header_bar.rs:104
-msgid "Donate"
-msgstr "تبرّع"
-
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
 msgstr "حدد ملف اشتراكات NewPipe"
@@ -287,13 +344,17 @@ msgstr "خطأ في استيراد الاشتراكات"
 msgid "Select YouTube subscription file"
 msgstr "حدد ملف اشتراك"
 
-#: src/gui/preferences_window.rs:129
+#: src/gui/preferences_window.rs:132
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
 "لاحظ أنه في فلاتباك هناك بعض الخطوات الإضافية المطلوبة عند استخدام مشغل "
 "فيديو خارجي للفلاتباك ، لمزيد من المعلومات يرجى الرجوع إلى الويكي."
+
+#: src/gui/window.rs:210
+msgid "Donate"
+msgstr "تبرّع"
 
 #~ msgid "Load more"
 #~ msgstr "حِمْل المزيد"
