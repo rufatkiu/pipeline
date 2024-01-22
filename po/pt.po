@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the tubefeeder package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tubefeeder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-11 17:12+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#: data/resources/ui/about.ui:12
+msgid "translator-credits"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
+#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
+msgid "Watch Later"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:174
+msgid "Download"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:178
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:182
+msgid "More Information"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:190
+msgid "Failed to download video"
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:191
+msgid "Please check your downloader in the settings."
+msgstr ""
+
+#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
+#: data/resources/ui/subscription_page.ui:162
+msgid "Close"
+msgstr ""
+
+#: data/resources/ui/feed_list.ui:38
+msgid "Failed to play video"
+msgstr ""
+
+#: data/resources/ui/feed_list.ui:39
+msgid "Please check your player in the settings."
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
+#: data/resources/ui/window.ui:73
+msgid "Feed"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:21
+msgctxt "accessibility"
+msgid "Reload"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:23
+msgctxt "tooltip"
+msgid "Reload"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:69
+msgid "No Videos Found"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:70
+msgid "Your feed will appear once you've added subscriptions"
+msgstr ""
+
+#: data/resources/ui/feed_page.ui:82
+msgid "Manage Subscriptions…"
+msgstr ""
+
+#: data/resources/ui/filter_item.ui:89
+#: data/resources/ui/subscription_item.ui:97
+msgid "Remove"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
+#: data/resources/ui/window.ui:94
+msgid "Filters"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:14
+msgctxt "accessibility"
+msgid "Add Filter…"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:16
+msgctxt "tooltip"
+msgid "Add Filter…"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:46
+msgid "No Filters"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:63
+msgid "Add Filter…"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:73
+msgid "Add Filter"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:82
+msgid "Title"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:87
+msgid "Channel Name"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
+#: data/resources/ui/subscription_page.ui:121
+msgid "Cancel"
+msgstr ""
+
+#: data/resources/ui/filter_page.ui:95
+#: data/resources/ui/subscription_page.ui:122
+msgid "Add"
+msgstr ""
+
+#: data/resources/ui/import_window.ui:7
+msgid "Import Subscriptions"
+msgstr ""
+
+#: data/resources/ui/import_window.ui:8
+msgid ""
+"This will import your subscriptions from exported data from NewPipe or "
+"YouTube."
+msgstr ""
+
+#: data/resources/ui/import_window.ui:14
+msgid "NewPipe"
+msgstr ""
+
+#: data/resources/ui/import_window.ui:15
+msgid "YouTube"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:9
+msgid "General"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:13
+msgid "Programs"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:17
+#: data/resources/ui/preferences_window.ui:30
+msgid "Player"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:35
+msgid "Downloader"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:42
+msgid "APIs"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:43
+msgid ""
+"For a complete list of public APIs, see the <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:46
+msgid "Piped API"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:58
+msgid "Custom Piped API"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:65
+msgid "Other"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:68
+msgid "Show only Videos from Yesterday"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:79
+msgid "Remove Short Videos"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:80
+msgid "Removes all videos shorter than 1 minute"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
+#: data/resources/ui/window.ui:104
+msgid "Subscriptions"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:39
+msgid "No Subscriptions"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:56
+msgid "Subscribe to a Channel…"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:79
+msgid "Add Subscription"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:100
+msgid "Base URL"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:113
+msgid "Channel ID or Name"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:131
+msgctxt "accessibility"
+msgid "Add Subscription…"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:133
+msgctxt "tooltip"
+msgid "Add Subscription…"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:144
+msgctxt "accessibility"
+msgid "Go back to subscription list"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:146
+msgctxt "tooltip"
+msgid "Go back"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:157
+msgid "Failed to add subscription"
+msgstr ""
+
+#: data/resources/ui/subscription_page.ui:158
+msgid "Please check your input, internet connection and API URL."
+msgstr ""
+
+#: data/resources/ui/video_information_window.ui:21
+msgid "Video Information"
+msgstr ""
+
+#: data/resources/ui/watch_later.ui:28
+msgid "Everything Watched"
+msgstr ""
+
+#: data/resources/ui/watch_later.ui:29
+msgid "How about going outside?"
+msgstr ""
+
+#: data/resources/ui/window.ui:58
+msgctxt "accessibility"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/window.ui:60
+msgctxt "tooltip"
+msgid "Primary menu"
+msgstr ""
+
+#: data/resources/ui/window.ui:127
+msgid "Import…"
+msgstr ""
+
+#: data/resources/ui/window.ui:131
+msgid "Preferences"
+msgstr ""
+
+#: data/resources/ui/window.ui:135
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/resources/ui/window.ui:139
+msgid "About Pipeline"
+msgstr ""
+
+#: src/gui/feed/error_label.rs:102
+msgid "Error connecting to the network"
+msgstr ""
+
+#: src/gui/feed/error_label.rs:104
+msgid "Error parsing one subscription"
+msgid_plural "Error parsing {} subscriptions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/gui/feed/error_label.rs:107
+msgid "Some error occured"
+msgstr ""
+
+#: src/gui/feed/feed_item_object.rs:108
+msgid "%F %T"
+msgstr ""
+
+#: src/gui/import_window.rs:34
+msgid "Select NewPipe subscriptions file"
+msgstr ""
+
+#: src/gui/import_window.rs:46 src/gui/import_window.rs:74
+msgid "Failure to import subscriptions"
+msgstr ""
+
+#: src/gui/import_window.rs:62
+msgid "Select YouTube subscription file"
+msgstr ""
+
+#: src/gui/preferences_window.rs:132
+msgid ""
+"Note that on Flatpak, there are some more steps required when using a player "
+"external to the Flatpak. For more information, please consult the wiki."
+msgstr ""
+
+#: src/gui/window.rs:210
+msgid "Donate"
+msgstr ""
