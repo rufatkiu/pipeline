@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-01-14 12:30+0000\n"
+"PO-Revision-Date: 2024-01-23 16:01+0000\n"
 "Last-Translator: Marek Ľach <graweeld@googlemail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/schmiddi-on-mobile/"
 "pipeline/cs/>\n"
@@ -50,7 +50,7 @@ msgstr ""
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
