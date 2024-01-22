@@ -8,14 +8,17 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-01-23 16:01+0000\n"
+"Last-Translator: Amethyst Silva Freitas <rockyamethyst@users.noreply.hosted."
+"weblate.org>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
@@ -24,23 +27,23 @@ msgstr ""
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
 msgid "Watch Later"
-msgstr ""
+msgstr "Assistir Mais Tarde"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 #: data/resources/ui/feed_item.ui:178
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiar para área de tranferência"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr ""
+msgstr "Mais Informação"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
-msgstr ""
+msgstr "Falha ao baixar o vídeo"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
@@ -49,110 +52,112 @@ msgstr ""
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
-msgstr ""
+msgstr "Falha ao tocar o vídeo"
 
 #: data/resources/ui/feed_list.ui:39
 msgid "Please check your player in the settings."
-msgstr ""
+msgstr "Por favor verifique o seu player nas configurações."
 
 #: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
 #: data/resources/ui/window.ui:73
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: data/resources/ui/feed_page.ui:21
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: data/resources/ui/feed_page.ui:23
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: data/resources/ui/feed_page.ui:69
 msgid "No Videos Found"
-msgstr ""
+msgstr "Nenhum Vídeo Encontrado"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "Seu feed irá aparecer quando inscrições forem adicionadas"
 
 #: data/resources/ui/feed_page.ui:82
 msgid "Manage Subscriptions…"
-msgstr ""
+msgstr "Gerenciar Inscrições…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
 #: data/resources/ui/window.ui:94
 msgid "Filters"
-msgstr ""
+msgstr "Filtros"
 
 #: data/resources/ui/filter_page.ui:14
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar Filtro…"
 
 #: data/resources/ui/filter_page.ui:16
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar Filtro…"
 
 #: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
-msgstr ""
+msgstr "Sem Filtros"
 
 #: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar Filtro…"
 
 #: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
-msgstr ""
+msgstr "Adicionar Filtro"
 
 #: data/resources/ui/filter_page.ui:82
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: data/resources/ui/filter_page.ui:87
 msgid "Channel Name"
-msgstr ""
+msgstr "Nome do Canal"
 
 #: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:121
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: data/resources/ui/filter_page.ui:95
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "Importar Inscrições"
 
 #: data/resources/ui/import_window.ui:8
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
 msgstr ""
+"Isso irá importar suas inscrições de seus dados exportados do NewPipe ou "
+"YouTube."
 
 #: data/resources/ui/import_window.ui:14
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.ui:15
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
