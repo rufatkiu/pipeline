@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2023-10-10 17:01+0000\n"
+"PO-Revision-Date: 2024-02-03 17:01+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
-msgstr ""
+msgstr "Irénée Thirion"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
@@ -42,24 +42,24 @@ msgstr "Plus d’informations"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
-msgstr ""
+msgstr "Échec du téléchargement de la vidéo"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
-msgstr ""
+msgstr "Veuillez vérifier votre téléchargeur dans les paramètres."
 
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
-msgstr ""
+msgstr "Échec de la lecture de la vidéo"
 
 #: data/resources/ui/feed_list.ui:39
 msgid "Please check your player in the settings."
-msgstr ""
+msgstr "Veuillez vérifier votre lecteur dans les paramètres."
 
 #: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
 #: data/resources/ui/window.ui:73
@@ -82,12 +82,11 @@ msgstr "Aucune vidéo trouvée"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "Votre flux apparaîtra une fois que vous aurez ajouté des abonnements"
 
 #: data/resources/ui/feed_page.ui:82
-#, fuzzy
 msgid "Manage Subscriptions…"
-msgstr "Ajouter un abonnement…"
+msgstr "Gérer les abonnements…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
@@ -207,11 +206,11 @@ msgstr "Uniquement afficher les vidéos depuis hier"
 
 #: data/resources/ui/preferences_window.ui:79
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "Retirer les vidéos courtes"
 
 #: data/resources/ui/preferences_window.ui:80
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "Retire toutes les vidéos de moins d’une minute"
 
 #: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
 #: data/resources/ui/window.ui:104
@@ -259,18 +258,17 @@ msgid "Go back"
 msgstr "Retour"
 
 #: data/resources/ui/subscription_page.ui:157
-#, fuzzy
 msgid "Failed to add subscription"
-msgstr "Échec de l’importation des abonnements"
+msgstr "Échec de l’ajout de l’abonnement"
 
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
 msgstr ""
+"Veuillez vérifier votre saisie, votre connexion internet et l’URL de l’API."
 
 #: data/resources/ui/video_information_window.ui:21
-#, fuzzy
 msgid "Video Information"
-msgstr "Plus d’informations"
+msgstr "Informations sur la vidéo"
 
 #: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
@@ -300,7 +298,7 @@ msgstr "Préférences"
 
 #: data/resources/ui/window.ui:135
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Raccourcis clavier"
 
 #: data/resources/ui/window.ui:139
 msgid "About Pipeline"
