@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-02-03 17:01+0000\n"
+"PO-Revision-Date: 2024-02-04 18:01+0000\n"
 "Last-Translator: Charlotte <git@cza.li>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/de/>\n"
@@ -22,6 +22,10 @@ msgstr ""
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
 msgstr ""
+"Julian Schmidhuber <translation@schmiddi.anonaddy.com>\n"
+"Jürgen Benvenuti <gastornis@posteo.org>, 2022\n"
+"Leo Moser <leomoser99@gmail.com>, 2023\n"
+"czarlie <flare-translate@cza.li>"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
@@ -51,7 +55,7 @@ msgstr ""
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
