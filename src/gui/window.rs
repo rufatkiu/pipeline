@@ -56,6 +56,7 @@ impl Window {
         app.set_accels_for_action("win.subscriptions", &["<Control>4"]);
 
         Object::builder::<Self>()
+            .property("title", &gettextrs::gettext("Pipeline"))
             .property("application", app)
             .build()
     }
