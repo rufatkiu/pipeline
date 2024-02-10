@@ -35,6 +35,7 @@
         </child>
         <child>
           <object class="GtkSpinner" id="loading_spinner">
+            <property name="margin-start">10</property>
             <binding name="visible">
               <lookup name="reloading" type="TFFeedPage"></lookup>
             </binding>
@@ -94,3 +95,4 @@
     </child>
   </template>
 </interface>
+
