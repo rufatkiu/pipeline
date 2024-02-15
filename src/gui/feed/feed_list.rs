@@ -107,6 +107,18 @@ impl FeedList {
         }
     }
 
+    pub fn emit_open_in_browser(&self) {
+        if let Ok(item) = self
+            .imp()
+            .feed_list
+            .focus_child()
+            .and_then(|w| w.first_child())
+            .and_dynamic_cast::<FeedItem>()
+        {
+            let _ = item.activate_action("item.open-in-browser", None);
+        }
+    }
+
     pub fn emit_information(&self) {
         if let Ok(item) = self
             .imp()

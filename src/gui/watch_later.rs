@@ -49,6 +49,10 @@ impl WatchLaterPage {
         self.imp().feed_page.emit_copy_to_clipboard();
     }
 
+    pub fn emit_open_in_browser(&self) {
+        self.imp().feed_page.emit_open_in_browser();
+    }
+
     pub fn emit_information(&self) {
         self.imp().feed_page.emit_information();
     }

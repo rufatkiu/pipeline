@@ -55,8 +55,14 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="accelerator">&lt;Control&gt;b</property>
+                <property name="title">Open Video URL in Browser</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="accelerator">&lt;Control&gt;c</property>
-                <property name="title">Copy Video URL to Cliboard</property>
+                <property name="title">Copy Video URL to Clipboard</property>
               </object>
             </child>
           </object>

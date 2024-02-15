@@ -55,6 +55,7 @@ pub mod imp {
 
     use gdk::gio::SimpleAction;
     use gdk::gio::SimpleActionGroup;
+    use gdk::gio::Cancellable;
     use gdk::glib::clone;
     use gdk::glib::ParamSpecObject;
     use gdk::glib::Value;
@@ -65,6 +66,7 @@ pub mod imp {
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::CompositeTemplate;
+    use gtk::UriLauncher;
     use once_cell::sync::Lazy;
     use tf_core::Video;
     use tf_join::AnyVideo;
@@ -129,6 +131,11 @@ pub mod imp {
                     }),
                 );
             }));
+            let action_open_in_browser = SimpleAction::new("open-in-browser", None);
+            action_open_in_browser.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
+                let video_url = &video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url();
+                UriLauncher::new(video_url).launch(Some(&obj.window()), Cancellable::NONE, |_| ());
+            }));
             let action_clipboard = SimpleAction::new("clipboard", None);
             action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
                 let clipboard = obj.display().clipboard();
@@ -153,6 +160,7 @@ pub mod imp {
             obj.insert_action_group("item", Some(&actions));
             actions.add_action(&action_watch_later);
             actions.add_action(&action_download);
+            actions.add_action(&action_open_in_browser);
             actions.add_action(&action_clipboard);
             actions.add_action(&action_information);
         }

@@ -47,6 +47,7 @@ impl Window {
 
         app.set_accels_for_action("feed.watch-later", &["<Control>w"]);
         app.set_accels_for_action("feed.download", &["<Control>s"]);
+        app.set_accels_for_action("feed.open_in_browser", &["<Control>b"]);
         app.set_accels_for_action("feed.clipboard", &["<Control>c"]);
         app.set_accels_for_action("feed.information", &["<Control>i"]);
 
@@ -290,6 +291,19 @@ pub mod imp {
                     page.emit_copy_to_clipboard();
                 }
             }));
+            let action_feed_open_in_browser = SimpleAction::new("open_in_browser", None);
+            action_feed_open_in_browser.connect_activate(clone!(@weak obj => move |_, _| {
+                let stack = &obj.imp().application_stack;
+                let child = stack.visible_child();
+
+                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                    page.emit_open_in_browser();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                    page.emit_open_in_browser();
+                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                    page.emit_open_in_browser();
+                }
+            }));
             let action_feed_information = SimpleAction::new("information", None);
             action_feed_information.connect_activate(clone!(@weak obj => move |_, _| {
                 let stack = &obj.imp().application_stack;
@@ -308,6 +322,7 @@ pub mod imp {
             obj.insert_action_group("feed", Some(&actions_feed));
             actions_feed.add_action(&action_feed_watch_later);
             actions_feed.add_action(&action_feed_download);
+            actions_feed.add_action(&action_feed_open_in_browser);
             actions_feed.add_action(&action_feed_copy_to_clipboard);
             actions_feed.add_action(&action_feed_information);
         }

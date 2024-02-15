@@ -54,6 +54,10 @@ impl FeedPage {
         self.imp().feed_list.emit_copy_to_clipboard();
     }
 
+    pub fn emit_open_in_browser(&self) {
+        self.imp().feed_list.emit_open_in_browser();
+    }
+
     pub fn emit_information(&self) {
         self.imp().feed_list.emit_information();
     }
