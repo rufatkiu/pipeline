@@ -175,6 +175,10 @@
         <attribute name="action">item.download</attribute>
       </item>
       <item>
+        <attribute name="label" translatable="yes">Open in Browser</attribute>
+        <attribute name="action">item.open-in-browser</attribute>
+      </item>
+      <item>
         <attribute name="label" translatable="yes">Copy to Clipboard</attribute>
         <attribute name="action">item.clipboard</attribute>
       </item>
