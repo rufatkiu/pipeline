@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>de.schmidhuberj.tubefeeder</id>
-  <project_license>GPL-3.0+</project_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <metadata_license>FSFAP</metadata_license>
   <name>Pipeline</name>
   <summary>Follow video creators</summary>
   <launchable type="desktop-id">de.schmidhuberj.tubefeeder.desktop</launchable>
   <content_rating type="oars-1.1"/>
-  <developer_name>Julian Schmidhuber</developer_name>
+  <developer id="mobile.schmidhuberj.de">
+    <name>Julian Schmidhuber</name>
+  </developer>
+  <translation type="gettext">tubefeeder</translation>
+  <update_contact>flatpak@schmiddi.anonaddy.com</update_contact>
+
   <releases>
     <release version="v1.14.3" date="2024-01-11">
       <description>
@@ -217,6 +222,7 @@
     </release>
     <release version="v1.2.0" date="2021-05-19"/>
   </releases>
+
   <description>
     <p>
       Pipeline lets you watch and download videos from YouTube and PeerTube, all without needing to navigate through
@@ -233,6 +239,7 @@
       <li>Multiple platforms</li>
     </ul>
   </description>
+
   <screenshots>
     <screenshot type="default">
       <caption>Feed List</caption>
@@ -263,9 +270,20 @@
 
   <provides>
     <binary>tubefeeder</binary>
+    <id>de.schmidhuberj.tubefeeder</id>
   </provides>
-  <custom>
-    <value key="Purism::form_factor">workstation</value>
-    <value key="Purism::form_factor">mobile</value>
-  </custom>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <recommends>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <internet>always</internet>
+  </recommends>
+  <requires>
+    <display_length compare="ge" side="shortest">300</display_length>
+    <display_length compare="ge" side="longest">360</display_length>
+  </requires>
 </component>
