@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Action to open video in the browser.
+
+### Fixed
+
+- Outdated window title
+- Wrong offset of the reload-spinner in relation to the reload-button.
+
 ## [1.14.3] - 2024-01-11
 
 ### Added
