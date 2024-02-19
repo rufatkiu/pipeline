@@ -95,8 +95,11 @@ pub mod imp {
                     "kavin.rocks (libre, official)",
                     "https://pipedapi-libre.kavin.rocks",
                 ),
-                PredefinedPipedApi::new("tokhmi.xyz", "https://pipedapi.tokhmi.xyz"),
+                PredefinedPipedApi::new("syncpundit.io", "https://pipedapi.syncpundit.io/"),
+                PredefinedPipedApi::new("garudalinux.org", "https://piped-api.garudalinux.org/"),
+                PredefinedPipedApi::new("leptons.xyz", "https://pipedapi.leptons.xyz/"),
                 PredefinedPipedApi::new("lunar.icu", "https://piped-api.lunar.icu"),
+                PredefinedPipedApi::new("r4fo.com", "https://pipedapi.r4fo.com/"),
                 PredefinedPipedApi::new("Custom", ""),
             ]
         }
