@@ -40,17 +40,15 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use futures::SinkExt;
+    use futures::StreamExt;
     use gdk::glib::clone;
-    use gdk::glib::MainContext;
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecString;
-    use gdk::glib::Sender;
     use gdk::glib::Value;
-    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::glib::ControlFlow;
-    
+
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
 
@@ -61,6 +59,7 @@ pub mod imp {
     use tf_observer::Observable;
     use tf_observer::Observer;
 
+    use crate::gspawn;
     use crate::gui::utility::Utility;
 
     #[derive(CompositeTemplate, Default)]
@@ -81,7 +80,7 @@ pub mod imp {
                 .clone()
                 .expect("Error Store has to exist");
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
 
             let observer = Arc::new(Mutex::new(Box::new(ErrorStoreObserver {
                 sender: sender.clone(),
@@ -91,32 +90,29 @@ pub mod imp {
             error_store.attach(Arc::downgrade(&observer));
             self._error_store_observer.replace(Some(observer));
 
-            receiver.attach(
-                None,
-                clone!(@strong obj => move |error_event| {
-                    match error_event {
-                        ErrorEvent::Add(_e) => {
-                            let summary = error_store.summary();
+            gspawn!(clone!(@strong obj => async move {
+                while let Some(error_event) = receiver.next().await {
+                match error_event {
+                    ErrorEvent::Add(_e) => {
+                        let summary = error_store.summary();
 
-                            let message = if summary.network() > 0 {
-                                gettextrs::gettext("Error connecting to the network").to_string()
-                            } else if summary.parse() > 0 {
-                                let msg = gettextrs::ngettext("Error parsing one subscription", "Error parsing {} subscriptions", summary.parse() as u32);
-                                msg.replace("{}", &summary.parse().to_string()).to_string()
-                            } else {
-                                gettextrs::gettext("Some error occured").to_string()
-                            };
+                        let message = if summary.network() > 0 {
+                            gettextrs::gettext("Error connecting to the network").to_string()
+                        } else if summary.parse() > 0 {
+                            let msg = gettextrs::ngettext("Error parsing one subscription", "Error parsing {} subscriptions", summary.parse() as u32);
+                            msg.replace("{}", &summary.parse().to_string()).to_string()
+                        } else {
+                            gettextrs::gettext("Some error occured").to_string()
+                        };
 
-                            obj.set_property("error", &message);
+                        obj.set_property("error", &message);
 
-                        }
-                        ErrorEvent::Clear => {
-                            obj.set_property("error", "");
-                        }
                     }
-                    ControlFlow::Continue
-                }),
-            );
+                    ErrorEvent::Clear => {
+                        obj.set_property("error", "");
+                    }
+                }
+            }}));
         }
     }
 
@@ -170,12 +166,15 @@ pub mod imp {
     impl BoxImpl for ErrorLabel {}
 
     pub struct ErrorStoreObserver {
-        sender: Sender<ErrorEvent>,
+        sender: futures::channel::mpsc::Sender<ErrorEvent>,
     }
 
     impl Observer<ErrorEvent> for ErrorStoreObserver {
         fn notify(&mut self, message: ErrorEvent) {
-            let _ = self.sender.send(message);
+            let mut sender = self.sender.clone();
+            gspawn!(async move {
+                let _ = sender.send(message).await;
+            });
         }
     }
 }

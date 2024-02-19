@@ -23,7 +23,7 @@ use gdk::{
     Display,
 };
 use gdk_pixbuf::{gio::Settings, prelude::SettingsExt};
-use gtk::{traits::GtkWindowExt, CssProvider};
+use gtk::{prelude::GtkWindowExt, CssProvider};
 
 mod config;
 use self::config::{APP_ID, GETTEXT_PACKAGE, LOCALEDIR, RESOURCES_BYTES};
@@ -33,6 +33,21 @@ mod downloader;
 mod gui;
 mod import;
 mod player;
+
+#[macro_export]
+macro_rules! gspawn {
+    ($future:expr) => {
+        let ctx = glib::MainContext::default();
+        ctx.spawn_local($future);
+    };
+}
+#[macro_export]
+macro_rules! gspawn_global {
+    ($future:expr) => {
+        let ctx = glib::MainContext::default();
+        ctx.spawn($future);
+    };
+}
 
 fn init_setting(env: &'static str, value: &str) {
     if std::env::var_os(env).is_none() {

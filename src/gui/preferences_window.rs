@@ -24,10 +24,10 @@ pub mod imp {
     use gtk::subclass::prelude::*;
     use gtk::CompositeTemplate;
     use gtk::Switch;
+    use libadwaita::prelude::PreferencesGroupExt;
     use libadwaita::prelude::*;
     use libadwaita::subclass::prelude::AdwWindowImpl;
     use libadwaita::subclass::prelude::PreferencesWindowImpl;
-    use libadwaita::traits::PreferencesGroupExt;
     use libadwaita::EntryRow;
 
     use crate::gui::predefined_piped_api::PredefinedPipedApi;

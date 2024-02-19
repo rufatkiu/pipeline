@@ -24,15 +24,14 @@ use chrono::Duration;
 use gdk::glib;
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk::{
-    glib::{clone, MainContext, Object},
+    glib::{clone, Object},
     prelude::ObjectExt,
 };
-use gdk_pixbuf::glib::Priority;
-use gtk::glib::ControlFlow;
 use tf_core::{ExtraVideoInfo, Video};
 use tf_join::AnyVideo;
 
 use crate::downloader::download;
+use crate::gspawn;
 use crate::player::play;
 
 macro_rules! str_prop {
@@ -124,10 +123,10 @@ impl VideoObject {
         self.video().map(|v| v.uploaded())
     }
 
-    pub fn play(&self) -> glib::Receiver<Result<(), std::io::Error>> {
+    pub fn play(&self) -> futures::channel::oneshot::Receiver<Result<(), std::io::Error>> {
         self.set_property("playing", true);
-        let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
-        let (sender_return, receiver_return) = MainContext::channel(Priority::DEFAULT);
+        let (sender, receiver) = futures::channel::oneshot::channel();
+        let (sender_return, receiver_return) = futures::channel::oneshot::channel();
         play(
             self.property::<Option<String>>("local-path")
                 .unwrap_or_else(|| self.property::<Option<String>>("url").unwrap_or_default()),
@@ -135,40 +134,34 @@ impl VideoObject {
                 let _ = sender.send(r);
             },
         );
-        receiver.attach(
-            None,
-            clone!(@weak self as s => @default-return ControlFlow::Continue, move |r| {
-                s.set_property("playing", false);
-                let _ = sender_return.send(r);
-                ControlFlow::Break
-            }),
-        );
+        gspawn!(clone!(@weak self as s => async move {
+            let r = receiver.await.expect("Video play receiver to not be cancelled");
+            s.set_property("playing", false);
+            let _ = sender_return.send(r);
+        }));
 
         receiver_return
     }
 
-    pub fn download(&self) -> glib::Receiver<Result<(), std::io::Error>> {
+    pub fn download(&self) -> futures::channel::oneshot::Receiver<Result<(), std::io::Error>> {
         self.set_property("downloading", true);
-        let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
-        let (sender_return, receiver_return) = MainContext::channel(Priority::DEFAULT);
+        let (sender, receiver) = futures::channel::oneshot::channel();
+        let (sender_return, receiver_return) = futures::channel::oneshot::channel();
         download(
             self.property::<Option<String>>("url").unwrap_or_default(),
             move |r| {
                 let _ = sender.send(r);
             },
         );
-        receiver.attach(
-            None,
-            clone!(@weak self as s => @default-return ControlFlow::Continue, move |r| {
-                s.set_property("downloading", false);
-                if let Ok(local_path) = &r {
-                    s.set_property("local-path", local_path);
-                    s.notify("is-local");
-                }
-                let _ = sender_return.send(r.map(|_| ()));
-                ControlFlow::Break
-            }),
-        );
+        gspawn!(clone!(@weak self as s => async move {
+            let r = receiver.await.expect("Video play receiver to not be cancelled");
+            s.set_property("downloading", false);
+            if let Ok(local_path) = &r {
+                s.set_property("local-path", local_path);
+                s.notify("is-local");
+            }
+            let _ = sender_return.send(r.map(|_| ()));
+        }));
 
         receiver_return
     }

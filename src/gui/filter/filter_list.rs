@@ -81,14 +81,12 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use futures::SinkExt;
+    use futures::StreamExt;
     use gdk::gio::ListStore;
     use gdk::glib::clone;
-    use gdk::glib::MainContext;
-    use gdk::glib::Sender;
-    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::glib::ControlFlow;
     use gtk::glib::ParamSpec;
     use gtk::glib::ParamSpecBoolean;
 
@@ -106,6 +104,7 @@ pub mod imp {
     use tf_observer::Observable;
     use tf_observer::Observer;
 
+    use crate::gspawn;
     use crate::gui::filter::filter_item::FilterItem;
     use crate::gui::filter::filter_item_object::FilterObject;
 
@@ -142,7 +141,7 @@ pub mod imp {
                 .clone()
                 .expect("FilterGroup should be set up");
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
 
             let observer = Arc::new(Mutex::new(Box::new(FilterPageObserver {
                 sender: sender.clone(),
@@ -159,9 +158,8 @@ pub mod imp {
             self._filter_observer.replace(Some(observer));
             obj.set(existing);
 
-            receiver.attach(
-                None,
-                clone!(@strong obj => move |filter_event| {
+            gspawn!(clone!(@strong obj => async move {
+                while let Some(filter_event) = receiver.next().await {
                     match filter_event {
                         FilterEvent::Add(s) => {
                             let filter = FilterObject::new(s);
@@ -172,9 +170,8 @@ pub mod imp {
                             obj.remove(filter);
                         }
                     }
-                    ControlFlow::Continue
-                }),
-            );
+                }
+            }));
         }
 
         pub fn setup_list(&self) {
@@ -245,12 +242,15 @@ pub mod imp {
     impl BoxImpl for FilterList {}
 
     pub struct FilterPageObserver {
-        sender: Sender<FilterEvent<AnyVideoFilter>>,
+        sender: futures::channel::mpsc::Sender<FilterEvent<AnyVideoFilter>>,
     }
 
     impl Observer<FilterEvent<AnyVideoFilter>> for FilterPageObserver {
         fn notify(&mut self, message: FilterEvent<AnyVideoFilter>) {
-            let _ = self.sender.send(message);
+            let mut sender = self.sender.clone();
+            gspawn!(async move {
+                let _ = sender.send(message).await;
+            });
         }
     }
 }

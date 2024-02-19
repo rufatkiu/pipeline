@@ -1,5 +1,5 @@
 use gtk::{
-    traits::{GtkWindowExt, WidgetExt},
+    prelude::{GtkWindowExt, WidgetExt},
     Builder,
 };
 use tf_core::{ExtraVideoInfo, Video};

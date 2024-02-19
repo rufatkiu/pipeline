@@ -1,6 +1,7 @@
 use std::collections::HashSet;
 
-use gdk_pixbuf::{gio, prelude::FileExt};
+use gdk::prelude::FileExtManual;
+use gdk_pixbuf::gio;
 use serde::Deserialize;
 use tf_join::{AnySubscription, Joiner};
 use tf_yt::YTSubscription;
@@ -17,7 +18,8 @@ struct NewPipeSubscription {
 
 // TODO: Better error handling
 pub fn import_newpipe(joiner: &Joiner, file: gio::File) -> Result<(), Box<dyn std::error::Error>> {
-    let content: String = String::from_utf8(file.load_contents(gio::Cancellable::NONE)?.0)?;
+    let content: String =
+        String::from_utf8(file.load_contents(gio::Cancellable::NONE)?.0.to_vec())?;
 
     let deserialized: NewPipeBase = serde_json::from_str(content.as_str())?;
 
@@ -54,7 +56,8 @@ pub fn import_newpipe(joiner: &Joiner, file: gio::File) -> Result<(), Box<dyn st
 
 // TODO: Better error handling
 pub fn import_youtube(joiner: &Joiner, file: gio::File) -> Result<(), Box<dyn std::error::Error>> {
-    let content: String = String::from_utf8(file.load_contents(gio::Cancellable::NONE)?.0)?;
+    let content: String =
+        String::from_utf8(file.load_contents(gio::Cancellable::NONE)?.0.to_vec())?;
 
     let subscription_list = joiner.subscription_list();
     let available_subscriptions: HashSet<String> = subscription_list

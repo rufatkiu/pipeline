@@ -20,7 +20,7 @@
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::Cast;
-use gtk::{glib::Object, traits::WidgetExt};
+use gtk::{glib::Object, prelude::WidgetExt};
 use tf_join::AnyVideo;
 use tf_playlist::PlaylistManager;
 
@@ -53,13 +53,12 @@ impl FeedItem {
 pub mod imp {
     use std::cell::RefCell;
 
+    use gdk::gio::Cancellable;
     use gdk::gio::SimpleAction;
     use gdk::gio::SimpleActionGroup;
-    use gdk::gio::Cancellable;
     use gdk::glib::clone;
     use gdk::glib::ParamSpecObject;
     use gdk::glib::Value;
-    use gdk_pixbuf::glib::ControlFlow;
     use glib::subclass::InitializingObject;
     use glib::ParamSpec;
     use gtk::glib;
@@ -72,6 +71,7 @@ pub mod imp {
     use tf_join::AnyVideo;
     use tf_playlist::PlaylistManager;
 
+    use crate::gspawn;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::thumbnail::Thumbnail;
     use crate::gui::utility::Utility;
@@ -117,18 +117,16 @@ pub mod imp {
             let action_download = SimpleAction::new("download", None);
             action_download.connect_activate(clone!(@weak self as s, @strong self.video as video => move |_, _| {
                 let receiver = video.borrow().as_ref().expect("Video should be set up").download();
-                receiver.attach(
-                    None,
-                    clone!(@weak s => @default-return ControlFlow::Break, move |r| {
-                        if let Err(e) = r {
+                gspawn!(
+                    clone!(@weak s => async move {
+                        if let Err(e) = receiver.await.expect("Video receiver to not fail") {
                             log::error!("Failed to download video: {}", e);
                             let window = s.obj().window();
                             let dialog_error = &s.dialog_error;
                             dialog_error.set_transient_for(Some(&window));
                             dialog_error.present();
                         }
-                        ControlFlow::Break
-                    }),
+                    })
                 );
             }));
             let action_open_in_browser = SimpleAction::new("open-in-browser", None);

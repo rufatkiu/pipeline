@@ -25,7 +25,7 @@ use std::{
 
 pub fn play<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn(Result<(), std::io::Error>) + std::marker::Send + 'static,
+    F: FnOnce(Result<(), std::io::Error>) + std::marker::Send + 'static,
 >(
     url: S,
     callback: F,
@@ -37,7 +37,7 @@ pub fn play<
 
 pub fn open_with<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn(Result<(), std::io::Error>) + std::marker::Send + 'static,
+    F: FnOnce(Result<(), std::io::Error>) + std::marker::Send + 'static,
 >(
     url: S,
     command: String,

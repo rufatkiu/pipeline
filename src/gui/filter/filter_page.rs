@@ -22,7 +22,7 @@ use std::sync::{Arc, Mutex};
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::Cast;
-use gtk::traits::WidgetExt;
+use gtk::prelude::WidgetExt;
 use tf_filter::FilterGroup;
 use tf_join::AnyVideoFilter;
 
