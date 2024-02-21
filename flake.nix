@@ -27,13 +27,13 @@
                 lockFile = ./Cargo.lock;
 
                 outputHashes = {
-                  "tf_core-0.1.4" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_join-0.1.7" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_filter-0.1.3" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_observer-0.1.3" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_playlist-0.1.4" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_platform_youtube-0.1.7" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
-                  "tf_platform_peertube-0.1.5" = "sha256-bWkF1ezdDZyuP2zo5EIvB/Br6HFpdmkDijpQii/4i68=";
+                  "tf_core-0.1.4" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_join-0.1.7" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_filter-0.1.3" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_observer-0.1.3" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_playlist-0.1.4" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_platform_youtube-0.1.7" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_platform_peertube-0.1.5" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
                 };
               };
               src = ./.;
@@ -68,7 +68,7 @@
             pkgs.mkShell {
               src = ./.;
               buildInputs = self.packages.${system}.default.buildInputs;
-              nativeBuildInputs = self.packages.${system}.default.nativeBuildInputs ++ [ rustfmt python3 nodePackages.clean-css-cli libxml2 gdb ] ++ [ run check format debug ];
+              nativeBuildInputs = self.packages.${system}.default.nativeBuildInputs ++ [ rustfmt python3 nodePackages.clean-css-cli libxml2 gdb cargo-deny ] ++ [ run check format debug ];
               shellHook = ''
                 meson setup -Dprofile=development build
               '';

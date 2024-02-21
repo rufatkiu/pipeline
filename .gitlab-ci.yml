@@ -1,5 +1,6 @@
 stages:
   - build
+  - test
   - upload
 
 variables:
@@ -35,4 +36,13 @@ upload:
   script:
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file ${MESON_DIST}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz "${UPLOAD_URL_BASE}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz"'
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file ${MESON_DIST}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz.sha256sum "${UPLOAD_URL_BASE}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz.sha256sum"'
+
+test:cargo-deny:
+  stage: test
+  image: archlinux:base-devel
+  script:
+    - pacman -Syu rustup cargo-deny --noconfirm
+    - rustup default stable
+    - cargo deny check
+  allow_failure: true
 
