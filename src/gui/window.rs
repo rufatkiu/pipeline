@@ -20,10 +20,8 @@
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::SettingsExt;
-use gtk::{
-    glib::Object,
-    traits::{GtkWindowExt, WidgetExt},
-};
+use gtk::prelude::GtkWindowExt;
+use gtk::{glib::Object, prelude::WidgetExt};
 use libadwaita::prelude::GtkApplicationExt;
 
 fn setup_joiner() -> tf_join::Joiner {

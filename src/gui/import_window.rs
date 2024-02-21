@@ -4,7 +4,7 @@ use gtk::prelude::*;
 use gtk::Builder;
 use gtk::FileDialog;
 use gtk::FileFilter;
-use libadwaita::traits::MessageDialogExt;
+use libadwaita::prelude::MessageDialogExt;
 use libadwaita::MessageDialog;
 use tf_join::Joiner;
 

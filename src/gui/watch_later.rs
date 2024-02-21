@@ -63,11 +63,10 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
-    use gdk::glib::MainContext;
-    use gdk::glib::Sender;
-    use gdk_pixbuf::glib::Priority;
+    use futures::SinkExt;
+    use futures::StreamExt;
+    use glib::clone;
     use glib::subclass::InitializingObject;
-    use glib::{clone, ControlFlow};
     use gtk::glib;
 
     use gtk::subclass::prelude::*;
@@ -79,6 +78,7 @@ pub mod imp {
     use tf_playlist::PlaylistEvent;
     use tf_playlist::PlaylistManager;
 
+    use crate::gspawn;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
     use crate::gui::stack_page::StackPage;
@@ -105,7 +105,7 @@ pub mod imp {
                 .clone()
                 .expect("Playlist Manager has to exist");
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
 
             let observer = Arc::new(Mutex::new(Box::new(PlaylistPageObserver {
                 sender: sender.clone(),
@@ -126,9 +126,8 @@ pub mod imp {
             feed_page.set_playlist_manager(playlist_manager);
             feed_page.set_items_ordered(existing);
 
-            receiver.attach(
-                None,
-                clone!(@strong feed_page => move |playlist_event| {
+            gspawn!(clone!(@strong feed_page => async move {
+                while let Some(playlist_event) = receiver.next().await {
                     match playlist_event {
                         PlaylistEvent::Add(v) => {
                             let video = VideoObject::new(v);
@@ -139,9 +138,8 @@ pub mod imp {
                             feed_page.remove(video);
                         }
                     }
-                    ControlFlow::Continue
-                }),
-            );
+                }
+            }));
         }
     }
 
@@ -172,12 +170,15 @@ pub mod imp {
     impl StackPageImpl for WatchLaterPage {}
 
     pub struct PlaylistPageObserver {
-        sender: Sender<PlaylistEvent<AnyVideo>>,
+        sender: futures::channel::mpsc::Sender<PlaylistEvent<AnyVideo>>,
     }
 
     impl Observer<PlaylistEvent<AnyVideo>> for PlaylistPageObserver {
         fn notify(&mut self, message: PlaylistEvent<AnyVideo>) {
-            let _ = self.sender.send(message);
+            let mut sender = self.sender.clone();
+            gspawn!(async move {
+                let _ = sender.send(message).await;
+            });
         }
     }
 }

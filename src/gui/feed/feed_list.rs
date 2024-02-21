@@ -30,9 +30,10 @@ use gdk::{
     prelude::{ActionMapExt, ListModelExt, ObjectExt, ToValue},
     subclass::prelude::ObjectSubclassIsExt,
 };
-use gdk_pixbuf::{glib::Cast, prelude::CastNone};
+use gdk_pixbuf::prelude::CastNone;
+use glib::object::Cast;
 use gtk::{
-    traits::{AdjustmentExt, WidgetExt},
+    prelude::{AdjustmentExt, WidgetExt},
     Adjustment,
 };
 use tf_join::AnyVideo;
@@ -262,7 +263,6 @@ pub mod imp {
     use gdk::glib::ParamSpecBoolean;
     use gdk::glib::Value;
     use gdk_pixbuf::glib::clone;
-    use gdk_pixbuf::glib::ControlFlow;
     use gdk_pixbuf::glib::Propagation;
     use glib::subclass::InitializingObject;
     use gtk::glib;
@@ -277,6 +277,7 @@ pub mod imp {
     use tf_join::AnyVideo;
     use tf_playlist::PlaylistManager;
 
+    use crate::gspawn;
     use crate::gui::feed::feed_item::FeedItem;
     use crate::gui::feed::feed_item_object::VideoObject;
 
@@ -352,19 +353,15 @@ pub mod imp {
 
                     let receiver = video_object.play();
 
-                    receiver.attach(
-                        None,
-                        clone!(@weak s => @default-return ControlFlow::Break, move |r| {
-                            if let Err(e) = r {
-                                log::error!("Failed to play video: {}", e);
-                                let window = s.obj().window();
-                                let dialog_error = &s.dialog_error;
-                                dialog_error.set_transient_for(Some(&window));
-                                dialog_error.present();
-                            }
-                            ControlFlow::Break
-                        }),
-                    );
+                    gspawn!(async move {
+                        if let Err(e) = receiver.await.expect("Video receiver to not fail") {
+                            log::error!("Failed to play video: {}", e);
+                            let window = s.obj().window();
+                            let dialog_error = &s.dialog_error;
+                            dialog_error.set_transient_for(Some(&window));
+                            dialog_error.present();
+                        }
+                    });
                 }));
 
             let key_events = gtk::EventControllerKey::new();

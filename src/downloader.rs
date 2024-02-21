@@ -24,7 +24,7 @@ const DOWNLOAD_DESTINATION: &str = "[download] Destination: ";
 
 pub fn download<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn(Result<String, std::io::Error>) + std::marker::Send + 'static + std::marker::Sync,
+    F: FnOnce(Result<String, std::io::Error>) + std::marker::Send + 'static + std::marker::Sync,
 >(
     url: S,
     callback: F,
@@ -53,7 +53,7 @@ pub fn download<
 
 pub fn open_with_output<
     S: 'static + AsRef<str> + Display + std::convert::AsRef<std::ffi::OsStr> + std::marker::Send,
-    F: Fn(Result<String, std::io::Error>) + std::marker::Send + 'static,
+    F: FnOnce(Result<String, std::io::Error>) + std::marker::Send + 'static,
 >(
     url: S,
     command: String,

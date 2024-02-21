@@ -23,7 +23,7 @@ use gdk::{
     subclass::prelude::ObjectSubclassIsExt,
 };
 use gdk_pixbuf::prelude::ObjectExt;
-use gtk::{traits::SorterExt, SorterChange};
+use gtk::{prelude::SorterExt, SorterChange};
 use tf_join::{AnySubscription, AnySubscriptionList};
 
 use super::subscription_item_object::SubscriptionObject;
@@ -102,18 +102,16 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use futures::SinkExt;
+    use futures::StreamExt;
     use gdk::gio::ListStore;
     use gdk::glib::clone;
-    use gdk::glib::MainContext;
-    use gdk::glib::Sender;
     use gdk_pixbuf::glib::subclass::Signal;
     use gdk_pixbuf::glib::ParamSpec;
     use gdk_pixbuf::glib::ParamSpecBoolean;
-    use gdk_pixbuf::glib::Priority;
     use gdk_pixbuf::glib::Value;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::glib::ControlFlow;
 
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
@@ -130,6 +128,8 @@ pub mod imp {
     use tf_observer::Observable;
     use tf_observer::Observer;
 
+    use crate::gspawn;
+    use crate::gspawn_global;
     use crate::gui::subscription::subscription_item::SubscriptionItem;
     use crate::gui::subscription::subscription_item_object::SubscriptionObject;
 
@@ -168,7 +168,7 @@ pub mod imp {
                 .clone()
                 .expect("AnySubscriptionList should be set up");
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
 
             let observer = Arc::new(Mutex::new(Box::new(SubscriptionPageObserver {
                 sender: sender.clone(),
@@ -184,9 +184,8 @@ pub mod imp {
             self._subscription_observer.replace(Some(observer));
             obj.set(existing);
 
-            receiver.attach(
-                None,
-                clone!(@strong obj => move |subscription_event| {
+            gspawn!(clone!(@strong obj => async move {
+                while let Some(subscription_event) = receiver.next().await {
                     match subscription_event {
                         SubscriptionEvent::Add(s) => {
                             let subscription = SubscriptionObject::new(s);
@@ -200,9 +199,8 @@ pub mod imp {
                             obj.update(s);
                         }
                     }
-                    ControlFlow::Continue
-                }),
-            );
+                }
+            }));
         }
 
         pub fn setup_list(&self) {
@@ -343,12 +341,15 @@ pub mod imp {
     impl BoxImpl for SubscriptionList {}
 
     pub struct SubscriptionPageObserver {
-        sender: Sender<SubscriptionEvent>,
+        sender: futures::channel::mpsc::Sender<SubscriptionEvent>,
     }
 
     impl Observer<SubscriptionEvent> for SubscriptionPageObserver {
         fn notify(&mut self, message: SubscriptionEvent) {
-            let _ = self.sender.send(message);
+            let mut sender = self.sender.clone();
+            gspawn_global!(async move {
+                let _ = sender.send(message);
+            });
         }
     }
 }

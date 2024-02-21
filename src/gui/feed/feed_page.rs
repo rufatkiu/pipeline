@@ -68,14 +68,13 @@ pub mod imp {
     use std::cell::RefCell;
 
     use chrono::Duration;
+    use futures::SinkExt;
+    use futures::StreamExt;
     use gdk::glib::clone;
-    use gdk::glib::MainContext;
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecBoolean;
     use gdk::prelude::{ObjectExt, SettingsExt, ToValue};
-    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
-    use glib::ControlFlow;
     use gtk::gio::Settings;
     use gtk::glib;
     use gtk::glib::subclass::Signal;
@@ -93,6 +92,7 @@ pub mod imp {
     use tf_playlist::PlaylistManager;
 
     use crate::config::APP_ID;
+    use crate::gspawn;
     use crate::gui::feed::error_label::ErrorLabel;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
@@ -151,7 +151,7 @@ pub mod imp {
                 .clone()
                 .expect("Joiner should be set up");
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
             let sender = sender.clone();
             let joiner = joiner.clone();
             let error_store = self.error_store.borrow().clone();
@@ -162,35 +162,36 @@ pub mod imp {
                     log::debug!("Reloading");
                     s.set_property("reloading", &true);
 
-                    let sender = sender.clone();
+                    let mut sender = sender.clone();
                     let joiner = joiner.clone();
                     let error_store = error_store.clone();
                     error_store.clear();
                     tokio::spawn(async move {
                         let videos = joiner.generate(&error_store).await;
-                        let _ = sender.send(videos);
+                        let _ = sender.send(videos).await;
                     });
                 }),
             );
-            receiver.attach(
-                None,
-                clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, move |videos| {
-                    let yesterday = chrono::Local::now().date_naive() - Duration::days(1);
+            gspawn!(
+                clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, async move {
+                    while let Some(videos) = receiver.next().await {
+                        let yesterday = chrono::Local::now().date_naive() - Duration::days(1);
 
-                    let only_yesterday = settings.boolean("only-videos-yesterday");
-                    let remove_short = settings.boolean("remove-short-videos");
-                    
-                    let video_objects = videos
-                        .into_iter()
-                        .map(VideoObject::new)
-                        .filter(|v| !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday))
-                        .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::seconds(61)).unwrap_or_default())) // One more second padding to be sure.
-                        .collect::<Vec<_>>();
+                        let only_yesterday = settings.boolean("only-videos-yesterday");
+                        let remove_short = settings.boolean("remove-short-videos");
 
-                    s.imp().feed_list.get().set_items(video_objects);
-                    s.set_property("reloading", &false);
-                    ControlFlow::Continue
-                }),
+                        let video_objects = videos
+                            .into_iter()
+                            .map(VideoObject::new)
+                            .filter(|v| !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday))
+                            .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::seconds(61)).unwrap_or_default())) // One more second padding to be sure.
+                            .collect::<Vec<_>>();
+
+                        s.imp().feed_list.get().set_items(video_objects);
+                        s.set_property("reloading", &false);
+                    }
+
+                })
             );
 
             // Setup Error Label

@@ -18,13 +18,10 @@
  *
  */
 
-use gdk::{
-    glib::{clone, MainContext},
-    prelude::ObjectExt,
-    subclass::prelude::ObjectSubclassIsExt,
-};
-use gdk_pixbuf::glib::Priority;
-use gtk::glib::ControlFlow;
+use futures::{SinkExt, StreamExt};
+use gdk::{glib::clone, prelude::ObjectExt, subclass::prelude::ObjectSubclassIsExt};
+
+use crate::gspawn;
 
 async fn download(thumbnail_url: String) -> Option<image::DynamicImage> {
     log::debug!("Getting thumbnail from url {}", thumbnail_url);
@@ -68,7 +65,7 @@ impl Thumbnail {
             .map(|v| v.property::<Option<String>>("url"))
             .flatten();
         if let (Some(thumbnail_url), Some(url)) = (thumbnail_url, url) {
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (mut sender, mut receiver) = futures::channel::mpsc::channel(1);
             tokio::spawn(async move {
                 let mut user_cache_dir = gtk::glib::user_cache_dir();
                 user_cache_dir.push("tubefeeder");
@@ -84,15 +81,15 @@ impl Thumbnail {
                     }
                 }
 
-                let _ = sender.send(path);
+                let _ = sender.send(path).await;
             });
 
-            receiver.attach(
-                None,
-                clone!(@strong thumbnail => @default-return ControlFlow::Continue, move |path| {
-                    thumbnail.set_filename(Some(&path));
-                    ControlFlow::Continue
-                }),
+            gspawn!(
+                clone!(@strong thumbnail => @default-return ControlFlow::Continue, async move {
+                    while let Some(path) = receiver.next().await {
+                        thumbnail.set_filename(Some(&path));
+                    }
+                })
             );
         }
     }

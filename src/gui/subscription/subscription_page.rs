@@ -20,7 +20,7 @@
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::Cast;
-use gtk::traits::WidgetExt;
+use gtk::prelude::WidgetExt;
 use tf_join::{AnySubscriptionList, AnyVideo};
 use tf_playlist::PlaylistManager;
 
@@ -89,16 +89,15 @@ pub mod imp {
     use std::cell::RefCell;
     use std::str::FromStr;
 
+    use futures::SinkExt;
+    use futures::StreamExt;
     use gdk::gio::ListStore;
     use gdk::glib::clone;
-    use gdk::glib::MainContext;
     use gdk::glib::Object;
     use gdk::glib::ParamSpec;
     use gdk_pixbuf::glib::subclass::Signal;
-    use gdk_pixbuf::glib::Priority;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::glib::ControlFlow;
 
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
@@ -117,6 +116,7 @@ pub mod imp {
     use tf_yt::YTSubscription;
 
     use crate::config::APP_ID;
+    use crate::gspawn;
     use crate::gui::feed::feed_item_object::VideoObject;
     use crate::gui::feed::feed_list::FeedList;
     use crate::gui::stack_page::StackPage;
@@ -288,8 +288,8 @@ pub mod imp {
                 .settings
                 .set_string("last-added-platform", &platform.to_string());
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
-            let sender = sender.clone();
+            let (sender, mut receiver) = futures::channel::mpsc::channel(1);
+            let mut sender = sender.clone();
             tokio::spawn(async move {
                 let subscription = match platform {
                     Platform::Youtube => YTSubscription::try_from_search(&name_id)
@@ -299,29 +299,25 @@ pub mod imp {
                     // Platform::Lbry => Some(LbrySubscription::new(&name_id).into()),
                     // -- Add case here
                 };
-                sender
-                    .send(subscription)
-                    .expect("Failed to send message about subscription");
+                sender.send(subscription).await
             });
 
             let obj = self.obj();
-            receiver.attach(
-                None,
-                clone!(@strong self.any_subscription_list as list, @strong obj =>
-                       move |sub| {
-                           if let Some(sub) = sub {
-                               list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
-                               obj.emit_by_name::<()>("subscription-added", &[]);
-                           } else {
-                               log::error!("Failed to get subscription with supplied data");
-                                let window = obj.window();
-                                let dialog_error = &obj.imp().dialog_error;
-                                dialog_error.set_transient_for(Some(&window));
-                                dialog_error.present();
-                           }
-                           ControlFlow::Continue
+            gspawn!(
+                clone!(@strong self.any_subscription_list as list, @strong obj => async move {
+                while let Some(sub) = receiver.next().await {
+                       if let Some(sub) = sub {
+                           list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
+                           obj.emit_by_name::<()>("subscription-added", &[]);
+                       } else {
+                           log::error!("Failed to get subscription with supplied data");
+                            let window = obj.window();
+                            let dialog_error = &obj.imp().dialog_error;
+                            dialog_error.set_transient_for(Some(&window));
+                            dialog_error.present();
                        }
-                )
+                    }
+                })
             );
         }
 
@@ -343,19 +339,19 @@ pub mod imp {
 
             let error_store = tf_core::ErrorStore::new();
 
-            let (sender, receiver) = MainContext::channel(Priority::DEFAULT);
+            let (mut sender, mut receiver) = futures::channel::mpsc::channel(1);
             tokio::spawn(async move {
                 let videos = joiner.generate(&error_store).await;
-                let _ = sender.send(videos);
+                let _ = sender.send(videos).await;
             });
             let obj = self.obj();
-            receiver.attach(
-                None,
-                clone!(@strong obj as s => @default-return ControlFlow::Continue, move |videos| {
-                    let video_objects = videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
-                    s.imp().subscription_video_list.get().set_items(video_objects);
-                    ControlFlow::Continue
-                }),
+            gspawn!(
+                clone!(@strong obj as s => @default-return ControlFlow::Continue, async move {
+                    while let Some(videos) = receiver.next().await {
+                        let video_objects = videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
+                        s.imp().subscription_video_list.get().set_items(video_objects);
+                    }
+                })
             );
 
             self.obj()
