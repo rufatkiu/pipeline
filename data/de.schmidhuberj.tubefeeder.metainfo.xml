@@ -287,7 +287,6 @@
 
   <provides>
     <binary>tubefeeder</binary>
-    <id>de.schmidhuberj.tubefeeder</id>
   </provides>
   <supports>
     <control>keyboard</control>
@@ -295,8 +294,6 @@
     <control>touch</control>
   </supports>
   <recommends>
-    <control>keyboard</control>
-    <control>pointing</control>
     <internet>always</internet>
   </recommends>
   <requires>
