@@ -16,10 +16,16 @@
     <property name="release-notes">
       &lt;p&gt;Added&lt;/p&gt;
       &lt;ul&gt;
-        &lt;li&gt;Video title as tooltip of the video.&lt;/li&gt;
-        &lt;li&gt;Video title in the video information screen.&lt;/li&gt;
-        &lt;li&gt;Error handling when failing to add a subscription.&lt;/li&gt;
-        &lt;li&gt;Error handling when failing to play or download videos.&lt;/li&gt;
+      &lt;li&gt;Action to open video in the browser.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;Fixed&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Outdated window title&lt;/li&gt;
+      &lt;li&gt;Wrong offset of the reload-spinner in relation to the reload-button.&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;p&gt;Changed&lt;/p&gt;
+      &lt;ul&gt;
+      &lt;li&gt;Updated selected Piped instance list.&lt;/li&gt;
       &lt;/ul&gt;
     </property>
   </object>

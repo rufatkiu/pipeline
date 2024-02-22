@@ -14,6 +14,23 @@
   <update_contact>flatpak@schmiddi.anonaddy.com</update_contact>
 
   <releases>
+    <release version="v1.14.4" date="2024-02-22">
+      <description>
+        <p>Added</p>
+        <ul>
+          <li>Action to open video in the browser.</li>
+        </ul>
+        <p>Fixed</p>
+        <ul>
+          <li>Outdated window title</li>
+          <li>Wrong offset of the reload-spinner in relation to the reload-button.</li>
+        </ul>
+        <p>Changed</p>
+        <ul>
+          <li>Updated selected Piped instance list.</li>
+        </ul>
+      </description>
+    </release>
     <release version="v1.14.3" date="2024-01-11">
       <description>
         <p>Added</p>

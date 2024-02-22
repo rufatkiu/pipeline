@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.14.4] - 2024-02-22
+
 ### Added
 
 - Action to open video in the browser.
@@ -90,7 +92,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - File chooser dialog for importing videos not working.
 
-[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.3...master
+[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.4...master
+[1.14.3]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.3...v1.14.4
 [1.14.3]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.2...v1.14.3
 [1.14.2]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.1...v1.14.2
 [1.14.1]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.0...v1.14.1
