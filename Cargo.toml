@@ -6,6 +6,7 @@ repository = "https://gitlab.com/schmiddi-on-mobile/pipeline"
 version = "1.14.3"
 authors = ["Julian Schmidhuber <schmidhuberj2@protonmail.com>"]
 edition = "2021"
+license = "GPL-3.0-or-later"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -35,10 +36,10 @@ gettext-rs = "0.7.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
-tf_core = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
-tf_join = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
-tf_filter = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
-tf_observer = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
-tf_playlist = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8" }
-tf_yt = { package = "tf_platform_youtube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8"  }
-tf_pt = { package = "tf_platform_peertube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "e0367c7136c8de3fd27b7015497c9f98c9033ff8"  }
+tf_core = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9" }
+tf_join = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9" }
+tf_filter = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9" }
+tf_observer = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9" }
+tf_playlist = { git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9" }
+tf_yt = { package = "tf_platform_youtube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9"  }
+tf_pt = { package = "tf_platform_peertube", git = "https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git", rev = "5f169404d9b160f5889856dba6dcd6a4a25a34f9"  }
