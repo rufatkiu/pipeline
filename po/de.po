@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-02-04 18:01+0000\n"
-"Last-Translator: Charlotte <git@cza.li>\n"
+"PO-Revision-Date: 2024-02-24 21:02+0000\n"
+"Last-Translator: Markus Göllnitz <camelcasenick@bewares.it>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/de/>\n"
 "Language: de\n"
@@ -17,15 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
 msgstr ""
-"Julian Schmidhuber <translation@schmiddi.anonaddy.com>\n"
-"Jürgen Benvenuti <gastornis@posteo.org>, 2022\n"
-"Leo Moser <leomoser99@gmail.com>, 2023\n"
-"czarlie <flare-translate@cza.li>"
+"Julian Schmidhuber\n"
+"Markus Göllnitz <camelcasenick@bewares.it>"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
@@ -42,7 +40,7 @@ msgstr "In die Zwischenablage kopieren"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr "Mehr Informationen"
+msgstr "Weitere Informationen"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
