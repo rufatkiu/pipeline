@@ -8,330 +8,342 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-02-24 21:02+0000\n"
+"Last-Translator: Filipe Motta <luiz_filipe_motta@hotmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
-msgstr ""
+msgstr "Filipe Motta <luizfilipemotta@gmail.com>"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
 msgid "Watch Later"
-msgstr ""
+msgstr "Assistir mais tarde"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "Download"
-msgstr ""
+msgstr "Baixar"
 
 #: data/resources/ui/feed_item.ui:178
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiar para área de transferência"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr ""
+msgstr "Mais informações"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
-msgstr ""
+msgstr "Falha ao baixar vídeo"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
-msgstr ""
+msgstr "Por favor, verifique o seu baixador nas Preferências."
 
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
-msgstr ""
+msgstr "Falha ao reproduzir vídeo"
 
 #: data/resources/ui/feed_list.ui:39
 msgid "Please check your player in the settings."
-msgstr ""
+msgstr "Por favor, verifique o seu player nas Preferências."
 
 #: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
 #: data/resources/ui/window.ui:73
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: data/resources/ui/feed_page.ui:21
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: data/resources/ui/feed_page.ui:23
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Recarregar"
 
 #: data/resources/ui/feed_page.ui:69
 msgid "No Videos Found"
-msgstr ""
+msgstr "Nenhum vídeo encontrado"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "Seu feed aparecerá quando você tiver adicionado inscrições"
 
 #: data/resources/ui/feed_page.ui:82
 msgid "Manage Subscriptions…"
-msgstr ""
+msgstr "Gerenciar inscrições…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
 msgid "Remove"
-msgstr ""
+msgstr "Remover"
 
 #: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
 #: data/resources/ui/window.ui:94
 msgid "Filters"
-msgstr ""
+msgstr "Filtros"
 
 #: data/resources/ui/filter_page.ui:14
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar filtro…"
 
 #: data/resources/ui/filter_page.ui:16
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar filtro…"
 
 #: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
-msgstr ""
+msgstr "Nenhum filtro"
 
 #: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adicionar filtro…"
 
 #: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
-msgstr ""
+msgstr "Adicionar filtro"
 
 #: data/resources/ui/filter_page.ui:82
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: data/resources/ui/filter_page.ui:87
 msgid "Channel Name"
-msgstr ""
+msgstr "Nome do canal"
 
 #: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:121
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: data/resources/ui/filter_page.ui:95
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add"
-msgstr ""
+msgstr "Adicionar"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "Importar inscrições"
 
 #: data/resources/ui/import_window.ui:8
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
 msgstr ""
+"Isso importará suas inscrições a partir dos seus dados exportados do NewPipe "
+"ou do YouTube."
 
 #: data/resources/ui/import_window.ui:14
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.ui:15
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "Programas"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
 msgid "Player"
-msgstr ""
+msgstr "Player"
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "Baixador"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "APIs"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"Para uma lista completa de APIs públicas, veja a <a href=\"https://github."
+"com/TeamPiped/Piped/wiki/Instances\">página de Instâncias</a> (em inglês)."
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr ""
+msgstr "API do Piped"
 
 #: data/resources/ui/preferences_window.ui:58
 msgid "Custom Piped API"
-msgstr ""
+msgstr "API Personalizada do Piped"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "Outros"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Mostrar somente vídeos de ontem"
 
 #: data/resources/ui/preferences_window.ui:79
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "Remover vídeos curtos"
 
 #: data/resources/ui/preferences_window.ui:80
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "Remove todos os vídeos com duração menor que 1 minuto"
 
 #: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
 #: data/resources/ui/window.ui:104
 msgid "Subscriptions"
-msgstr ""
+msgstr "Inscrições"
 
 #: data/resources/ui/subscription_page.ui:39
 msgid "No Subscriptions"
-msgstr ""
+msgstr "Nenhuma inscrição"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "Inscreva-se em um canal…"
 
 #: data/resources/ui/subscription_page.ui:79
 msgid "Add Subscription"
-msgstr ""
+msgstr "Adicionar inscrição"
 
 #: data/resources/ui/subscription_page.ui:100
 msgid "Base URL"
-msgstr ""
+msgstr "URL base"
 
 #: data/resources/ui/subscription_page.ui:113
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "ID ou nome do canal"
 
 #: data/resources/ui/subscription_page.ui:131
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Adicionar inscrição…"
 
 #: data/resources/ui/subscription_page.ui:133
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Adicionar inscrição…"
 
 #: data/resources/ui/subscription_page.ui:144
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "Voltar à lista de inscrições"
 
 #: data/resources/ui/subscription_page.ui:146
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Voltar"
 
 #: data/resources/ui/subscription_page.ui:157
 msgid "Failed to add subscription"
-msgstr ""
+msgstr "Falha ao adicionar inscrição"
 
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
 msgstr ""
+"Por favor, confira os dados introduzidos, a sua conexão com a internet e a "
+"URL da API."
 
 #: data/resources/ui/video_information_window.ui:21
 msgid "Video Information"
-msgstr ""
+msgstr "Informações sobre o vídeo"
 
 #: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
-msgstr ""
+msgstr "Você já assistiu tudo"
 
 #: data/resources/ui/watch_later.ui:29
 msgid "How about going outside?"
-msgstr ""
+msgstr "Que tal dar uma volta lá fora?"
 
 #: data/resources/ui/window.ui:58
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: data/resources/ui/window.ui:60
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: data/resources/ui/window.ui:127
 msgid "Import…"
-msgstr ""
+msgstr "Importar…"
 
 #: data/resources/ui/window.ui:131
 msgid "Preferences"
-msgstr ""
+msgstr "Preferências"
 
 #: data/resources/ui/window.ui:135
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Atalhos de teclado"
 
 #: data/resources/ui/window.ui:139
 msgid "About Pipeline"
-msgstr ""
+msgstr "Sobre o Pipeline"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "Erro ao se conectar à rede"
 
 #: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Erro ao processar uma inscrição"
+msgstr[1] "Erro ao processar {} inscrições"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
-msgstr ""
+msgstr "Um erro ocorreu"
 
 #: src/gui/feed/feed_item_object.rs:108
+#, fuzzy
 msgid "%F %T"
-msgstr ""
+msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "Selecionar arquivo de inscrições do NewPipe"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "Falha ao importar inscrições"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Selecionar arquivo de inscrições do YouTube"
 
 #: src/gui/preferences_window.rs:132
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"Note que, ao usar o Flatpak, alguns passos adicionais são necessários para "
+"usar um player externo ao Flatpak. Para mais informações, favor consultar a "
+"página wiki."
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "Faça uma doação"
