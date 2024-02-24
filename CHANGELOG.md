@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### HOTFIX
+
+- Subscription names not showing up in the subscription list anymore.
+
 ## [1.14.4] - 2024-02-22
 
 ### Added

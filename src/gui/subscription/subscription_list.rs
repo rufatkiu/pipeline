@@ -348,7 +348,7 @@ pub mod imp {
         fn notify(&mut self, message: SubscriptionEvent) {
             let mut sender = self.sender.clone();
             gspawn_global!(async move {
-                let _ = sender.send(message);
+                let _ = sender.send(message).await;
             });
         }
     }
