@@ -30,7 +30,7 @@ use crate::gui::stack_page::StackPage;
 
 gtk::glib::wrapper! {
     pub struct FilterPage(ObjectSubclass<imp::FilterPage>)
-        @extends StackPage, libadwaita::Bin, gtk::Widget,
+        @extends StackPage, adw::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -62,7 +62,7 @@ pub mod imp {
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
-    use libadwaita::subclass::prelude::BinImpl;
+    use adw::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use regex::Regex;
     use tf_filter::FilterGroup;
@@ -88,7 +88,7 @@ pub mod imp {
         #[template_child]
         pub(super) entry_channel: TemplateChild<gtk::Entry>,
         #[template_child]
-        pub(super) dialog_add: TemplateChild<libadwaita::MessageDialog>,
+        pub(super) dialog_add: TemplateChild<adw::MessageDialog>,
 
         pub(super) filter_group: RefCell<Option<Arc<Mutex<FilterGroup<AnyVideoFilter>>>>>,
     }

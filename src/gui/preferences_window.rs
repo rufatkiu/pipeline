@@ -2,7 +2,7 @@ use gdk::glib::Object;
 
 gtk::glib::wrapper! {
     pub struct PreferencesWindow(ObjectSubclass<imp::PreferencesWindow>)
-        @extends libadwaita::PreferencesWindow, libadwaita::Window, gtk::Window, gtk::Widget,
+        @extends adw::PreferencesWindow, adw::Window, gtk::Window, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
@@ -24,11 +24,11 @@ pub mod imp {
     use gtk::subclass::prelude::*;
     use gtk::CompositeTemplate;
     use gtk::Switch;
-    use libadwaita::prelude::PreferencesGroupExt;
-    use libadwaita::prelude::*;
-    use libadwaita::subclass::prelude::AdwWindowImpl;
-    use libadwaita::subclass::prelude::PreferencesWindowImpl;
-    use libadwaita::EntryRow;
+    use adw::prelude::PreferencesGroupExt;
+    use adw::prelude::*;
+    use adw::subclass::prelude::AdwWindowImpl;
+    use adw::subclass::prelude::PreferencesWindowImpl;
+    use adw::EntryRow;
 
     use crate::gui::predefined_piped_api::PredefinedPipedApi;
     use crate::gui::predefined_player::PredefinedPlayer;
@@ -42,15 +42,15 @@ pub mod imp {
         entry_downloader: TemplateChild<EntryRow>,
 
         #[template_child]
-        combo_predefined_player: TemplateChild<libadwaita::ComboRow>,
+        combo_predefined_player: TemplateChild<adw::ComboRow>,
         #[template_child]
-        combo_predefined_piped_api: TemplateChild<libadwaita::ComboRow>,
+        combo_predefined_piped_api: TemplateChild<adw::ComboRow>,
 
         #[template_child]
         entry_piped_api: TemplateChild<EntryRow>,
 
         #[template_child]
-        group_programs: TemplateChild<libadwaita::PreferencesGroup>,
+        group_programs: TemplateChild<adw::PreferencesGroup>,
 
         #[template_child]
         switch_only_videos_yesterday: TemplateChild<Switch>,
@@ -112,7 +112,7 @@ pub mod imp {
         }
 
         #[template_callback]
-        fn handle_selection_player(&self, _: ParamSpec, r: libadwaita::ComboRow) {
+        fn handle_selection_player(&self, _: ParamSpec, r: adw::ComboRow) {
             if let Ok(player) = r.selected_item().and_dynamic_cast::<PredefinedPlayer>() {
                 self.entry_player.set_visible(player.command().is_empty());
                 if !player.command().is_empty() {
@@ -122,7 +122,7 @@ pub mod imp {
         }
 
         #[template_callback]
-        fn handle_selection_piped_api(&self, _: ParamSpec, r: libadwaita::ComboRow) {
+        fn handle_selection_piped_api(&self, _: ParamSpec, r: adw::ComboRow) {
             if let Ok(api) = r.selected_item().and_dynamic_cast::<PredefinedPipedApi>() {
                 self.entry_piped_api.set_visible(api.url().is_empty());
                 if !api.url().is_empty() {
@@ -227,7 +227,7 @@ pub mod imp {
     impl ObjectSubclass for PreferencesWindow {
         const NAME: &'static str = "TFPreferencesWindow";
         type Type = super::PreferencesWindow;
-        type ParentType = libadwaita::PreferencesWindow;
+        type ParentType = adw::PreferencesWindow;
 
         fn new() -> Self {
             Self {

@@ -22,7 +22,7 @@ use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::SettingsExt;
 use gtk::prelude::GtkWindowExt;
 use gtk::{glib::Object, prelude::WidgetExt};
-use libadwaita::prelude::GtkApplicationExt;
+use adw::prelude::GtkApplicationExt;
 
 fn setup_joiner() -> tf_join::Joiner {
     let joiner = tf_join::Joiner::new();
@@ -31,7 +31,7 @@ fn setup_joiner() -> tf_join::Joiner {
 
 gtk::glib::wrapper! {
     pub struct Window(ObjectSubclass<imp::Window>)
-        @extends libadwaita::ApplicationWindow, gtk::ApplicationWindow, libadwaita::Window, gtk::Window, gtk::Widget,
+        @extends adw::ApplicationWindow, gtk::ApplicationWindow, adw::Window, gtk::Window, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
@@ -112,9 +112,9 @@ pub mod imp {
     use gtk::{prelude::*, ShortcutsWindow};
 
     use gtk::CompositeTemplate;
-    use libadwaita::subclass::prelude::AdwApplicationWindowImpl;
-    use libadwaita::subclass::prelude::AdwWindowImpl;
-    use libadwaita::AboutWindow;
+    use adw::subclass::prelude::AdwApplicationWindowImpl;
+    use adw::subclass::prelude::AdwWindowImpl;
+    use adw::AboutWindow;
 
     use tf_filter::FilterEvent;
     use tf_join::AnySubscriptionList;
@@ -139,10 +139,10 @@ pub mod imp {
     #[template(resource = "/ui/window.ui")]
     pub struct Window {
         #[template_child]
-        pub(in crate::gui) application_stack: TemplateChild<libadwaita::ViewStack>,
+        pub(in crate::gui) application_stack: TemplateChild<adw::ViewStack>,
 
         #[template_child]
-        pub(in crate::gui) switcher_bar: TemplateChild<libadwaita::ViewSwitcherBar>,
+        pub(in crate::gui) switcher_bar: TemplateChild<adw::ViewSwitcherBar>,
 
         pub settings: gtk::gio::Settings,
 
@@ -461,7 +461,7 @@ pub mod imp {
     impl ObjectSubclass for Window {
         const NAME: &'static str = "TFWindow";
         type Type = super::Window;
-        type ParentType = libadwaita::ApplicationWindow;
+        type ParentType = adw::ApplicationWindow;
 
         fn class_init(klass: &mut Self::Class) {
             crate::gui::stack_page::StackPage::ensure_type();

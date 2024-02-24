@@ -4,8 +4,8 @@ use gtk::prelude::*;
 use gtk::Builder;
 use gtk::FileDialog;
 use gtk::FileFilter;
-use libadwaita::prelude::MessageDialogExt;
-use libadwaita::MessageDialog;
+use adw::prelude::MessageDialogExt;
+use adw::MessageDialog;
 use tf_join::Joiner;
 
 pub fn import_window(joiner: Joiner, parent: &crate::gui::window::Window) -> MessageDialog {

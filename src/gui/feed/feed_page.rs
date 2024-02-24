@@ -26,7 +26,7 @@ use crate::gui::stack_page::StackPage;
 
 gtk::glib::wrapper! {
     pub struct FeedPage(ObjectSubclass<imp::FeedPage>)
-        @extends StackPage, libadwaita::Bin, gtk::Widget,
+        @extends StackPage, adw::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -83,7 +83,7 @@ pub mod imp {
     use gtk::subclass::prelude::*;
 
     use gtk::CompositeTemplate;
-    use libadwaita::subclass::prelude::BinImpl;
+    use adw::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use tf_core::ErrorStore;
     use tf_core::Generator;

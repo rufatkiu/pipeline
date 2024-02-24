@@ -8,10 +8,10 @@ pub fn video_information_window(
     video: tf_join::AnyVideo,
     video_information: &ExtraVideoInfo,
     parent: &crate::gui::window::Window,
-) -> libadwaita::Window {
+) -> adw::Window {
     log::trace!("Displaying video information: {:#?}", video_information);
     let builder = Builder::from_resource("/ui/video_information_window.ui");
-    let window: libadwaita::Window = builder
+    let window: adw::Window = builder
         .object("window")
         .expect("video_information_window.ui to have the object window");
     window.set_transient_for(Some(parent));

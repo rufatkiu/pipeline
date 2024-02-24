@@ -110,7 +110,7 @@ async fn main() {
     init_internationalization().expect("Failed to initialize internationalization");
 
     gtk::init().expect("Failed to initialize gtk");
-    libadwaita::init().expect("Failed to initialize libadwaita");
+    adw::init().expect("Failed to initialize adw");
     let app = gtk::Application::builder().application_id(APP_ID).build();
 
     app.connect_activate(build_ui);
