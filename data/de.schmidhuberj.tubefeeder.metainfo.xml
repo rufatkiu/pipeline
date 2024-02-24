@@ -7,6 +7,7 @@
   <summary>Follow video creators</summary>
   <launchable type="desktop-id">de.schmidhuberj.tubefeeder.desktop</launchable>
   <content_rating type="oars-1.1"/>
+  <developer_name>Julian Schmidhuber</developer_name>
   <developer id="mobile.schmidhuberj.de">
     <name>Julian Schmidhuber</name>
   </developer>
@@ -14,6 +15,14 @@
   <update_contact>flatpak@schmiddi.anonaddy.com</update_contact>
 
   <releases>
+    <release version="v1.14.5" date="2024-02-24">
+      <description>
+        <p>HOTFIX</p>
+        <ul>
+          <li>Subscription names not showing up in the subscription list anymore.</li>
+        </ul>
+      </description>
+    </release>
     <release version="v1.14.4" date="2024-02-22">
       <description>
         <p>Added</p>
