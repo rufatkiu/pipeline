@@ -23,11 +23,11 @@ use gdk_pixbuf::{
     prelude::IsA,
     subclass::prelude::{IsSubclassable, IsSubclassableExt},
 };
-use libadwaita::subclass::prelude::BinImpl;
+use adw::subclass::prelude::BinImpl;
 
 gtk::glib::wrapper! {
     pub struct StackPage(ObjectSubclass<imp::StackPage>)
-        @extends libadwaita::Bin, gtk::Widget,
+        @extends adw::Bin, gtk::Widget,
         @implements gtk::Accessible, gtk::Buildable, gtk::ConstraintTarget;
 }
 
@@ -53,7 +53,7 @@ pub mod imp {
     use gtk::prelude::ObjectExt;
     use gtk::subclass::prelude::*;
 
-    use libadwaita::subclass::prelude::BinImpl;
+    use adw::subclass::prelude::BinImpl;
 
     #[derive(Default, Properties)]
     #[properties(wrapper_type = super::StackPage)]
@@ -68,7 +68,7 @@ pub mod imp {
     impl ObjectSubclass for StackPage {
         const NAME: &'static str = "TFStackPage";
         type Type = super::StackPage;
-        type ParentType = libadwaita::Bin;
+        type ParentType = adw::Bin;
     }
 
     #[glib::derived_properties]

@@ -96,7 +96,7 @@ pub mod imp {
         popover_menu: TemplateChild<gtk::PopoverMenu>,
 
         #[template_child]
-        dialog_error: TemplateChild<libadwaita::MessageDialog>,
+        dialog_error: TemplateChild<adw::MessageDialog>,
 
         video: RefCell<Option<VideoObject>>,
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,

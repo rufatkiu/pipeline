@@ -290,7 +290,7 @@ pub mod imp {
         pub(super) scrolled_window: TemplateChild<gtk::ScrolledWindow>,
 
         #[template_child]
-        pub(super) dialog_error: TemplateChild<libadwaita::MessageDialog>,
+        pub(super) dialog_error: TemplateChild<adw::MessageDialog>,
 
         pub(super) items: RefCell<Vec<VideoObject>>,
         pub(super) model: RefCell<ListStore>,

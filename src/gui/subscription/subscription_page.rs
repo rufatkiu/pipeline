@@ -28,7 +28,7 @@ use crate::gui::stack_page::StackPage;
 
 gtk::glib::wrapper! {
     pub struct SubscriptionPage(ObjectSubclass<imp::SubscriptionPage>)
-        @extends StackPage, libadwaita::Bin, gtk::Widget,
+        @extends StackPage, adw::Bin, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget;
 }
@@ -105,8 +105,8 @@ pub mod imp {
     use gtk::PropertyExpression;
 
     use gtk::CompositeTemplate;
-    use libadwaita::prelude::MessageDialogExt;
-    use libadwaita::subclass::prelude::BinImpl;
+    use adw::prelude::MessageDialogExt;
+    use adw::subclass::prelude::BinImpl;
     use once_cell::sync::Lazy;
     use tf_core::Generator;
     use tf_join::AnySubscriptionList;
@@ -145,9 +145,9 @@ pub mod imp {
         #[template_child]
         pub(super) entry_name_id: TemplateChild<gtk::Entry>,
         #[template_child]
-        pub(super) dialog_add: TemplateChild<libadwaita::MessageDialog>,
+        pub(super) dialog_add: TemplateChild<adw::MessageDialog>,
         #[template_child]
-        pub(super) dialog_error: TemplateChild<libadwaita::MessageDialog>,
+        pub(super) dialog_error: TemplateChild<adw::MessageDialog>,
 
         #[template_child]
         pub(super) subscription_stack: TemplateChild<gtk::Stack>,
