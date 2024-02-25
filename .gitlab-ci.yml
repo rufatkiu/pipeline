@@ -16,7 +16,7 @@ build:
     - if: $CI_COMMIT_TAG
   script:
     - env
-    - pacman -Syu rustup meson gtk4 git cmake libadwaita --noconfirm
+    - pacman -Syu rustup meson gtk4 git cmake libadwaita blueprint-compiler --noconfirm
     - rustup default stable
     - meson setup $BUILD_RELEASE
     - meson dist -C $BUILD_RELEASE

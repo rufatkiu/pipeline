@@ -210,6 +210,8 @@ pub mod imp {
                     &gettextrs::gettext("Donate"),
                     "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
                 );
+                about.set_developers(&["Julian Schmidhuber  <schmidhuberj2@protonmail.com>"]);
+                about.set_artists(&["David Lapshin <ddaudix@gmail.com>"]);
                 about.set_transient_for(Some(&obj));
                 about.present();
             }));

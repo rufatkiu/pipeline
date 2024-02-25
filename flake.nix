@@ -34,7 +34,7 @@
               };
               src = ./.;
               buildInputs = with pkgs; [ pkgs.libadwaita ];
-              nativeBuildInputs = with pkgs; [ pkgs.wrapGAppsHook4 rustPlatform.cargoSetupHook meson gettext pkgs.glib pkg-config pkgs.desktop-file-utils pkgs.appstream-glib ninja rustc cargo openssl ];
+              nativeBuildInputs = with pkgs; [ wrapGAppsHook4 rustPlatform.cargoSetupHook meson gettext glib pkg-config desktop-file-utils appstream-glib ninja rustc cargo openssl blueprint-compiler ];
 
               inherit name;
             };

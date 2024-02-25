@@ -1,0 +1,18 @@
+using Gtk 4.0;
+
+template $TFErrorLabel: Box {
+  orientation: horizontal;
+  spacing: 8;
+  hexpand: true;
+  halign: center;
+
+  Label label_title {
+    label: bind template.error;
+    visible: bind $not($is_empty(template.error) as <bool>) as <bool>;
+    ellipsize: end;
+    wrap: true;
+    wrap-mode: word;
+    lines: 2;
+    justify: center;
+  }
+}

@@ -1,0 +1,122 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TFSubscriptionPage: $TFStackPage {
+  name: _('Subscriptions');
+  header-widget: '\n      btn_toggle_add_subscription\n    ';
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+
+  Stack subscription_stack {
+    StackPage {
+      name: 'page-sub';
+
+      child: Box {
+        orientation: vertical;
+
+        $TFSubscriptionList subscription_list {
+          visible: bind $not(subscription_list.is_empty) as <bool>;
+          go-to-videos => $handle_go_to_videos_page() swapped;
+        }
+
+        Adw.StatusPage {
+          visible: bind subscription_list.is_empty;
+          title: _('No Subscriptions');
+          icon-name: 'library-artists-symbolic';
+          vexpand: true;
+
+          child: Button btn_add_subscription {
+            styles [
+              "pill",
+              "suggested-action",
+            ]
+
+            halign: center;
+            label: _('Subscribe to a Channel…');
+          };
+        }
+      };
+    }
+
+    StackPage {
+      name: 'page-vid';
+
+      child: $TFFeedList subscription_video_list {};
+    }
+  }
+}
+
+Adw.MessageDialog dialog_add {
+  heading: _('Add Subscription');
+  default-response: 'add';
+  hide-on-close: true;
+
+  extra-child: Box {
+    orientation: vertical;
+    spacing: 5;
+
+    DropDown dropdown_platform {}
+
+    Entry entry_url {
+      visible: bind $url_visible(dropdown_platform.selected-item) as <bool>;
+      placeholder-text: _('Base URL');
+    }
+
+    Entry entry_name_id {
+      visible: bind $name_visible(dropdown_platform.selected-item) as <bool>;
+      activate => $handle_entry_name_id_activate() swapped;
+      placeholder-text: _('Channel ID or Name');
+    }
+  };
+
+  response => $handle_add_subscription() swapped;
+
+  responses [
+    cancel: _('Cancel'),
+    add: _('Add') suggested,
+  ]
+}
+
+Button btn_toggle_add_subscription {
+  styles [
+    "flat",
+  ]
+
+  accessibility {
+    label: C_('accessibility', 'Add Subscription…');
+  }
+
+  tooltip-text: C_('tooltip', 'Add Subscription…');
+  visible: true;
+
+  Image {
+    icon-name: 'list-add-symbolic';
+  }
+}
+
+Button btn_go_back {
+  accessibility {
+    label: C_('accessibility', 'Go back to subscription list');
+  }
+
+  tooltip-text: C_('tooltip', 'Go back');
+  visible: true;
+  clicked => $handle_go_to_subscriptions_page() swapped;
+
+  Image {
+    icon-name: 'go-previous-symbolic';
+  }
+}
+
+Adw.MessageDialog dialog_error {
+  heading: _('Failed to add subscription');
+  body: _('Please check your input, internet connection and API URL.');
+  default-response: 'close';
+  hide-on-close: true;
+
+  responses [
+    close: _('Close'),
+  ]
+}

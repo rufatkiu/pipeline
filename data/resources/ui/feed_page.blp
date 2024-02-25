@@ -1,0 +1,63 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TFFeedPage: $TFStackPage {
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+  name: _('Feed');
+
+  header-widget: Box header_widget {
+    Button btn_reload {
+      styles [
+        "flat",
+      ]
+
+      accessibility {
+        label: C_('accessibility', 'Reload');
+      }
+
+      visible: bind $not(template.reloading) as <bool>;
+      tooltip-text: C_('tooltip', 'Reload');
+
+      Image image_refresh {
+        icon-name: 'view-refresh-symbolic';
+      }
+    }
+
+    Spinner loading_spinner {
+      margin-start: 10;
+      visible: bind template.reloading;
+      spinning: bind template.reloading;
+    }
+  };
+
+  Box {
+    orientation: vertical;
+
+    $TFErrorLabel error_label {}
+
+    $TFFeedList feed_list {
+      visible: bind $not(feed_list.is-empty) as <bool>;
+    }
+
+    Adw.StatusPage {
+      visible: bind feed_list.is-empty;
+      title: _('No Videos Found');
+      description: _('Your feed will appear once you\'ve added subscriptions');
+      icon-name: 'go-home-symbolic';
+      vexpand: true;
+
+      child: Button btn_manage_subscriptions {
+        styles [
+          "pill",
+          "suggested-action",
+        ]
+
+        halign: center;
+        label: _('Manage Subscriptions…');
+      };
+    }
+  }
+}

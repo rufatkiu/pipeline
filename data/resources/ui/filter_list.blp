@@ -1,0 +1,29 @@
+using Gtk 4.0;
+
+template $TFFilterList: Box {
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+
+  ScrolledWindow {
+    hscrollbar-policy: never;
+
+    GridView filter_list {
+      styles [
+        "separators",
+        "navigation-sidebar",
+      ]
+
+      margin-start: 5;
+      margin-end: 5;
+      margin-top: 5;
+      margin-bottom: 5;
+      vexpand: true;
+      valign: fill;
+      hexpand: true;
+      halign: fill;
+      tab-behavior: item;
+    }
+  }
+}

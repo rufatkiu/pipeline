@@ -1,0 +1,18 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.AboutWindow about {
+  application-icon: 'icon';
+  application-name: 'Pipeline';
+  copyright: 'Copyright © 2022 Julian Schmidhuber';
+  developer-name: 'Julian Schmidhuber';
+  //developers: 'Julian Schmidhuber  <schmidhuberj2@protonmail.com>';
+  issue-url: 'https://gitlab.com/schmiddi-on-mobile/pipeline/-/issues';
+  license-type: gpl_3_0;
+  support-url: 'https://matrix.to/#/#pipelineapp:matrix.org';
+  translator-credits: _('translator-credits');
+  website: 'https://mobile.schmidhuberj.de/pipeline';
+  version: '@VERSION@';
+  //artists: 'David Lapshin <ddaudix@gmail.com>';
+  release-notes: '\n      <p>Added</p>\n      <ul>\n      <li>Action to open video in the browser.</li>\n      </ul>\n      <p>Fixed</p>\n      <ul>\n      <li>Outdated window title</li>\n      <li>Wrong offset of the reload-spinner in relation to the reload-button.</li>\n      </ul>\n      <p>Changed</p>\n      <ul>\n      <li>Updated selected Piped instance list.</li>\n      </ul>\n    ';
+}

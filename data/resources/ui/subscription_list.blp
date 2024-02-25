@@ -1,0 +1,25 @@
+using Gtk 4.0;
+
+template $TFSubscriptionList: Box {
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+
+  ScrolledWindow {
+    hscrollbar-policy: never;
+
+    GridView subscription_list {
+      styles [
+        "separators",
+        "navigation-sidebar",
+      ]
+
+      vexpand: true;
+      valign: fill;
+      hexpand: true;
+      halign: fill;
+      tab-behavior: item;
+    }
+  }
+}

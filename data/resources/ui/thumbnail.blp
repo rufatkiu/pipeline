@@ -1,0 +1,65 @@
+using Gtk 4.0;
+
+template $TFThumbnail: Box {
+  halign: start;
+  valign: start;
+  hexpand: false;
+  vexpand: true;
+  orientation: vertical;
+
+  Overlay {
+    height-request: 72;
+    width-request: 128;
+
+    [overlay]
+    Label {
+      styles [
+        "osd",
+        "numeric",
+        "caption",
+      ]
+
+      label: bind template.video as <$TFVideoObject>.duration;
+      valign: end;
+      halign: end;
+      margin-bottom: 5;
+      margin-end: 5;
+    }
+
+    Overlay {
+      [overlay]
+      Box {
+        styles [
+          "osd",
+        ]
+
+        visible: bind $or(template.video as <$TFVideoObject>.playing, template.video as <$TFVideoObject>.downloading) as <bool>;
+        hexpand: true;
+        vexpand: true;
+
+        Image playing {
+          visible: bind template.video as <$TFVideoObject>.playing;
+          hexpand: true;
+          vexpand: true;
+          icon-name: 'media-playback-start-symbolic';
+        }
+
+        Image downloading {
+          visible: bind template.video as <$TFVideoObject>.downloading;
+          hexpand: true;
+          vexpand: true;
+          icon-name: 'folder-download-symbolic';
+        }
+      }
+
+      Picture thumbnail {
+        styles [
+          "card",
+        ]
+
+        hexpand: true;
+        vexpand: false;
+      }
+    }
+  }
+}
