@@ -1,0 +1,15 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.MessageDialog dialog {
+  heading: _("Import Subscriptions");
+  body: _("This will import your subscriptions from exported data from NewPipe or YouTube.");
+  default-response: "close";
+  close-response: "cancel";
+
+  responses [
+    newpipe: _("NewPipe"),
+    youtube: _("YouTube"),
+    cancel: _("Cancel"),
+  ]
+}

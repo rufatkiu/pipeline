@@ -1,0 +1,154 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TFFeedItem: Box {
+  width-request: 300;
+  orientation: horizontal;
+  spacing: 8;
+  hexpand: true;
+  halign: fill;
+  margin-start: 5;
+  margin-end: 5;
+  margin-top: 5;
+  margin-bottom: 5;
+  tooltip-text: bind template.video as <$TFVideoObject>.title;
+
+  GestureClick {
+    button: 3;
+    exclusive: true;
+    pressed => $handle_clicked() swapped;
+  }
+
+  GestureLongPress {
+    touch-only: true;
+    exclusive: true;
+    pressed => $handle_clicked() swapped;
+  }
+
+  $TFThumbnail thumbnail {
+    video: bind template.video;
+  }
+
+  Box box_info {
+    orientation: vertical;
+    vexpand: true;
+    hexpand: true;
+    spacing: 5;
+
+    Label label_title {
+      label: bind template.video as <$TFVideoObject>.title;
+      ellipsize: end;
+      wrap: true;
+      wrap-mode: word;
+      lines: 2;
+      justify: left;
+      halign: start;
+    }
+
+    Box {
+      orientation: horizontal;
+
+      Box {
+        orientation: vertical;
+        spacing: 5;
+
+        Box {
+          spacing: 10;
+          orientation: horizontal;
+
+          Label label_author {
+            styles [
+              "caption",
+            ]
+
+            label: bind template.video as <$TFVideoObject>.author;
+            ellipsize: end;
+            wrap: true;
+            wrap-mode: word;
+            lines: 2;
+            justify: left;
+            halign: start;
+          }
+
+          Label label_platform {
+            styles [
+              "caption",
+            ]
+
+            label: bind template.video as <$TFVideoObject>.platform;
+            ellipsize: end;
+            wrap: true;
+            wrap-mode: word;
+            lines: 2;
+            justify: left;
+            halign: start;
+          }
+        }
+
+        Label label_date {
+          styles [
+            "caption",
+          ]
+
+          label: bind template.video as <$TFVideoObject>.date;
+          ellipsize: end;
+          wrap: true;
+          wrap-mode: word;
+          lines: 2;
+          justify: left;
+          halign: start;
+        }
+
+        Image is-local {
+          visible: bind template.video as <$TFVideoObject>.is-local;
+          halign: start;
+          icon-name: 'folder-download-symbolic';
+        }
+      }
+    }
+  }
+
+  PopoverMenu popover_menu {
+    menu-model: menu;
+  }
+}
+
+menu menu {
+  section {
+    item {
+      label: _('Watch Later');
+      action: 'item.watch-later';
+    }
+
+    item {
+      label: _('Download');
+      action: 'item.download';
+    }
+
+    item {
+      label: _('Open in Browser');
+      action: 'item.open-in-browser';
+    }
+
+    item {
+      label: _('Copy to Clipboard');
+      action: 'item.clipboard';
+    }
+
+    item {
+      label: _('More Information');
+      action: 'item.information';
+    }
+  }
+}
+
+Adw.MessageDialog dialog_error {
+  heading: _('Failed to download video');
+  body: _('Please check your downloader in the settings.');
+  default-response: 'close';
+  hide-on-close: true;
+
+  responses [
+    close: _('Close'),
+  ]
+}

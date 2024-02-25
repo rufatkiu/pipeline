@@ -1,0 +1,73 @@
+using Gtk 4.0;
+
+template $TFFilterItem: Box {
+  width-request: 200;
+  orientation: horizontal;
+  spacing: 6;
+  hexpand: true;
+  halign: fill;
+  margin-top: 6;
+  margin-bottom: 6;
+  margin-start: 6;
+  margin-end: 6;
+
+  GestureClick {
+    button: 3;
+    exclusive: true;
+    pressed => $handle_clicked() swapped;
+  }
+
+  GestureLongPress {
+    touch-only: true;
+    exclusive: true;
+    pressed => $handle_clicked() swapped;
+  }
+
+  Box {
+    orientation: vertical;
+    vexpand: true;
+    hexpand: true;
+    spacing: 6;
+
+    Label label_title {
+      styles [
+        "heading",
+      ]
+
+      label: bind template.filter as <$TFFilterObject>.title;
+      ellipsize: end;
+      wrap: true;
+      wrap-mode: word;
+      lines: 2;
+      justify: left;
+      halign: start;
+    }
+
+    Label label_channel {
+      styles [
+        "caption",
+      ]
+
+      label: bind template.filter as <$TFFilterObject>.channel;
+      ellipsize: end;
+      wrap: true;
+      wrap-mode: word;
+      lines: 2;
+      justify: left;
+      halign: start;
+    }
+  }
+
+  PopoverMenu popover_menu {
+    menu-model: menu;
+  }
+}
+
+menu menu {
+  section {
+    item {
+      label: _('Remove');
+      action: 'item.remove';
+    }
+  }
+}

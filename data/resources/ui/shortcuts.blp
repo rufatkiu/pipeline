@@ -1,0 +1,82 @@
+using Gtk 4.0;
+
+ShortcutsWindow help_overlay {
+  ShortcutsSection {
+    ShortcutsGroup {
+      title: "Application";
+
+      ShortcutsShortcut {
+        accelerator: "<Control>1";
+        title: "Go to Feed";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>2";
+        title: "Go to Watch Later List";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>3";
+        title: "Go to Filters";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>4";
+        title: "Go to Subscriptions";
+      }
+    }
+
+    ShortcutsGroup {
+      title: "Videos";
+
+      ShortcutsShortcut {
+        accelerator: "<Control>s";
+        title: "Download Video";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>w";
+        title: "Toggle Watch Later of Video";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>i";
+        title: "Show Video Information";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>b";
+        title: "Open Video URL in Browser";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>c";
+        title: "Copy Video URL to Clipboard";
+      }
+    }
+
+    ShortcutsGroup {
+      title: "General";
+
+      ShortcutsShortcut {
+        accelerator: "F1";
+        title: "Show About Dialog";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>q";
+        title: "Quit";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>question";
+        title: "Show Shortcuts";
+      }
+
+      ShortcutsShortcut {
+        accelerator: "<Control>comma";
+        title: "Show Preferences";
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TFFeedList: Box {
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+
+  ScrolledWindow scrolled_window {
+    hscrollbar-policy: never;
+    valign: start;
+    propagate-natural-height: true;
+    edge-reached => $edge_reached() swapped;
+
+    GridView feed_list {
+      styles [
+        "separators",
+        "navigation-sidebar",
+      ]
+
+      vexpand: true;
+      valign: fill;
+      hexpand: true;
+      halign: fill;
+      tab-behavior: item;
+    }
+  }
+}
+
+Adw.MessageDialog dialog_error {
+  heading: _('Failed to play video');
+  body: _('Please check your player in the settings.');
+  default-response: 'close';
+  hide-on-close: true;
+
+  responses [
+    close: _('Close'),
+  ]
+}

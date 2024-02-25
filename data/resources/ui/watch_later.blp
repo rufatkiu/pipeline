@@ -1,0 +1,26 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $TFWatchLaterPage: $TFStackPage {
+  name: _('Watch Later');
+  vexpand: true;
+  valign: fill;
+  hexpand: true;
+  halign: fill;
+
+  Box {
+    orientation: vertical;
+
+    $TFFeedList feed_page {
+      visible: bind $not(feed_page.is-empty) as <bool>;
+    }
+
+    Adw.StatusPage {
+      visible: bind feed_page.is-empty;
+      title: _('Everything Watched');
+      description: _('How about going outside?');
+      icon-name: 'alarm-symbolic';
+      vexpand: true;
+    }
+  }
+}

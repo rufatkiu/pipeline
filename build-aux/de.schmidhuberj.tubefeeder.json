@@ -32,6 +32,20 @@
     },
     "modules": [
         {
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "cleanup": [
+                "*"
+            ],
+            "sources": [
+              {
+                "type": "git",
+                "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+                "tag" : "v0.10.0"
+              }
+            ]
+        },  
+        {
             "name": "tubefeeder",
             "buildsystem": "meson",
             "config-opts": [

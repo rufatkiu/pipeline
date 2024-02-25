@@ -2,5 +2,8 @@
 *~*
 src/config.rs
 data/resources/ui/about.ui
+data/resources/ui/about.blp
 .flatpak-builder
 .direnv
+
+/subprojects/blueprint-compiler
