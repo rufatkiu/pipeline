@@ -309,4 +309,9 @@
     <display_length compare="ge" side="shortest">300</display_length>
     <display_length compare="ge" side="longest">360</display_length>
   </requires>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#ffffff</color>
+    <color type="primary" scheme_preference="dark">#3d3d3d</color>
+  </branding>
 </component>
