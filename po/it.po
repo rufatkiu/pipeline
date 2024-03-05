@@ -9,14 +9,16 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2023-06-09 15:10+0100\n"
-"Last-Translator: Michael Moroni <michaelmoroni@disroot.org>\n"
-"Language-Team: Italian <LL@li.org>\n"
+"PO-Revision-Date: 2024-03-06 13:01+0000\n"
+"Last-Translator: Davide <davide.ferracin@protonmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
@@ -37,7 +39,7 @@ msgstr "Copia negli appunti"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr ""
+msgstr "Ulteriori informazioni"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
