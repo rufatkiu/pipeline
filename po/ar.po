@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-03-10 17:01+0000\n"
+"PO-Revision-Date: 2024-03-13 22:01+0000\n"
 "Last-Translator: Waleed <waleed.exe+translate@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/ar/>\n"
@@ -23,6 +23,9 @@ msgstr ""
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
 msgstr ""
+"Original translators: please add here\n"
+"\n"
+"Waleed: waleed.exe@gmail.com"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
@@ -83,12 +86,11 @@ msgstr "لا توجد مرئيات"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "ستظهر قائمة الموجز الخاصة بك بمجرد إضافتك للإشتراكات"
 
 #: data/resources/ui/feed_page.ui:82
-#, fuzzy
 msgid "Manage Subscriptions…"
-msgstr "أضِف اشتراك"
+msgstr "تعديل الإشتراكات…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
@@ -101,16 +103,14 @@ msgid "Filters"
 msgstr "مُرشِّحات"
 
 #: data/resources/ui/filter_page.ui:14
-#, fuzzy
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr "أضف مرشِّح..."
+msgstr "أضِف مُرشِّح…"
 
 #: data/resources/ui/filter_page.ui:16
-#, fuzzy
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr "أضف مرشِّح..."
+msgstr "أضِف مُرشِّح…"
 
 #: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
@@ -118,7 +118,7 @@ msgstr "لا توجد مُرشِّحات"
 
 #: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
-msgstr "أضف مرشِّح..."
+msgstr "أضِف مُرشِّح…"
 
 #: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
@@ -193,12 +193,11 @@ msgstr ""
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr "واجهة برمجة التطبيقات المنقولة"
+msgstr "واجهة برمجة التطبيقات المتصلة"
 
 #: data/resources/ui/preferences_window.ui:58
-#, fuzzy
 msgid "Custom Piped API"
-msgstr "واجهة برمجة التطبيقات المنقولة"
+msgstr "واجهة برمجة التطبيقات المتصلة والمخصصة"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
@@ -210,11 +209,11 @@ msgstr "أظهر مقاطع الفيديو من الأمس فقط"
 
 #: data/resources/ui/preferences_window.ui:79
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "إستبعاد مقاطع الفيديو القصيرة"
 
 #: data/resources/ui/preferences_window.ui:80
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "إستبعاد مقاطع الفيديو تحت الدقيقة"
 
 #: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
 #: data/resources/ui/window.ui:104
@@ -227,7 +226,7 @@ msgstr "لا توجد اشتراكات"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "Subscribe to a Channel…"
-msgstr "اشترك في قناة..."
+msgstr "اشترك في قناة…"
 
 #: data/resources/ui/subscription_page.ui:79
 msgid "Add Subscription"
@@ -242,16 +241,14 @@ msgid "Channel ID or Name"
 msgstr "معرًف القناة أو الاسم"
 
 #: data/resources/ui/subscription_page.ui:131
-#, fuzzy
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr "أضِف اشتراك"
+msgstr "أضِف اشتراك…"
 
 #: data/resources/ui/subscription_page.ui:133
-#, fuzzy
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr "أضِف اشتراك"
+msgstr "أضِف اشتراك…"
 
 #: data/resources/ui/subscription_page.ui:144
 #, fuzzy
@@ -262,7 +259,7 @@ msgstr "لا توجد اشتراكات"
 #: data/resources/ui/subscription_page.ui:146
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "رجوع"
 
 #: data/resources/ui/subscription_page.ui:157
 #, fuzzy
@@ -271,11 +268,11 @@ msgstr "خطأ في استيراد الاشتراكات"
 
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
-msgstr ""
+msgstr "تأكد من المدخل, الانترنت أو عنوان واجهة برمجة التطبيقات."
 
 #: data/resources/ui/video_information_window.ui:21
 msgid "Video Information"
-msgstr ""
+msgstr "معلومات الفيديو"
 
 #: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
@@ -288,16 +285,16 @@ msgstr "ماذا عن الخروج؟"
 #: data/resources/ui/window.ui:58
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "القائمة الرئيسية"
 
 #: data/resources/ui/window.ui:60
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "القائمة الرئيسية"
 
 #: data/resources/ui/window.ui:127
 msgid "Import…"
-msgstr "استورد..."
+msgstr "إستيراد…"
 
 #: data/resources/ui/window.ui:131
 msgid "Preferences"
@@ -305,7 +302,7 @@ msgstr "تفضيلات"
 
 #: data/resources/ui/window.ui:135
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "إختصارات لوحة المفاتيح"
 
 #: data/resources/ui/window.ui:139
 msgid "About Pipeline"
@@ -320,10 +317,10 @@ msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "خطأ في تحليل اشتراكات {}"
 msgstr[1] "خطأ في تحليل اشتراك واحد"
-msgstr[2] "خطأ في تحليل اشتراكات {}"
-msgstr[3] "خطأ في تحليل اشتراكات {}"
-msgstr[4] "خطأ في تحليل اشتراكات {}"
-msgstr[5] "خطأ في تحليل اشتراكات {}"
+msgstr[2] "خطأ في تحليل اشتراكان"
+msgstr[3] "خطأ في تحليل {} اشتراكات"
+msgstr[4] "خطأ في تحليل {} اشتراكات"
+msgstr[5] "خطأ في تحليل {} اشتراكات"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
