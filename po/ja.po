@@ -8,330 +8,341 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-03-21 12:48+0000\n"
+"Last-Translator: Niek Nooijens <nieknooijens@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
-msgstr ""
+msgstr "翻訳者のクレジット"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
 msgid "Watch Later"
-msgstr ""
+msgstr "後で見る"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "Download"
-msgstr ""
+msgstr "ダウンロード"
 
 #: data/resources/ui/feed_item.ui:178
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "クリップボードにコピー"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr ""
+msgstr "追加情報"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
-msgstr ""
+msgstr "ビデオをダウンロードが失敗しました"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
-msgstr ""
+msgstr "設定でダウンローダーをチェックしてください。"
 
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "終了"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
-msgstr ""
+msgstr "ビデオ再生失敗しました"
 
 #: data/resources/ui/feed_list.ui:39
 msgid "Please check your player in the settings."
-msgstr ""
+msgstr "設定でプレヤーをチェックしてください。"
 
 #: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
 #: data/resources/ui/window.ui:73
 msgid "Feed"
-msgstr ""
+msgstr "フィード"
 
 #: data/resources/ui/feed_page.ui:21
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "更新"
 
 #: data/resources/ui/feed_page.ui:23
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "更新"
 
 #: data/resources/ui/feed_page.ui:69
 msgid "No Videos Found"
-msgstr ""
+msgstr "ビデオを見つかりませんでした"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "サブスクリプションを加えた後でフィードが表示可能になります"
 
 #: data/resources/ui/feed_page.ui:82
 msgid "Manage Subscriptions…"
-msgstr ""
+msgstr "サブスクリプションを管理…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
 msgid "Remove"
-msgstr ""
+msgstr "消去"
 
 #: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
 #: data/resources/ui/window.ui:94
 msgid "Filters"
-msgstr ""
+msgstr "フィルター"
 
 #: data/resources/ui/filter_page.ui:14
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "フィルター加える…"
 
 #: data/resources/ui/filter_page.ui:16
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "フィルター加える…"
 
 #: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
-msgstr ""
+msgstr "フィルターなし"
 
 #: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
-msgstr ""
+msgstr "フィルター加える…"
 
 #: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
-msgstr ""
+msgstr "フィルター加える"
 
 #: data/resources/ui/filter_page.ui:82
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
 #: data/resources/ui/filter_page.ui:87
 msgid "Channel Name"
-msgstr ""
+msgstr "チャネル名"
 
 #: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:121
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: data/resources/ui/filter_page.ui:95
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add"
-msgstr ""
+msgstr "加える"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "サブスクリプションをインポート"
 
 #: data/resources/ui/import_window.ui:8
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
-msgstr ""
+msgstr "これにより、NewPipe または YouTube "
+"からエクスポートされたデータからサブスクリプションがインポートされます。"
 
 #: data/resources/ui/import_window.ui:14
+#, fuzzy
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.ui:15
+#, fuzzy
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "ゼネラル"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "プログラム"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
 msgid "Player"
-msgstr ""
+msgstr "プレヤー"
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "ダウンローダー"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "API"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"パブリック API の完全なリストについては、<a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\""
+">インスタンスページ</a>をチェックしてください。"
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr ""
+msgstr "パイプされた API"
 
 #: data/resources/ui/preferences_window.ui:58
 msgid "Custom Piped API"
-msgstr ""
+msgstr "カスタムパイプAPI"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "他"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "昨日からの動画だけ表示する"
 
 #: data/resources/ui/preferences_window.ui:79
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "短い動画非表示"
 
 #: data/resources/ui/preferences_window.ui:80
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "１分以下のビデオを非表示する"
 
 #: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
 #: data/resources/ui/window.ui:104
 msgid "Subscriptions"
-msgstr ""
+msgstr "サブスクリプション"
 
 #: data/resources/ui/subscription_page.ui:39
 msgid "No Subscriptions"
-msgstr ""
+msgstr "サブスクリプションなし"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "チャネルに購読する…"
 
 #: data/resources/ui/subscription_page.ui:79
 msgid "Add Subscription"
-msgstr ""
+msgstr "サブスクリプションを加える"
 
 #: data/resources/ui/subscription_page.ui:100
 msgid "Base URL"
-msgstr ""
+msgstr "ベースURL"
 
 #: data/resources/ui/subscription_page.ui:113
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "チャネルID、また名前"
 
 #: data/resources/ui/subscription_page.ui:131
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "サブスクリプションを加える…"
 
 #: data/resources/ui/subscription_page.ui:133
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "サブスクリプションを加える…"
 
 #: data/resources/ui/subscription_page.ui:144
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "サブスクリプションリストに戻る"
 
 #: data/resources/ui/subscription_page.ui:146
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "戻る"
 
 #: data/resources/ui/subscription_page.ui:157
 msgid "Failed to add subscription"
-msgstr ""
+msgstr "サブスクリプションを加えるのが失敗しました"
 
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
-msgstr ""
+msgstr "入力、インターネット接続、API URL を確認してください。"
 
 #: data/resources/ui/video_information_window.ui:21
 msgid "Video Information"
-msgstr ""
+msgstr "ビデオ情報"
 
 #: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
-msgstr ""
+msgstr "すべてが見られました"
 
 #: data/resources/ui/watch_later.ui:29
 msgid "How about going outside?"
-msgstr ""
+msgstr "出かけるのはどうですか？"
 
 #: data/resources/ui/window.ui:58
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "メインメニュー"
 
 #: data/resources/ui/window.ui:60
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "メインメニュー"
 
 #: data/resources/ui/window.ui:127
 msgid "Import…"
-msgstr ""
+msgstr "インポート…"
 
 #: data/resources/ui/window.ui:131
 msgid "Preferences"
-msgstr ""
+msgstr "設定"
 
 #: data/resources/ui/window.ui:135
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "キーボードショートカット"
 
 #: data/resources/ui/window.ui:139
 msgid "About Pipeline"
-msgstr ""
+msgstr "パイプラインについて"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "ネットワーク接続エラー"
 
 #: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{} サブスクリプションの解析エラー"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
-msgstr ""
+msgstr "エラーが発生しました"
 
 #: src/gui/feed/feed_item_object.rs:108
+#, fuzzy
 msgid "%F %T"
-msgstr ""
+msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "NewPipeのサブスクリプションファイルを選択してください"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "サブスクリプションのインポートに失敗する"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "YouTubeのサブスクリプションファイルを選択してください"
 
 #: src/gui/preferences_window.rs:132
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"Flatpak では、Flatpak の外部のプレーヤーを使用する場合、さらにいくつかの手順"
+"が必要になることに注意してください。 詳細については、wiki "
+"を参照してください。"
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "寄付する"
