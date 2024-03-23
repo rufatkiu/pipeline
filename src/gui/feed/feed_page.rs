@@ -82,8 +82,8 @@ pub mod imp {
 
     use gtk::subclass::prelude::*;
 
-    use gtk::CompositeTemplate;
     use adw::subclass::prelude::BinImpl;
+    use gtk::CompositeTemplate;
     use once_cell::sync::Lazy;
     use tf_core::ErrorStore;
     use tf_core::Generator;
@@ -175,7 +175,7 @@ pub mod imp {
             gspawn!(
                 clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, async move {
                     while let Some(videos) = receiver.next().await {
-                        let yesterday = chrono::Local::now().date_naive() - Duration::days(1);
+                        let yesterday = chrono::Local::now().date_naive() - Duration::try_days(1).expect("one day to be expressable as a duration");
 
                         let only_yesterday = settings.boolean("only-videos-yesterday");
                         let remove_short = settings.boolean("remove-short-videos");
@@ -184,7 +184,7 @@ pub mod imp {
                             .into_iter()
                             .map(VideoObject::new)
                             .filter(|v| !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday))
-                            .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::seconds(61)).unwrap_or_default())) // One more second padding to be sure.
+                            .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::try_seconds(61).expect("61 seconds to be expressable as a duration")).unwrap_or_default())) // One more second padding to be sure.
                             .collect::<Vec<_>>();
 
                         s.imp().feed_list.get().set_items(video_objects);

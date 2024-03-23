@@ -80,14 +80,14 @@ fn format_duration(d: Duration) -> String {
         format!(
             "{}:{:0>2}:{:0>2}",
             d.num_hours(),
-            (d - Duration::hours(d.num_hours())).num_minutes(),
-            (d - Duration::minutes(d.num_minutes())).num_seconds()
+            (d - Duration::try_hours(d.num_hours()).unwrap_or_default()).num_minutes(),
+            (d - Duration::try_minutes(d.num_minutes()).unwrap_or_default()).num_seconds()
         )
     } else {
         format!(
             "{:0>2}:{:0>2}",
             d.num_minutes(),
-            (d - Duration::minutes(d.num_minutes())).num_seconds()
+            (d - Duration::try_minutes(d.num_minutes()).unwrap_or_default()).num_seconds()
         )
     }
 }
