@@ -104,9 +104,9 @@ pub mod imp {
     use gtk::ConstantExpression;
     use gtk::PropertyExpression;
 
-    use gtk::CompositeTemplate;
-    use adw::prelude::MessageDialogExt;
+    use adw::prelude::AdwDialogExt;
     use adw::subclass::prelude::BinImpl;
+    use gtk::CompositeTemplate;
     use once_cell::sync::Lazy;
     use tf_core::Generator;
     use tf_join::AnySubscriptionList;
@@ -145,9 +145,9 @@ pub mod imp {
         #[template_child]
         pub(super) entry_name_id: TemplateChild<gtk::Entry>,
         #[template_child]
-        pub(super) dialog_add: TemplateChild<adw::MessageDialog>,
+        pub(super) dialog_add: TemplateChild<adw::AlertDialog>,
         #[template_child]
-        pub(super) dialog_error: TemplateChild<adw::MessageDialog>,
+        pub(super) dialog_error: TemplateChild<adw::AlertDialog>,
 
         #[template_child]
         pub(super) subscription_stack: TemplateChild<gtk::Stack>,
@@ -202,11 +202,8 @@ pub mod imp {
                 self.entry_name_id.grab_focus();
             }
 
-            // Theoretically only needs to be done once, but when setting up the page does
-            // not yet have a root.
             let window = self.obj().window();
-            self.dialog_add.set_transient_for(Some(&window));
-            self.dialog_add.present();
+            self.dialog_add.present(&window);
         }
 
         fn setup_toggle_add_subscription(&self, obj: &super::SubscriptionPage) {
@@ -257,9 +254,8 @@ pub mod imp {
     impl SubscriptionPage {
         #[template_callback]
         fn handle_entry_name_id_activate(&self) {
-            self.dialog_add
-                .response(&self.dialog_add.default_response().unwrap_or_default());
-            self.dialog_add.set_visible(false);
+            self.handle_add_subscription(Some("add"));
+            self.dialog_add.close();
         }
 
         #[template_callback]
@@ -313,8 +309,7 @@ pub mod imp {
                            log::error!("Failed to get subscription with supplied data");
                             let window = obj.window();
                             let dialog_error = &obj.imp().dialog_error;
-                            dialog_error.set_transient_for(Some(&window));
-                            dialog_error.present();
+                            dialog_error.present(&window);
                        }
                     }
                 })

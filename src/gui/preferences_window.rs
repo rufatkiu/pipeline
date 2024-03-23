@@ -2,7 +2,7 @@ use gdk::glib::Object;
 
 gtk::glib::wrapper! {
     pub struct PreferencesWindow(ObjectSubclass<imp::PreferencesWindow>)
-        @extends adw::PreferencesWindow, adw::Window, gtk::Window, gtk::Widget,
+        @extends adw::PreferencesDialog, adw::Dialog, gtk::Widget,
         @implements gtk::gio::ActionGroup, gtk::gio::ActionMap, gtk::Accessible, gtk::Buildable,
             gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
@@ -14,21 +14,20 @@ impl PreferencesWindow {
 }
 
 pub mod imp {
+    use adw::prelude::PreferencesGroupExt;
+    use adw::prelude::*;
+    use adw::subclass::prelude::AdwDialogImpl;
+    use adw::subclass::prelude::PreferencesDialogImpl;
+    use adw::EntryRow;
     use gdk::gio::Settings;
     use gdk::gio::SettingsBindFlags;
     use gdk_pixbuf::gio::ListStore;
     use gdk_pixbuf::glib::ParamSpec;
     use glib::subclass::InitializingObject;
     use gtk::glib;
-    use gtk::prelude::*;
     use gtk::subclass::prelude::*;
     use gtk::CompositeTemplate;
     use gtk::Switch;
-    use adw::prelude::PreferencesGroupExt;
-    use adw::prelude::*;
-    use adw::subclass::prelude::AdwWindowImpl;
-    use adw::subclass::prelude::PreferencesWindowImpl;
-    use adw::EntryRow;
 
     use crate::gui::predefined_piped_api::PredefinedPipedApi;
     use crate::gui::predefined_player::PredefinedPlayer;
@@ -114,6 +113,11 @@ pub mod imp {
         #[template_callback]
         fn handle_selection_player(&self, _: ParamSpec, r: adw::ComboRow) {
             if let Ok(player) = r.selected_item().and_dynamic_cast::<PredefinedPlayer>() {
+                // For some reason, this gets called during destruction when entry_player is not available anymore.
+                if !self.entry_player.is_bound() {
+                    return;
+                }
+
                 self.entry_player.set_visible(player.command().is_empty());
                 if !player.command().is_empty() {
                     self.entry_player.set_text(&player.command());
@@ -124,6 +128,11 @@ pub mod imp {
         #[template_callback]
         fn handle_selection_piped_api(&self, _: ParamSpec, r: adw::ComboRow) {
             if let Ok(api) = r.selected_item().and_dynamic_cast::<PredefinedPipedApi>() {
+                // For some reason, this gets called during destruction when entry_player is not available anymore.
+                if !self.entry_piped_api.is_bound() {
+                    return;
+                }
+
                 self.entry_piped_api.set_visible(api.url().is_empty());
                 if !api.url().is_empty() {
                     self.entry_piped_api.set_text(&api.url());
@@ -160,7 +169,7 @@ pub mod imp {
             let val_env = std::env::var_os("PIPED_API_URL");
             let val_settings = self.settings.string("piped-url");
             if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
-                self.combo_predefined_player.set_sensitive(false);
+                self.combo_predefined_piped_api.set_sensitive(false);
             }
             if let Some(idx) = self
                 .predefined_piped_apis_vec()
@@ -227,7 +236,7 @@ pub mod imp {
     impl ObjectSubclass for PreferencesWindow {
         const NAME: &'static str = "TFPreferencesWindow";
         type Type = super::PreferencesWindow;
-        type ParentType = adw::PreferencesWindow;
+        type ParentType = adw::PreferencesDialog;
 
         fn new() -> Self {
             Self {
@@ -263,7 +272,6 @@ pub mod imp {
         }
     }
     impl WidgetImpl for PreferencesWindow {}
-    impl WindowImpl for PreferencesWindow {}
-    impl PreferencesWindowImpl for PreferencesWindow {}
-    impl AdwWindowImpl for PreferencesWindow {}
+    impl PreferencesDialogImpl for PreferencesWindow {}
+    impl AdwDialogImpl for PreferencesWindow {}
 }

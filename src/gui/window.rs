@@ -18,11 +18,11 @@
  *
  */
 
+use adw::prelude::GtkApplicationExt;
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::SettingsExt;
 use gtk::prelude::GtkWindowExt;
 use gtk::{glib::Object, prelude::WidgetExt};
-use adw::prelude::GtkApplicationExt;
 
 fn setup_joiner() -> tf_join::Joiner {
     let joiner = tf_join::Joiner::new();
@@ -103,6 +103,7 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use adw::prelude::AdwDialogExt;
     use gdk_pixbuf::gio::{SimpleAction, SimpleActionGroup};
     use gdk_pixbuf::glib::clone;
     use glib::subclass::InitializingObject;
@@ -111,10 +112,10 @@ pub mod imp {
     use gtk::{glib, Builder};
     use gtk::{prelude::*, ShortcutsWindow};
 
-    use gtk::CompositeTemplate;
     use adw::subclass::prelude::AdwApplicationWindowImpl;
     use adw::subclass::prelude::AdwWindowImpl;
-    use adw::AboutWindow;
+    use adw::AboutDialog;
+    use gtk::CompositeTemplate;
 
     use tf_filter::FilterEvent;
     use tf_join::AnySubscriptionList;
@@ -191,19 +192,18 @@ pub mod imp {
             let action_settings = SimpleAction::new("settings", None);
             action_settings.connect_activate(clone!(@weak obj => move |_, _| {
                 let settings = PreferencesWindow::new();
-                settings.set_transient_for(Some(&obj));
-                settings.present();
+                settings.present(&obj);
             }));
             let action_import = SimpleAction::new("import", None);
             action_import.connect_activate(clone!(@weak obj => move |_, _| {
                 let import = import_window::import_window(obj.imp().joiner.borrow().clone().expect("Joiner to be set up"), &obj);
-                import.present();
+                import.present(&obj);
             }));
 
             let action_about = SimpleAction::new("about", None);
             action_about.connect_activate(clone!(@weak obj => move |_, _| {
                 let builder = Builder::from_resource("/ui/about.ui");
-                let about: AboutWindow = builder
+                let about: AboutDialog = builder
                     .object("about")
                     .expect("about.ui to have at least one object about");
                 about.add_link(
@@ -212,8 +212,7 @@ pub mod imp {
                 );
                 about.set_developers(&["Julian Schmidhuber  <schmidhuberj2@protonmail.com>"]);
                 about.set_artists(&["David Lapshin <ddaudix@gmail.com>"]);
-                about.set_transient_for(Some(&obj));
-                about.present();
+                about.present(&obj);
             }));
             let action_show_help_overlay = SimpleAction::new("show-help-overlay", None);
             action_show_help_overlay.connect_activate(|_, _| {

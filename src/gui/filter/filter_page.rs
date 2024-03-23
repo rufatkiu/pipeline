@@ -54,6 +54,7 @@ pub mod imp {
     use std::sync::Arc;
     use std::sync::Mutex;
 
+    use adw::prelude::AdwDialogExt;
     use gdk::glib::clone;
     use gdk::glib::ParamSpec;
     use glib::subclass::InitializingObject;
@@ -61,8 +62,8 @@ pub mod imp {
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
 
-    use gtk::CompositeTemplate;
     use adw::subclass::prelude::BinImpl;
+    use gtk::CompositeTemplate;
     use once_cell::sync::Lazy;
     use regex::Regex;
     use tf_filter::FilterGroup;
@@ -88,7 +89,7 @@ pub mod imp {
         #[template_child]
         pub(super) entry_channel: TemplateChild<gtk::Entry>,
         #[template_child]
-        pub(super) dialog_add: TemplateChild<adw::MessageDialog>,
+        pub(super) dialog_add: TemplateChild<adw::AlertDialog>,
 
         pub(super) filter_group: RefCell<Option<Arc<Mutex<FilterGroup<AnyVideoFilter>>>>>,
     }
@@ -99,11 +100,8 @@ pub mod imp {
             self.entry_channel.set_text("");
             self.entry_title.set_text("");
 
-            // Theoretically only needs to be done once, but when setting up the page does
-            // not yet have a root.
             let window = self.obj().window();
-            self.dialog_add.set_transient_for(Some(&window));
-            self.dialog_add.present();
+            self.dialog_add.present(&window);
         }
 
         fn setup_toggle_add_filter(&self, obj: &super::FilterPage) {

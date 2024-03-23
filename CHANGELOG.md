@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Chores
+
+- Updated to GNOME 46 libraries.
+
 ## [1.14.5] - 2024-02-24
 
 ### HOTFIX

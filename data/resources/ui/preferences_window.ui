@@ -5,7 +5,7 @@ https://gitlab.gnome.org/jwestman/blueprint-compiler/-/issues/5 -->
   <requires lib="gtk+" version="3.24"/>
   <requires lib="libadwaita" version="1.0"/>
 
-  <template class="TFPreferencesWindow" parent="AdwPreferencesWindow">
+  <template class="TFPreferencesWindow" parent="AdwPreferencesDialog">
     <child>
       <object class="AdwPreferencesPage">
         <property name="title" translatable="yes">General</property>
