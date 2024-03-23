@@ -129,6 +129,12 @@ dependencies = [
 
 [[package]]
 name = "base64"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9e1b586273c5702936fe7b7d6896644d8be71e6314cfe09d3167c95f712589e8"
+
+[[package]]
+name = "base64"
 version = "0.21.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9d297deb1925b89f2ccc13d7635fa0714f12c87adce1c75356b39ca9b7178567"
@@ -332,6 +338,51 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5efa2b3d7902f4b634a20cae3c9c4e6209dc4779feb6863329607560143efa70"
 dependencies = [
  "memchr",
+]
+
+[[package]]
+name = "darling"
+version = "0.20.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "54e36fcd13ed84ffdfda6f5be89b31287cbb80c439841fe69e04841435464391"
+dependencies = [
+ "darling_core",
+ "darling_macro",
+]
+
+[[package]]
+name = "darling_core"
+version = "0.20.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9c2cf1c23a687a1feeb728783b993c4e1ad83d99f351801977dd809b48d0a70f"
+dependencies = [
+ "fnv",
+ "ident_case",
+ "proc-macro2",
+ "quote",
+ "strsim",
+ "syn 2.0.50",
+]
+
+[[package]]
+name = "darling_macro"
+version = "0.20.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a668eda54683121533a393014d8692171709ff57a7d61f187b6e782719f8933f"
+dependencies = [
+ "darling_core",
+ "quote",
+ "syn 2.0.50",
+]
+
+[[package]]
+name = "deranged"
+version = "0.3.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b42b6fa04a440b495c8b04d0e71b707c585f83cb9cb28cf8cd0d976c315e31b4"
+dependencies = [
+ "powerfmt",
+ "serde",
 ]
 
 [[package]]
@@ -884,7 +935,7 @@ dependencies = [
  "futures-sink",
  "futures-util",
  "http",
- "indexmap",
+ "indexmap 2.2.3",
  "slab",
  "tokio",
  "tokio-util",
@@ -903,6 +954,12 @@ dependencies = [
 
 [[package]]
 name = "hashbrown"
+version = "0.12.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
+
+[[package]]
+name = "hashbrown"
 version = "0.14.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "290f1a1d9242c78d09ce40a5e87e7554ee637af1351968159f4952f028f75604"
@@ -918,6 +975,12 @@ name = "hermit-abi"
 version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bd5256b483761cd23699d0da46cc6fd2ee3be420bbe6d020ae4a091e70b7e9fd"
+
+[[package]]
+name = "hex"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "http"
@@ -1034,6 +1097,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "ident_case"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
+
+[[package]]
 name = "idna"
 version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1063,12 +1132,23 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
+version = "1.9.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd070e393353796e801d209ad339e89596eb4c8d430d18ede6a1cced8fafbd99"
+dependencies = [
+ "autocfg",
+ "hashbrown 0.12.3",
+ "serde",
+]
+
+[[package]]
+name = "indexmap"
 version = "2.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "233cf39063f058ea2caae4091bf4a3ef70a653afbc026f5c4a4135d114e3c177"
 dependencies = [
  "equivalent",
- "hashbrown",
+ "hashbrown 0.14.3",
 ]
 
 [[package]]
@@ -1227,6 +1307,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
 
 [[package]]
+name = "mime_guess"
+version = "2.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4192263c238a5f0d0c6bfd21f336a313a4ce1c450542449ca191bb657b4642ef"
+dependencies = [
+ "mime",
+ "unicase",
+]
+
+[[package]]
 name = "miniz_oxide"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1264,6 +1354,12 @@ dependencies = [
  "security-framework-sys",
  "tempfile",
 ]
+
+[[package]]
+name = "num-conv"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "51d515d32fb182ee37cda2ccdcb92950d6a3c2893aa280e540671c2cd0f3b1d9"
 
 [[package]]
 name = "num-traits"
@@ -1438,16 +1534,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
-name = "piped"
-version = "0.0.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8c211337ccc845811e3a25c4a2dd47b373f10088bb22a6d0f17475e9c14c058e"
+name = "piped-openapi-sdk"
+version = "1.0.0"
+source = "git+https://gitlab.com/schmiddi-on-mobile/piped-rs#47e962fae9563e9a4b5a97756a448146b2b02413"
 dependencies = [
  "reqwest",
  "serde",
+ "serde_derive",
  "serde_json",
- "thiserror",
+ "serde_with",
  "url",
+ "uuid",
 ]
 
 [[package]]
@@ -1468,6 +1565,12 @@ dependencies = [
  "flate2",
  "miniz_oxide",
 ]
+
+[[package]]
+name = "powerfmt"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "439ee305def115ba05938db6eb1644ff94165c5ab5e9420d1c1bcedbba909391"
 
 [[package]]
 name = "proc-macro-crate"
@@ -1603,7 +1706,7 @@ version = "0.11.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c6920094eb85afde5e4a138be3f2de8bbdf28000f0029e72c45025a56b042251"
 dependencies = [
- "base64",
+ "base64 0.21.7",
  "bytes",
  "encoding_rs",
  "futures-core",
@@ -1618,6 +1721,7 @@ dependencies = [
  "js-sys",
  "log",
  "mime",
+ "mime_guess",
  "native-tls",
  "once_cell",
  "percent-encoding",
@@ -1702,7 +1806,7 @@ version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c74cae0a4cf6ccbbf5f359f08efdf8ee7e1dc532573bf0db71968cb56b1448c"
 dependencies = [
- "base64",
+ "base64 0.21.7",
 ]
 
 [[package]]
@@ -1828,6 +1932,34 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_with"
+version = "2.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "07ff71d2c147a7b57362cead5e22f772cd52f6ab31cfcd9edcd7f6aeb2a0afbe"
+dependencies = [
+ "base64 0.13.1",
+ "chrono",
+ "hex",
+ "indexmap 1.9.3",
+ "serde",
+ "serde_json",
+ "serde_with_macros",
+ "time",
+]
+
+[[package]]
+name = "serde_with_macros"
+version = "2.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "881b6f881b17d13214e5d494c939ebab463d01264ce1811e9d4ac3a882e7695f"
+dependencies = [
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.50",
+]
+
+[[package]]
 name = "signal-hook-registry"
 version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1875,6 +2007,12 @@ checksum = "6980e8d7511241f8acf4aebddbb1ff938df5eebe98691418c4468d0b72a96a67"
 dependencies = [
  "lock_api",
 ]
+
+[[package]]
+name = "strsim"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
 
 [[package]]
 name = "syn"
@@ -1965,7 +2103,7 @@ dependencies = [
 [[package]]
 name = "tf_core"
 version = "0.1.4"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "async-trait",
  "chrono",
@@ -1980,7 +2118,7 @@ dependencies = [
 [[package]]
 name = "tf_filter"
 version = "0.1.3"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "tf_observer",
 ]
@@ -1988,7 +2126,7 @@ dependencies = [
 [[package]]
 name = "tf_join"
 version = "0.1.7"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "async-trait",
  "chrono",
@@ -2007,12 +2145,12 @@ dependencies = [
 [[package]]
 name = "tf_observer"
 version = "0.1.3"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 
 [[package]]
 name = "tf_platform_peertube"
 version = "0.1.5"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "async-trait",
  "chrono",
@@ -2026,13 +2164,13 @@ dependencies = [
 [[package]]
 name = "tf_platform_youtube"
 version = "0.1.7"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "async-trait",
  "chrono",
  "image",
  "log",
- "piped",
+ "piped-openapi-sdk",
  "quick-xml",
  "regex",
  "reqwest",
@@ -2044,7 +2182,7 @@ dependencies = [
 [[package]]
 name = "tf_playlist"
 version = "0.1.4"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "log",
  "tf_observer",
@@ -2053,7 +2191,7 @@ dependencies = [
 [[package]]
 name = "tf_utils"
 version = "0.1.3"
-source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=5f169404d9b160f5889856dba6dcd6a4a25a34f9#5f169404d9b160f5889856dba6dcd6a4a25a34f9"
+source = "git+https://gitlab.com/schmiddi-on-mobile/tubefeeder-extractor.git?rev=ea34170b218a7c1a8dcd6e1a54526801e920778d#ea34170b218a7c1a8dcd6e1a54526801e920778d"
 dependencies = [
  "async-trait",
  "chrono",
@@ -2093,6 +2231,37 @@ dependencies = [
  "flate2",
  "jpeg-decoder",
  "weezl",
+]
+
+[[package]]
+name = "time"
+version = "0.3.34"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c8248b6521bb14bc45b4067159b9b6ad792e2d6d754d6c41fb50e29fefe38749"
+dependencies = [
+ "deranged",
+ "itoa",
+ "num-conv",
+ "powerfmt",
+ "serde",
+ "time-core",
+ "time-macros",
+]
+
+[[package]]
+name = "time-core"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ef927ca75afb808a4d64dd374f00a2adf8d0fcff8e7b184af886c3c87ec4a3f3"
+
+[[package]]
+name = "time-macros"
+version = "0.2.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ba3a3ef41e6672a2f0f001392bb5dcd3ff0a9992d618ca761a11c3121547774"
+dependencies = [
+ "num-conv",
+ "time-core",
 ]
 
 [[package]]
@@ -2201,7 +2370,7 @@ version = "0.21.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6a8534fd7f78b5405e860340ad6575217ce99f38d4d5c8f2442cb5ecb50090e1"
 dependencies = [
- "indexmap",
+ "indexmap 2.2.3",
  "toml_datetime",
  "winnow 0.5.40",
 ]
@@ -2212,7 +2381,7 @@ version = "0.22.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c1b5fd4128cc8d3e0cb74d4ed9a9cc7c7284becd4df68f5f940e1ad123606f6"
 dependencies = [
- "indexmap",
+ "indexmap 2.2.3",
  "serde",
  "serde_spanned",
  "toml_datetime",
@@ -2283,6 +2452,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "unicase"
+version = "2.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7d2d4dafb69621809a81864c9c1b864479e1235c0dd4e199924b9742439ed89"
+dependencies = [
+ "version_check",
+]
+
+[[package]]
 name = "unicode-bidi"
 version = "0.3.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2325,6 +2503,16 @@ name = "utf8parse"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "711b9620af191e0cdc7468a8d14e709c3dcdb115b36f838e601583af800a370a"
+
+[[package]]
+name = "uuid"
+version = "1.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a183cf7feeba97b4dd1c0d46788634f6221d87fa961b305bed08c851829efcc0"
+dependencies = [
+ "getrandom",
+ "serde",
+]
 
 [[package]]
 name = "vcpkg"
