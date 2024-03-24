@@ -8,9 +8,8 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-01-23 16:01+0000\n"
-"Last-Translator: Amethyst Silva Freitas <rockyamethyst@users.noreply.hosted."
-"weblate.org>\n"
+"PO-Revision-Date: 2024-03-25 17:01+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/pt/>\n"
 "Language: pt\n"
@@ -18,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
-msgstr ""
+msgstr "Silvério Santos (Português)"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
@@ -47,7 +46,7 @@ msgstr "Falha ao baixar o vídeo"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
-msgstr ""
+msgstr "Por favor, verifique o seu descarregador nas Preferências."
 
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
@@ -161,11 +160,11 @@ msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "Programas"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
@@ -174,11 +173,11 @@ msgstr ""
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "Descarregador"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "APIs"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
@@ -196,7 +195,7 @@ msgstr ""
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "Outros"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
@@ -229,7 +228,7 @@ msgstr ""
 
 #: data/resources/ui/subscription_page.ui:100
 msgid "Base URL"
-msgstr ""
+msgstr "URL base"
 
 #: data/resources/ui/subscription_page.ui:113
 msgid "Channel ID or Name"
@@ -262,6 +261,8 @@ msgstr ""
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
 msgstr ""
+"Por favor, confira os dados introduzidos, a sua conexão com a internet e a "
+"URL da API."
 
 #: data/resources/ui/video_information_window.ui:21
 msgid "Video Information"
@@ -278,16 +279,16 @@ msgstr ""
 #: data/resources/ui/window.ui:58
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu primário"
 
 #: data/resources/ui/window.ui:60
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Menu primário"
 
 #: data/resources/ui/window.ui:127
 msgid "Import…"
-msgstr ""
+msgstr "Importar…"
 
 #: data/resources/ui/window.ui:131
 msgid "Preferences"
