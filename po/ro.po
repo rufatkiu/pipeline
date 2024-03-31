@@ -8,331 +8,339 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-04-01 15:01+0000\n"
+"Last-Translator: Andrea Andre <andrea.tsg19@slmail.me>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/about.ui:12
 msgid "translator-credits"
-msgstr ""
+msgstr "Andrea Andre"
 
 #: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
 #: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
 msgid "Watch Later"
-msgstr ""
+msgstr "Vizionează mai târziu"
 
 #: data/resources/ui/feed_item.ui:174
 msgid "Download"
-msgstr ""
+msgstr "Descarcă"
 
 #: data/resources/ui/feed_item.ui:178
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Copiază în memorie"
 
 #: data/resources/ui/feed_item.ui:182
 msgid "More Information"
-msgstr ""
+msgstr "Alte informații"
 
 #: data/resources/ui/feed_item.ui:190
 msgid "Failed to download video"
-msgstr ""
+msgstr "Nu s-a reușit descărcarea videoclipului"
 
 #: data/resources/ui/feed_item.ui:191
 msgid "Please check your downloader in the settings."
-msgstr ""
+msgstr "Verifică programul de descărcat (descărcătorul)."
 
 #: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
 #: data/resources/ui/subscription_page.ui:162
 msgid "Close"
-msgstr ""
+msgstr "Închide"
 
 #: data/resources/ui/feed_list.ui:38
 msgid "Failed to play video"
-msgstr ""
+msgstr "Videoclipul nu a putut fi redat"
 
 #: data/resources/ui/feed_list.ui:39
 msgid "Please check your player in the settings."
-msgstr ""
+msgstr "Verifică programul de citire a fișierelor video."
 
 #: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
 #: data/resources/ui/window.ui:73
 msgid "Feed"
-msgstr ""
+msgstr "Flux"
 
 #: data/resources/ui/feed_page.ui:21
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Reîncarcă"
 
 #: data/resources/ui/feed_page.ui:23
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Reîncarcă"
 
 #: data/resources/ui/feed_page.ui:69
 msgid "No Videos Found"
-msgstr ""
+msgstr "Niciun video"
 
 #: data/resources/ui/feed_page.ui:70
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "Fluxul tău va apărea după ce ai adăugat abonamente"
 
 #: data/resources/ui/feed_page.ui:82
 msgid "Manage Subscriptions…"
-msgstr ""
+msgstr "Gestionare abonamente…"
 
 #: data/resources/ui/filter_item.ui:89
 #: data/resources/ui/subscription_item.ui:97
 msgid "Remove"
-msgstr ""
+msgstr "Elimină"
 
 #: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
 #: data/resources/ui/window.ui:94
 msgid "Filters"
-msgstr ""
+msgstr "Filtre"
 
 #: data/resources/ui/filter_page.ui:14
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adaugă un filtru…"
 
 #: data/resources/ui/filter_page.ui:16
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adaugă un filtru…"
 
 #: data/resources/ui/filter_page.ui:46
 msgid "No Filters"
-msgstr ""
+msgstr "Niciun filtru"
 
 #: data/resources/ui/filter_page.ui:63
 msgid "Add Filter…"
-msgstr ""
+msgstr "Adaugă un filtru…"
 
 #: data/resources/ui/filter_page.ui:73
 msgid "Add Filter"
-msgstr ""
+msgstr "Adaugă un filtru"
 
 #: data/resources/ui/filter_page.ui:82
 msgid "Title"
-msgstr ""
+msgstr "Titlu"
 
 #: data/resources/ui/filter_page.ui:87
 msgid "Channel Name"
-msgstr ""
+msgstr "Numele canalului"
 
 #: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
 #: data/resources/ui/subscription_page.ui:121
 msgid "Cancel"
-msgstr ""
+msgstr "Renunță"
 
 #: data/resources/ui/filter_page.ui:95
 #: data/resources/ui/subscription_page.ui:122
 msgid "Add"
-msgstr ""
+msgstr "Adaugă"
 
 #: data/resources/ui/import_window.ui:7
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "Importă abonamente"
 
 #: data/resources/ui/import_window.ui:8
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
-msgstr ""
+msgstr "Importă abonamentele din datele exportate din NewPipe sau YouTube."
 
 #: data/resources/ui/import_window.ui:14
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.ui:15
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:9
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 #: data/resources/ui/preferences_window.ui:13
 msgid "Programs"
-msgstr ""
+msgstr "Programe"
 
 #: data/resources/ui/preferences_window.ui:17
 #: data/resources/ui/preferences_window.ui:30
 msgid "Player"
-msgstr ""
+msgstr "Cititor"
 
 #: data/resources/ui/preferences_window.ui:35
 msgid "Downloader"
-msgstr ""
+msgstr "Descărcător"
 
 #: data/resources/ui/preferences_window.ui:42
 msgid "APIs"
-msgstr ""
+msgstr "API"
 
 #: data/resources/ui/preferences_window.ui:43
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"Pentru o listă completă a API-urilor publice, consultă <a href=\"https"
+"://github.com/TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 
 #: data/resources/ui/preferences_window.ui:46
 msgid "Piped API"
-msgstr ""
+msgstr "API Piped"
 
 #: data/resources/ui/preferences_window.ui:58
 msgid "Custom Piped API"
-msgstr ""
+msgstr "API Piped personalizată"
 
 #: data/resources/ui/preferences_window.ui:65
 msgid "Other"
-msgstr ""
+msgstr "Altele"
 
 #: data/resources/ui/preferences_window.ui:68
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Arată doar videoclipurile de ieri"
 
 #: data/resources/ui/preferences_window.ui:79
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "Elimină videoclipurile scurte"
 
 #: data/resources/ui/preferences_window.ui:80
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "Elimină toate videoclipurile mai scurte de 1 minut"
 
 #: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
 #: data/resources/ui/window.ui:104
 msgid "Subscriptions"
-msgstr ""
+msgstr "Abonamente"
 
 #: data/resources/ui/subscription_page.ui:39
 msgid "No Subscriptions"
-msgstr ""
+msgstr "Niciun abonament"
 
 #: data/resources/ui/subscription_page.ui:56
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "Abonează-te la un canal…"
 
 #: data/resources/ui/subscription_page.ui:79
 msgid "Add Subscription"
-msgstr ""
+msgstr "Adaugă un abonament"
 
 #: data/resources/ui/subscription_page.ui:100
 msgid "Base URL"
-msgstr ""
+msgstr "Adresa URL de bază"
 
 #: data/resources/ui/subscription_page.ui:113
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "Numele sau ID-ul canalului"
 
 #: data/resources/ui/subscription_page.ui:131
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Adaugă un abonament…"
 
 #: data/resources/ui/subscription_page.ui:133
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Adaugă un abonament…"
 
 #: data/resources/ui/subscription_page.ui:144
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "Înapoi la lista cu abonamente"
 
 #: data/resources/ui/subscription_page.ui:146
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Înapoi"
 
 #: data/resources/ui/subscription_page.ui:157
 msgid "Failed to add subscription"
-msgstr ""
+msgstr "Nu s-a putut adăuga abonamentul"
 
 #: data/resources/ui/subscription_page.ui:158
 msgid "Please check your input, internet connection and API URL."
-msgstr ""
+msgstr "Verifică datele introduse, conexiunea la internet și URL-ul API."
 
 #: data/resources/ui/video_information_window.ui:21
 msgid "Video Information"
-msgstr ""
+msgstr "Informații video"
 
 #: data/resources/ui/watch_later.ui:28
 msgid "Everything Watched"
-msgstr ""
+msgstr "Totul a fost vizionat"
 
 #: data/resources/ui/watch_later.ui:29
 msgid "How about going outside?"
-msgstr ""
+msgstr "Ce-ar fi să iei o pauză?"
 
 #: data/resources/ui/window.ui:58
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Opțiuni principale"
 
 #: data/resources/ui/window.ui:60
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Opțiuni principale"
 
 #: data/resources/ui/window.ui:127
 msgid "Import…"
-msgstr ""
+msgstr "Importă…"
 
 #: data/resources/ui/window.ui:131
 msgid "Preferences"
-msgstr ""
+msgstr "Preferințe"
 
 #: data/resources/ui/window.ui:135
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Taste rapide"
 
 #: data/resources/ui/window.ui:139
 msgid "About Pipeline"
-msgstr ""
+msgstr "Despre Pipeline"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "Eroare la conectare la rețea"
 
 #: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Eroare la analizarea unui abonament"
+msgstr[1] "Eroare la analizarea a {} abonamente"
+msgstr[2] "Eroare la analizarea a {} de abonamente"
 
 #: src/gui/feed/error_label.rs:107
 msgid "Some error occured"
-msgstr ""
+msgstr "A apărut o eroare"
 
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
-msgstr ""
+msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "Alege fișierul de abonament NewPipe"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "Nu s-a reușit importarea abonamentelor"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Alege fișierul de abonament YouTube"
 
 #: src/gui/preferences_window.rs:132
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"De reținut că, în cazul Flatpak, sunt necesari mai mulți pași atunci când se "
+"utilizează un cititor extern programului Flatpak. Pentru mai multe "
+"informații, consultă wiki."
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "Donează"
