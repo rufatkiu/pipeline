@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-11 17:12+0100\n"
-"PO-Revision-Date: 2024-04-01 15:01+0000\n"
+"PO-Revision-Date: 2024-04-04 11:01+0000\n"
 "Last-Translator: Andrea Andre <andrea.tsg19@slmail.me>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/ro/>\n"
@@ -303,7 +303,7 @@ msgstr "Despre Pipeline"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error connecting to the network"
-msgstr "Eroare la conectare la rețea"
+msgstr "Eroare la conectarea la rețea"
 
 #: src/gui/feed/error_label.rs:104
 msgid "Error parsing one subscription"
