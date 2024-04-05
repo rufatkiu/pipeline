@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:12+0100\n"
+"POT-Creation-Date: 2024-04-05 10:53+0200\n"
 "PO-Revision-Date: 2024-03-13 22:01+0000\n"
 "Last-Translator: Waleed <waleed.exe+translate@gmail.com>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/"
-"schmiddi-on-mobile/pipeline/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/schmiddi-on-"
+"mobile/pipeline/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,299 +20,38 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 5.5-dev\n"
 
-#: data/resources/ui/about.ui:12
-msgid "translator-credits"
-msgstr ""
-"Original translators: please add here\n"
-"\n"
-"Waleed: waleed.exe@gmail.com"
-
-#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
-#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
-msgid "Watch Later"
-msgstr "المشاهدة لاحقا"
-
-#: data/resources/ui/feed_item.ui:174
-msgid "Download"
-msgstr "نزّل المقطع المرئي"
-
-#: data/resources/ui/feed_item.ui:178
-msgid "Copy to Clipboard"
-msgstr "انسخ إلى الحافظة"
-
-#: data/resources/ui/feed_item.ui:182
-msgid "More Information"
-msgstr "المزيد"
-
-#: data/resources/ui/feed_item.ui:190
-msgid "Failed to download video"
-msgstr "تعذر تحميل المشهد"
-
-#: data/resources/ui/feed_item.ui:191
-msgid "Please check your downloader in the settings."
-msgstr "تأكد من اعدادات التحميل للبرنامج."
-
-#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
-#: data/resources/ui/subscription_page.ui:162
-msgid "Close"
-msgstr "اغلاق"
-
-#: data/resources/ui/feed_list.ui:38
-msgid "Failed to play video"
-msgstr "تعذر تشغيل المشهد"
-
-#: data/resources/ui/feed_list.ui:39
-msgid "Please check your player in the settings."
-msgstr "تأكد من اعدادات المشغل."
-
-#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
-#: data/resources/ui/window.ui:73
-msgid "Feed"
-msgstr "الموجز"
-
-#: data/resources/ui/feed_page.ui:21
-msgctxt "accessibility"
-msgid "Reload"
-msgstr "إعادة تحميل"
-
-#: data/resources/ui/feed_page.ui:23
-msgctxt "tooltip"
-msgid "Reload"
-msgstr "إعادة تحميل"
-
-#: data/resources/ui/feed_page.ui:69
-msgid "No Videos Found"
-msgstr "لا توجد مرئيات"
-
-#: data/resources/ui/feed_page.ui:70
-msgid "Your feed will appear once you've added subscriptions"
-msgstr "ستظهر قائمة الموجز الخاصة بك بمجرد إضافتك للإشتراكات"
-
-#: data/resources/ui/feed_page.ui:82
-msgid "Manage Subscriptions…"
-msgstr "تعديل الإشتراكات…"
-
-#: data/resources/ui/filter_item.ui:89
-#: data/resources/ui/subscription_item.ui:97
-msgid "Remove"
-msgstr "حذف"
-
-#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
-#: data/resources/ui/window.ui:94
-msgid "Filters"
-msgstr "مُرشِّحات"
-
-#: data/resources/ui/filter_page.ui:14
-msgctxt "accessibility"
-msgid "Add Filter…"
-msgstr "أضِف مُرشِّح…"
-
-#: data/resources/ui/filter_page.ui:16
-msgctxt "tooltip"
-msgid "Add Filter…"
-msgstr "أضِف مُرشِّح…"
-
-#: data/resources/ui/filter_page.ui:46
-msgid "No Filters"
-msgstr "لا توجد مُرشِّحات"
-
-#: data/resources/ui/filter_page.ui:63
-msgid "Add Filter…"
-msgstr "أضِف مُرشِّح…"
-
-#: data/resources/ui/filter_page.ui:73
-msgid "Add Filter"
-msgstr "أضِف مُرشِّح"
-
-#: data/resources/ui/filter_page.ui:82
-msgid "Title"
-msgstr "عنوان"
-
-#: data/resources/ui/filter_page.ui:87
-msgid "Channel Name"
-msgstr "اسم القناة"
-
-#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:121
-msgid "Cancel"
-msgstr "ألغِ"
-
-#: data/resources/ui/filter_page.ui:95
-#: data/resources/ui/subscription_page.ui:122
-msgid "Add"
-msgstr "اضِف"
-
-#: data/resources/ui/import_window.ui:7
+#: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
 msgstr "استيرادات الاشتراكات"
 
-#: data/resources/ui/import_window.ui:8
+#: data/resources/ui/import_window.blp:6
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
 msgstr ""
 "سيؤدي هذا إلى استيراد اشتراكاتك من البيانات المصدرة من NewPipe أو YouTube."
 
-#: data/resources/ui/import_window.ui:14
+#: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
 msgstr "NewPipe"
 
-#: data/resources/ui/import_window.ui:15
+#: data/resources/ui/import_window.blp:12
 msgid "YouTube"
 msgstr "YouTube"
 
-#: data/resources/ui/preferences_window.ui:9
-msgid "General"
-msgstr "عام"
+#: data/resources/ui/import_window.blp:13
+msgid "Cancel"
+msgstr "ألغِ"
 
-#: data/resources/ui/preferences_window.ui:13
-msgid "Programs"
-msgstr "البرمجيات"
-
-#: data/resources/ui/preferences_window.ui:17
-#: data/resources/ui/preferences_window.ui:30
-msgid "Player"
-msgstr "برنامج تشغيل المرئيات"
-
-#: data/resources/ui/preferences_window.ui:35
-msgid "Downloader"
-msgstr "برنامج تنزيل المرئيات"
-
-#: data/resources/ui/preferences_window.ui:42
-msgid "APIs"
-msgstr "واجهات برمجة التطبيقات"
-
-#: data/resources/ui/preferences_window.ui:43
-#, fuzzy
-msgid ""
-"For a complete list of public APIs, see the <a href=\"https://github.com/"
-"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
-msgstr ""
-"للحصول على قائمة بواجهات برمجة التطبيقات العامة راجع <a href=\"https://"
-"github.com/TeamPiped/Piped/wiki/Instances\">صفحة المثيلات</a>."
-
-#: data/resources/ui/preferences_window.ui:46
-msgid "Piped API"
-msgstr "واجهة برمجة التطبيقات المتصلة"
-
-#: data/resources/ui/preferences_window.ui:58
-msgid "Custom Piped API"
-msgstr "واجهة برمجة التطبيقات المتصلة والمخصصة"
-
-#: data/resources/ui/preferences_window.ui:65
-msgid "Other"
-msgstr "أخرى"
-
-#: data/resources/ui/preferences_window.ui:68
-msgid "Show only Videos from Yesterday"
-msgstr "أظهر مقاطع الفيديو من الأمس فقط"
-
-#: data/resources/ui/preferences_window.ui:79
-msgid "Remove Short Videos"
-msgstr "إستبعاد مقاطع الفيديو القصيرة"
-
-#: data/resources/ui/preferences_window.ui:80
-msgid "Removes all videos shorter than 1 minute"
-msgstr "إستبعاد مقاطع الفيديو تحت الدقيقة"
-
-#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
-#: data/resources/ui/window.ui:104
-msgid "Subscriptions"
-msgstr "الاشتراكات"
-
-#: data/resources/ui/subscription_page.ui:39
-msgid "No Subscriptions"
-msgstr "لا توجد اشتراكات"
-
-#: data/resources/ui/subscription_page.ui:56
-msgid "Subscribe to a Channel…"
-msgstr "اشترك في قناة…"
-
-#: data/resources/ui/subscription_page.ui:79
-msgid "Add Subscription"
-msgstr "أضِف اشتراك"
-
-#: data/resources/ui/subscription_page.ui:100
-msgid "Base URL"
-msgstr "الرابط الرئيسي"
-
-#: data/resources/ui/subscription_page.ui:113
-msgid "Channel ID or Name"
-msgstr "معرًف القناة أو الاسم"
-
-#: data/resources/ui/subscription_page.ui:131
-msgctxt "accessibility"
-msgid "Add Subscription…"
-msgstr "أضِف اشتراك…"
-
-#: data/resources/ui/subscription_page.ui:133
-msgctxt "tooltip"
-msgid "Add Subscription…"
-msgstr "أضِف اشتراك…"
-
-#: data/resources/ui/subscription_page.ui:144
-#, fuzzy
-msgctxt "accessibility"
-msgid "Go back to subscription list"
-msgstr "لا توجد اشتراكات"
-
-#: data/resources/ui/subscription_page.ui:146
-msgctxt "tooltip"
-msgid "Go back"
-msgstr "رجوع"
-
-#: data/resources/ui/subscription_page.ui:157
-#, fuzzy
-msgid "Failed to add subscription"
-msgstr "خطأ في استيراد الاشتراكات"
-
-#: data/resources/ui/subscription_page.ui:158
-msgid "Please check your input, internet connection and API URL."
-msgstr "تأكد من المدخل, الانترنت أو عنوان واجهة برمجة التطبيقات."
-
-#: data/resources/ui/video_information_window.ui:21
+#: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
 msgstr "معلومات الفيديو"
 
-#: data/resources/ui/watch_later.ui:28
-msgid "Everything Watched"
-msgstr "شاهدت كل شيئ"
-
-#: data/resources/ui/watch_later.ui:29
-msgid "How about going outside?"
-msgstr "ماذا عن الخروج؟"
-
-#: data/resources/ui/window.ui:58
-msgctxt "accessibility"
-msgid "Primary menu"
-msgstr "القائمة الرئيسية"
-
-#: data/resources/ui/window.ui:60
-msgctxt "tooltip"
-msgid "Primary menu"
-msgstr "القائمة الرئيسية"
-
-#: data/resources/ui/window.ui:127
-msgid "Import…"
-msgstr "إستيراد…"
-
-#: data/resources/ui/window.ui:131
-msgid "Preferences"
-msgstr "تفضيلات"
-
-#: data/resources/ui/window.ui:135
-msgid "Keyboard Shortcuts"
-msgstr "إختصارات لوحة المفاتيح"
-
-#: data/resources/ui/window.ui:139
-msgid "About Pipeline"
-msgstr "حول Pipeline"
-
-#: src/gui/feed/error_label.rs:102
+#: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
 msgstr "خطأ في الاتصال بالشبكة"
 
-#: src/gui/feed/error_label.rs:104
+#: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "خطأ في تحليل اشتراكات {}"
@@ -322,10 +61,11 @@ msgstr[3] "خطأ في تحليل {} اشتراكات"
 msgstr[4] "خطأ في تحليل {} اشتراكات"
 msgstr[5] "خطأ في تحليل {} اشتراكات"
 
-#: src/gui/feed/error_label.rs:107
+#: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
 msgstr "حدث خطأ ما"
 
+#. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
 msgstr "%F %T"
@@ -342,7 +82,7 @@ msgstr "خطأ في استيراد الاشتراكات"
 msgid "Select YouTube subscription file"
 msgstr "حدد ملف اشتراك"
 
-#: src/gui/preferences_window.rs:132
+#: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
@@ -350,9 +90,205 @@ msgstr ""
 "لاحظ أنه في فلاتباك هناك بعض الخطوات الإضافية المطلوبة عند استخدام مشغل "
 "فيديو خارجي للفلاتباك ، لمزيد من المعلومات يرجى الرجوع إلى الويكي."
 
+#: src/gui/window.rs:58
+#, fuzzy
+msgid "Pipeline"
+msgstr "حول Pipeline"
+
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr "تبرّع"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Original translators: please add here\n"
+#~ "\n"
+#~ "Waleed: waleed.exe@gmail.com"
+
+#~ msgid "Watch Later"
+#~ msgstr "المشاهدة لاحقا"
+
+#~ msgid "Download"
+#~ msgstr "نزّل المقطع المرئي"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "انسخ إلى الحافظة"
+
+#~ msgid "More Information"
+#~ msgstr "المزيد"
+
+#~ msgid "Failed to download video"
+#~ msgstr "تعذر تحميل المشهد"
+
+#~ msgid "Please check your downloader in the settings."
+#~ msgstr "تأكد من اعدادات التحميل للبرنامج."
+
+#~ msgid "Close"
+#~ msgstr "اغلاق"
+
+#~ msgid "Failed to play video"
+#~ msgstr "تعذر تشغيل المشهد"
+
+#~ msgid "Please check your player in the settings."
+#~ msgstr "تأكد من اعدادات المشغل."
+
+#~ msgid "Feed"
+#~ msgstr "الموجز"
+
+#~ msgctxt "accessibility"
+#~ msgid "Reload"
+#~ msgstr "إعادة تحميل"
+
+#~ msgctxt "tooltip"
+#~ msgid "Reload"
+#~ msgstr "إعادة تحميل"
+
+#~ msgid "No Videos Found"
+#~ msgstr "لا توجد مرئيات"
+
+#~ msgid "Your feed will appear once you've added subscriptions"
+#~ msgstr "ستظهر قائمة الموجز الخاصة بك بمجرد إضافتك للإشتراكات"
+
+#~ msgid "Manage Subscriptions…"
+#~ msgstr "تعديل الإشتراكات…"
+
+#~ msgid "Remove"
+#~ msgstr "حذف"
+
+#~ msgid "Filters"
+#~ msgstr "مُرشِّحات"
+
+#~ msgctxt "accessibility"
+#~ msgid "Add Filter…"
+#~ msgstr "أضِف مُرشِّح…"
+
+#~ msgctxt "tooltip"
+#~ msgid "Add Filter…"
+#~ msgstr "أضِف مُرشِّح…"
+
+#~ msgid "No Filters"
+#~ msgstr "لا توجد مُرشِّحات"
+
+#~ msgid "Add Filter…"
+#~ msgstr "أضِف مُرشِّح…"
+
+#~ msgid "Add Filter"
+#~ msgstr "أضِف مُرشِّح"
+
+#~ msgid "Title"
+#~ msgstr "عنوان"
+
+#~ msgid "Channel Name"
+#~ msgstr "اسم القناة"
+
+#~ msgid "Add"
+#~ msgstr "اضِف"
+
+#~ msgid "General"
+#~ msgstr "عام"
+
+#~ msgid "Programs"
+#~ msgstr "البرمجيات"
+
+#~ msgid "Player"
+#~ msgstr "برنامج تشغيل المرئيات"
+
+#~ msgid "Downloader"
+#~ msgstr "برنامج تنزيل المرئيات"
+
+#~ msgid "APIs"
+#~ msgstr "واجهات برمجة التطبيقات"
+
+#, fuzzy
+#~ msgid ""
+#~ "For a complete list of public APIs, see the <a href=\"https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+#~ msgstr ""
+#~ "للحصول على قائمة بواجهات برمجة التطبيقات العامة راجع <a href=\"https://"
+#~ "github.com/TeamPiped/Piped/wiki/Instances\">صفحة المثيلات</a>."
+
+#~ msgid "Piped API"
+#~ msgstr "واجهة برمجة التطبيقات المتصلة"
+
+#~ msgid "Custom Piped API"
+#~ msgstr "واجهة برمجة التطبيقات المتصلة والمخصصة"
+
+#~ msgid "Other"
+#~ msgstr "أخرى"
+
+#~ msgid "Show only Videos from Yesterday"
+#~ msgstr "أظهر مقاطع الفيديو من الأمس فقط"
+
+#~ msgid "Remove Short Videos"
+#~ msgstr "إستبعاد مقاطع الفيديو القصيرة"
+
+#~ msgid "Removes all videos shorter than 1 minute"
+#~ msgstr "إستبعاد مقاطع الفيديو تحت الدقيقة"
+
+#~ msgid "Subscriptions"
+#~ msgstr "الاشتراكات"
+
+#~ msgid "No Subscriptions"
+#~ msgstr "لا توجد اشتراكات"
+
+#~ msgid "Subscribe to a Channel…"
+#~ msgstr "اشترك في قناة…"
+
+#~ msgid "Add Subscription"
+#~ msgstr "أضِف اشتراك"
+
+#~ msgid "Base URL"
+#~ msgstr "الرابط الرئيسي"
+
+#~ msgid "Channel ID or Name"
+#~ msgstr "معرًف القناة أو الاسم"
+
+#~ msgctxt "accessibility"
+#~ msgid "Add Subscription…"
+#~ msgstr "أضِف اشتراك…"
+
+#~ msgctxt "tooltip"
+#~ msgid "Add Subscription…"
+#~ msgstr "أضِف اشتراك…"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Go back to subscription list"
+#~ msgstr "لا توجد اشتراكات"
+
+#~ msgctxt "tooltip"
+#~ msgid "Go back"
+#~ msgstr "رجوع"
+
+#, fuzzy
+#~ msgid "Failed to add subscription"
+#~ msgstr "خطأ في استيراد الاشتراكات"
+
+#~ msgid "Please check your input, internet connection and API URL."
+#~ msgstr "تأكد من المدخل, الانترنت أو عنوان واجهة برمجة التطبيقات."
+
+#~ msgid "Everything Watched"
+#~ msgstr "شاهدت كل شيئ"
+
+#~ msgid "How about going outside?"
+#~ msgstr "ماذا عن الخروج؟"
+
+#~ msgctxt "accessibility"
+#~ msgid "Primary menu"
+#~ msgstr "القائمة الرئيسية"
+
+#~ msgctxt "tooltip"
+#~ msgid "Primary menu"
+#~ msgstr "القائمة الرئيسية"
+
+#~ msgid "Import…"
+#~ msgstr "إستيراد…"
+
+#~ msgid "Preferences"
+#~ msgstr "تفضيلات"
+
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "إختصارات لوحة المفاتيح"
 
 #~ msgid "Load more"
 #~ msgstr "حِمْل المزيد"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:12+0100\n"
+"POT-Creation-Date: 2024-04-05 10:53+0200\n"
 "PO-Revision-Date: 2024-04-04 11:01+0000\n"
 "Last-Translator: Богдан Venture <bogdanventura123@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"schmiddi-on-mobile/pipeline/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/schmiddi-on-"
+"mobile/pipeline/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,137 +20,12 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.5-dev\n"
 
-#: data/resources/ui/about.ui:12
-msgid "translator-credits"
-msgstr ""
-
-#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
-#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
-msgid "Watch Later"
-msgstr "Смотреть позже"
-
-#: data/resources/ui/feed_item.ui:174
-msgid "Download"
-msgstr "Скачать"
-
-#: data/resources/ui/feed_item.ui:178
-msgid "Copy to Clipboard"
-msgstr "Скопировать в буфер обмена"
-
-#: data/resources/ui/feed_item.ui:182
-msgid "More Information"
-msgstr "Дополнительная информация"
-
-#: data/resources/ui/feed_item.ui:190
-msgid "Failed to download video"
-msgstr "Не удалось загрузить видео"
-
-#: data/resources/ui/feed_item.ui:191
-msgid "Please check your downloader in the settings."
-msgstr "Пожалуйста, проверьте загрузчик в настройках."
-
-#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
-#: data/resources/ui/subscription_page.ui:162
-msgid "Close"
-msgstr "Закрыть"
-
-#: data/resources/ui/feed_list.ui:38
-msgid "Failed to play video"
-msgstr "Не удалось воспроизвести видео"
-
-#: data/resources/ui/feed_list.ui:39
-msgid "Please check your player in the settings."
-msgstr "Пожалуйста, проверьте свой плеер в настройках."
-
-#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
-#: data/resources/ui/window.ui:73
-msgid "Feed"
-msgstr "Лента"
-
-#: data/resources/ui/feed_page.ui:21
-msgctxt "accessibility"
-msgid "Reload"
-msgstr "Перезагрузка"
-
-#: data/resources/ui/feed_page.ui:23
-msgctxt "tooltip"
-msgid "Reload"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:69
-msgid "No Videos Found"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:70
-msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:82
-#, fuzzy
-msgid "Manage Subscriptions…"
-msgstr "Подписки"
-
-#: data/resources/ui/filter_item.ui:89
-#: data/resources/ui/subscription_item.ui:97
-msgid "Remove"
-msgstr ""
-
-#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
-#: data/resources/ui/window.ui:94
-msgid "Filters"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:14
-#, fuzzy
-msgctxt "accessibility"
-msgid "Add Filter…"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:16
-#, fuzzy
-msgctxt "tooltip"
-msgid "Add Filter…"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:46
-#, fuzzy
-msgid "No Filters"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:63
-#, fuzzy
-msgid "Add Filter…"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:73
-#, fuzzy
-msgid "Add Filter"
-msgstr "Фильтры"
-
-#: data/resources/ui/filter_page.ui:82
-msgid "Title"
-msgstr "Название"
-
-#: data/resources/ui/filter_page.ui:87
-msgid "Channel Name"
-msgstr "Название канала"
-
-#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:121
-msgid "Cancel"
-msgstr "Отмена"
-
-#: data/resources/ui/filter_page.ui:95
-#: data/resources/ui/subscription_page.ui:122
-msgid "Add"
-msgstr ""
-
-#: data/resources/ui/import_window.ui:7
+#: data/resources/ui/import_window.blp:5
 #, fuzzy
 msgid "Import Subscriptions"
 msgstr "Подписки"
 
-#: data/resources/ui/import_window.ui:8
+#: data/resources/ui/import_window.blp:6
 #, fuzzy
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
@@ -158,182 +33,38 @@ msgid ""
 msgstr ""
 "Импортируйте ваши подписки из экспортированных данных NewPipe или Youtube."
 
-#: data/resources/ui/import_window.ui:14
+#: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
 msgstr ""
 
-#: data/resources/ui/import_window.ui:15
+#: data/resources/ui/import_window.blp:12
 msgid "YouTube"
 msgstr ""
 
-#: data/resources/ui/preferences_window.ui:9
-msgid "General"
-msgstr "Основное"
+#: data/resources/ui/import_window.blp:13
+msgid "Cancel"
+msgstr "Отмена"
 
-#: data/resources/ui/preferences_window.ui:13
-msgid "Programs"
-msgstr "Программы"
-
-#: data/resources/ui/preferences_window.ui:17
-#: data/resources/ui/preferences_window.ui:30
-msgid "Player"
-msgstr "Плеер"
-
-#: data/resources/ui/preferences_window.ui:35
-msgid "Downloader"
-msgstr "Загрузчик"
-
-#: data/resources/ui/preferences_window.ui:42
-msgid "APIs"
-msgstr "APIs"
-
-#: data/resources/ui/preferences_window.ui:43
-#, fuzzy
-msgid ""
-"For a complete list of public APIs, see the <a href=\"https://github.com/"
-"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
-msgstr ""
-"Для получения списка общедоступных APIs, смотрите https://github.com/"
-"TeamPiped/Piped/wiki/Instances."
-
-#: data/resources/ui/preferences_window.ui:46
-msgid "Piped API"
-msgstr "Piped API"
-
-#: data/resources/ui/preferences_window.ui:58
-#, fuzzy
-msgid "Custom Piped API"
-msgstr "Piped API"
-
-#: data/resources/ui/preferences_window.ui:65
-msgid "Other"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:68
-msgid "Show only Videos from Yesterday"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:79
-msgid "Remove Short Videos"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:80
-msgid "Removes all videos shorter than 1 minute"
-msgstr ""
-
-#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
-#: data/resources/ui/window.ui:104
-msgid "Subscriptions"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:39
-#, fuzzy
-msgid "No Subscriptions"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:56
-msgid "Subscribe to a Channel…"
-msgstr ""
-
-#: data/resources/ui/subscription_page.ui:79
-#, fuzzy
-msgid "Add Subscription"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:100
-msgid "Base URL"
-msgstr "Базовый URL"
-
-#: data/resources/ui/subscription_page.ui:113
-msgid "Channel ID or Name"
-msgstr "ID Канала или имя"
-
-#: data/resources/ui/subscription_page.ui:131
-#, fuzzy
-msgctxt "accessibility"
-msgid "Add Subscription…"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:133
-#, fuzzy
-msgctxt "tooltip"
-msgid "Add Subscription…"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:144
-#, fuzzy
-msgctxt "accessibility"
-msgid "Go back to subscription list"
-msgstr "Подписки"
-
-#: data/resources/ui/subscription_page.ui:146
-msgctxt "tooltip"
-msgid "Go back"
-msgstr ""
-
-#: data/resources/ui/subscription_page.ui:157
-#, fuzzy
-msgid "Failed to add subscription"
-msgstr "Не удалось импортировать подписки"
-
-#: data/resources/ui/subscription_page.ui:158
-msgid "Please check your input, internet connection and API URL."
-msgstr ""
-
-#: data/resources/ui/video_information_window.ui:21
+#: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
 msgstr ""
 
-#: data/resources/ui/watch_later.ui:28
-msgid "Everything Watched"
-msgstr ""
-
-#: data/resources/ui/watch_later.ui:29
-msgid "How about going outside?"
-msgstr ""
-
-#: data/resources/ui/window.ui:58
-msgctxt "accessibility"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/window.ui:60
-msgctxt "tooltip"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/window.ui:127
-#, fuzzy
-msgid "Import…"
-msgstr "Импорт"
-
-#: data/resources/ui/window.ui:131
-msgid "Preferences"
-msgstr ""
-
-#: data/resources/ui/window.ui:135
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: data/resources/ui/window.ui:139
-msgid "About Pipeline"
-msgstr ""
-
-#: src/gui/feed/error_label.rs:102
+#: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
 msgstr "Ошибка подключения к сети"
 
-#: src/gui/feed/error_label.rs:104
+#: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "Ошибка анализа {} подписки"
 msgstr[1] "Ошибка анализа {} подписок"
 msgstr[2] "Ошибка анализа {} подписок"
 
-#: src/gui/feed/error_label.rs:107
+#: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
 msgstr "Произошла какая-то ошибка"
 
+#. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
 msgstr "%F %T"
@@ -351,7 +82,7 @@ msgstr "Не удалось импортировать подписки"
 msgid "Select YouTube subscription file"
 msgstr ""
 
-#: src/gui/preferences_window.rs:132
+#: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
@@ -360,9 +91,152 @@ msgstr ""
 "использования внешнего плеера с Flatpak. Для дополнительной информации, "
 "пожалуйста обратитесь к вики."
 
+#: src/gui/window.rs:58
+msgid "Pipeline"
+msgstr ""
+
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr ""
+
+#~ msgid "Watch Later"
+#~ msgstr "Смотреть позже"
+
+#~ msgid "Download"
+#~ msgstr "Скачать"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Скопировать в буфер обмена"
+
+#~ msgid "More Information"
+#~ msgstr "Дополнительная информация"
+
+#~ msgid "Failed to download video"
+#~ msgstr "Не удалось загрузить видео"
+
+#~ msgid "Please check your downloader in the settings."
+#~ msgstr "Пожалуйста, проверьте загрузчик в настройках."
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "Failed to play video"
+#~ msgstr "Не удалось воспроизвести видео"
+
+#~ msgid "Please check your player in the settings."
+#~ msgstr "Пожалуйста, проверьте свой плеер в настройках."
+
+#~ msgid "Feed"
+#~ msgstr "Лента"
+
+#~ msgctxt "accessibility"
+#~ msgid "Reload"
+#~ msgstr "Перезагрузка"
+
+#, fuzzy
+#~ msgid "Manage Subscriptions…"
+#~ msgstr "Подписки"
+
+#~ msgid "Filters"
+#~ msgstr "Фильтры"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Add Filter…"
+#~ msgstr "Фильтры"
+
+#, fuzzy
+#~ msgctxt "tooltip"
+#~ msgid "Add Filter…"
+#~ msgstr "Фильтры"
+
+#, fuzzy
+#~ msgid "No Filters"
+#~ msgstr "Фильтры"
+
+#, fuzzy
+#~ msgid "Add Filter…"
+#~ msgstr "Фильтры"
+
+#, fuzzy
+#~ msgid "Add Filter"
+#~ msgstr "Фильтры"
+
+#~ msgid "Title"
+#~ msgstr "Название"
+
+#~ msgid "Channel Name"
+#~ msgstr "Название канала"
+
+#~ msgid "General"
+#~ msgstr "Основное"
+
+#~ msgid "Programs"
+#~ msgstr "Программы"
+
+#~ msgid "Player"
+#~ msgstr "Плеер"
+
+#~ msgid "Downloader"
+#~ msgstr "Загрузчик"
+
+#~ msgid "APIs"
+#~ msgstr "APIs"
+
+#, fuzzy
+#~ msgid ""
+#~ "For a complete list of public APIs, see the <a href=\"https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+#~ msgstr ""
+#~ "Для получения списка общедоступных APIs, смотрите https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances."
+
+#~ msgid "Piped API"
+#~ msgstr "Piped API"
+
+#, fuzzy
+#~ msgid "Custom Piped API"
+#~ msgstr "Piped API"
+
+#~ msgid "Subscriptions"
+#~ msgstr "Подписки"
+
+#, fuzzy
+#~ msgid "No Subscriptions"
+#~ msgstr "Подписки"
+
+#, fuzzy
+#~ msgid "Add Subscription"
+#~ msgstr "Подписки"
+
+#~ msgid "Base URL"
+#~ msgstr "Базовый URL"
+
+#~ msgid "Channel ID or Name"
+#~ msgstr "ID Канала или имя"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Add Subscription…"
+#~ msgstr "Подписки"
+
+#, fuzzy
+#~ msgctxt "tooltip"
+#~ msgid "Add Subscription…"
+#~ msgstr "Подписки"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Go back to subscription list"
+#~ msgstr "Подписки"
+
+#, fuzzy
+#~ msgid "Failed to add subscription"
+#~ msgstr "Не удалось импортировать подписки"
+
+#, fuzzy
+#~ msgid "Import…"
+#~ msgstr "Импорт"
 
 #~ msgid "Load more"
 #~ msgstr "Загрузить больше"

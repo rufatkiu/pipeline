@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:12+0100\n"
+"POT-Creation-Date: 2024-04-05 10:53+0200\n"
 "PO-Revision-Date: 2024-01-23 16:01+0000\n"
 "Last-Translator: Marek Ľach <graweeld@googlemail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/schmiddi-on-mobile/"
@@ -18,137 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
 "X-Generator: Weblate 5.4-dev\n"
 
-#: data/resources/ui/about.ui:12
-msgid "translator-credits"
-msgstr ""
-
-#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
-#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
-msgid "Watch Later"
-msgstr "Podívat se později"
-
-#: data/resources/ui/feed_item.ui:174
-msgid "Download"
-msgstr "Stáhnout"
-
-#: data/resources/ui/feed_item.ui:178
-msgid "Copy to Clipboard"
-msgstr "Zkopírovat do schránky"
-
-#: data/resources/ui/feed_item.ui:182
-msgid "More Information"
-msgstr "Více informací"
-
-#: data/resources/ui/feed_item.ui:190
-msgid "Failed to download video"
-msgstr "Video se nepovedlo stáhnout"
-
-#: data/resources/ui/feed_item.ui:191
-msgid "Please check your downloader in the settings."
-msgstr ""
-
-#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
-#: data/resources/ui/subscription_page.ui:162
-msgid "Close"
-msgstr "Zavřít"
-
-#: data/resources/ui/feed_list.ui:38
-msgid "Failed to play video"
-msgstr ""
-
-#: data/resources/ui/feed_list.ui:39
-msgid "Please check your player in the settings."
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
-#: data/resources/ui/window.ui:73
-msgid "Feed"
-msgstr "Feed"
-
-#: data/resources/ui/feed_page.ui:21
-msgctxt "accessibility"
-msgid "Reload"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:23
-msgctxt "tooltip"
-msgid "Reload"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:69
-msgid "No Videos Found"
-msgstr "Žádná videa k nalezení"
-
-#: data/resources/ui/feed_page.ui:70
-msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
-
-#: data/resources/ui/feed_page.ui:82
-#, fuzzy
-msgid "Manage Subscriptions…"
-msgstr "Přidat odběr"
-
-#: data/resources/ui/filter_item.ui:89
-#: data/resources/ui/subscription_item.ui:97
-msgid "Remove"
-msgstr "Odstránit"
-
-#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
-#: data/resources/ui/window.ui:94
-msgid "Filters"
-msgstr "Filtry"
-
-#: data/resources/ui/filter_page.ui:14
-#, fuzzy
-msgctxt "accessibility"
-msgid "Add Filter…"
-msgstr "Přidat filtr…"
-
-#: data/resources/ui/filter_page.ui:16
-#, fuzzy
-msgctxt "tooltip"
-msgid "Add Filter…"
-msgstr "Přidat filtr…"
-
-#: data/resources/ui/filter_page.ui:46
-#, fuzzy
-msgid "No Filters"
-msgstr "Žádné filtry"
-
-#: data/resources/ui/filter_page.ui:63
-#, fuzzy
-msgid "Add Filter…"
-msgstr "Přidat filtr…"
-
-#: data/resources/ui/filter_page.ui:73
-#, fuzzy
-msgid "Add Filter"
-msgstr "Přidat filtr"
-
-#: data/resources/ui/filter_page.ui:82
-msgid "Title"
-msgstr "Titulek"
-
-#: data/resources/ui/filter_page.ui:87
-msgid "Channel Name"
-msgstr "Název kanálu"
-
-#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:121
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: data/resources/ui/filter_page.ui:95
-#: data/resources/ui/subscription_page.ui:122
-msgid "Add"
-msgstr "Přidat"
-
-#: data/resources/ui/import_window.ui:7
+#: data/resources/ui/import_window.blp:5
 #, fuzzy
 msgid "Import Subscriptions"
 msgstr "Importovat odběry"
 
-#: data/resources/ui/import_window.ui:8
+#: data/resources/ui/import_window.blp:6
 #, fuzzy
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
@@ -157,182 +32,38 @@ msgstr ""
 "Tímto způsobem importujete odběry z exportovaných dat ze služby NewPipe nebo "
 "Youtube."
 
-#: data/resources/ui/import_window.ui:14
+#: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
 msgstr "NewPipe"
 
-#: data/resources/ui/import_window.ui:15
+#: data/resources/ui/import_window.blp:12
 msgid "YouTube"
 msgstr "YouTube"
 
-#: data/resources/ui/preferences_window.ui:9
-msgid "General"
-msgstr "Obecné"
+#: data/resources/ui/import_window.blp:13
+msgid "Cancel"
+msgstr "Zrušit"
 
-#: data/resources/ui/preferences_window.ui:13
-msgid "Programs"
-msgstr "Programy"
-
-#: data/resources/ui/preferences_window.ui:17
-#: data/resources/ui/preferences_window.ui:30
-msgid "Player"
-msgstr "Přehrávač"
-
-#: data/resources/ui/preferences_window.ui:35
-msgid "Downloader"
-msgstr "Stahovač"
-
-#: data/resources/ui/preferences_window.ui:42
-msgid "APIs"
-msgstr "API"
-
-#: data/resources/ui/preferences_window.ui:43
-#, fuzzy
-msgid ""
-"For a complete list of public APIs, see the <a href=\"https://github.com/"
-"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
-msgstr ""
-"Seznam veřejných rozhraní API naleznete na adrese https://github.com/"
-"TeamPiped/Piped/wiki/Instances."
-
-#: data/resources/ui/preferences_window.ui:46
-msgid "Piped API"
-msgstr "Rizhraní Pipe-API"
-
-#: data/resources/ui/preferences_window.ui:58
-#, fuzzy
-msgid "Custom Piped API"
-msgstr "Rizhraní Pipe-API"
-
-#: data/resources/ui/preferences_window.ui:65
-msgid "Other"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:68
-msgid "Show only Videos from Yesterday"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:79
-msgid "Remove Short Videos"
-msgstr ""
-
-#: data/resources/ui/preferences_window.ui:80
-msgid "Removes all videos shorter than 1 minute"
-msgstr ""
-
-#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
-#: data/resources/ui/window.ui:104
-msgid "Subscriptions"
-msgstr "Odběry"
-
-#: data/resources/ui/subscription_page.ui:39
-#, fuzzy
-msgid "No Subscriptions"
-msgstr "Žádné odběry"
-
-#: data/resources/ui/subscription_page.ui:56
-msgid "Subscribe to a Channel…"
-msgstr "Přihlásit se k odběru kanálu…"
-
-#: data/resources/ui/subscription_page.ui:79
-#, fuzzy
-msgid "Add Subscription"
-msgstr "Přidat odběr"
-
-#: data/resources/ui/subscription_page.ui:100
-msgid "Base URL"
-msgstr "Základní adresa URL"
-
-#: data/resources/ui/subscription_page.ui:113
-msgid "Channel ID or Name"
-msgstr "ID nebo název kanálu"
-
-#: data/resources/ui/subscription_page.ui:131
-#, fuzzy
-msgctxt "accessibility"
-msgid "Add Subscription…"
-msgstr "Přidat odběr"
-
-#: data/resources/ui/subscription_page.ui:133
-#, fuzzy
-msgctxt "tooltip"
-msgid "Add Subscription…"
-msgstr "Přidat odběr"
-
-#: data/resources/ui/subscription_page.ui:144
-#, fuzzy
-msgctxt "accessibility"
-msgid "Go back to subscription list"
-msgstr "Žádné odběry"
-
-#: data/resources/ui/subscription_page.ui:146
-msgctxt "tooltip"
-msgid "Go back"
-msgstr ""
-
-#: data/resources/ui/subscription_page.ui:157
-#, fuzzy
-msgid "Failed to add subscription"
-msgstr "Neúspěšný import odběrů"
-
-#: data/resources/ui/subscription_page.ui:158
-msgid "Please check your input, internet connection and API URL."
-msgstr ""
-
-#: data/resources/ui/video_information_window.ui:21
+#: data/resources/ui/video_information_window.blp:19
 #, fuzzy
 msgid "Video Information"
 msgstr "Více informací"
 
-#: data/resources/ui/watch_later.ui:28
-msgid "Everything Watched"
-msgstr "Vše sledované"
-
-#: data/resources/ui/watch_later.ui:29
-msgid "How about going outside?"
-msgstr "Co takhle jít ven?"
-
-#: data/resources/ui/window.ui:58
-msgctxt "accessibility"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/window.ui:60
-msgctxt "tooltip"
-msgid "Primary menu"
-msgstr ""
-
-#: data/resources/ui/window.ui:127
-#, fuzzy
-msgid "Import…"
-msgstr "Importovat…"
-
-#: data/resources/ui/window.ui:131
-msgid "Preferences"
-msgstr "Předvolby"
-
-#: data/resources/ui/window.ui:135
-msgid "Keyboard Shortcuts"
-msgstr ""
-
-#: data/resources/ui/window.ui:139
-msgid "About Pipeline"
-msgstr "O aplikaci Pipeline"
-
-#: src/gui/feed/error_label.rs:102
+#: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
 msgstr "Chyba připojení k síti"
 
-#: src/gui/feed/error_label.rs:104
+#: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "Chyba při analýze jednoho odběru"
 msgstr[1] "Chyba při zpracování {} odběrů"
 
-#: src/gui/feed/error_label.rs:107
+#: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
 msgstr "Došlo k nějaké chybě"
 
+#. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
 msgstr "%F %T"
@@ -350,7 +81,7 @@ msgstr "Neúspěšný import odběrů"
 msgid "Select YouTube subscription file"
 msgstr "Vybrat soubor odběrů YouTube"
 
-#: src/gui/preferences_window.rs:132
+#: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
@@ -359,9 +90,161 @@ msgstr ""
 "Flatpaku nutné provést několik dalších kroků. Další informace naleznete na "
 "wiki."
 
+#: src/gui/window.rs:58
+#, fuzzy
+msgid "Pipeline"
+msgstr "O aplikaci Pipeline"
+
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr "Podpořit"
+
+#~ msgid "Watch Later"
+#~ msgstr "Podívat se později"
+
+#~ msgid "Download"
+#~ msgstr "Stáhnout"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Zkopírovat do schránky"
+
+#~ msgid "More Information"
+#~ msgstr "Více informací"
+
+#~ msgid "Failed to download video"
+#~ msgstr "Video se nepovedlo stáhnout"
+
+#~ msgid "Close"
+#~ msgstr "Zavřít"
+
+#~ msgid "Feed"
+#~ msgstr "Feed"
+
+#~ msgid "No Videos Found"
+#~ msgstr "Žádná videa k nalezení"
+
+#, fuzzy
+#~ msgid "Manage Subscriptions…"
+#~ msgstr "Přidat odběr"
+
+#~ msgid "Remove"
+#~ msgstr "Odstránit"
+
+#~ msgid "Filters"
+#~ msgstr "Filtry"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Add Filter…"
+#~ msgstr "Přidat filtr…"
+
+#, fuzzy
+#~ msgctxt "tooltip"
+#~ msgid "Add Filter…"
+#~ msgstr "Přidat filtr…"
+
+#, fuzzy
+#~ msgid "No Filters"
+#~ msgstr "Žádné filtry"
+
+#, fuzzy
+#~ msgid "Add Filter…"
+#~ msgstr "Přidat filtr…"
+
+#, fuzzy
+#~ msgid "Add Filter"
+#~ msgstr "Přidat filtr"
+
+#~ msgid "Title"
+#~ msgstr "Titulek"
+
+#~ msgid "Channel Name"
+#~ msgstr "Název kanálu"
+
+#~ msgid "Add"
+#~ msgstr "Přidat"
+
+#~ msgid "General"
+#~ msgstr "Obecné"
+
+#~ msgid "Programs"
+#~ msgstr "Programy"
+
+#~ msgid "Player"
+#~ msgstr "Přehrávač"
+
+#~ msgid "Downloader"
+#~ msgstr "Stahovač"
+
+#~ msgid "APIs"
+#~ msgstr "API"
+
+#, fuzzy
+#~ msgid ""
+#~ "For a complete list of public APIs, see the <a href=\"https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+#~ msgstr ""
+#~ "Seznam veřejných rozhraní API naleznete na adrese https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances."
+
+#~ msgid "Piped API"
+#~ msgstr "Rizhraní Pipe-API"
+
+#, fuzzy
+#~ msgid "Custom Piped API"
+#~ msgstr "Rizhraní Pipe-API"
+
+#~ msgid "Subscriptions"
+#~ msgstr "Odběry"
+
+#, fuzzy
+#~ msgid "No Subscriptions"
+#~ msgstr "Žádné odběry"
+
+#~ msgid "Subscribe to a Channel…"
+#~ msgstr "Přihlásit se k odběru kanálu…"
+
+#, fuzzy
+#~ msgid "Add Subscription"
+#~ msgstr "Přidat odběr"
+
+#~ msgid "Base URL"
+#~ msgstr "Základní adresa URL"
+
+#~ msgid "Channel ID or Name"
+#~ msgstr "ID nebo název kanálu"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Add Subscription…"
+#~ msgstr "Přidat odběr"
+
+#, fuzzy
+#~ msgctxt "tooltip"
+#~ msgid "Add Subscription…"
+#~ msgstr "Přidat odběr"
+
+#, fuzzy
+#~ msgctxt "accessibility"
+#~ msgid "Go back to subscription list"
+#~ msgstr "Žádné odběry"
+
+#, fuzzy
+#~ msgid "Failed to add subscription"
+#~ msgstr "Neúspěšný import odběrů"
+
+#~ msgid "Everything Watched"
+#~ msgstr "Vše sledované"
+
+#~ msgid "How about going outside?"
+#~ msgstr "Co takhle jít ven?"
+
+#, fuzzy
+#~ msgid "Import…"
+#~ msgstr "Importovat…"
+
+#~ msgid "Preferences"
+#~ msgstr "Předvolby"
 
 #~ msgid "Load more"
 #~ msgstr "Načíst více"

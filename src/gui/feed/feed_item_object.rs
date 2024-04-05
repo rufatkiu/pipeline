@@ -104,6 +104,7 @@ impl VideoObject {
                 "date",
                 &video
                     .uploaded()
+                    // Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
                     .format(&gettextrs::gettext("%F %T"))
                     .to_string(),
             )

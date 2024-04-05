@@ -1,26 +1,23 @@
 # fd -t f -e ui . data/
 # fd -t f -e rs . src/
 
-
-data/resources/ui/about.ui
-data/resources/ui/error_label.ui
-data/resources/ui/feed_item.ui
-data/resources/ui/feed_list.ui
-data/resources/ui/feed_page.ui
-data/resources/ui/filter_item.ui
-data/resources/ui/filter_list.ui
-data/resources/ui/filter_page.ui
-data/resources/ui/import_window.ui
-data/resources/ui/preferences_window.ui
-data/resources/ui/shortcuts.ui
-data/resources/ui/subscription_item.ui
-data/resources/ui/subscription_list.ui
-data/resources/ui/subscription_page.ui
-data/resources/ui/thumbnail.ui
-data/resources/ui/video_information_window.ui
-data/resources/ui/watch_later.ui
-data/resources/ui/window.ui
-
+data/resources/ui/about.blp
+data/resources/ui/error_label.blp
+data/resources/ui/feed_item.blp
+data/resources/ui/feed_list.blp
+data/resources/ui/feed_page.blp
+data/resources/ui/filter_item.blp
+data/resources/ui/filter_list.blp
+data/resources/ui/filter_page.blp
+data/resources/ui/import_window.blp
+data/resources/ui/shortcuts.blp
+data/resources/ui/subscription_item.blp
+data/resources/ui/subscription_list.blp
+data/resources/ui/subscription_page.blp
+data/resources/ui/thumbnail.blp
+data/resources/ui/video_information_window.blp
+data/resources/ui/watch_later.blp
+data/resources/ui/window.blp
 
 src/csv_file_manager.rs
 src/downloader.rs

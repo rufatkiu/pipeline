@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-11 17:12+0100\n"
+"POT-Creation-Date: 2024-04-05 10:53+0200\n"
 "PO-Revision-Date: 2024-01-14 12:30+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"schmiddi-on-mobile/pipeline/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/schmiddi-on-"
+"mobile/pipeline/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,130 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.4-dev\n"
 
-#: data/resources/ui/about.ui:12
-msgid "translator-credits"
-msgstr "Luna Jernberg <lunajernberg@gnome.org>"
-
-#: data/resources/ui/feed_item.ui:170 data/resources/ui/watch_later.ui:7
-#: data/resources/ui/window.ui:83 data/resources/ui/window.ui:84
-msgid "Watch Later"
-msgstr "Titta senare"
-
-#: data/resources/ui/feed_item.ui:174
-msgid "Download"
-msgstr "Ladda ner"
-
-#: data/resources/ui/feed_item.ui:178
-msgid "Copy to Clipboard"
-msgstr "Kopiera till urklipp"
-
-#: data/resources/ui/feed_item.ui:182
-msgid "More Information"
-msgstr "Mer information"
-
-#: data/resources/ui/feed_item.ui:190
-msgid "Failed to download video"
-msgstr "Misslyckades att ladda ner video"
-
-#: data/resources/ui/feed_item.ui:191
-msgid "Please check your downloader in the settings."
-msgstr "Kontrollera din nedladdare i inställningarna."
-
-#: data/resources/ui/feed_item.ui:195 data/resources/ui/feed_list.ui:43
-#: data/resources/ui/subscription_page.ui:162
-msgid "Close"
-msgstr "Stäng"
-
-#: data/resources/ui/feed_list.ui:38
-msgid "Failed to play video"
-msgstr "Misslyckades att spela upp video"
-
-#: data/resources/ui/feed_list.ui:39
-msgid "Please check your player in the settings."
-msgstr "Kontrollera din spelare i inställningarna."
-
-#: data/resources/ui/feed_page.ui:12 data/resources/ui/window.ui:72
-#: data/resources/ui/window.ui:73
-msgid "Feed"
-msgstr "Flöde"
-
-#: data/resources/ui/feed_page.ui:21
-msgctxt "accessibility"
-msgid "Reload"
-msgstr "Ladda om"
-
-#: data/resources/ui/feed_page.ui:23
-msgctxt "tooltip"
-msgid "Reload"
-msgstr "Ladda om"
-
-#: data/resources/ui/feed_page.ui:69
-msgid "No Videos Found"
-msgstr "Inga videor hittades"
-
-#: data/resources/ui/feed_page.ui:70
-msgid "Your feed will appear once you've added subscriptions"
-msgstr "Ditt flöde kommer att visas när du har lagt till prenumerationer"
-
-#: data/resources/ui/feed_page.ui:82
-msgid "Manage Subscriptions…"
-msgstr "Hantera prenumerationer…"
-
-#: data/resources/ui/filter_item.ui:89
-#: data/resources/ui/subscription_item.ui:97
-msgid "Remove"
-msgstr "Ta bort"
-
-#: data/resources/ui/filter_page.ui:7 data/resources/ui/window.ui:93
-#: data/resources/ui/window.ui:94
-msgid "Filters"
-msgstr "Filter"
-
-#: data/resources/ui/filter_page.ui:14
-msgctxt "accessibility"
-msgid "Add Filter…"
-msgstr "Lägg till filter…"
-
-#: data/resources/ui/filter_page.ui:16
-msgctxt "tooltip"
-msgid "Add Filter…"
-msgstr "Lägg till filter…"
-
-#: data/resources/ui/filter_page.ui:46
-msgid "No Filters"
-msgstr "Inga filter"
-
-#: data/resources/ui/filter_page.ui:63
-msgid "Add Filter…"
-msgstr "Lägg till filter…"
-
-#: data/resources/ui/filter_page.ui:73
-msgid "Add Filter"
-msgstr "Lägg till filter"
-
-#: data/resources/ui/filter_page.ui:82
-msgid "Title"
-msgstr "Titel"
-
-#: data/resources/ui/filter_page.ui:87
-msgid "Channel Name"
-msgstr "Kanalnamn"
-
-#: data/resources/ui/filter_page.ui:94 data/resources/ui/import_window.ui:16
-#: data/resources/ui/subscription_page.ui:121
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: data/resources/ui/filter_page.ui:95
-#: data/resources/ui/subscription_page.ui:122
-msgid "Add"
-msgstr "Lägg till"
-
-#: data/resources/ui/import_window.ui:7
+#: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
 msgstr "Importera prenumerationer"
 
-#: data/resources/ui/import_window.ui:8
+#: data/resources/ui/import_window.blp:6
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
@@ -150,172 +31,37 @@ msgstr ""
 "Detta kommer att importera dina prenumerationer från exporterad data från "
 "NewPipe eller YouTube."
 
-#: data/resources/ui/import_window.ui:14
+#: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
 msgstr "NewPipe"
 
-#: data/resources/ui/import_window.ui:15
+#: data/resources/ui/import_window.blp:12
 msgid "YouTube"
 msgstr "YouTube"
 
-#: data/resources/ui/preferences_window.ui:9
-msgid "General"
-msgstr "Allmänt"
+#: data/resources/ui/import_window.blp:13
+msgid "Cancel"
+msgstr "Avbryt"
 
-#: data/resources/ui/preferences_window.ui:13
-msgid "Programs"
-msgstr "Program"
-
-#: data/resources/ui/preferences_window.ui:17
-#: data/resources/ui/preferences_window.ui:30
-msgid "Player"
-msgstr "Spelare"
-
-#: data/resources/ui/preferences_window.ui:35
-msgid "Downloader"
-msgstr "Nedladdare"
-
-#: data/resources/ui/preferences_window.ui:42
-msgid "APIs"
-msgstr "API:er"
-
-#: data/resources/ui/preferences_window.ui:43
-msgid ""
-"For a complete list of public APIs, see the <a href=\"https://github.com/"
-"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
-msgstr ""
-"För en komplett lista över offentliga API:er, se <a href=\"https://github."
-"com/TeamPiped/Piped/wiki/Instances\">Instanssidan</a>."
-
-#: data/resources/ui/preferences_window.ui:46
-msgid "Piped API"
-msgstr "Piped API"
-
-#: data/resources/ui/preferences_window.ui:58
-msgid "Custom Piped API"
-msgstr "Anpassat Piped API"
-
-#: data/resources/ui/preferences_window.ui:65
-msgid "Other"
-msgstr "Annat"
-
-#: data/resources/ui/preferences_window.ui:68
-msgid "Show only Videos from Yesterday"
-msgstr "Visa endast videos från igår"
-
-#: data/resources/ui/preferences_window.ui:79
-msgid "Remove Short Videos"
-msgstr "Ta bort korta videos"
-
-#: data/resources/ui/preferences_window.ui:80
-msgid "Removes all videos shorter than 1 minute"
-msgstr "Tar bort alla videor som är kortare än 1 minut"
-
-#: data/resources/ui/subscription_page.ui:7 data/resources/ui/window.ui:103
-#: data/resources/ui/window.ui:104
-msgid "Subscriptions"
-msgstr "Prenumerationer"
-
-#: data/resources/ui/subscription_page.ui:39
-msgid "No Subscriptions"
-msgstr "Inga prenumerationer"
-
-#: data/resources/ui/subscription_page.ui:56
-msgid "Subscribe to a Channel…"
-msgstr "Prenumerera på en kanal…"
-
-#: data/resources/ui/subscription_page.ui:79
-msgid "Add Subscription"
-msgstr "Lägg till prenumeration"
-
-#: data/resources/ui/subscription_page.ui:100
-msgid "Base URL"
-msgstr "Bas-URL"
-
-#: data/resources/ui/subscription_page.ui:113
-msgid "Channel ID or Name"
-msgstr "Kanal-ID eller namn"
-
-#: data/resources/ui/subscription_page.ui:131
-msgctxt "accessibility"
-msgid "Add Subscription…"
-msgstr "Lägg till prenumeration…"
-
-#: data/resources/ui/subscription_page.ui:133
-msgctxt "tooltip"
-msgid "Add Subscription…"
-msgstr "Lägg till prenumeration…"
-
-#: data/resources/ui/subscription_page.ui:144
-msgctxt "accessibility"
-msgid "Go back to subscription list"
-msgstr "Gå tillbaka till prenumerationslistan"
-
-#: data/resources/ui/subscription_page.ui:146
-msgctxt "tooltip"
-msgid "Go back"
-msgstr "Gå tillbaka"
-
-#: data/resources/ui/subscription_page.ui:157
-msgid "Failed to add subscription"
-msgstr "Misslyckades med att lägga till prenumeration"
-
-#: data/resources/ui/subscription_page.ui:158
-msgid "Please check your input, internet connection and API URL."
-msgstr "Kontrollera din inmatning, internetanslutning och API URL."
-
-#: data/resources/ui/video_information_window.ui:21
+#: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
 msgstr "Video Information"
 
-#: data/resources/ui/watch_later.ui:28
-msgid "Everything Watched"
-msgstr "Allt sett"
-
-#: data/resources/ui/watch_later.ui:29
-msgid "How about going outside?"
-msgstr "Vad sägs om att gå ut?"
-
-#: data/resources/ui/window.ui:58
-msgctxt "accessibility"
-msgid "Primary menu"
-msgstr "Primär meny"
-
-#: data/resources/ui/window.ui:60
-msgctxt "tooltip"
-msgid "Primary menu"
-msgstr "Primär meny"
-
-#: data/resources/ui/window.ui:127
-msgid "Import…"
-msgstr "Importera…"
-
-#: data/resources/ui/window.ui:131
-msgid "Preferences"
-msgstr "Inställningar"
-
-#: data/resources/ui/window.ui:135
-msgid "Keyboard Shortcuts"
-msgstr "Tangentbordsgenvägar"
-
-#: data/resources/ui/window.ui:139
-msgid "About Pipeline"
-msgstr "Om Pipeline"
-
-#: src/gui/feed/error_label.rs:102
+#: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
 msgstr "Fel vid anslutning till nätverket"
 
-#: src/gui/feed/error_label.rs:104
+#: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
 msgstr[0] "Ett fel uppstod när en prenumeration skulle analyseras"
 msgstr[1] "Ett fel uppstod när {} prenumerationer skulle analyseras"
 
-#: src/gui/feed/error_label.rs:107
+#: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
 msgstr "Något fel uppstod"
 
+#. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
 msgstr "%F %T"
@@ -332,7 +78,7 @@ msgstr "Misslyckades med att importera prenumerationer"
 msgid "Select YouTube subscription file"
 msgstr "Välj YouTube-prenumerationsfil"
 
-#: src/gui/preferences_window.rs:132
+#: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
@@ -340,6 +86,196 @@ msgstr ""
 "Observera att på Flatpak krävs ytterligare några steg när du använder en "
 "spelare utanför Flatpak. För mer information, se wikin."
 
+#: src/gui/window.rs:58
+#, fuzzy
+msgid "Pipeline"
+msgstr "Om Pipeline"
+
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr "Donera"
+
+#~ msgid "translator-credits"
+#~ msgstr "Luna Jernberg <lunajernberg@gnome.org>"
+
+#~ msgid "Watch Later"
+#~ msgstr "Titta senare"
+
+#~ msgid "Download"
+#~ msgstr "Ladda ner"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopiera till urklipp"
+
+#~ msgid "More Information"
+#~ msgstr "Mer information"
+
+#~ msgid "Failed to download video"
+#~ msgstr "Misslyckades att ladda ner video"
+
+#~ msgid "Please check your downloader in the settings."
+#~ msgstr "Kontrollera din nedladdare i inställningarna."
+
+#~ msgid "Close"
+#~ msgstr "Stäng"
+
+#~ msgid "Failed to play video"
+#~ msgstr "Misslyckades att spela upp video"
+
+#~ msgid "Please check your player in the settings."
+#~ msgstr "Kontrollera din spelare i inställningarna."
+
+#~ msgid "Feed"
+#~ msgstr "Flöde"
+
+#~ msgctxt "accessibility"
+#~ msgid "Reload"
+#~ msgstr "Ladda om"
+
+#~ msgctxt "tooltip"
+#~ msgid "Reload"
+#~ msgstr "Ladda om"
+
+#~ msgid "No Videos Found"
+#~ msgstr "Inga videor hittades"
+
+#~ msgid "Your feed will appear once you've added subscriptions"
+#~ msgstr "Ditt flöde kommer att visas när du har lagt till prenumerationer"
+
+#~ msgid "Manage Subscriptions…"
+#~ msgstr "Hantera prenumerationer…"
+
+#~ msgid "Remove"
+#~ msgstr "Ta bort"
+
+#~ msgid "Filters"
+#~ msgstr "Filter"
+
+#~ msgctxt "accessibility"
+#~ msgid "Add Filter…"
+#~ msgstr "Lägg till filter…"
+
+#~ msgctxt "tooltip"
+#~ msgid "Add Filter…"
+#~ msgstr "Lägg till filter…"
+
+#~ msgid "No Filters"
+#~ msgstr "Inga filter"
+
+#~ msgid "Add Filter…"
+#~ msgstr "Lägg till filter…"
+
+#~ msgid "Add Filter"
+#~ msgstr "Lägg till filter"
+
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+#~ msgid "Channel Name"
+#~ msgstr "Kanalnamn"
+
+#~ msgid "Add"
+#~ msgstr "Lägg till"
+
+#~ msgid "General"
+#~ msgstr "Allmänt"
+
+#~ msgid "Programs"
+#~ msgstr "Program"
+
+#~ msgid "Player"
+#~ msgstr "Spelare"
+
+#~ msgid "Downloader"
+#~ msgstr "Nedladdare"
+
+#~ msgid "APIs"
+#~ msgstr "API:er"
+
+#~ msgid ""
+#~ "For a complete list of public APIs, see the <a href=\"https://github.com/"
+#~ "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+#~ msgstr ""
+#~ "För en komplett lista över offentliga API:er, se <a href=\"https://github."
+#~ "com/TeamPiped/Piped/wiki/Instances\">Instanssidan</a>."
+
+#~ msgid "Piped API"
+#~ msgstr "Piped API"
+
+#~ msgid "Custom Piped API"
+#~ msgstr "Anpassat Piped API"
+
+#~ msgid "Other"
+#~ msgstr "Annat"
+
+#~ msgid "Show only Videos from Yesterday"
+#~ msgstr "Visa endast videos från igår"
+
+#~ msgid "Remove Short Videos"
+#~ msgstr "Ta bort korta videos"
+
+#~ msgid "Removes all videos shorter than 1 minute"
+#~ msgstr "Tar bort alla videor som är kortare än 1 minut"
+
+#~ msgid "Subscriptions"
+#~ msgstr "Prenumerationer"
+
+#~ msgid "No Subscriptions"
+#~ msgstr "Inga prenumerationer"
+
+#~ msgid "Subscribe to a Channel…"
+#~ msgstr "Prenumerera på en kanal…"
+
+#~ msgid "Add Subscription"
+#~ msgstr "Lägg till prenumeration"
+
+#~ msgid "Base URL"
+#~ msgstr "Bas-URL"
+
+#~ msgid "Channel ID or Name"
+#~ msgstr "Kanal-ID eller namn"
+
+#~ msgctxt "accessibility"
+#~ msgid "Add Subscription…"
+#~ msgstr "Lägg till prenumeration…"
+
+#~ msgctxt "tooltip"
+#~ msgid "Add Subscription…"
+#~ msgstr "Lägg till prenumeration…"
+
+#~ msgctxt "accessibility"
+#~ msgid "Go back to subscription list"
+#~ msgstr "Gå tillbaka till prenumerationslistan"
+
+#~ msgctxt "tooltip"
+#~ msgid "Go back"
+#~ msgstr "Gå tillbaka"
+
+#~ msgid "Failed to add subscription"
+#~ msgstr "Misslyckades med att lägga till prenumeration"
+
+#~ msgid "Please check your input, internet connection and API URL."
+#~ msgstr "Kontrollera din inmatning, internetanslutning och API URL."
+
+#~ msgid "Everything Watched"
+#~ msgstr "Allt sett"
+
+#~ msgid "How about going outside?"
+#~ msgstr "Vad sägs om att gå ut?"
+
+#~ msgctxt "accessibility"
+#~ msgid "Primary menu"
+#~ msgstr "Primär meny"
+
+#~ msgctxt "tooltip"
+#~ msgid "Primary menu"
+#~ msgstr "Primär meny"
+
+#~ msgid "Import…"
+#~ msgstr "Importera…"
+
+#~ msgid "Preferences"
+#~ msgstr "Inställningar"
+
+#~ msgid "Keyboard Shortcuts"
+#~ msgstr "Tangentbordsgenvägar"
