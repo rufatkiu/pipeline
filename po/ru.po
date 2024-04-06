@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-05 10:53+0200\n"
-"PO-Revision-Date: 2024-04-04 11:01+0000\n"
-"Last-Translator: Богдан Venture <bogdanventura123@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/ru/>\n"
+"PO-Revision-Date: 2024-04-07 13:01+0000\n"
+"Last-Translator: Даня Степанов <danastepanov393@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,12 +21,10 @@ msgstr ""
 "X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/import_window.blp:5
-#, fuzzy
 msgid "Import Subscriptions"
 msgstr "Подписки"
 
 #: data/resources/ui/import_window.blp:6
-#, fuzzy
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
@@ -35,11 +33,11 @@ msgstr ""
 
 #: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
-msgstr ""
+msgstr "Новичка"
 
 #: data/resources/ui/import_window.blp:12
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/import_window.blp:13
 msgid "Cancel"
@@ -47,7 +45,7 @@ msgstr "Отмена"
 
 #: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
-msgstr ""
+msgstr "Видео информация"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
@@ -70,9 +68,8 @@ msgid "%F %T"
 msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
-#, fuzzy
 msgid "Select NewPipe subscriptions file"
-msgstr "Не удалось импортировать подписки"
+msgstr "Выберите файл подписки на NewPipe"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
@@ -80,7 +77,7 @@ msgstr "Не удалось импортировать подписки"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Выберите файл подписки на YouTube"
 
 #: src/gui/preferences_window.rs:135
 msgid ""
@@ -93,11 +90,11 @@ msgstr ""
 
 #: src/gui/window.rs:58
 msgid "Pipeline"
-msgstr ""
+msgstr "Трубопровод"
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "Донат"
 
 #~ msgid "Watch Later"
 #~ msgstr "Смотреть позже"
