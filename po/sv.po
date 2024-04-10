@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-05 10:53+0200\n"
-"PO-Revision-Date: 2024-01-14 12:30+0000\n"
+"PO-Revision-Date: 2024-04-11 09:01+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
@@ -87,9 +87,8 @@ msgstr ""
 "spelare utanför Flatpak. För mer information, se wikin."
 
 #: src/gui/window.rs:58
-#, fuzzy
 msgid "Pipeline"
-msgstr "Om Pipeline"
+msgstr "Pipeline"
 
 #: src/gui/window.rs:210
 msgid "Donate"
