@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the tubefeeder package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tubefeeder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-05 10:53+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: data/resources/ui/import_window.blp:5
+msgid "Import Subscriptions"
+msgstr ""
+
+#: data/resources/ui/import_window.blp:6
+msgid ""
+"This will import your subscriptions from exported data from NewPipe or "
+"YouTube."
+msgstr ""
+
+#: data/resources/ui/import_window.blp:11
+msgid "NewPipe"
+msgstr ""
+
+#: data/resources/ui/import_window.blp:12
+msgid "YouTube"
+msgstr ""
+
+#: data/resources/ui/import_window.blp:13
+msgid "Cancel"
+msgstr ""
+
+#: data/resources/ui/video_information_window.blp:19
+msgid "Video Information"
+msgstr ""
+
+#: src/gui/feed/error_label.rs:100
+msgid "Error connecting to the network"
+msgstr ""
+
+#: src/gui/feed/error_label.rs:102
+msgid "Error parsing one subscription"
+msgid_plural "Error parsing {} subscriptions"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/gui/feed/error_label.rs:105
+msgid "Some error occured"
+msgstr ""
+
+#. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
+#: src/gui/feed/feed_item_object.rs:108
+msgid "%F %T"
+msgstr ""
+
+#: src/gui/import_window.rs:34
+msgid "Select NewPipe subscriptions file"
+msgstr ""
+
+#: src/gui/import_window.rs:46 src/gui/import_window.rs:74
+msgid "Failure to import subscriptions"
+msgstr ""
+
+#: src/gui/import_window.rs:62
+msgid "Select YouTube subscription file"
+msgstr ""
+
+#: src/gui/preferences_window.rs:135
+msgid ""
+"Note that on Flatpak, there are some more steps required when using a player "
+"external to the Flatpak. For more information, please consult the wiki."
+msgstr ""
+
+#: src/gui/window.rs:58
+msgid "Pipeline"
+msgstr ""
+
+#: src/gui/window.rs:210
+msgid "Donate"
+msgstr ""
