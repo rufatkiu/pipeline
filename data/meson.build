@@ -13,10 +13,14 @@ desktop_file = i18n.merge_file(
   ),
   output: '@0@.desktop'.format(application_id),
   type: 'desktop',
-  po_dir: podir,
+  po_dir: '../po',
   install: true,
-  install_dir: join_paths(datadir, 'applications')
+  install_dir: get_option('datadir') / 'applications'
 )
+
+if desktop_file_validate.found()
+  test('Validate desktop file', desktop_file_validate, args: [desktop_file])
+endif
 
 # Metainfo
 appstream_file = i18n.merge_file(
@@ -32,11 +36,14 @@ if appstream_cli.found()
       args: ['validate', '--no-net', '--explain', appstream_file])
 endif
 
-install_data(
-  '@0@.gschema.xml'.format(application_id),
-  install_dir: datadir / 'glib-2.0' / 'schemas'
+# Compile schemas
+gnome.compile_schemas(build_by_default: true)
+install_data('@0@.gschema.xml'.format(application_id),
+  install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
 
-# Compile schemas
-settings_schemas = [ '@0@.gschema.xml'.format(application_id) ]
-gnome.compile_schemas(depend_files: files(settings_schemas))
+if glib_compile_schemas.found()
+  test('Validate schema file', glib_compile_schemas,
+    args: ['--strict', '--dry-run', meson.current_source_dir()]
+  )
+endif

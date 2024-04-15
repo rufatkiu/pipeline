@@ -1,7 +1,7 @@
 {
     "app-id": "de.schmidhuberj.tubefeeder",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "45",
+    "runtime-version": "46",
     "sdk": "org.gnome.Sdk",
     "sdk-extensions": [
         "org.freedesktop.Sdk.Extension.rust-stable"
@@ -48,6 +48,7 @@
         {
             "name": "tubefeeder",
             "buildsystem": "meson",
+            "run-tests": true,
             "config-opts": [
                 "-Dflatpak=true"
             ],
