@@ -2,6 +2,10 @@
 # fd -t f -e rs . src/
 
 data/resources/ui/about.blp
+data/de.schmidhuberj.tubefeeder.desktop.in.in
+data/de.schmidhuberj.tubefeeder.gschema.xml
+
+data/resources/ui/about.blp.in
 data/resources/ui/error_label.blp
 data/resources/ui/feed_item.blp
 data/resources/ui/feed_list.blp
@@ -10,6 +14,7 @@ data/resources/ui/filter_item.blp
 data/resources/ui/filter_list.blp
 data/resources/ui/filter_page.blp
 data/resources/ui/import_window.blp
+data/resources/ui/preferences_window.ui
 data/resources/ui/shortcuts.blp
 data/resources/ui/subscription_item.blp
 data/resources/ui/subscription_list.blp

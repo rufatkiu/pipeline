@@ -10,7 +10,7 @@ Adw.AboutWindow about {
   issue-url: 'https://gitlab.com/schmiddi-on-mobile/pipeline/-/issues';
   license-type: gpl_3_0;
   support-url: 'https://matrix.to/#/#pipelineapp:matrix.org';
-  translator-credits: _('translator-credits');
+  translator-credits: _("translator-credits");
   website: 'https://mobile.schmidhuberj.de/pipeline';
   version: '@VERSION@';
   //artists: 'David Lapshin <ddaudix@gmail.com>';
