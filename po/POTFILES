@@ -3,6 +3,7 @@
 
 data/resources/ui/about.blp
 data/de.schmidhuberj.tubefeeder.desktop.in.in
+data/de.schmidhuberj.tubefeeder.metainfo.xml.in
 data/de.schmidhuberj.tubefeeder.gschema.xml
 
 data/resources/ui/about.blp.in

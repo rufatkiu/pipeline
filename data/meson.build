@@ -19,10 +19,18 @@ desktop_file = i18n.merge_file(
 )
 
 # Metainfo
-install_data(
-  '@0@.metainfo.xml'.format(application_id),
-  install_dir: datadir / 'metainfo'
+appstream_file = i18n.merge_file(
+        input: '@0@.metainfo.xml.in'.format(base_id),
+       output: '@0@.metainfo.xml'.format(application_id),
+       po_dir: '../po',
+      install: true,
+  install_dir: get_option('datadir') / 'metainfo'
 )
+
+if appstream_cli.found()
+  test('Validate appstream file', appstream_cli,
+      args: ['validate', '--no-net', '--explain', appstream_file])
+endif
 
 install_data(
   '@0@.gschema.xml'.format(application_id),
