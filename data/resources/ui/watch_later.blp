@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 template $TFWatchLaterPage: $TFStackPage {
-  name: _('Watch Later');
+  name: _("Watch Later");
   vexpand: true;
   valign: fill;
   hexpand: true;
@@ -17,8 +17,8 @@ template $TFWatchLaterPage: $TFStackPage {
 
     Adw.StatusPage {
       visible: bind feed_page.is-empty;
-      title: _('Everything Watched');
-      description: _('How about going outside?');
+      title: _("Everything Watched");
+      description: _("How about going outside?");
       icon-name: 'alarm-symbolic';
       vexpand: true;
     }

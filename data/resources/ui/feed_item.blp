@@ -116,39 +116,39 @@ template $TFFeedItem: Box {
 menu menu {
   section {
     item {
-      label: _('Watch Later');
+      label: _("Watch Later");
       action: 'item.watch-later';
     }
 
     item {
-      label: _('Download');
+      label: _("Download");
       action: 'item.download';
     }
 
     item {
-      label: _('Open in Browser');
+      label: _("Open in Browser");
       action: 'item.open-in-browser';
     }
 
     item {
-      label: _('Copy to Clipboard');
+      label: _("Copy to Clipboard");
       action: 'item.clipboard';
     }
 
     item {
-      label: _('More Information');
+      label: _("More Information");
       action: 'item.information';
     }
   }
 }
 
 Adw.MessageDialog dialog_error {
-  heading: _('Failed to download video');
-  body: _('Please check your downloader in the settings.');
+  heading: _("Failed to Download Video");
+  body: _("Please check your downloader in the preferences.");
   default-response: 'close';
   hide-on-close: true;
 
   responses [
-    close: _('Close'),
+    close: _("Close"),
   ]
 }

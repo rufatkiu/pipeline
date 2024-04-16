@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 template $TFSubscriptionPage: $TFStackPage {
-  name: _('Subscriptions');
+  name: _("Subscriptions");
   header-widget: '\n      btn_toggle_add_subscription\n    ';
   vexpand: true;
   valign: fill;
@@ -23,7 +23,7 @@ template $TFSubscriptionPage: $TFStackPage {
 
         Adw.StatusPage {
           visible: bind subscription_list.is_empty;
-          title: _('No Subscriptions');
+          title: _("No Subscriptions");
           icon-name: 'library-artists-symbolic';
           vexpand: true;
 
@@ -34,7 +34,7 @@ template $TFSubscriptionPage: $TFStackPage {
             ]
 
             halign: center;
-            label: _('Subscribe to a Channel…');
+            label: _("Subscribe to a Channel…");
           };
         }
       };
@@ -49,7 +49,7 @@ template $TFSubscriptionPage: $TFStackPage {
 }
 
 Adw.MessageDialog dialog_add {
-  heading: _('Add Subscription');
+  heading: _("Add Subscription");
   default-response: 'add';
   hide-on-close: true;
 
@@ -61,21 +61,21 @@ Adw.MessageDialog dialog_add {
 
     Entry entry_url {
       visible: bind $url_visible(dropdown_platform.selected-item) as <bool>;
-      placeholder-text: _('Base URL');
+      placeholder-text: _("Base URL");
     }
 
     Entry entry_name_id {
       visible: bind $name_visible(dropdown_platform.selected-item) as <bool>;
       activate => $handle_entry_name_id_activate() swapped;
-      placeholder-text: _('Channel ID or Name');
+      placeholder-text: _("Channel ID or Name");
     }
   };
 
   response => $handle_add_subscription() swapped;
 
   responses [
-    cancel: _('Cancel'),
-    add: _('Add') suggested,
+    cancel: _("Cancel"),
+    add: _("Add") suggested,
   ]
 }
 
@@ -85,10 +85,10 @@ Button btn_toggle_add_subscription {
   ]
 
   accessibility {
-    label: C_('accessibility', 'Add Subscription…');
+    label: C_("accessibility", "Add Subscription…");
   }
 
-  tooltip-text: C_('tooltip', 'Add Subscription…');
+  tooltip-text: C_("tooltip", "Add Subscription…");
   visible: true;
 
   Image {
@@ -98,10 +98,10 @@ Button btn_toggle_add_subscription {
 
 Button btn_go_back {
   accessibility {
-    label: C_('accessibility', 'Go back to subscription list');
+    label: C_("accessibility", "Go back to subscription list");
   }
 
-  tooltip-text: C_('tooltip', 'Go back');
+  tooltip-text: C_("tooltip", "Go back");
   visible: true;
   clicked => $handle_go_to_subscriptions_page() swapped;
 
@@ -111,12 +111,12 @@ Button btn_go_back {
 }
 
 Adw.MessageDialog dialog_error {
-  heading: _('Failed to add subscription');
-  body: _('Please check your input, internet connection and API URL.');
+  heading: _("Failed to add subscription");
+  body: _("Please check your input, internet connection and API URL.");
   default-response: 'close';
   hide-on-close: true;
 
   responses [
-    close: _('Close'),
+    close: _("Close"),
   ]
 }

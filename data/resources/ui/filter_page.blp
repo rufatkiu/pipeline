@@ -2,7 +2,7 @@ using Gtk 4.0;
 using Adw 1;
 
 template $TFFilterPage: $TFStackPage {
-  name: _('Filters');
+  name: _("Filters");
 
   header-widget: Button btn_toggle_add_filter {
     styles [
@@ -10,10 +10,10 @@ template $TFFilterPage: $TFStackPage {
     ]
 
     accessibility {
-      label: C_('accessibility', 'Add Filter…');
+      label: C_("accessibility", "Add Filter…");
     }
 
-    tooltip-text: C_('tooltip', 'Add Filter…');
+    tooltip-text: C_("tooltip", "Add Filter…");
     visible: true;
 
     Image {
@@ -35,7 +35,7 @@ template $TFFilterPage: $TFStackPage {
 
     Adw.StatusPage {
       visible: bind filter_list.is-empty as <bool>;
-      title: _('No Filters');
+      title: _("No Filters");
       icon-name: 'funnel-symbolic';
       vexpand: true;
 
@@ -46,14 +46,14 @@ template $TFFilterPage: $TFStackPage {
         ]
 
         halign: center;
-        label: _('Add Filter…');
+        label: _("Add Filter…");
       };
     }
   }
 }
 
 Adw.MessageDialog dialog_add {
-  heading: _('Add Filter');
+  heading: _("Add Filter");
   default-response: 'add';
   hide-on-close: true;
 
@@ -62,18 +62,18 @@ Adw.MessageDialog dialog_add {
     spacing: 5;
 
     Entry entry_title {
-      placeholder-text: _('Title');
+      placeholder-text: _("Title");
     }
 
     Entry entry_channel {
-      placeholder-text: _('Channel Name');
+      placeholder-text: _("Channel Name");
     }
   };
 
   response => $handle_add_filter() swapped;
 
   responses [
-    cancel: _('Cancel'),
-    add: _('Add') suggested,
+    cancel: _("Cancel"),
+    add: _("Add") suggested,
   ]
 }

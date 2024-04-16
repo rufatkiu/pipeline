@@ -39,10 +39,10 @@ template $TFWindow: Adw.ApplicationWindow {
       [end]
       MenuButton {
         accessibility {
-          label: C_('accessibility', 'Primary menu');
+          label: C_("accessibility", "Primary menu");
         }
 
-        tooltip-text: C_('tooltip', 'Primary menu');
+        tooltip-text: C_("tooltip", "Primary menu");
         menu-model: menubar;
         icon-name: 'open-menu-symbolic';
       }
@@ -50,32 +50,32 @@ template $TFWindow: Adw.ApplicationWindow {
 
     content: Adw.ViewStack application_stack {
       Adw.ViewStackPage {
-        name: _('Feed');
-        title: _('Feed');
+        name: _("Feed");
+        title: _("Feed");
         icon-name: 'go-home-symbolic';
 
         child: $TFFeedPage feed_page {};
       }
 
       Adw.ViewStackPage {
-        name: _('Watch Later');
-        title: _('Watch Later');
+        name: _("Watch Later");
+        title: _("Watch Later");
         icon-name: 'alarm-symbolic';
 
         child: $TFWatchLaterPage watchlater_page {};
       }
 
       Adw.ViewStackPage {
-        name: _('Filters');
-        title: _('Filters');
+        name: _("Filters");
+        title: _("Filters");
         icon-name: 'funnel-symbolic';
 
         child: $TFFilterPage filter_page {};
       }
 
       Adw.ViewStackPage {
-        name: _('Subscriptions');
-        title: _('Subscriptions');
+        name: _("Subscriptions");
+        title: _("Subscriptions");
         icon-name: 'library-artists-symbolic';
 
         child: $TFSubscriptionPage subscription_page {};
@@ -92,22 +92,22 @@ template $TFWindow: Adw.ApplicationWindow {
 menu menubar {
   section {
     item {
-      label: _('Import…');
+      label: _("Import…");
       action: 'win.import';
     }
 
     item {
-      label: _('Preferences');
+      label: _("Preferences");
       action: 'win.settings';
     }
 
     item {
-      label: _('Keyboard Shortcuts');
+      label: _("Keyboard Shortcuts");
       action: 'win.show-help-overlay';
     }
 
     item {
-      label: _('About Pipeline');
+      label: _("About Pipeline");
       action: 'win.about';
     }
   }
