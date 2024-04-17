@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 10:53+0200\n"
+"POT-Creation-Date: 2024-04-17 17:19+0200\n"
 "PO-Revision-Date: 2024-03-25 17:01+0000\n"
 "Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/schmiddi-on-"
@@ -18,6 +18,234 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.5-dev\n"
+
+#: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
+msgid "translator-credits"
+msgstr "Silvério Santos (Português)"
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
+msgid "Pipeline"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
+msgid "Follow video creators"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
+msgid "youtube;peertube;video;"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
+msgid ""
+"Pipeline lets you watch and download videos from YouTube and PeerTube, all "
+"without needing to navigate through different websites."
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
+msgid "Pipeline comes with several features:"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
+msgid "Subscribe to channels"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
+msgid "Play videos with any video player"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
+msgid "Filter out unwanted videos in the feed"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
+#, fuzzy
+msgid "Import subscriptions from NewPipe or YouTube"
+msgstr ""
+"Isso irá importar suas inscrições de seus dados exportados do NewPipe ou "
+"YouTube."
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
+msgid "Multiple platforms"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
+#, fuzzy
+msgid "Feed List"
+msgstr "Feed"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
+#: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
+#: data/resources/ui/window.blp:61 data/resources/ui/window.blp:62
+msgid "Watch Later"
+msgstr "Assistir Mais Tarde"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
+#, fuzzy
+msgid "Filter List"
+msgstr "Filtros"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
+#: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
+#: data/resources/ui/window.blp:78
+#, fuzzy
+msgid "Subscriptions"
+msgstr "Importar Inscrições"
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:6
+msgid "Window width"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:10
+msgid "Window height"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:14
+msgid "Window maximized state"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:18
+msgid "The player to use"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:22
+msgid "The downloader to use"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:26
+msgid "The piped api url"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:30
+msgid "Only show videos of yesterday."
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:34
+msgid "Remove short videos."
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:38
+msgid "The type of platform for which the last subscription was added."
+msgstr ""
+
+#: data/resources/ui/feed_item.blp:124
+msgid "Download"
+msgstr "Download"
+
+#: data/resources/ui/feed_item.blp:129
+msgid "Open in Browser"
+msgstr ""
+
+#: data/resources/ui/feed_item.blp:134
+msgid "Copy to Clipboard"
+msgstr "Copiar para área de tranferência"
+
+#: data/resources/ui/feed_item.blp:139
+msgid "More Information"
+msgstr "Mais Informação"
+
+#: data/resources/ui/feed_item.blp:146
+#, fuzzy
+msgid "Failed to Download Video"
+msgstr "Falha ao baixar o vídeo"
+
+#: data/resources/ui/feed_item.blp:147
+#, fuzzy
+msgid "Please check your downloader in the preferences."
+msgstr "Por favor, verifique o seu descarregador nas Preferências."
+
+#: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
+#: data/resources/ui/subscription_page.blp:120
+msgid "Close"
+msgstr "Fechar"
+
+#: data/resources/ui/feed_list.blp:32
+#, fuzzy
+msgid "Failed to Play Video"
+msgstr "Falha ao tocar o vídeo"
+
+#: data/resources/ui/feed_list.blp:33
+#, fuzzy
+msgid "Please check your player in the preferences."
+msgstr "Por favor verifique o seu player nas configurações."
+
+#: data/resources/ui/feed_page.blp:9 data/resources/ui/window.blp:53
+#: data/resources/ui/window.blp:54
+msgid "Feed"
+msgstr "Feed"
+
+#: data/resources/ui/feed_page.blp:18
+msgctxt "accessibility"
+msgid "Reload"
+msgstr "Recarregar"
+
+#: data/resources/ui/feed_page.blp:22
+msgctxt "tooltip"
+msgid "Reload"
+msgstr "Recarregar"
+
+#: data/resources/ui/feed_page.blp:47
+msgid "No Videos Found"
+msgstr "Nenhum Vídeo Encontrado"
+
+#: data/resources/ui/feed_page.blp:48
+msgid "Your feed will appear once you've added subscriptions"
+msgstr "Seu feed irá aparecer quando inscrições forem adicionadas"
+
+#: data/resources/ui/feed_page.blp:59
+msgid "Manage Subscriptions…"
+msgstr "Gerenciar Inscrições…"
+
+#: data/resources/ui/filter_item.blp:69
+#: data/resources/ui/subscription_item.blp:74
+msgid "Remove"
+msgstr "Remover"
+
+#: data/resources/ui/filter_page.blp:5 data/resources/ui/window.blp:69
+#: data/resources/ui/window.blp:70
+msgid "Filters"
+msgstr "Filtros"
+
+#: data/resources/ui/filter_page.blp:13
+msgctxt "accessibility"
+msgid "Add Filter…"
+msgstr "Adicionar Filtro…"
+
+#: data/resources/ui/filter_page.blp:16
+msgctxt "tooltip"
+msgid "Add Filter…"
+msgstr "Adicionar Filtro…"
+
+#: data/resources/ui/filter_page.blp:38
+msgid "No Filters"
+msgstr "Sem Filtros"
+
+#: data/resources/ui/filter_page.blp:49
+msgid "Add Filter…"
+msgstr "Adicionar Filtro…"
+
+#: data/resources/ui/filter_page.blp:56
+msgid "Add Filter"
+msgstr "Adicionar Filtro"
+
+#: data/resources/ui/filter_page.blp:65
+msgid "Title"
+msgstr "Título"
+
+#: data/resources/ui/filter_page.blp:69
+msgid "Channel Name"
+msgstr "Nome do Canal"
+
+#: data/resources/ui/filter_page.blp:76 data/resources/ui/import_window.blp:13
+#: data/resources/ui/subscription_page.blp:77
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: data/resources/ui/filter_page.blp:77
+#: data/resources/ui/subscription_page.blp:78
+msgid "Add"
+msgstr "Adicionar"
 
 #: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
@@ -39,12 +267,150 @@ msgstr "NewPipe"
 msgid "YouTube"
 msgstr "YouTube"
 
-#: data/resources/ui/import_window.blp:13
-msgid "Cancel"
-msgstr "Cancelar"
+#: data/resources/ui/preferences_window.ui:11
+msgid "General"
+msgstr "Geral"
+
+#: data/resources/ui/preferences_window.ui:15
+msgid "Programs"
+msgstr "Programas"
+
+#: data/resources/ui/preferences_window.ui:19
+#: data/resources/ui/preferences_window.ui:32
+msgid "Player"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:37
+msgid "Downloader"
+msgstr "Descarregador"
+
+#: data/resources/ui/preferences_window.ui:44
+msgid "APIs"
+msgstr "APIs"
+
+#: data/resources/ui/preferences_window.ui:45
+msgid ""
+"For a complete list of public APIs, see the <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:48
+msgid "Piped API"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:60
+msgid "Custom Piped API"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:67
+msgid "Other"
+msgstr "Outros"
+
+#: data/resources/ui/preferences_window.ui:70
+msgid "Show only Videos from Yesterday"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:81
+msgid "Remove Short Videos"
+msgstr ""
+
+#: data/resources/ui/preferences_window.ui:82
+msgid "Removes all videos shorter than 1 minute"
+msgstr ""
+
+#: data/resources/ui/subscription_page.blp:26
+#, fuzzy
+msgid "No Subscriptions"
+msgstr "Importar Inscrições"
+
+#: data/resources/ui/subscription_page.blp:37
+msgid "Subscribe to a Channel…"
+msgstr ""
+
+#: data/resources/ui/subscription_page.blp:52
+#, fuzzy
+msgid "Add Subscription"
+msgstr "Importar Inscrições"
+
+#: data/resources/ui/subscription_page.blp:64
+msgid "Base URL"
+msgstr "URL base"
+
+#: data/resources/ui/subscription_page.blp:70
+#, fuzzy
+msgid "Channel ID or Name"
+msgstr "Nome do Canal"
+
+#: data/resources/ui/subscription_page.blp:88
+#, fuzzy
+msgctxt "accessibility"
+msgid "Add Subscription…"
+msgstr "Gerenciar Inscrições…"
+
+#: data/resources/ui/subscription_page.blp:91
+#, fuzzy
+msgctxt "tooltip"
+msgid "Add Subscription…"
+msgstr "Gerenciar Inscrições…"
+
+#: data/resources/ui/subscription_page.blp:101
+#, fuzzy
+msgctxt "accessibility"
+msgid "Go back to subscription list"
+msgstr "Importar Inscrições"
+
+#: data/resources/ui/subscription_page.blp:104
+msgctxt "tooltip"
+msgid "Go back"
+msgstr ""
+
+#: data/resources/ui/subscription_page.blp:114
+#, fuzzy
+msgid "Failed to add subscription"
+msgstr "Falha ao tocar o vídeo"
+
+#: data/resources/ui/subscription_page.blp:115
+msgid "Please check your input, internet connection and API URL."
+msgstr ""
+"Por favor, confira os dados introduzidos, a sua conexão com a internet e a "
+"URL da API."
 
 #: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
+msgstr ""
+
+#: data/resources/ui/watch_later.blp:20
+msgid "Everything Watched"
+msgstr ""
+
+#: data/resources/ui/watch_later.blp:21
+msgid "How about going outside?"
+msgstr ""
+
+#: data/resources/ui/window.blp:42
+msgctxt "accessibility"
+msgid "Primary menu"
+msgstr "Menu primário"
+
+#: data/resources/ui/window.blp:45
+msgctxt "tooltip"
+msgid "Primary menu"
+msgstr "Menu primário"
+
+#: data/resources/ui/window.blp:95
+msgid "Import…"
+msgstr "Importar…"
+
+#: data/resources/ui/window.blp:100
+msgid "Preferences"
+msgstr ""
+
+#: data/resources/ui/window.blp:105
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/resources/ui/window.blp:110
+msgid "About Pipeline"
 msgstr ""
 
 #: src/gui/feed/error_label.rs:100
@@ -84,126 +450,6 @@ msgid ""
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
 
-#: src/gui/window.rs:58
-msgid "Pipeline"
-msgstr ""
-
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr ""
-
-#~ msgid "translator-credits"
-#~ msgstr "Silvério Santos (Português)"
-
-#~ msgid "Watch Later"
-#~ msgstr "Assistir Mais Tarde"
-
-#~ msgid "Download"
-#~ msgstr "Download"
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Copiar para área de tranferência"
-
-#~ msgid "More Information"
-#~ msgstr "Mais Informação"
-
-#~ msgid "Failed to download video"
-#~ msgstr "Falha ao baixar o vídeo"
-
-#~ msgid "Please check your downloader in the settings."
-#~ msgstr "Por favor, verifique o seu descarregador nas Preferências."
-
-#~ msgid "Close"
-#~ msgstr "Fechar"
-
-#~ msgid "Failed to play video"
-#~ msgstr "Falha ao tocar o vídeo"
-
-#~ msgid "Please check your player in the settings."
-#~ msgstr "Por favor verifique o seu player nas configurações."
-
-#~ msgid "Feed"
-#~ msgstr "Feed"
-
-#~ msgctxt "accessibility"
-#~ msgid "Reload"
-#~ msgstr "Recarregar"
-
-#~ msgctxt "tooltip"
-#~ msgid "Reload"
-#~ msgstr "Recarregar"
-
-#~ msgid "No Videos Found"
-#~ msgstr "Nenhum Vídeo Encontrado"
-
-#~ msgid "Your feed will appear once you've added subscriptions"
-#~ msgstr "Seu feed irá aparecer quando inscrições forem adicionadas"
-
-#~ msgid "Manage Subscriptions…"
-#~ msgstr "Gerenciar Inscrições…"
-
-#~ msgid "Remove"
-#~ msgstr "Remover"
-
-#~ msgid "Filters"
-#~ msgstr "Filtros"
-
-#~ msgctxt "accessibility"
-#~ msgid "Add Filter…"
-#~ msgstr "Adicionar Filtro…"
-
-#~ msgctxt "tooltip"
-#~ msgid "Add Filter…"
-#~ msgstr "Adicionar Filtro…"
-
-#~ msgid "No Filters"
-#~ msgstr "Sem Filtros"
-
-#~ msgid "Add Filter…"
-#~ msgstr "Adicionar Filtro…"
-
-#~ msgid "Add Filter"
-#~ msgstr "Adicionar Filtro"
-
-#~ msgid "Title"
-#~ msgstr "Título"
-
-#~ msgid "Channel Name"
-#~ msgstr "Nome do Canal"
-
-#~ msgid "Add"
-#~ msgstr "Adicionar"
-
-#~ msgid "General"
-#~ msgstr "Geral"
-
-#~ msgid "Programs"
-#~ msgstr "Programas"
-
-#~ msgid "Downloader"
-#~ msgstr "Descarregador"
-
-#~ msgid "APIs"
-#~ msgstr "APIs"
-
-#~ msgid "Other"
-#~ msgstr "Outros"
-
-#~ msgid "Base URL"
-#~ msgstr "URL base"
-
-#~ msgid "Please check your input, internet connection and API URL."
-#~ msgstr ""
-#~ "Por favor, confira os dados introduzidos, a sua conexão com a internet e "
-#~ "a URL da API."
-
-#~ msgctxt "accessibility"
-#~ msgid "Primary menu"
-#~ msgstr "Menu primário"
-
-#~ msgctxt "tooltip"
-#~ msgid "Primary menu"
-#~ msgstr "Menu primário"
-
-#~ msgid "Import…"
-#~ msgstr "Importar…"

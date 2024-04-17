@@ -7,7 +7,7 @@
   <summary>Follow video creators</summary>
   <launchable type="desktop-id">de.schmidhuberj.tubefeeder.desktop</launchable>
   <content_rating type="oars-1.1"/>
-  <developer_name>Julian Schmidhuber</developer_name>
+  <developer_name translatable="no">Julian Schmidhuber</developer_name>
   <developer id="de.schmidhuberj.mobile">
     <name>Julian Schmidhuber</name>
   </developer>
@@ -16,7 +16,7 @@
 
   <releases>
     <release version="v1.14.5" date="2024-02-24">
-      <description translate="no">
+      <description translatable="no">
         <p>HOTFIX</p>
         <ul>
           <li>Subscription names not showing up in the subscription list anymore.</li>
@@ -24,7 +24,7 @@
       </description>
     </release>
     <release version="v1.14.4" date="2024-02-22">
-      <description translate="no">
+      <description translatable="no">
         <p>Added</p>
         <ul>
           <li>Action to open video in the browser.</li>
@@ -41,7 +41,7 @@
       </description>
     </release>
     <release version="v1.14.3" date="2024-01-11">
-      <description translate="no">
+      <description translatable="no">
         <p>Added</p>
         <ul>
           <li>Livi video player in the list of predefined video players.</li>
@@ -50,7 +50,7 @@
       </description>
     </release>
     <release version="v1.14.2" date="2023-12-08">
-      <description translate="no">
+      <description translatable="no">
         <p>Added</p>
         <ul>
           <li>Video title as tooltip of the video.</li>
@@ -61,7 +61,7 @@
       </description>
     </release>
     <release version="v1.14.1" date="2023-11-11">
-      <description translate="no">
+      <description translatable="no">
         <p>Added</p>
         <ul>
           <li>Keyboard shortcuts for actions.</li>
@@ -77,7 +77,7 @@
       </description>
     </release>
     <release version="v1.13.1" date="2023-08-24">
-      <description translate="no">
+      <description translatable="no">
         <p>Fixed</p>
         <ul>
           <li>Copy video URL not working anymore.</li>
@@ -86,7 +86,7 @@
       </description>
     </release>
     <release version="v1.13.0" date="2023-08-20">
-      <description translate="no">
+      <description translatable="no">
         <p>Added</p>
         <ul>
           <li>Dialog showing video information including likes, dislikes (not for YouTube), views and video description.</li>
@@ -103,146 +103,146 @@
       </description>
     </release>
     <release version="v1.12.0" date="2023-07-29">
-      <description translate="no">
+      <description translatable="no">
         <p>Update dependencies. Fix issue with some Peertube subscriptions.</p>
       </description>
     </release>
     <release version="v1.11.0" date="2023-07-16">
-      <description translate="no">
+      <description translatable="no">
         <p>Rebranding to Pipeline.</p>
       </description>
     </release>
     <release version="v1.10.0" date="2023-06-09">
-      <description translate="no">
+      <description translatable="no">
         <p>Load videos in feed automatically and introduce an option to only show videos from yesterday.</p>
       </description>
     </release>
     <release version="v1.9.6" date="2023-04-16">
-      <description translate="no">
+      <description translatable="no">
         <p>Hotfix for too large thumbnails.</p>
       </description>
     </release>
     <release version="v1.9.5" date="2023-04-15">
-      <description translate="no">
+      <description translatable="no">
         <p>Major UI updates to the feed list.</p>
       </description>
     </release>
     <release version="v1.9.4" date="2023-03-17">
-      <description translate="no">
+      <description translatable="no">
         <p>Minor UI improvements and bug fix.</p>
       </description>
     </release>
     <release version="v1.9.3" date="2022-11-20">
-      <description translate="no">
+      <description translatable="no">
         <p>Great UI improvements and bug fixes.</p>
       </description>
     </release>
     <release version="v1.9.2" date="2022-10-02">
-      <description translate="no">
+      <description translatable="no">
         <p>Support the new libadwaita widgets and greatly speed up Piped feed loading.</p>
       </description>
     </release>
     <release version="v1.9.1" date="2022-08-22">
-      <description translate="no">
+      <description translatable="no">
         <p>Fix incorrect ordering of subscriptions in the subscriptions list</p>
       </description>
     </release>
     <release version="v1.9.0" date="2022-08-13">
-      <description translate="no">
+      <description translatable="no">
         <p>Settings and UI for importing subscriptions</p>
       </description>
     </release>
     <release version="v1.8.5" date="2022-07-31">
-      <description translate="no">Dutch and Czech translations</description>
+      <description translatable="no">Dutch and Czech translations</description>
     </release>
     <release version="v1.8.4" date="2022-07-16">
-      <description translate="no">Fix playing local videos for some video formats</description>
+      <description translatable="no">Fix playing local videos for some video formats</description>
     </release>
     <release version="v1.8.3" date="2022-07-05">
-      <description translate="no">Allow for custom Piped URLs, view local videos</description>
+      <description translatable="no">Allow for custom Piped URLs, view local videos</description>
     </release>
     <release version="v1.8.2" date="2022-06-25">
-      <description translate="no">Russian translation, symbolic app icon</description>
+      <description translatable="no">Russian translation, symbolic app icon</description>
     </release>
     <release version="v1.8.1" date="2022-06-22">
-      <description translate="no">Fix compilation</description>
+      <description translatable="no">Fix compilation</description>
     </release>
     <release version="v1.8.0" date="2022-06-22">
-      <description translate="no">New icon (thanks @daudix-UFO), better adaptive UI for bigger screens</description>
+      <description translatable="no">New icon (thanks @daudix-UFO), better adaptive UI for bigger screens</description>
     </release>
     <release version="v1.7.1" date="2022-06-11">
-      <description translate="no">Fix flatpak build</description>
+      <description translatable="no">Fix flatpak build</description>
     </release>
     <release version="v1.7.0" date="2022-06-11">
-      <description translate="no">Look at the videos of a single subscription using a dedicated button in the subscriptions list</description>
+      <description translatable="no">Look at the videos of a single subscription using a dedicated button in the subscriptions list</description>
     </release>
     <release version="v1.6.6" date="2022-04-27">
-      <description translate="no">
+      <description translatable="no">
         <p>Minor fix with the italic translation preventing packaging</p>
       </description>
     </release>
     <release version="v1.6.5" date="2022-04-27">
-      <description translate="no">
+      <description translatable="no">
         <p>Italian translation</p>
       </description>
     </release>
     <release version="v1.6.4" date="2022-04-23">
-      <description translate="no">
+      <description translatable="no">
         <p>Fix crash when the systems locale was not translated yet.</p>
       </description>
     </release>
     <release version="v1.6.3" date="2022-04-22">
-      <description translate="no">
+      <description translatable="no">
         <p>Fix some subscription names not showing and some icons not theming correctly.</p>
       </description>
     </release>
     <release version="v1.6.2" date="2022-04-09">
-      <description translate="no">
+      <description translatable="no">
         <p>Fix for some subscriptions not loading</p>
       </description>
     </release>
     <release version="v1.6.1" date="2022-03-29">
-      <description translate="no">
+      <description translatable="no">
         <p>Hotfix: Fixed a bug where only one subscription could have been added at a time.</p>
       </description>
     </release>
     <release version="v1.6.0" date="2022-03-24">
-      <description translate="no">
+      <description translatable="no">
         <p>Port to GTK4 with UI-improvements and internationalization.</p>
       </description>
     </release>
     <release version="v1.5.0" date="2021-12-02">
-      <description translate="no">
+      <description translatable="no">
         <p>Add support for downloading videos and copying the link to clipboard.</p>
       </description>
     </release>
     <release version="v1.4.0" date="2021-10-22">
-      <description translate="no">
+      <description translatable="no">
         <p>Added support for the platforms peertube and lbry.</p>
       </description>
     </release>
     <release version="v1.3.1" date="2021-09-28">
-      <description translate="no">
+      <description translatable="no">
         <p>Hotfix flatpak not compiling.</p>
       </description>
     </release>
     <release version="v1.3.0" date="2021-09-28">
-      <description translate="no">
+      <description translatable="no">
         <p>Major refactoring, no big changes to features or gui but preparations for such features.</p>
       </description>
     </release>
     <release version="v1.2.3" date="2021-07-08">
-      <description translate="no">
+      <description translatable="no">
         <p>Made the application visible in phoshs "show only adaptive apps".</p>
       </description>
     </release>
     <release version="v1.2.2" date="2021-07-08">
-      <description translate="no">
+      <description translatable="no">
         <p>Fixed too small window size, header bar not having a close button and not beeing draggable.</p>
       </description>
     </release>
     <release version="v1.2.1" date="2021-06-30">
-      <description translate="no">
+      <description translatable="no">
         <p>Stylistic upgrades and flatpak packaging format</p>
       </description>
     </release>

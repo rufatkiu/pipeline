@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-05 10:53+0200\n"
+"POT-Creation-Date: 2024-04-17 17:19+0200\n"
 "PO-Revision-Date: 2024-03-26 18:01+0000\n"
 "Last-Translator: maboroshin <maboroshin@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/schmiddi-on-"
@@ -18,6 +18,237 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 5.5-dev\n"
+
+#: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
+msgid "translator-credits"
+msgstr "翻訳者の著作表示"
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
+#, fuzzy
+msgid "Pipeline"
+msgstr "Pipeline について"
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
+msgid "Follow video creators"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
+msgid "youtube;peertube;video;"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
+msgid ""
+"Pipeline lets you watch and download videos from YouTube and PeerTube, all "
+"without needing to navigate through different websites."
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
+msgid "Pipeline comes with several features:"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
+#, fuzzy
+msgid "Subscribe to channels"
+msgstr "チャネル登録する…"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
+msgid "Play videos with any video player"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
+msgid "Filter out unwanted videos in the feed"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
+#, fuzzy
+msgid "Import subscriptions from NewPipe or YouTube"
+msgstr ""
+"これはNewPipeや YouTube からエクスポートしたデータから登録チャンネルをイン"
+"ポートします。"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
+msgid "Multiple platforms"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
+#, fuzzy
+msgid "Feed List"
+msgstr "フィード"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
+#: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
+#: data/resources/ui/window.blp:61 data/resources/ui/window.blp:62
+msgid "Watch Later"
+msgstr "後で見る"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
+#, fuzzy
+msgid "Filter List"
+msgstr "絞り込み"
+
+#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
+#: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
+#: data/resources/ui/window.blp:78
+msgid "Subscriptions"
+msgstr "登録チャンネル"
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:6
+msgid "Window width"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:10
+msgid "Window height"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:14
+msgid "Window maximized state"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:18
+msgid "The player to use"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:22
+msgid "The downloader to use"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:26
+msgid "The piped api url"
+msgstr ""
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:30
+#, fuzzy
+msgid "Only show videos of yesterday."
+msgstr "昨日の動画のみ表示"
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:34
+#, fuzzy
+msgid "Remove short videos."
+msgstr "ショート動画を非表示"
+
+#: data/de.schmidhuberj.tubefeeder.gschema.xml:38
+msgid "The type of platform for which the last subscription was added."
+msgstr ""
+
+#: data/resources/ui/feed_item.blp:124
+msgid "Download"
+msgstr "ダウンロード"
+
+#: data/resources/ui/feed_item.blp:129
+msgid "Open in Browser"
+msgstr ""
+
+#: data/resources/ui/feed_item.blp:134
+msgid "Copy to Clipboard"
+msgstr "クリップボードにコピー"
+
+#: data/resources/ui/feed_item.blp:139
+msgid "More Information"
+msgstr "追加情報"
+
+#: data/resources/ui/feed_item.blp:146
+#, fuzzy
+msgid "Failed to Download Video"
+msgstr "動画のダウンロードに失敗しました"
+
+#: data/resources/ui/feed_item.blp:147
+#, fuzzy
+msgid "Please check your downloader in the preferences."
+msgstr "設定でダウンローダーを確認してください。"
+
+#: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
+#: data/resources/ui/subscription_page.blp:120
+msgid "Close"
+msgstr "終了"
+
+#: data/resources/ui/feed_list.blp:32
+#, fuzzy
+msgid "Failed to Play Video"
+msgstr "動画の再生に失敗しました"
+
+#: data/resources/ui/feed_list.blp:33
+#, fuzzy
+msgid "Please check your player in the preferences."
+msgstr "設定でプレイヤーを確認してください。"
+
+#: data/resources/ui/feed_page.blp:9 data/resources/ui/window.blp:53
+#: data/resources/ui/window.blp:54
+msgid "Feed"
+msgstr "フィード"
+
+#: data/resources/ui/feed_page.blp:18
+msgctxt "accessibility"
+msgid "Reload"
+msgstr "再読み込み"
+
+#: data/resources/ui/feed_page.blp:22
+msgctxt "tooltip"
+msgid "Reload"
+msgstr "再読み込み"
+
+#: data/resources/ui/feed_page.blp:47
+msgid "No Videos Found"
+msgstr "動画が見つかりませんでした"
+
+#: data/resources/ui/feed_page.blp:48
+msgid "Your feed will appear once you've added subscriptions"
+msgstr "チャンネル登録後にフィードを表示可能です"
+
+#: data/resources/ui/feed_page.blp:59
+msgid "Manage Subscriptions…"
+msgstr "登録チャンネルの管理…"
+
+#: data/resources/ui/filter_item.blp:69
+#: data/resources/ui/subscription_item.blp:74
+msgid "Remove"
+msgstr "除去"
+
+#: data/resources/ui/filter_page.blp:5 data/resources/ui/window.blp:69
+#: data/resources/ui/window.blp:70
+msgid "Filters"
+msgstr "絞り込み"
+
+#: data/resources/ui/filter_page.blp:13
+msgctxt "accessibility"
+msgid "Add Filter…"
+msgstr "絞り込みを追加…"
+
+#: data/resources/ui/filter_page.blp:16
+msgctxt "tooltip"
+msgid "Add Filter…"
+msgstr "絞り込みを追加…"
+
+#: data/resources/ui/filter_page.blp:38
+msgid "No Filters"
+msgstr "フィルターなし"
+
+#: data/resources/ui/filter_page.blp:49
+msgid "Add Filter…"
+msgstr "絞り込みを追加…"
+
+#: data/resources/ui/filter_page.blp:56
+msgid "Add Filter"
+msgstr "絞り込みを追加"
+
+#: data/resources/ui/filter_page.blp:65
+msgid "Title"
+msgstr "題名"
+
+#: data/resources/ui/filter_page.blp:69
+msgid "Channel Name"
+msgstr "チャンネル名"
+
+#: data/resources/ui/filter_page.blp:76 data/resources/ui/import_window.blp:13
+#: data/resources/ui/subscription_page.blp:77
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: data/resources/ui/filter_page.blp:77
+#: data/resources/ui/subscription_page.blp:78
+msgid "Add"
+msgstr "追加"
 
 #: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
@@ -39,13 +270,146 @@ msgstr "NewPipe"
 msgid "YouTube"
 msgstr "YouTube"
 
-#: data/resources/ui/import_window.blp:13
-msgid "Cancel"
-msgstr "キャンセル"
+#: data/resources/ui/preferences_window.ui:11
+msgid "General"
+msgstr "一般"
+
+#: data/resources/ui/preferences_window.ui:15
+msgid "Programs"
+msgstr "プログラム"
+
+#: data/resources/ui/preferences_window.ui:19
+#: data/resources/ui/preferences_window.ui:32
+msgid "Player"
+msgstr "プレイヤー"
+
+#: data/resources/ui/preferences_window.ui:37
+msgid "Downloader"
+msgstr "ダウンローダー"
+
+#: data/resources/ui/preferences_window.ui:44
+msgid "APIs"
+msgstr "API"
+
+#: data/resources/ui/preferences_window.ui:45
+msgid ""
+"For a complete list of public APIs, see the <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">Instances page</a>."
+msgstr ""
+"公開 API の完全な一覧は、<a href=\"https://github.com/TeamPiped/Piped/wiki/"
+"Instances\">インスタンスのページ</a>をご覧ください。"
+
+#: data/resources/ui/preferences_window.ui:48
+msgid "Piped API"
+msgstr "Piped の API"
+
+#: data/resources/ui/preferences_window.ui:60
+msgid "Custom Piped API"
+msgstr "独自の Piped API"
+
+#: data/resources/ui/preferences_window.ui:67
+msgid "Other"
+msgstr "ほか"
+
+#: data/resources/ui/preferences_window.ui:70
+msgid "Show only Videos from Yesterday"
+msgstr "昨日の動画のみ表示"
+
+#: data/resources/ui/preferences_window.ui:81
+msgid "Remove Short Videos"
+msgstr "ショート動画を非表示"
+
+#: data/resources/ui/preferences_window.ui:82
+msgid "Removes all videos shorter than 1 minute"
+msgstr "1分以下の動画を非表示"
+
+#: data/resources/ui/subscription_page.blp:26
+msgid "No Subscriptions"
+msgstr "登録チャンネルなし"
+
+#: data/resources/ui/subscription_page.blp:37
+msgid "Subscribe to a Channel…"
+msgstr "チャネル登録する…"
+
+#: data/resources/ui/subscription_page.blp:52
+msgid "Add Subscription"
+msgstr "登録チャンネルを追加"
+
+#: data/resources/ui/subscription_page.blp:64
+msgid "Base URL"
+msgstr "ベースURL"
+
+#: data/resources/ui/subscription_page.blp:70
+msgid "Channel ID or Name"
+msgstr "チャネル ID か名前"
+
+#: data/resources/ui/subscription_page.blp:88
+msgctxt "accessibility"
+msgid "Add Subscription…"
+msgstr "登録チャンネルを追加…"
+
+#: data/resources/ui/subscription_page.blp:91
+msgctxt "tooltip"
+msgid "Add Subscription…"
+msgstr "登録チャンネルを追加…"
+
+#: data/resources/ui/subscription_page.blp:101
+msgctxt "accessibility"
+msgid "Go back to subscription list"
+msgstr "登録チャンネル一覧に戻る"
+
+#: data/resources/ui/subscription_page.blp:104
+msgctxt "tooltip"
+msgid "Go back"
+msgstr "戻る"
+
+#: data/resources/ui/subscription_page.blp:114
+msgid "Failed to add subscription"
+msgstr "登録チャンネルを追加に失敗しました"
+
+#: data/resources/ui/subscription_page.blp:115
+msgid "Please check your input, internet connection and API URL."
+msgstr "入力、インターネット接続、API の URL をご確認ください。"
 
 #: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
 msgstr "動画の情報"
+
+#: data/resources/ui/watch_later.blp:20
+msgid "Everything Watched"
+msgstr "すべて視聴済み"
+
+#: data/resources/ui/watch_later.blp:21
+#, fuzzy
+msgid "How about going outside?"
+msgstr "出かけるのはどうですか？"
+
+#: data/resources/ui/window.blp:42
+msgctxt "accessibility"
+msgid "Primary menu"
+msgstr "メインメニュー"
+
+#: data/resources/ui/window.blp:45
+msgctxt "tooltip"
+msgid "Primary menu"
+msgstr "メインメニュー"
+
+#: data/resources/ui/window.blp:95
+msgid "Import…"
+msgstr "インポート…"
+
+#: data/resources/ui/window.blp:100
+msgid "Preferences"
+msgstr "設定"
+
+#: data/resources/ui/window.blp:105
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカット"
+
+#: data/resources/ui/window.blp:110
+#, fuzzy
+msgid "About Pipeline"
+msgstr "Pipeline について"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
@@ -88,197 +452,6 @@ msgstr ""
 "が必要になることに注意してください。 詳細については、wiki を参照してくださ"
 "い。"
 
-#: src/gui/window.rs:58
-#, fuzzy
-msgid "Pipeline"
-msgstr "Pipeline について"
-
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr "寄付する"
-
-#~ msgid "translator-credits"
-#~ msgstr "翻訳者の著作表示"
-
-#~ msgid "Watch Later"
-#~ msgstr "後で見る"
-
-#~ msgid "Download"
-#~ msgstr "ダウンロード"
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "クリップボードにコピー"
-
-#~ msgid "More Information"
-#~ msgstr "追加情報"
-
-#~ msgid "Failed to download video"
-#~ msgstr "動画のダウンロードに失敗しました"
-
-#~ msgid "Please check your downloader in the settings."
-#~ msgstr "設定でダウンローダーを確認してください。"
-
-#~ msgid "Close"
-#~ msgstr "終了"
-
-#~ msgid "Failed to play video"
-#~ msgstr "動画の再生に失敗しました"
-
-#~ msgid "Please check your player in the settings."
-#~ msgstr "設定でプレイヤーを確認してください。"
-
-#~ msgid "Feed"
-#~ msgstr "フィード"
-
-#~ msgctxt "accessibility"
-#~ msgid "Reload"
-#~ msgstr "再読み込み"
-
-#~ msgctxt "tooltip"
-#~ msgid "Reload"
-#~ msgstr "再読み込み"
-
-#~ msgid "No Videos Found"
-#~ msgstr "動画が見つかりませんでした"
-
-#~ msgid "Your feed will appear once you've added subscriptions"
-#~ msgstr "チャンネル登録後にフィードを表示可能です"
-
-#~ msgid "Manage Subscriptions…"
-#~ msgstr "登録チャンネルの管理…"
-
-#~ msgid "Remove"
-#~ msgstr "除去"
-
-#~ msgid "Filters"
-#~ msgstr "絞り込み"
-
-#~ msgctxt "accessibility"
-#~ msgid "Add Filter…"
-#~ msgstr "絞り込みを追加…"
-
-#~ msgctxt "tooltip"
-#~ msgid "Add Filter…"
-#~ msgstr "絞り込みを追加…"
-
-#~ msgid "No Filters"
-#~ msgstr "フィルターなし"
-
-#~ msgid "Add Filter…"
-#~ msgstr "絞り込みを追加…"
-
-#~ msgid "Add Filter"
-#~ msgstr "絞り込みを追加"
-
-#~ msgid "Title"
-#~ msgstr "題名"
-
-#~ msgid "Channel Name"
-#~ msgstr "チャンネル名"
-
-#~ msgid "Add"
-#~ msgstr "追加"
-
-#~ msgid "General"
-#~ msgstr "一般"
-
-#~ msgid "Programs"
-#~ msgstr "プログラム"
-
-#~ msgid "Player"
-#~ msgstr "プレイヤー"
-
-#~ msgid "Downloader"
-#~ msgstr "ダウンローダー"
-
-#~ msgid "APIs"
-#~ msgstr "API"
-
-#~ msgid ""
-#~ "For a complete list of public APIs, see the <a href=\"https://github.com/"
-#~ "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
-#~ msgstr ""
-#~ "公開 API の完全な一覧は、<a href=\"https://github.com/TeamPiped/Piped/"
-#~ "wiki/Instances\">インスタンスのページ</a>をご覧ください。"
-
-#~ msgid "Piped API"
-#~ msgstr "Piped の API"
-
-#~ msgid "Custom Piped API"
-#~ msgstr "独自の Piped API"
-
-#~ msgid "Other"
-#~ msgstr "ほか"
-
-#~ msgid "Show only Videos from Yesterday"
-#~ msgstr "昨日の動画のみ表示"
-
-#~ msgid "Remove Short Videos"
-#~ msgstr "ショート動画を非表示"
-
-#~ msgid "Removes all videos shorter than 1 minute"
-#~ msgstr "1分以下の動画を非表示"
-
-#~ msgid "Subscriptions"
-#~ msgstr "登録チャンネル"
-
-#~ msgid "No Subscriptions"
-#~ msgstr "登録チャンネルなし"
-
-#~ msgid "Subscribe to a Channel…"
-#~ msgstr "チャネル登録する…"
-
-#~ msgid "Add Subscription"
-#~ msgstr "登録チャンネルを追加"
-
-#~ msgid "Base URL"
-#~ msgstr "ベースURL"
-
-#~ msgid "Channel ID or Name"
-#~ msgstr "チャネル ID か名前"
-
-#~ msgctxt "accessibility"
-#~ msgid "Add Subscription…"
-#~ msgstr "登録チャンネルを追加…"
-
-#~ msgctxt "tooltip"
-#~ msgid "Add Subscription…"
-#~ msgstr "登録チャンネルを追加…"
-
-#~ msgctxt "accessibility"
-#~ msgid "Go back to subscription list"
-#~ msgstr "登録チャンネル一覧に戻る"
-
-#~ msgctxt "tooltip"
-#~ msgid "Go back"
-#~ msgstr "戻る"
-
-#~ msgid "Failed to add subscription"
-#~ msgstr "登録チャンネルを追加に失敗しました"
-
-#~ msgid "Please check your input, internet connection and API URL."
-#~ msgstr "入力、インターネット接続、API の URL をご確認ください。"
-
-#~ msgid "Everything Watched"
-#~ msgstr "すべて視聴済み"
-
-#, fuzzy
-#~ msgid "How about going outside?"
-#~ msgstr "出かけるのはどうですか？"
-
-#~ msgctxt "accessibility"
-#~ msgid "Primary menu"
-#~ msgstr "メインメニュー"
-
-#~ msgctxt "tooltip"
-#~ msgid "Primary menu"
-#~ msgstr "メインメニュー"
-
-#~ msgid "Import…"
-#~ msgstr "インポート…"
-
-#~ msgid "Preferences"
-#~ msgstr "設定"
-
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "キーボードショートカット"

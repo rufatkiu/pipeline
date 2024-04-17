@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-15 03:12+0300\n"
+"POT-Creation-Date: 2024-04-17 17:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
+msgid "translator-credits"
+msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
@@ -30,11 +34,6 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
-
-#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:10
-#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:12
-msgid "Julian Schmidhuber"
 msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
@@ -121,10 +120,6 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
-
-#: data/resources/ui/about.blp.in:13
-msgid "translator-credits"
 msgstr ""
 
 #: data/resources/ui/feed_item.blp:124

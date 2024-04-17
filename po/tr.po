@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de.schmidhuberj.tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-15 03:31+0300\n"
+"POT-Creation-Date: 2024-04-17 17:19+0200\n"
 "PO-Revision-Date: 2024-04-15 03:31+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/schmiddi-on-"
@@ -19,6 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.4.2\n"
+
+#: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
+msgid "translator-credits"
+msgstr "Sabri Ünal <yakushabb@gmail.com>"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
@@ -33,11 +37,6 @@ msgstr "Video oluşturucuları takip edin"
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
 msgstr "youtube;peertube;video;vidyo;"
-
-#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:10
-#: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:12
-msgid "Julian Schmidhuber"
-msgstr "Julian Schmidhuber"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
@@ -126,10 +125,6 @@ msgstr "Kısa videoları kaldır."
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
 msgstr "Son aboneliğin eklendiği platform türü."
-
-#: data/resources/ui/about.blp.in:13
-msgid "translator-credits"
-msgstr "Sabri Ünal <yakushabb@gmail.com>"
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
@@ -446,3 +441,6 @@ msgstr ""
 #: src/gui/window.rs:210
 msgid "Donate"
 msgstr "Bağış Yap"
+
+#~ msgid "Julian Schmidhuber"
+#~ msgstr "Julian Schmidhuber"
