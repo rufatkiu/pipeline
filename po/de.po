@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-04-14 22:01+0000\n"
+"PO-Revision-Date: 2024-04-21 08:07+0000\n"
 "Last-Translator: Pascal Dietrich <pascal.1.dietrich@hotmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +62,7 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "Ungewünschte Videos im Feed wegfiltern"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
 #, fuzzy
@@ -71,7 +71,7 @@ msgstr "Hier kannst du deine Abonnements von NewPipe oder YouTube importieren."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Mehrere Plattformen"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
 #, fuzzy
@@ -97,11 +97,11 @@ msgstr "Abonnements"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "Fensterbreite"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "Fensterhöhe"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
