@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-02-03 17:01+0000\n"
+"PO-Revision-Date: 2024-05-03 17:24+0000\n"
 "Last-Translator: rene-coty <irenee.thirion@e.email>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5.3\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
@@ -25,57 +25,53 @@ msgstr "Irénée Thirion"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
-#, fuzzy
 msgid "Pipeline"
-msgstr "À propos de Pipeline"
+msgstr "Pipeline"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "Suivez des créateurs de vidéos"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;vidéos;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline vous permet de regarder et télécharger des vidéos depuis YouTube et "
+"PeerTube, sans avoir à recourir à aucun site web."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
-msgstr ""
+msgstr "Pipeline embarque plusieurs fonctionnalités :"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
-#, fuzzy
 msgid "Subscribe to channels"
-msgstr "S’abonner à une chaîne…"
+msgstr "S’abonner à des chaînes"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Lire des vidéos avec n’importe quel lecteur"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "Filtrer les vidéos indésirables dans le flux"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
-#, fuzzy
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
-"Vos abonnements seront importés depuis des données exportées de NewPipe ou "
-"YouTube."
+msgstr "Importer des abonnements depuis NewPipe ou YouTube"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Plateformes multiples"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
-#, fuzzy
 msgid "Feed List"
-msgstr "Flux"
+msgstr "Liste des flux"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
@@ -84,9 +80,8 @@ msgid "Watch Later"
 msgstr "Regarder plus tard"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
-#, fuzzy
 msgid "Filter List"
-msgstr "Filtres"
+msgstr "Filtrer la liste"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
@@ -96,41 +91,39 @@ msgstr "Abonnements"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "Largeur de la fenêtre"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "Hauteur de la fenêtre"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
-msgstr ""
+msgstr "Fenêtre maximisée"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "Le lecteur à utiliser"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "Le téléchargeur à utiliser"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "L’URL de l’API piped"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
-#, fuzzy
 msgid "Only show videos of yesterday."
-msgstr "Uniquement afficher les vidéos depuis hier"
+msgstr "Uniquement afficher les vidéos depuis hier."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
-#, fuzzy
 msgid "Remove short videos."
-msgstr "Retirer les vidéos courtes"
+msgstr "Retirer les vidéos courtes."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "Le type de plateforme pour lequel le dernier abonnement a été ajouté."
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
@@ -138,7 +131,7 @@ msgstr "Télécharger"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "Ouvrir dans le navigateur"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
@@ -149,14 +142,12 @@ msgid "More Information"
 msgstr "Plus d’informations"
 
 #: data/resources/ui/feed_item.blp:146
-#, fuzzy
 msgid "Failed to Download Video"
 msgstr "Échec du téléchargement de la vidéo"
 
 #: data/resources/ui/feed_item.blp:147
-#, fuzzy
 msgid "Please check your downloader in the preferences."
-msgstr "Veuillez vérifier votre téléchargeur dans les paramètres."
+msgstr "Veuillez vérifier votre téléchargeur dans les Préférences."
 
 #: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
 #: data/resources/ui/subscription_page.blp:120
@@ -164,14 +155,12 @@ msgid "Close"
 msgstr "Fermer"
 
 #: data/resources/ui/feed_list.blp:32
-#, fuzzy
 msgid "Failed to Play Video"
 msgstr "Échec de la lecture de la vidéo"
 
 #: data/resources/ui/feed_list.blp:33
-#, fuzzy
 msgid "Please check your player in the preferences."
-msgstr "Veuillez vérifier votre lecteur dans les paramètres."
+msgstr "Veuillez vérifier votre lecteur dans les Préférences."
 
 #: data/resources/ui/feed_page.blp:9 data/resources/ui/window.blp:53
 #: data/resources/ui/window.blp:54
@@ -408,7 +397,6 @@ msgid "Keyboard Shortcuts"
 msgstr "Raccourcis clavier"
 
 #: data/resources/ui/window.blp:110
-#, fuzzy
 msgid "About Pipeline"
 msgstr "À propos de Pipeline"
 
