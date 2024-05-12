@@ -142,11 +142,10 @@ menu menu {
   }
 }
 
-Adw.MessageDialog dialog_error {
+Adw.AlertDialog dialog_error {
   heading: _("Failed to Download Video");
   body: _("Please check your downloader in the preferences.");
   default-response: 'close';
-  hide-on-close: true;
 
   responses [
     close: _("Close"),

@@ -28,11 +28,10 @@ template $TFFeedList: Box {
   }
 }
 
-Adw.MessageDialog dialog_error {
+Adw.AlertDialog dialog_error {
   heading: _("Failed to Play Video");
   body: _("Please check your player in the preferences.");
   default-response: 'close';
-  hide-on-close: true;
 
   responses [
     close: _("Close"),

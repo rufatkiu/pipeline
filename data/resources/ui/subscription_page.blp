@@ -48,10 +48,9 @@ template $TFSubscriptionPage: $TFStackPage {
   }
 }
 
-Adw.MessageDialog dialog_add {
+Adw.AlertDialog dialog_add {
   heading: _("Add Subscription");
   default-response: 'add';
-  hide-on-close: true;
 
   extra-child: Box {
     orientation: vertical;
@@ -110,11 +109,10 @@ Button btn_go_back {
   }
 }
 
-Adw.MessageDialog dialog_error {
+Adw.AlertDialog dialog_error {
   heading: _("Failed to add subscription");
   body: _("Please check your input, internet connection and API URL.");
   default-response: 'close';
-  hide-on-close: true;
 
   responses [
     close: _("Close"),

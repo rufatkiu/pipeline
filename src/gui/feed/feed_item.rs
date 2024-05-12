@@ -53,6 +53,7 @@ impl FeedItem {
 pub mod imp {
     use std::cell::RefCell;
 
+    use adw::prelude::AdwDialogExt;
     use gdk::gio::Cancellable;
     use gdk::gio::SimpleAction;
     use gdk::gio::SimpleActionGroup;
@@ -96,7 +97,7 @@ pub mod imp {
         popover_menu: TemplateChild<gtk::PopoverMenu>,
 
         #[template_child]
-        dialog_error: TemplateChild<adw::MessageDialog>,
+        dialog_error: TemplateChild<adw::AlertDialog>,
 
         video: RefCell<Option<VideoObject>>,
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
@@ -122,9 +123,7 @@ pub mod imp {
                         if let Err(e) = receiver.await.expect("Video receiver to not fail") {
                             log::error!("Failed to download video: {}", e);
                             let window = s.obj().window();
-                            let dialog_error = &s.dialog_error;
-                            dialog_error.set_transient_for(Some(&window));
-                            dialog_error.present();
+                            s.dialog_error.present(&window);
                         }
                     })
                 );

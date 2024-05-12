@@ -258,6 +258,7 @@ impl FeedList {
 pub mod imp {
     use std::cell::{Cell, RefCell};
 
+    use adw::prelude::AdwDialogExt;
     use gdk::gio::ListStore;
     use gdk::glib::ParamSpec;
     use gdk::glib::ParamSpecBoolean;
@@ -290,7 +291,7 @@ pub mod imp {
         pub(super) scrolled_window: TemplateChild<gtk::ScrolledWindow>,
 
         #[template_child]
-        pub(super) dialog_error: TemplateChild<adw::MessageDialog>,
+        pub(super) dialog_error: TemplateChild<adw::AlertDialog>,
 
         pub(super) items: RefCell<Vec<VideoObject>>,
         pub(super) model: RefCell<ListStore>,
@@ -357,9 +358,7 @@ pub mod imp {
                         if let Err(e) = receiver.await.expect("Video receiver to not fail") {
                             log::error!("Failed to play video: {}", e);
                             let window = s.obj().window();
-                            let dialog_error = &s.dialog_error;
-                            dialog_error.set_transient_for(Some(&window));
-                            dialog_error.present();
+                            s.dialog_error.present(&window);
                         }
                     });
                 }));

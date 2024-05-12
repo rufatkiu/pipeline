@@ -11,11 +11,11 @@ license = "GPL-3.0-or-later"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-gtk = { version = "0.8.1", package = "gtk4", features = ["v4_12"] }
+gtk = { version = "0.8.1", package = "gtk4", features = ["v4_14"] }
 gdk-pixbuf = "0.19.2"
 gdk = { version = "0.8.1", package = "gdk4" }
 pango = "0.19.3"
-adw = { version = "0.6.0", package = "libadwaita", features = ["v1_4"]}
+adw = { version = "0.6.0", package = "libadwaita", features = ["v1_5"]}
 glib = "0.19.3"
 
 tokio = {version = "1.36.0", features = ["full"]}

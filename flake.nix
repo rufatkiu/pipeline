@@ -33,6 +33,7 @@
                 };
               };
               src = ./.;
+
               buildInputs = with pkgs; [ pkgs.libadwaita ];
               nativeBuildInputs = with pkgs; [ wrapGAppsHook4 rustPlatform.cargoSetupHook meson gettext glib pkg-config desktop-file-utils appstream ninja rustc cargo openssl blueprint-compiler ];
 
