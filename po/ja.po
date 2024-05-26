@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-05-24 13:09+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"PO-Revision-Date: 2024-05-27 05:09+0000\n"
+"Last-Translator: Gnuey56 <gnuey56@proton.me>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/ja/>\n"
 "Language: ja\n"
@@ -25,57 +25,53 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
-#, fuzzy
 msgid "Pipeline"
-msgstr "Pipeline について"
+msgstr "Pipeline"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "動画クリエイターをフォロー"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;video;動画;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline を使えば、違うウェブサイトを行き来することなく、YouTube と PeerTube "
+"の動画を視聴・ダウンロードすることができます。"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
-msgstr ""
+msgstr "Pipeline はいくつかの機能を搭載しています:"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
-#, fuzzy
 msgid "Subscribe to channels"
-msgstr "チャネル登録する…"
+msgstr "チャンネルを登録"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "任意のプレイヤーで動画を再生"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "除きたい動画をフィードから除外"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
-#, fuzzy
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
-"これはNewPipeや YouTube からエクスポートしたデータから登録チャンネルをイン"
-"ポートします。"
+msgstr "NewPipeや YouTube から登録チャンネルをインポート"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "複数のプラットフォームに対応"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
-#, fuzzy
 msgid "Feed List"
-msgstr "フィード"
+msgstr "フィードリスト"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
@@ -84,9 +80,8 @@ msgid "Watch Later"
 msgstr "後で見る"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
-#, fuzzy
 msgid "Filter List"
-msgstr "絞り込み"
+msgstr "絞り込みリスト"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
@@ -96,41 +91,39 @@ msgstr "登録チャンネル"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "ウィンドウの幅"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "ウィンドウの高さ"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
-msgstr ""
+msgstr "ウィンドウの最大化"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "使用するプレイヤー"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "使用するダウンローダー"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "Piped API の URL"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
-#, fuzzy
 msgid "Only show videos of yesterday."
-msgstr "昨日の動画のみ表示"
+msgstr "昨日の動画のみ表示します。"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
-#, fuzzy
 msgid "Remove short videos."
-msgstr "ショート動画を非表示"
+msgstr "ショート動画を非表示にします。"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "最後にチャンネル登録をしたときのチャンネルのプラットフォーム。"
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
@@ -138,7 +131,7 @@ msgstr "ダウンロード"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "ブラウザで開く"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
@@ -149,12 +142,10 @@ msgid "More Information"
 msgstr "追加情報"
 
 #: data/resources/ui/feed_item.blp:146
-#, fuzzy
 msgid "Failed to Download Video"
 msgstr "動画のダウンロードに失敗しました"
 
 #: data/resources/ui/feed_item.blp:147
-#, fuzzy
 msgid "Please check your downloader in the preferences."
 msgstr "設定でダウンローダーを確認してください。"
 
@@ -164,12 +155,10 @@ msgid "Close"
 msgstr "終了"
 
 #: data/resources/ui/feed_list.blp:32
-#, fuzzy
 msgid "Failed to Play Video"
 msgstr "動画の再生に失敗しました"
 
 #: data/resources/ui/feed_list.blp:33
-#, fuzzy
 msgid "Please check your player in the preferences."
 msgstr "設定でプレイヤーを確認してください。"
 
@@ -380,7 +369,6 @@ msgid "Everything Watched"
 msgstr "すべて視聴済み"
 
 #: data/resources/ui/watch_later.blp:21
-#, fuzzy
 msgid "How about going outside?"
 msgstr "出かけるのはどうですか？"
 
@@ -407,7 +395,6 @@ msgid "Keyboard Shortcuts"
 msgstr "キーボードショートカット"
 
 #: data/resources/ui/window.blp:110
-#, fuzzy
 msgid "About Pipeline"
 msgstr "Pipeline について"
 
