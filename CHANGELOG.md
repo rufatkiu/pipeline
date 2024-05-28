@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.15.0] - 2024-05-28
+
+### Fix
+
+- Crash with certain channels.
+
 ### Chores
 
 - Updated to GNOME 46 libraries.
@@ -102,7 +108,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - File chooser dialog for importing videos not working.
 
-[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.5...master
+[Unreleased]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.15.0...master
+[1.15.0]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.5...v1.15.0
 [1.14.5]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.4...v1.14.5
 [1.14.4]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.3...v1.14.4
 [1.14.3]: https://gitlab.com/schmiddi-on-mobile/pipeline/-/compare/v1.14.2...v1.14.3

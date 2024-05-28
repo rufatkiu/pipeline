@@ -14,5 +14,5 @@ Adw.AboutDialog about {
   website: 'https://mobile.schmidhuberj.de/pipeline';
   version: '@VERSION@';
   //artists: 'David Lapshin <ddaudix@gmail.com>';
-  release-notes: '\n      <p>Added</p>\n      <ul>\n      <li>Action to open video in the browser.</li>\n      </ul>\n      <p>Fixed</p>\n      <ul>\n      <li>Outdated window title</li>\n      <li>Wrong offset of the reload-spinner in relation to the reload-button.</li>\n      </ul>\n      <p>Changed</p>\n      <ul>\n      <li>Updated selected Piped instance list.</li>\n      </ul>\n    ';
+  release-notes: '<p>Fix</p> <ul> <li>Crash with certain channels.</li> </ul> <p>Chores</p> <ul> <li>Updated to GNOME 46 libraries.</li> </ul>';
 }
