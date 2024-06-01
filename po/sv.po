@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-04-11 09:01+0000\n"
+"PO-Revision-Date: 2024-06-02 06:09+0000\n"
 "Last-Translator: bittin1ddc447d824349b2 <bittin@reimu.nl>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
@@ -31,50 +31,47 @@ msgstr "Pipeline"
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "Följ videoskapare"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;video;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline låter dig titta på och ladda ner videor från YouTube och PeerTube, "
+"allt utan att behöva navigera genom olika webbplatser."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
-msgstr ""
+msgstr "Pipeline kommer med flera funktioner:"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
-#, fuzzy
 msgid "Subscribe to channels"
-msgstr "Prenumerera på en kanal…"
+msgstr "Prenumerera på kanaler"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Spela upp videor med vilken videospelare som helst"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "Filtrera bort oönskade videor i flödet"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
-#, fuzzy
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
-"Detta kommer att importera dina prenumerationer från exporterad data från "
-"NewPipe eller YouTube."
+msgstr "Importera prenumerationer från NewPipe eller Youtube"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Flera plattformar"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
-#, fuzzy
 msgid "Feed List"
-msgstr "Flöde"
+msgstr "Flödeslista"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
@@ -83,9 +80,8 @@ msgid "Watch Later"
 msgstr "Titta senare"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
-#, fuzzy
 msgid "Filter List"
-msgstr "Filter"
+msgstr "Filterlista"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
@@ -95,41 +91,39 @@ msgstr "Prenumerationer"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "Fönster bredd"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "Fönster höjd"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
-msgstr ""
+msgstr "Fönster maximerat tillstånd"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "Spelaren att använda"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "Nedladdaren att använda"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "piped api url"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
-#, fuzzy
 msgid "Only show videos of yesterday."
-msgstr "Visa endast videos från igår"
+msgstr "Visa endast videos från igår."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
-#, fuzzy
 msgid "Remove short videos."
-msgstr "Ta bort korta videos"
+msgstr "Ta bort korta videos."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "Den typ av plattform som den senaste prenumerationen lades till."
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
@@ -137,7 +131,7 @@ msgstr "Ladda ner"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "Öppna i webbläsare"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
@@ -148,14 +142,12 @@ msgid "More Information"
 msgstr "Mer information"
 
 #: data/resources/ui/feed_item.blp:146
-#, fuzzy
 msgid "Failed to Download Video"
 msgstr "Misslyckades att ladda ner video"
 
 #: data/resources/ui/feed_item.blp:147
-#, fuzzy
 msgid "Please check your downloader in the preferences."
-msgstr "Kontrollera din nedladdare i inställningarna."
+msgstr "Kontrollera din nedladdningshanterare i inställningarna."
 
 #: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
 #: data/resources/ui/subscription_page.blp:120
@@ -163,12 +155,10 @@ msgid "Close"
 msgstr "Stäng"
 
 #: data/resources/ui/feed_list.blp:32
-#, fuzzy
 msgid "Failed to Play Video"
 msgstr "Misslyckades att spela upp video"
 
 #: data/resources/ui/feed_list.blp:33
-#, fuzzy
 msgid "Please check your player in the preferences."
 msgstr "Kontrollera din spelare i inställningarna."
 
@@ -405,9 +395,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Tangentbordsgenvägar"
 
 #: data/resources/ui/window.blp:110
-#, fuzzy
 msgid "About Pipeline"
-msgstr "Pipeline"
+msgstr "Om Pipeline"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
