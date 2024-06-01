@@ -23,13 +23,14 @@
                 lockFile = ./Cargo.lock;
 
                 outputHashes = {
-                  "tf_core-0.1.4" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_join-0.1.7" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_filter-0.1.3" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_observer-0.1.3" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_playlist-0.1.4" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_platform_youtube-0.1.7" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
-                  "tf_platform_peertube-0.1.5" = "sha256-yOuvHLyX/qUJSs62VbripKwIEoErsPu9rzbKMdndvmc=";
+                  "tf_core-0.1.4" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_join-0.1.7" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_filter-0.1.3" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_observer-0.1.3" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_playlist-0.1.4" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_platform_youtube-0.1.7" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "tf_platform_peertube-0.1.5" = "sha256-IW5d0mn/olgm9ydN45ZaDd5AQSGj2kM7QvCHgZSnd8w=";
+                  "piped-openapi-sdk-1.0.0" = "sha256-UFzMYYqCzO6KyJvjvK/hBJtz3FOuSC2gWjKp72WFEGk=";
                 };
               };
               src = ./.;
