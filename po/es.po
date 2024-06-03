@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-04-21 08:07+0000\n"
-"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
+"PO-Revision-Date: 2024-06-04 07:48+0000\n"
+"Last-Translator: Pedro De la Iglesia <pedro.yt.99@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/es/>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
@@ -121,7 +121,7 @@ msgstr "Muestra solo los vídeos de ayer."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
 msgid "Remove short videos."
-msgstr "Eliminar los vídeos cortos"
+msgstr "Eliminar los vídeos cortos."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
