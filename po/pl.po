@@ -8,39 +8,44 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-06-14 21:09+0000\n"
+"Last-Translator: Stanisław łajszczak <stanislaw.lajszczak@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
-msgstr ""
+msgstr "Podziękowania Tłumaczom"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
+#, fuzzy
 msgid "Pipeline"
-msgstr ""
+msgstr "Pipeline"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "Obserwuj twórców video"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;filmik;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline pozwala ci oglądać i pobierać filmiki z Youtuba i Peertuba bez "
+"potrzeby przechodzenia przez różne strony."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
