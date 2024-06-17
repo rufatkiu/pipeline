@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-06-17 14:42+0000\n"
+"PO-Revision-Date: 2024-06-18 17:09+0000\n"
 "Last-Translator: Roma <r.sg@ukr.net>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/uk/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
-msgstr ""
+msgstr "mljoke <5h6yvkei5@mozmail.com>"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
@@ -32,7 +32,7 @@ msgstr "Pipeline"
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "Слідкуйте за творцями відео"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
@@ -56,23 +56,23 @@ msgstr "Підписатися на канали"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Відтворюйте відео за допомогою будь-якого відеоплеєра"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "Відфільтруйте небажані відео в стрічці"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
+msgstr "Імпортуйте підписки з NewPipe або YouTube"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Кілька платформ"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
 msgid "Feed List"
-msgstr ""
+msgstr "Список каналів"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
@@ -301,139 +301,145 @@ msgstr "Інший"
 
 #: data/resources/ui/preferences_window.ui:70
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Показувати лише відео за вчора"
 
 #: data/resources/ui/preferences_window.ui:81
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "Видалити короткі відео"
 
 #: data/resources/ui/preferences_window.ui:82
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "Видаляє всі відео тривалістю менше 1 хвилини"
 
 #: data/resources/ui/subscription_page.blp:26
 msgid "No Subscriptions"
-msgstr ""
+msgstr "Немає підписок"
 
 #: data/resources/ui/subscription_page.blp:37
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "Підписатись на канал…"
 
 #: data/resources/ui/subscription_page.blp:52
 msgid "Add Subscription"
-msgstr ""
+msgstr "Додати підписку"
 
 #: data/resources/ui/subscription_page.blp:64
 msgid "Base URL"
-msgstr ""
+msgstr "Базовий URL"
 
 #: data/resources/ui/subscription_page.blp:70
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "ID або назва каналу"
 
 #: data/resources/ui/subscription_page.blp:88
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Додати підписку…"
 
 #: data/resources/ui/subscription_page.blp:91
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Додати підписку…"
 
 #: data/resources/ui/subscription_page.blp:101
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "Повернутися до списку підписок"
 
 #: data/resources/ui/subscription_page.blp:104
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Повернутися"
 
 #: data/resources/ui/subscription_page.blp:114
 msgid "Failed to add subscription"
-msgstr ""
+msgstr "Не вдалося додати підписку"
 
 #: data/resources/ui/subscription_page.blp:115
 msgid "Please check your input, internet connection and API URL."
 msgstr ""
+"Будь ласка, перевірте вхідні дані, підключення до Інтернету та URL-адресу "
+"API."
 
 #: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
-msgstr ""
+msgstr "Інформація про відео"
 
 #: data/resources/ui/watch_later.blp:20
 msgid "Everything Watched"
-msgstr ""
+msgstr "Все переглянуто"
 
 #: data/resources/ui/watch_later.blp:21
 msgid "How about going outside?"
-msgstr ""
+msgstr "Як щодо того, щоб вийти на вулицю?"
 
 #: data/resources/ui/window.blp:42
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Основне меню"
 
 #: data/resources/ui/window.blp:45
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Основне меню"
 
 #: data/resources/ui/window.blp:95
 msgid "Import…"
-msgstr ""
+msgstr "Імпорт…"
 
 #: data/resources/ui/window.blp:100
 msgid "Preferences"
-msgstr ""
+msgstr "Уподобання"
 
 #: data/resources/ui/window.blp:105
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Комбінації клавіш"
 
 #: data/resources/ui/window.blp:110
 msgid "About Pipeline"
-msgstr ""
+msgstr "Про Pipeline"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "Помилка підключення до мережі"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Помилка аналізу {} підписки"
+msgstr[1] "Помилка аналізу {} підписок"
+msgstr[2] "Помилка аналізу {} підписок"
 
 #: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
-msgstr ""
+msgstr "Виникла помилка"
 
 #. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
-msgstr ""
+msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "Виберіть файл підписок NewPipe"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "Не вдається імпортувати підписки"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Виберіть файл підписки на YouTube"
 
 #: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"Зауважте, що у Flatpak потрібно зробити деякі додаткові кроки для "
+"використання зовнішнього плеєра з Flatpak. Для додаткової інформації, будь "
+"ласка, зверніться до вікі."
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "Підтримати фінансово"
