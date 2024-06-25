@@ -195,15 +195,15 @@ pub mod imp {
             self.entry_url.set_text("");
             self.entry_name_id.set_text("");
 
+            let window = self.obj().window();
+            self.dialog_add.present(&window);
+
             // XXX: Duplicated logic with `url_visible`.
             if platform == Platform::Peertube {
                 self.entry_url.grab_focus();
             } else {
                 self.entry_name_id.grab_focus();
             }
-
-            let window = self.obj().window();
-            self.dialog_add.present(&window);
         }
 
         fn setup_toggle_add_subscription(&self, obj: &super::SubscriptionPage) {

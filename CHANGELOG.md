@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fix
+
+- Not grabbing focus for the entry when adding a subscription.
+
 ## [1.15.0] - 2024-05-28
 
 ### Fix
