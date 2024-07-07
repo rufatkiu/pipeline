@@ -8,426 +8,437 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-07-08 15:09+0000\n"
+"Last-Translator: Milo Ivir <mail@milotype.de>\n"
+"Language-Team: Croatian <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
-msgstr ""
+msgstr "Milo Ivir <mail@milotype.de>"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
 msgid "Pipeline"
-msgstr ""
+msgstr "Pipeline"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr ""
+msgstr "Praćenje autora videa"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;video;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline omogućuje gledanje i preuzimanje videa s YouTubea i PeerTubea bez "
+"potrebe za navigacijom kroz različite web stranice."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
-msgstr ""
+msgstr "Pipeline sadrži nekoliko značajki:"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
 msgid "Subscribe to channels"
-msgstr ""
+msgstr "Pretplaćivanje na kanale"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Reprodukcija videa s bilo kojim playerom"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr ""
+msgstr "Filtriranje neželjenih videa u feedu"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
+msgstr "Uvoz pretplata s NewPipe ili YouTube stranica"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Podržava više platformi"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
 msgid "Feed List"
-msgstr ""
+msgstr "Popis feedova"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
 #: data/resources/ui/window.blp:61 data/resources/ui/window.blp:62
 msgid "Watch Later"
-msgstr ""
+msgstr "Gledaj kasnije"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
 msgid "Filter List"
-msgstr ""
+msgstr "Popis filtara"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
 #: data/resources/ui/window.blp:78
 msgid "Subscriptions"
-msgstr ""
+msgstr "Pretplate"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "Širina prozora"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "Visina prozora"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
-msgstr ""
+msgstr "Maksimalno povećani prozor"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "Korišteni player"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "Korišteni program za preuzimanje"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "URL piped API sučelja"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
 msgid "Only show videos of yesterday."
-msgstr ""
+msgstr "Prikaži samo videa od jučer."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
 msgid "Remove short videos."
-msgstr ""
+msgstr "Ukloni kratka videa."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "Vrsta platforme za koju je dodana posljednja pretplata."
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
-msgstr ""
+msgstr "Preuzmi"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "Otvori u pregledniku"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Kopiraj u međuspremnik"
 
 #: data/resources/ui/feed_item.blp:139
 msgid "More Information"
-msgstr ""
+msgstr "Više informacija"
 
 #: data/resources/ui/feed_item.blp:146
 msgid "Failed to Download Video"
-msgstr ""
+msgstr "Neuspjelo preuzimanje videa"
 
 #: data/resources/ui/feed_item.blp:147
 msgid "Please check your downloader in the preferences."
-msgstr ""
+msgstr "Provjeri program za preuzimanje u postavkama."
 
 #: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
 #: data/resources/ui/subscription_page.blp:120
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: data/resources/ui/feed_list.blp:32
 msgid "Failed to Play Video"
-msgstr ""
+msgstr "Neuspjela reprodukcija videa"
 
 #: data/resources/ui/feed_list.blp:33
 msgid "Please check your player in the preferences."
-msgstr ""
+msgstr "Provjeri player u postavkama."
 
 #: data/resources/ui/feed_page.blp:9 data/resources/ui/window.blp:53
 #: data/resources/ui/window.blp:54
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: data/resources/ui/feed_page.blp:18
 msgctxt "accessibility"
 msgid "Reload"
-msgstr ""
+msgstr "Učitaj ponovo"
 
 #: data/resources/ui/feed_page.blp:22
 msgctxt "tooltip"
 msgid "Reload"
-msgstr ""
+msgstr "Učitaj ponovo"
 
 #: data/resources/ui/feed_page.blp:47
 msgid "No Videos Found"
-msgstr ""
+msgstr "Nije pronađen nijedan video"
 
 #: data/resources/ui/feed_page.blp:48
 msgid "Your feed will appear once you've added subscriptions"
-msgstr ""
+msgstr "Tvoj feed će se pojaviti nakon što dodaš pretplate"
 
 #: data/resources/ui/feed_page.blp:59
 msgid "Manage Subscriptions…"
-msgstr ""
+msgstr "Upravljaj pretplatama …"
 
 #: data/resources/ui/filter_item.blp:69
 #: data/resources/ui/subscription_item.blp:74
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #: data/resources/ui/filter_page.blp:5 data/resources/ui/window.blp:69
 #: data/resources/ui/window.blp:70
 msgid "Filters"
-msgstr ""
+msgstr "Filtri"
 
 #: data/resources/ui/filter_page.blp:13
 msgctxt "accessibility"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Dodaj filtar …"
 
 #: data/resources/ui/filter_page.blp:16
 msgctxt "tooltip"
 msgid "Add Filter…"
-msgstr ""
+msgstr "Dodaj filtar …"
 
 #: data/resources/ui/filter_page.blp:38
 msgid "No Filters"
-msgstr ""
+msgstr "Bez filtara"
 
 #: data/resources/ui/filter_page.blp:49
 msgid "Add Filter…"
-msgstr ""
+msgstr "Dodaj filtar …"
 
 #: data/resources/ui/filter_page.blp:56
 msgid "Add Filter"
-msgstr ""
+msgstr "Dodaj filtar"
 
 #: data/resources/ui/filter_page.blp:65
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: data/resources/ui/filter_page.blp:69
 msgid "Channel Name"
-msgstr ""
+msgstr "Ime kanala"
 
 #: data/resources/ui/filter_page.blp:76 data/resources/ui/import_window.blp:13
 #: data/resources/ui/subscription_page.blp:77
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 #: data/resources/ui/filter_page.blp:77
 #: data/resources/ui/subscription_page.blp:78
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: data/resources/ui/import_window.blp:5
 msgid "Import Subscriptions"
-msgstr ""
+msgstr "Uvezi pretplate"
 
 #: data/resources/ui/import_window.blp:6
 msgid ""
 "This will import your subscriptions from exported data from NewPipe or "
 "YouTube."
 msgstr ""
+"Ovo će uvesti tvoje pretplate iz izvezenih podataka s NewPipe ili YouTube "
+"stranica."
 
 #: data/resources/ui/import_window.blp:11
 msgid "NewPipe"
-msgstr ""
+msgstr "NewPipe"
 
 #: data/resources/ui/import_window.blp:12
 msgid "YouTube"
-msgstr ""
+msgstr "YouTube"
 
 #: data/resources/ui/preferences_window.ui:11
 msgid "General"
-msgstr ""
+msgstr "Općenito"
 
 #: data/resources/ui/preferences_window.ui:15
 msgid "Programs"
-msgstr ""
+msgstr "Programi"
 
 #: data/resources/ui/preferences_window.ui:19
 #: data/resources/ui/preferences_window.ui:32
 msgid "Player"
-msgstr ""
+msgstr "Player"
 
 #: data/resources/ui/preferences_window.ui:37
 msgid "Downloader"
-msgstr ""
+msgstr "Program za preuzimanje"
 
 #: data/resources/ui/preferences_window.ui:44
 msgid "APIs"
-msgstr ""
+msgstr "API sučelja"
 
 #: data/resources/ui/preferences_window.ui:45
 msgid ""
 "For a complete list of public APIs, see the <a href=\"https://github.com/"
 "TeamPiped/Piped/wiki/Instances\">Instances page</a>."
 msgstr ""
+"Potpuni popis javnih API sučelja potraži na <a href=\"https://github.com/"
+"TeamPiped/Piped/wiki/Instances\">stranici Instance</a>."
 
 #: data/resources/ui/preferences_window.ui:48
 msgid "Piped API"
-msgstr ""
+msgstr "Piped API sučelja"
 
 #: data/resources/ui/preferences_window.ui:60
 msgid "Custom Piped API"
-msgstr ""
+msgstr "Prilagođena Piped API sučelja"
 
 #: data/resources/ui/preferences_window.ui:67
 msgid "Other"
-msgstr ""
+msgstr "Ostalo"
 
 #: data/resources/ui/preferences_window.ui:70
 msgid "Show only Videos from Yesterday"
-msgstr ""
+msgstr "Prikaži samo videa od jučer"
 
 #: data/resources/ui/preferences_window.ui:81
 msgid "Remove Short Videos"
-msgstr ""
+msgstr "Ukloni kratka videa"
 
 #: data/resources/ui/preferences_window.ui:82
 msgid "Removes all videos shorter than 1 minute"
-msgstr ""
+msgstr "Uklanja sva videa koji su kraći od jedne minute"
 
 #: data/resources/ui/subscription_page.blp:26
 msgid "No Subscriptions"
-msgstr ""
+msgstr "Bez pretplata"
 
 #: data/resources/ui/subscription_page.blp:37
 msgid "Subscribe to a Channel…"
-msgstr ""
+msgstr "Pretplati se na jedan kanal …"
 
 #: data/resources/ui/subscription_page.blp:52
 msgid "Add Subscription"
-msgstr ""
+msgstr "Dodaj pretplatu"
 
 #: data/resources/ui/subscription_page.blp:64
 msgid "Base URL"
-msgstr ""
+msgstr "Osnovni URL"
 
 #: data/resources/ui/subscription_page.blp:70
 msgid "Channel ID or Name"
-msgstr ""
+msgstr "ID ili ime kanala"
 
 #: data/resources/ui/subscription_page.blp:88
 msgctxt "accessibility"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Dodaj pretplatu …"
 
 #: data/resources/ui/subscription_page.blp:91
 msgctxt "tooltip"
 msgid "Add Subscription…"
-msgstr ""
+msgstr "Dodaj pretplatu …"
 
 #: data/resources/ui/subscription_page.blp:101
 msgctxt "accessibility"
 msgid "Go back to subscription list"
-msgstr ""
+msgstr "Idi natrag na popis pretplata"
 
 #: data/resources/ui/subscription_page.blp:104
 msgctxt "tooltip"
 msgid "Go back"
-msgstr ""
+msgstr "Idi natrag"
 
 #: data/resources/ui/subscription_page.blp:114
 msgid "Failed to add subscription"
-msgstr ""
+msgstr "Neuspjelo dodavanje pretplate"
 
 #: data/resources/ui/subscription_page.blp:115
 msgid "Please check your input, internet connection and API URL."
-msgstr ""
+msgstr "Provjeri unos, internetsku vezu i URL API sučelja."
 
 #: data/resources/ui/video_information_window.blp:19
 msgid "Video Information"
-msgstr ""
+msgstr "Podaci videa"
 
 #: data/resources/ui/watch_later.blp:20
 msgid "Everything Watched"
-msgstr ""
+msgstr "Sve gledano"
 
 #: data/resources/ui/watch_later.blp:21
 msgid "How about going outside?"
-msgstr ""
+msgstr "Zašto ne izađeš malo van?"
 
 #: data/resources/ui/window.blp:42
 msgctxt "accessibility"
 msgid "Primary menu"
-msgstr ""
+msgstr "Primarni izbornik"
 
 #: data/resources/ui/window.blp:45
 msgctxt "tooltip"
 msgid "Primary menu"
-msgstr ""
+msgstr "Primarni izbornik"
 
 #: data/resources/ui/window.blp:95
 msgid "Import…"
-msgstr ""
+msgstr "Uvezi …"
 
 #: data/resources/ui/window.blp:100
 msgid "Preferences"
-msgstr ""
+msgstr "Postavke"
 
 #: data/resources/ui/window.blp:105
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Tipkovni prečaci"
 
 #: data/resources/ui/window.blp:110
 msgid "About Pipeline"
-msgstr ""
+msgstr "O Pipeline"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
-msgstr ""
+msgstr "Greška pri povezivanju s mrežom"
 
 #: src/gui/feed/error_label.rs:102
 msgid "Error parsing one subscription"
 msgid_plural "Error parsing {} subscriptions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Error parsing one subscription"
+msgstr[1] "Greška pri obradi {} pretplata"
+msgstr[2] "Greška pri obradi {} pretplata"
 
 #: src/gui/feed/error_label.rs:105
 msgid "Some error occured"
-msgstr ""
+msgstr "Dogodila se neka greška"
 
 #. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
-msgstr ""
+msgstr "%d. %m. %Y., %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr ""
+msgstr "Odaberi datoteku NewPipe pretplata"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
-msgstr ""
+msgstr "Neuspio uvoz pretplata"
 
 #: src/gui/import_window.rs:62
 msgid "Select YouTube subscription file"
-msgstr ""
+msgstr "Odaberi datoteku YouTube pretplate"
 
 #: src/gui/preferences_window.rs:135
 msgid ""
 "Note that on Flatpak, there are some more steps required when using a player "
 "external to the Flatpak. For more information, please consult the wiki."
 msgstr ""
+"Imaj na umu da su na Flatpaku potrebni dodatni koraci kada koristiš eksterni "
+"player. Za više informacija pogledaj wiki."
 
 #: src/gui/window.rs:210
 msgid "Donate"
-msgstr ""
+msgstr "Doniraj"
