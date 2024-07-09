@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: tubefeeder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-06-14 21:09+0000\n"
-"Last-Translator: Stanisław łajszczak <stanislaw.lajszczak@gmail.com>\n"
+"PO-Revision-Date: 2024-07-10 16:09+0000\n"
+"Last-Translator: Jakub Załuska <jak.zaluska@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/"
 "schmiddi-on-mobile/pipeline/pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
@@ -49,15 +49,15 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
-msgstr ""
+msgstr "Pipeline ma następujące funkcje:"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
 msgid "Subscribe to channels"
-msgstr ""
+msgstr "Zasubskrybuj kanały"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Odtwórz wideo dowolnym odtwarzaczem"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
@@ -65,11 +65,11 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr ""
+msgstr "Importuj subskrypcje z NewPipe do YouTube"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
-msgstr ""
+msgstr "Różne platformy"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
 msgid "Feed List"
@@ -79,86 +79,86 @@ msgstr ""
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
 #: data/resources/ui/window.blp:61 data/resources/ui/window.blp:62
 msgid "Watch Later"
-msgstr ""
+msgstr "Obejrzyj później"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
 msgid "Filter List"
-msgstr ""
+msgstr "Przefiltruj listę"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
 #: data/resources/ui/window.blp:78
 msgid "Subscriptions"
-msgstr ""
+msgstr "Subskrypcje"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:6
 msgid "Window width"
-msgstr ""
+msgstr "Szerokość okna"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:10
 msgid "Window height"
-msgstr ""
+msgstr "Wysokość okna"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:14
 msgid "Window maximized state"
-msgstr ""
+msgstr "Stan zmaksymalizowanego okna"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "Używany odtwarzacz"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "Używany program do pobierania"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "URL piped api"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
 msgid "Only show videos of yesterday."
-msgstr ""
+msgstr "Wyświetlaj tylko wideo z wczoraj."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
 msgid "Remove short videos."
-msgstr ""
+msgstr "Usuń krótkie filmy."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "Typ platformy, do której została dodana ostatnia subskrypcja."
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
-msgstr ""
+msgstr "Pobierz"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "Otwórz w przeglądarce"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
-msgstr ""
+msgstr "Skopiuj do schowka"
 
 #: data/resources/ui/feed_item.blp:139
 msgid "More Information"
-msgstr ""
+msgstr "Więcej informacji"
 
 #: data/resources/ui/feed_item.blp:146
 msgid "Failed to Download Video"
-msgstr ""
+msgstr "Błąd podczas pobierania wideo"
 
 #: data/resources/ui/feed_item.blp:147
 msgid "Please check your downloader in the preferences."
-msgstr ""
+msgstr "Sprawdź swój program do pobierania w ustawieniach."
 
 #: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
 #: data/resources/ui/subscription_page.blp:120
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: data/resources/ui/feed_list.blp:32
 msgid "Failed to Play Video"
-msgstr ""
+msgstr "Błąd przy odtwarzaniu wideo"
 
 #: data/resources/ui/feed_list.blp:33
 msgid "Please check your player in the preferences."
