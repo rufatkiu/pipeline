@@ -15,7 +15,7 @@ Pipeline lets you watch and download videos from YouTube and PeerTube, all witho
   <tr>
     <td>Flatpak</td>
     <td>
-      <a href='https://flathub.org/apps/details/de.schmidhuberj.tubefeeder'><img width='130' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-en.png'/></a>
+      <a href='https://flathub.org/apps/details/de.schmidhuberj.tubefeeder'><img width='130' alt='Download on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
     </td>
   </tr>
   <tr>
