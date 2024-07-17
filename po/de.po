@@ -8,24 +8,20 @@ msgstr ""
 "Project-Id-Version: 1.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-04-17 17:19+0200\n"
-"PO-Revision-Date: 2024-04-29 05:20+0000\n"
-"Last-Translator: Sonnengott <abi25silas.pachali@ppg.lernen.barnim.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/schmiddi-on-"
-"mobile/pipeline/de/>\n"
+"PO-Revision-Date: 2024-07-18 15:09+0000\n"
+"Last-Translator: Michaela Kowalski <michaelakowalski+weblate@mailbox.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"schmiddi-on-mobile/pipeline/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.1\n"
+"X-Generator: Weblate 5.7-dev\n"
 
 #: data/resources/ui/about.blp:13 data/resources/ui/about.blp.in:13
 msgid "translator-credits"
-msgstr ""
-"Julian Schmidhuber <translation@schmiddi.anonaddy.com>\n"
-"Jürgen Benvenuti <gastornis@posteo.org>, 2022\n"
-"Leo Moser <leomoser99@gmail.com>, 2023\n"
-"czarlie <flare-translate@cza.li>"
+msgstr "translator-credits"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:5
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:6 src/gui/window.rs:58
@@ -35,48 +31,47 @@ msgstr "Pipeline"
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:7
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:7
 msgid "Follow video creators"
-msgstr "Folge Video-Creatorn"
+msgstr "Folge Video-Erstellern"
 
 #: data/de.schmidhuberj.tubefeeder.desktop.in.in:12
 msgid "youtube;peertube;video;"
-msgstr ""
+msgstr "youtube;peertube;video;"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:253
 msgid ""
 "Pipeline lets you watch and download videos from YouTube and PeerTube, all "
 "without needing to navigate through different websites."
 msgstr ""
+"Pipeline macht das Schauen von Videos auf YouTube und Peertube leicht, ohne "
+"zwischen verschiedenen Websites navigieren zu müssen."
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:257
 msgid "Pipeline comes with several features:"
 msgstr "Pipeline kommt mit verschiedenen Features:"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:261
-#, fuzzy
 msgid "Subscribe to channels"
-msgstr "Einen Kanal abonnieren…"
+msgstr "Kanäle abonnieren"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:262
 msgid "Play videos with any video player"
-msgstr ""
+msgstr "Spiele Videos mit jedem Abspieler"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:263
 msgid "Filter out unwanted videos in the feed"
-msgstr "Ungewünschte Videos im Feed wegfiltern"
+msgstr "Ungewünschte Videos aus Feed filtern"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:264
-#, fuzzy
 msgid "Import subscriptions from NewPipe or YouTube"
-msgstr "Hier kannst du deine Abonnements von NewPipe oder YouTube importieren."
+msgstr "Abonnements von NewPipe oder YouTube importieren"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:265
 msgid "Multiple platforms"
 msgstr "Mehrere Plattformen"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:271
-#, fuzzy
 msgid "Feed List"
-msgstr "Feed"
+msgstr "Feed-Liste"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:275
 #: data/resources/ui/feed_item.blp:119 data/resources/ui/watch_later.blp:5
@@ -85,9 +80,8 @@ msgid "Watch Later"
 msgstr "Später ansehen"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:279
-#, fuzzy
 msgid "Filter List"
-msgstr "Filter"
+msgstr "Filter-Liste"
 
 #: data/de.schmidhuberj.tubefeeder.metainfo.xml.in:283
 #: data/resources/ui/subscription_page.blp:5 data/resources/ui/window.blp:77
@@ -109,29 +103,27 @@ msgstr ""
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:18
 msgid "The player to use"
-msgstr ""
+msgstr "Den zu benutzenden Abspieler"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:22
 msgid "The downloader to use"
-msgstr ""
+msgstr "Den zu benutzenden Downloader"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:26
 msgid "The piped api url"
-msgstr ""
+msgstr "Die Piped API URL"
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:30
-#, fuzzy
 msgid "Only show videos of yesterday."
-msgstr "Nur Videos von gestern anzeigen"
+msgstr "Nur Videos von gestern anzeigen."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:34
-#, fuzzy
 msgid "Remove short videos."
-msgstr "Entferne kurze Videos"
+msgstr "Entferne Kurzvideos."
 
 #: data/de.schmidhuberj.tubefeeder.gschema.xml:38
 msgid "The type of platform for which the last subscription was added."
-msgstr ""
+msgstr "Die Art der Plattform, von der das letzte Abonnement hinzugefügt wurde."
 
 #: data/resources/ui/feed_item.blp:124
 msgid "Download"
@@ -139,7 +131,7 @@ msgstr "Herunterladen"
 
 #: data/resources/ui/feed_item.blp:129
 msgid "Open in Browser"
-msgstr ""
+msgstr "In Browser öffnen"
 
 #: data/resources/ui/feed_item.blp:134
 msgid "Copy to Clipboard"
@@ -155,9 +147,8 @@ msgid "Failed to Download Video"
 msgstr "Konnte Video nicht herunterladen"
 
 #: data/resources/ui/feed_item.blp:147
-#, fuzzy
 msgid "Please check your downloader in the preferences."
-msgstr "Bitte überprüfe dein Herunterlad-Programm in den Einstellungen."
+msgstr "Bitte überprüfe dein Download-Programm in den Einstellungen."
 
 #: data/resources/ui/feed_item.blp:152 data/resources/ui/feed_list.blp:38
 #: data/resources/ui/subscription_page.blp:120
@@ -170,7 +161,6 @@ msgid "Failed to Play Video"
 msgstr "Konnte Video nicht abspielen"
 
 #: data/resources/ui/feed_list.blp:33
-#, fuzzy
 msgid "Please check your player in the preferences."
 msgstr "Bitte überprüfe dein Abspiel-Programm in den Einstellungen."
 
@@ -317,7 +307,7 @@ msgstr "Nur Videos von gestern anzeigen"
 
 #: data/resources/ui/preferences_window.ui:81
 msgid "Remove Short Videos"
-msgstr "Entferne kurze Videos"
+msgstr "Entferne Kurzvideos"
 
 #: data/resources/ui/preferences_window.ui:82
 msgid "Removes all videos shorter than 1 minute"
@@ -378,7 +368,7 @@ msgstr "Videoinformationen"
 
 #: data/resources/ui/watch_later.blp:20
 msgid "Everything Watched"
-msgstr "Alles Angesehene"
+msgstr "Alles Angesehen"
 
 #: data/resources/ui/watch_later.blp:21
 msgid "How about going outside?"
@@ -407,9 +397,8 @@ msgid "Keyboard Shortcuts"
 msgstr "Tastenkürzel"
 
 #: data/resources/ui/window.blp:110
-#, fuzzy
 msgid "About Pipeline"
-msgstr "Pipeline"
+msgstr "Über Pipeline"
 
 #: src/gui/feed/error_label.rs:100
 msgid "Error connecting to the network"
@@ -428,11 +417,11 @@ msgstr "Ein Fehler ist aufgetreten"
 #. Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
 #: src/gui/feed/feed_item_object.rs:108
 msgid "%F %T"
-msgstr "%x %T"
+msgstr "%F %T"
 
 #: src/gui/import_window.rs:34
 msgid "Select NewPipe subscriptions file"
-msgstr "Wähle eine Datei, die NewPipe Abonnements enthält"
+msgstr "Wähle eine NewPipe Abonnements-Export Datei"
 
 #: src/gui/import_window.rs:46 src/gui/import_window.rs:74
 msgid "Failure to import subscriptions"
