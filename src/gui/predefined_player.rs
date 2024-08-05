@@ -18,9 +18,7 @@
  *
  */
 
-
 use gtk::glib::Object;
-
 
 gtk::glib::wrapper! {
     pub struct PredefinedPlayer(ObjectSubclass<imp::PredefinedPlayer>);
@@ -38,24 +36,11 @@ impl PredefinedPlayer {
 pub mod imp {
     use std::cell::RefCell;
 
-    
-    
-    
-    
-    
-    
     use gdk_pixbuf::glib::Properties;
-    
-    
+
     use gtk::glib;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
-    
-    
-    
-
-    
-    
 
     #[derive(Default, Properties)]
     #[properties(wrapper_type = super::PredefinedPlayer)]

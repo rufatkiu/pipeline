@@ -18,12 +18,12 @@
  *
  */
 
+use adw::subclass::prelude::BinImpl;
 use gdk_pixbuf::{
     glib,
     prelude::IsA,
     subclass::prelude::{IsSubclassable, IsSubclassableExt},
 };
-use adw::subclass::prelude::BinImpl;
 
 gtk::glib::wrapper! {
     pub struct StackPage(ObjectSubclass<imp::StackPage>)
