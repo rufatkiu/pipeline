@@ -71,8 +71,8 @@ pub mod imp {
 
     use gtk::subclass::prelude::*;
 
-    use gtk::CompositeTemplate;
     use adw::subclass::prelude::BinImpl;
+    use gtk::CompositeTemplate;
     use tf_join::AnyVideo;
     use tf_observer::Observer;
     use tf_playlist::PlaylistEvent;
@@ -126,20 +126,24 @@ pub mod imp {
             feed_page.set_playlist_manager(playlist_manager);
             feed_page.set_items_ordered(existing);
 
-            gspawn!(clone!(@strong feed_page => async move {
-                while let Some(playlist_event) = receiver.next().await {
-                    match playlist_event {
-                        PlaylistEvent::Add(v) => {
-                            let video = VideoObject::new(v);
-                            feed_page.insert_ordered_time(video);
-                        }
-                        PlaylistEvent::Remove(v) => {
-                            let video = VideoObject::new(v);
-                            feed_page.remove(video);
+            gspawn!(clone!(
+                #[strong]
+                feed_page,
+                async move {
+                    while let Some(playlist_event) = receiver.next().await {
+                        match playlist_event {
+                            PlaylistEvent::Add(v) => {
+                                let video = VideoObject::new(v);
+                                feed_page.insert_ordered_time(video);
+                            }
+                            PlaylistEvent::Remove(v) => {
+                                let video = VideoObject::new(v);
+                                feed_page.remove(video);
+                            }
                         }
                     }
                 }
-            }));
+            ));
         }
     }
 

@@ -15,9 +15,15 @@ pub fn import_window(joiner: Joiner, parent: &crate::gui::window::Window) -> Ale
         .expect("import_window.ui to have at least one object dialog");
     dialog.connect_response(
         None,
-        clone!(@strong joiner, @weak parent => move |_dialog, response| {
-            handle_response(&joiner, response, &parent);
-        }),
+        clone!(
+            #[strong]
+            joiner,
+            #[weak]
+            parent,
+            move |_dialog, response| {
+                handle_response(&joiner, response, &parent);
+            }
+        ),
     );
     dialog
 }
@@ -36,20 +42,26 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
             chooser.open(
                 Some(parent),
                 None::<&gtk::gio::Cancellable>,
-                clone!(@strong chooser, @strong joiner, @strong parent => move |file| {
-                    if let Ok(file) = file {
-                        log::trace!("User picked file to import from");
-                        if let Err(e) = crate::import::import_newpipe(&joiner, file) {
-                            let dialog = AlertDialog::builder()
-                                .heading(&gettextrs::gettext("Failure to import subscriptions"))
-                                .body(&format!("{}", e))
-                                .build();
-                            dialog.present(&parent);
+                clone!(
+                    #[strong]
+                    joiner,
+                    #[strong]
+                    parent,
+                    move |file| {
+                        if let Ok(file) = file {
+                            log::trace!("User picked file to import from");
+                            if let Err(e) = crate::import::import_newpipe(&joiner, file) {
+                                let dialog = AlertDialog::builder()
+                                    .heading(&gettextrs::gettext("Failure to import subscriptions"))
+                                    .body(&format!("{}", e))
+                                    .build();
+                                dialog.present(Some(&parent));
+                            }
+                        } else {
+                            log::trace!("User did not choose anything to import from");
                         }
-                    } else {
-                        log::trace!("User did not choose anything to import from");
                     }
-                }),
+                ),
             );
         }
         "youtube" => {
@@ -64,20 +76,26 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
             chooser.open(
                 Some(parent),
                 None::<&gtk::gio::Cancellable>,
-                clone!(@strong chooser, @strong joiner, @strong parent => move |file| {
-                    if let Ok(file) = file {
-                        log::trace!("User picked file to import from");
-                        if let Err(e) = crate::import::import_youtube(&joiner, file) {
-                            let dialog = AlertDialog::builder()
-                                .heading(&gettextrs::gettext("Failure to import subscriptions"))
-                                .body(&format!("{}", e))
-                                .build();
-                            dialog.present(&parent);
+                clone!(
+                    #[strong]
+                    joiner,
+                    #[strong]
+                    parent,
+                    move |file| {
+                        if let Ok(file) = file {
+                            log::trace!("User picked file to import from");
+                            if let Err(e) = crate::import::import_youtube(&joiner, file) {
+                                let dialog = AlertDialog::builder()
+                                    .heading(&gettextrs::gettext("Failure to import subscriptions"))
+                                    .body(&format!("{}", e))
+                                    .build();
+                                dialog.present(Some(&parent));
+                            }
+                        } else {
+                            log::trace!("User did not choose anything to import from");
                         }
-                    } else {
-                        log::trace!("User did not choose anything to import from");
                     }
-                }),
+                ),
             );
         }
         _ => {}

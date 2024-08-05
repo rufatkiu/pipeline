@@ -101,18 +101,24 @@ pub mod imp {
             self.entry_title.set_text("");
 
             let window = self.obj().window();
-            self.dialog_add.present(&window);
+            self.dialog_add.present(Some(&window));
         }
 
         fn setup_toggle_add_filter(&self, obj: &super::FilterPage) {
-            self.btn_toggle_add_filter
-                .connect_clicked(clone!(@strong obj as s => move |_| {
-                    s.imp().present_filter();
-                }));
-            self.btn_add_filter
-                .connect_clicked(clone!(@strong obj as s => move |_| {
-                    s.imp().present_filter();
-                }));
+            self.btn_toggle_add_filter.connect_clicked(clone!(
+                #[strong]
+                obj,
+                move |_| {
+                    obj.imp().present_filter();
+                }
+            ));
+            self.btn_add_filter.connect_clicked(clone!(
+                #[strong]
+                obj,
+                move |_| {
+                    obj.imp().present_filter();
+                }
+            ));
         }
 
         #[template_callback]

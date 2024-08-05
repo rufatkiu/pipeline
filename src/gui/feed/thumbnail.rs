@@ -84,13 +84,16 @@ impl Thumbnail {
                 let _ = sender.send(path).await;
             });
 
-            gspawn!(
-                clone!(@strong thumbnail => @default-return ControlFlow::Continue, async move {
+            gspawn!(clone!(
+                #[weak]
+                thumbnail,
+                #[upgrade_or_default]
+                async move {
                     while let Some(path) = receiver.next().await {
                         thumbnail.set_filename(Some(&path));
                     }
-                })
-            );
+                }
+            ));
         }
     }
 }
@@ -143,9 +146,13 @@ pub mod imp {
             self.parent_constructed();
             obj.connect_notify_local(
                 Some("video"),
-                clone!(@strong obj => move |_, _| {
-                    obj.load_thumbnail();
-                }),
+                clone!(
+                    #[strong]
+                    obj,
+                    move |_, _| {
+                        obj.load_thumbnail();
+                    }
+                ),
             );
         }
 

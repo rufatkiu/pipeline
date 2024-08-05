@@ -89,23 +89,35 @@ pub mod imp {
 
         fn setup_actions(&self, obj: &super::SubscriptionItem) {
             let action_remove = SimpleAction::new("remove", None);
-            action_remove.connect_activate(
-                clone!(@weak obj => move |_, _| {
+            action_remove.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
                     let subscription_list = obj.imp().subscription_list.borrow_mut();
-                    let subscription = obj.imp().subscription.borrow().as_ref().map(|s| s.subscription()).flatten();
+                    let subscription = obj
+                        .imp()
+                        .subscription
+                        .borrow()
+                        .as_ref()
+                        .map(|s| s.subscription())
+                        .flatten();
                     if let Some(subscription) = subscription {
                         let mut subscription_list = subscription_list;
                         subscription_list.as_mut().unwrap().remove(subscription);
                     }
-                }),
-            );
-            let action_view_videos = SimpleAction::new("view-videos", None);
-            action_view_videos.connect_activate(clone!(@strong obj => move |_, _| {
-                let subscription = obj.imp().subscription.borrow();
-                if let Some(sub) = subscription.as_ref() {
-                    obj.emit_by_name::<()>("go-to-videos", &[&sub]);
                 }
-            }));
+            ));
+            let action_view_videos = SimpleAction::new("view-videos", None);
+            action_view_videos.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let subscription = obj.imp().subscription.borrow();
+                    if let Some(sub) = subscription.as_ref() {
+                        obj.emit_by_name::<()>("go-to-videos", &[&sub]);
+                    }
+                }
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));

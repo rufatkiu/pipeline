@@ -86,13 +86,28 @@ pub mod imp {
 
         fn setup_actions(&self, obj: &super::FilterItem) {
             let action_remove = SimpleAction::new("remove", None);
-            action_remove.connect_activate(clone!(@weak obj => move |_, _| {
-                let filter = obj.imp().filter.borrow().as_ref().map(|s| s.filter()).flatten();
-                let filter_group = obj.imp().filter_group.borrow_mut();
-                if let Some(filter) = filter {
-                    filter_group.as_ref().expect("FilterGroup to be set up").lock().expect("FilterGroup to be lockable").remove(&filter);
+            action_remove.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let filter = obj
+                        .imp()
+                        .filter
+                        .borrow()
+                        .as_ref()
+                        .map(|s| s.filter())
+                        .flatten();
+                    let filter_group = obj.imp().filter_group.borrow_mut();
+                    if let Some(filter) = filter {
+                        filter_group
+                            .as_ref()
+                            .expect("FilterGroup to be set up")
+                            .lock()
+                            .expect("FilterGroup to be lockable")
+                            .remove(&filter);
+                    }
                 }
-            }));
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));

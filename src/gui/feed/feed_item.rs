@@ -106,52 +106,116 @@ pub mod imp {
     impl FeedItem {
         fn setup_actions(&self, obj: &super::FeedItem) {
             let action_watch_later = SimpleAction::new("watch-later", None);
-            action_watch_later.connect_activate(
-                clone!(@strong self.video as video, @strong self.playlist_manager as playlist_manager => move |_, _| {
+            action_watch_later.connect_activate(clone!(
+                #[strong(rename_to = video)]
+                self.video,
+                #[strong(rename_to = playlist_manager)]
+                self.playlist_manager,
+                move |_, _| {
                     let video = video.borrow().as_ref().map(|v| v.video()).flatten();
                     if let Some(video) = video {
                         let mut playlist_manager = playlist_manager.borrow_mut();
-                        playlist_manager.as_mut().unwrap().toggle(&"WATCHLATER".to_owned(), &video);
+                        playlist_manager
+                            .as_mut()
+                            .unwrap()
+                            .toggle(&"WATCHLATER".to_owned(), &video);
                     }
-                }),
-            );
+                }
+            ));
             let action_download = SimpleAction::new("download", None);
-            action_download.connect_activate(clone!(@weak self as s, @strong self.video as video => move |_, _| {
-                let receiver = video.borrow().as_ref().expect("Video should be set up").download();
-                gspawn!(
-                    clone!(@weak s => async move {
-                        if let Err(e) = receiver.await.expect("Video receiver to not fail") {
-                            log::error!("Failed to download video: {}", e);
-                            let window = s.obj().window();
-                            s.dialog_error.present(&window);
+            action_download.connect_activate(clone!(
+                #[weak(rename_to = s)]
+                self,
+                #[strong(rename_to = video)]
+                self.video,
+                move |_, _| {
+                    let receiver = video
+                        .borrow()
+                        .as_ref()
+                        .expect("Video should be set up")
+                        .download();
+                    gspawn!(clone!(
+                        #[weak]
+                        s,
+                        async move {
+                            if let Err(e) = receiver.await.expect("Video receiver to not fail") {
+                                log::error!("Failed to download video: {}", e);
+                                let window = s.obj().window();
+                                s.dialog_error.present(Some(&window));
+                            }
                         }
-                    })
-                );
-            }));
+                    ));
+                }
+            ));
             let action_open_in_browser = SimpleAction::new("open-in-browser", None);
-            action_open_in_browser.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
-                let video_url = &video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url();
-                UriLauncher::new(video_url).launch(Some(&obj.window()), Cancellable::NONE, |_| ());
-            }));
+            action_open_in_browser.connect_activate(clone!(
+                #[strong(rename_to = video)]
+                self.video,
+                #[strong]
+                obj,
+                move |_, _| {
+                    let video_url = &video
+                        .borrow()
+                        .as_ref()
+                        .expect("Video should be set up")
+                        .video()
+                        .expect("Video should be set up")
+                        .url();
+                    UriLauncher::new(video_url).launch(
+                        Some(&obj.window()),
+                        Cancellable::NONE,
+                        |_| (),
+                    );
+                }
+            ));
             let action_clipboard = SimpleAction::new("clipboard", None);
-            action_clipboard.connect_activate(clone!(@strong self.video as video, @strong obj => move |_, _| {
-                let clipboard = obj.display().clipboard();
-                clipboard.set_text(&video.borrow().as_ref().expect("Video should be set up").video().expect("Video should be set up").url());
-            }));
+            action_clipboard.connect_activate(clone!(
+                #[strong(rename_to = video)]
+                self.video,
+                #[strong]
+                obj,
+                move |_, _| {
+                    let clipboard = obj.display().clipboard();
+                    clipboard.set_text(
+                        &video
+                            .borrow()
+                            .as_ref()
+                            .expect("Video should be set up")
+                            .video()
+                            .expect("Video should be set up")
+                            .url(),
+                    );
+                }
+            ));
             let action_information = SimpleAction::new("information", None);
-            action_information.connect_activate(
-                clone!(@strong self.video as video, @strong obj => move |_, _| {
+            action_information.connect_activate(clone!(
+                #[strong(rename_to = video)]
+                self.video,
+                #[strong]
+                obj,
+                move |_, _| {
                     let ctx = glib::MainContext::default();
-                    ctx.spawn_local(clone!(@strong video, @strong obj => async move {
-                        let video = video.borrow();
-                        let video = video.as_ref().expect("Video should be set up");
-                        let info = &video.extra_info().await;
-                        if let Ok(Some(info)) = info {
-                            video_information_window(video.video().expect("Video to be set up"), info, &obj.window()).present();
+                    ctx.spawn_local(clone!(
+                        #[strong]
+                        video,
+                        #[strong]
+                        obj,
+                        async move {
+                            let video = video.borrow();
+                            let video = video.as_ref().expect("Video should be set up");
+                            let info = &video.extra_info().await;
+                            if let Ok(Some(info)) = info {
+                                video_information_window(
+                                    video.video().expect("Video to be set up"),
+                                    info,
+                                    &obj.window(),
+                                )
+                                .present();
+                            }
                         }
-                    }));
-                }),
-            );
+                    ));
+                }
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));

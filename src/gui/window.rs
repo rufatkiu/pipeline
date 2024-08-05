@@ -190,30 +190,49 @@ pub mod imp {
     impl Window {
         fn setup_actions(&self, obj: &super::Window) {
             let action_settings = SimpleAction::new("settings", None);
-            action_settings.connect_activate(clone!(@weak obj => move |_, _| {
-                let settings = PreferencesWindow::new();
-                settings.present(&obj);
-            }));
+            action_settings.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let settings = PreferencesWindow::new();
+                    settings.present(Some(&obj));
+                }
+            ));
             let action_import = SimpleAction::new("import", None);
-            action_import.connect_activate(clone!(@weak obj => move |_, _| {
-                let import = import_window::import_window(obj.imp().joiner.borrow().clone().expect("Joiner to be set up"), &obj);
-                import.present(&obj);
-            }));
+            action_import.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let import = import_window::import_window(
+                        obj.imp()
+                            .joiner
+                            .borrow()
+                            .clone()
+                            .expect("Joiner to be set up"),
+                        &obj,
+                    );
+                    import.present(Some(&obj));
+                }
+            ));
 
             let action_about = SimpleAction::new("about", None);
-            action_about.connect_activate(clone!(@weak obj => move |_, _| {
-                let builder = Builder::from_resource("/ui/about.ui");
-                let about: AboutDialog = builder
-                    .object("about")
-                    .expect("about.ui to have at least one object about");
-                about.add_link(
-                    &gettextrs::gettext("Donate"),
-                    "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
-                );
-                about.set_developers(&["Julian Schmidhuber  <schmidhuberj2@protonmail.com>"]);
-                about.set_artists(&["David Lapshin <ddaudix@gmail.com>"]);
-                about.present(&obj);
-            }));
+            action_about.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let builder = Builder::from_resource("/ui/about.ui");
+                    let about: AboutDialog = builder
+                        .object("about")
+                        .expect("about.ui to have at least one object about");
+                    about.add_link(
+                        &gettextrs::gettext("Donate"),
+                        "https://gitlab.com/schmiddi-on-mobile/pipeline#donate",
+                    );
+                    about.set_developers(&["Julian Schmidhuber  <schmidhuberj2@protonmail.com>"]);
+                    about.set_artists(&["David Lapshin <ddaudix@gmail.com>"]);
+                    about.present(Some(&obj));
+                }
+            ));
             let action_show_help_overlay = SimpleAction::new("show-help-overlay", None);
             action_show_help_overlay.connect_activate(|_, _| {
                 let builder = Builder::from_resource("/ui/shortcuts.ui");
@@ -224,21 +243,45 @@ pub mod imp {
             });
 
             let action_feed = SimpleAction::new("feed", None);
-            action_feed.connect_activate(clone!(@weak obj => move |_, _| {
-                obj.imp().application_stack.set_visible_child(&obj.imp().feed_page.get());
-            }));
+            action_feed.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    obj.imp()
+                        .application_stack
+                        .set_visible_child(&obj.imp().feed_page.get());
+                }
+            ));
             let action_watch_later = SimpleAction::new("watch-later", None);
-            action_watch_later.connect_activate(clone!(@weak obj => move |_, _| {
-                obj.imp().application_stack.set_visible_child(&obj.imp().watchlater_page.get());
-            }));
+            action_watch_later.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    obj.imp()
+                        .application_stack
+                        .set_visible_child(&obj.imp().watchlater_page.get());
+                }
+            ));
             let action_filters = SimpleAction::new("filters", None);
-            action_filters.connect_activate(clone!(@weak obj => move |_, _| {
-                obj.imp().application_stack.set_visible_child(&obj.imp().filter_page.get());
-            }));
+            action_filters.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    obj.imp()
+                        .application_stack
+                        .set_visible_child(&obj.imp().filter_page.get());
+                }
+            ));
             let action_subscriptions = SimpleAction::new("subscriptions", None);
-            action_subscriptions.connect_activate(clone!(@weak obj => move |_, _| {
-                obj.imp().application_stack.set_visible_child(&obj.imp().subscription_page.get());
-            }));
+            action_subscriptions.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    obj.imp()
+                        .application_stack
+                        .set_visible_child(&obj.imp().subscription_page.get());
+                }
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("win", Some(&actions));
@@ -252,70 +295,90 @@ pub mod imp {
             actions.add_action(&action_subscriptions);
 
             let action_feed_watch_later = SimpleAction::new("watch-later", None);
-            action_feed_watch_later.connect_activate(clone!(@weak obj => move |_, _| {
-                let stack = &obj.imp().application_stack;
-                let child = stack.visible_child();
+            action_feed_watch_later.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let stack = &obj.imp().application_stack;
+                    let child = stack.visible_child();
 
-                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
-                    page.emit_watch_later();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
-                    page.emit_watch_later();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
-                    page.emit_watch_later();
+                    if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                        page.emit_watch_later();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                        page.emit_watch_later();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                        page.emit_watch_later();
+                    }
                 }
-            }));
+            ));
             let action_feed_download = SimpleAction::new("download", None);
-            action_feed_download.connect_activate(clone!(@weak obj => move |_, _| {
-                let stack = &obj.imp().application_stack;
-                let child = stack.visible_child();
+            action_feed_download.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let stack = &obj.imp().application_stack;
+                    let child = stack.visible_child();
 
-                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
-                    page.emit_download();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
-                    page.emit_download();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
-                    page.emit_download();
+                    if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                        page.emit_download();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                        page.emit_download();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                        page.emit_download();
+                    }
                 }
-            }));
+            ));
             let action_feed_copy_to_clipboard = SimpleAction::new("clipboard", None);
-            action_feed_copy_to_clipboard.connect_activate(clone!(@weak obj => move |_, _| {
-                let stack = &obj.imp().application_stack;
-                let child = stack.visible_child();
+            action_feed_copy_to_clipboard.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let stack = &obj.imp().application_stack;
+                    let child = stack.visible_child();
 
-                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
-                    page.emit_copy_to_clipboard();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
-                    page.emit_copy_to_clipboard();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
-                    page.emit_copy_to_clipboard();
+                    if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                        page.emit_copy_to_clipboard();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                        page.emit_copy_to_clipboard();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                        page.emit_copy_to_clipboard();
+                    }
                 }
-            }));
+            ));
             let action_feed_open_in_browser = SimpleAction::new("open_in_browser", None);
-            action_feed_open_in_browser.connect_activate(clone!(@weak obj => move |_, _| {
-                let stack = &obj.imp().application_stack;
-                let child = stack.visible_child();
+            action_feed_open_in_browser.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let stack = &obj.imp().application_stack;
+                    let child = stack.visible_child();
 
-                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
-                    page.emit_open_in_browser();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
-                    page.emit_open_in_browser();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
-                    page.emit_open_in_browser();
+                    if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                        page.emit_open_in_browser();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                        page.emit_open_in_browser();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                        page.emit_open_in_browser();
+                    }
                 }
-            }));
+            ));
             let action_feed_information = SimpleAction::new("information", None);
-            action_feed_information.connect_activate(clone!(@weak obj => move |_, _| {
-                let stack = &obj.imp().application_stack;
-                let child = stack.visible_child();
+            action_feed_information.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let stack = &obj.imp().application_stack;
+                    let child = stack.visible_child();
 
-                if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
-                    page.emit_information();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
-                    page.emit_information();
-                } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
-                    page.emit_information();
+                    if let Some(page) = child.and_dynamic_cast_ref::<FeedPage>() {
+                        page.emit_information();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<WatchLaterPage>() {
+                        page.emit_information();
+                    } else if let Some(page) = child.and_dynamic_cast_ref::<SubscriptionPage>() {
+                        page.emit_information();
+                    }
                 }
-            }));
+            ));
 
             let actions_feed = SimpleActionGroup::new();
             obj.insert_action_group("feed", Some(&actions_feed));
@@ -330,10 +393,16 @@ pub mod imp {
             self.feed_page.connect_local(
                 "go-to-subscriptions",
                 true,
-                clone!(@strong self.application_stack as stack, @strong self.subscription_page as s => move |_| {
-                    stack.set_visible_child(&s);
-                    None
-                }),
+                clone!(
+                    #[strong(rename_to = stack)]
+                    self.application_stack,
+                    #[strong(rename_to = s)]
+                    self.subscription_page,
+                    move |_| {
+                        stack.set_visible_child(&s);
+                        None
+                    }
+                ),
             );
         }
         fn setup_watch_later(&self) {
@@ -415,10 +484,14 @@ pub mod imp {
             self.subscription_page.connect_local(
                 "subscription-added",
                 true,
-                clone!(@strong self.feed_page as f => move |_| {
-                    f.reload();
-                    None
-                }),
+                clone!(
+                    #[strong(rename_to = f)]
+                    self.feed_page,
+                    move |_| {
+                        f.reload();
+                        None
+                    }
+                ),
             );
         }
 

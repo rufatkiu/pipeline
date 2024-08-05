@@ -135,11 +135,17 @@ impl VideoObject {
                 let _ = sender.send(r);
             },
         );
-        gspawn!(clone!(@weak self as s => async move {
-            let r = receiver.await.expect("Video play receiver to not be cancelled");
-            s.set_property("playing", false);
-            let _ = sender_return.send(r);
-        }));
+        gspawn!(clone!(
+            #[weak(rename_to = s)]
+            self,
+            async move {
+                let r = receiver
+                    .await
+                    .expect("Video play receiver to not be cancelled");
+                s.set_property("playing", false);
+                let _ = sender_return.send(r);
+            }
+        ));
 
         receiver_return
     }
@@ -154,15 +160,21 @@ impl VideoObject {
                 let _ = sender.send(r);
             },
         );
-        gspawn!(clone!(@weak self as s => async move {
-            let r = receiver.await.expect("Video play receiver to not be cancelled");
-            s.set_property("downloading", false);
-            if let Ok(local_path) = &r {
-                s.set_property("local-path", local_path);
-                s.notify("is-local");
+        gspawn!(clone!(
+            #[weak(rename_to = s)]
+            self,
+            async move {
+                let r = receiver
+                    .await
+                    .expect("Video play receiver to not be cancelled");
+                s.set_property("downloading", false);
+                if let Ok(local_path) = &r {
+                    s.set_property("local-path", local_path);
+                    s.notify("is-local");
+                }
+                let _ = sender_return.send(r.map(|_| ()));
             }
-            let _ = sender_return.send(r.map(|_| ()));
-        }));
+        ));
 
         receiver_return
     }

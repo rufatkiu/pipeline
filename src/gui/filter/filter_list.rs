@@ -158,20 +158,24 @@ pub mod imp {
             self._filter_observer.replace(Some(observer));
             obj.set(existing);
 
-            gspawn!(clone!(@strong obj => async move {
-                while let Some(filter_event) = receiver.next().await {
-                    match filter_event {
-                        FilterEvent::Add(s) => {
-                            let filter = FilterObject::new(s);
-                            obj.add(filter);
-                        }
-                        FilterEvent::Remove(s) => {
-                            let filter = FilterObject::new(s);
-                            obj.remove(filter);
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                async move {
+                    while let Some(filter_event) = receiver.next().await {
+                        match filter_event {
+                            FilterEvent::Add(s) => {
+                                let filter = FilterObject::new(s);
+                                obj.add(filter);
+                            }
+                            FilterEvent::Remove(s) => {
+                                let filter = FilterObject::new(s);
+                                obj.remove(filter);
+                            }
                         }
                     }
                 }
-            }));
+            ));
         }
 
         pub fn setup_list(&self) {

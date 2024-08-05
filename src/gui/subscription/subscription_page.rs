@@ -196,7 +196,7 @@ pub mod imp {
             self.entry_name_id.set_text("");
 
             let window = self.obj().window();
-            self.dialog_add.present(&window);
+            self.dialog_add.present(Some(&window));
 
             // XXX: Duplicated logic with `url_visible`.
             if platform == Platform::Peertube {
@@ -207,16 +207,20 @@ pub mod imp {
         }
 
         fn setup_toggle_add_subscription(&self, obj: &super::SubscriptionPage) {
-            self.btn_toggle_add_subscription
-                .connect_clicked(clone!(@strong obj as s,
-                                        => move |_| {
-                    s.present_subscribe();
-                }));
-            self.btn_add_subscription
-                .connect_clicked(clone!(@strong obj as s,
-                                        => move |_| {
-                    s.present_subscribe();
-                }));
+            self.btn_toggle_add_subscription.connect_clicked(clone!(
+                #[weak]
+                obj,
+                move |_| {
+                    obj.present_subscribe();
+                }
+            ));
+            self.btn_add_subscription.connect_clicked(clone!(
+                #[weak]
+                obj,
+                move |_| {
+                    obj.present_subscribe();
+                }
+            ));
         }
 
         fn platforms(&self) -> &'static [Platform] {
@@ -299,21 +303,28 @@ pub mod imp {
             });
 
             let obj = self.obj();
-            gspawn!(
-                clone!(@strong self.any_subscription_list as list, @strong obj => async move {
-                while let Some(sub) = receiver.next().await {
-                       if let Some(sub) = sub {
-                           list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
-                           obj.emit_by_name::<()>("subscription-added", &[]);
-                       } else {
-                           log::error!("Failed to get subscription with supplied data");
+            gspawn!(clone!(
+                #[strong(rename_to = list)]
+                self.any_subscription_list,
+                #[strong]
+                obj,
+                async move {
+                    while let Some(sub) = receiver.next().await {
+                        if let Some(sub) = sub {
+                            list.borrow()
+                                .as_ref()
+                                .expect("SubscriptionList should be set up")
+                                .add(sub);
+                            obj.emit_by_name::<()>("subscription-added", &[]);
+                        } else {
+                            log::error!("Failed to get subscription with supplied data");
                             let window = obj.window();
                             let dialog_error = &obj.imp().dialog_error;
-                            dialog_error.present(&window);
-                       }
+                            dialog_error.present(Some(&window));
+                        }
                     }
-                })
-            );
+                }
+            ));
         }
 
         #[template_callback]
@@ -340,14 +351,21 @@ pub mod imp {
                 let _ = sender.send(videos).await;
             });
             let obj = self.obj();
-            gspawn!(
-                clone!(@strong obj as s => @default-return ControlFlow::Continue, async move {
+            gspawn!(clone!(
+                #[weak]
+                obj,
+                #[upgrade_or_default]
+                async move {
                     while let Some(videos) = receiver.next().await {
-                        let video_objects = videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
-                        s.imp().subscription_video_list.get().set_items(video_objects);
+                        let video_objects =
+                            videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
+                        obj.imp()
+                            .subscription_video_list
+                            .get()
+                            .set_items(video_objects);
                     }
-                })
-            );
+                }
+            ));
 
             self.obj()
                 .set_property("header-widget", &self.btn_go_back.get());

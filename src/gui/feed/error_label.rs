@@ -90,29 +90,38 @@ pub mod imp {
             error_store.attach(Arc::downgrade(&observer));
             self._error_store_observer.replace(Some(observer));
 
-            gspawn!(clone!(@strong obj => async move {
-                while let Some(error_event) = receiver.next().await {
-                match error_event {
-                    ErrorEvent::Add(_e) => {
-                        let summary = error_store.summary();
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                async move {
+                    while let Some(error_event) = receiver.next().await {
+                        match error_event {
+                            ErrorEvent::Add(_e) => {
+                                let summary = error_store.summary();
 
-                        let message = if summary.network() > 0 {
-                            gettextrs::gettext("Error connecting to the network").to_string()
-                        } else if summary.parse() > 0 {
-                            let msg = gettextrs::ngettext("Error parsing one subscription", "Error parsing {} subscriptions", summary.parse() as u32);
-                            msg.replace("{}", &summary.parse().to_string()).to_string()
-                        } else {
-                            gettextrs::gettext("Some error occured").to_string()
-                        };
+                                let message = if summary.network() > 0 {
+                                    gettextrs::gettext("Error connecting to the network")
+                                        .to_string()
+                                } else if summary.parse() > 0 {
+                                    let msg = gettextrs::ngettext(
+                                        "Error parsing one subscription",
+                                        "Error parsing {} subscriptions",
+                                        summary.parse() as u32,
+                                    );
+                                    msg.replace("{}", &summary.parse().to_string()).to_string()
+                                } else {
+                                    gettextrs::gettext("Some error occured").to_string()
+                                };
 
-                        obj.set_property("error", &message);
-
-                    }
-                    ErrorEvent::Clear => {
-                        obj.set_property("error", "");
+                                obj.set_property("error", &message);
+                            }
+                            ErrorEvent::Clear => {
+                                obj.set_property("error", "");
+                            }
+                        }
                     }
                 }
-            }}));
+            ));
         }
     }
 
