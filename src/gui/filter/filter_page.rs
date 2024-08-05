@@ -162,22 +162,11 @@ pub mod imp {
                 .expect("Filter List should be set up")
                 .lock()
                 .expect("Filter List should be lockable")
-<<<<<<< Updated upstream
-                .add(
-                    AnyVideoFilter::new(
-                        None,
-                        title_regex.map(|r| r.unwrap()),
-                        channel_regex.map(|r| r.unwrap()),
-                    )
-                    .into(),
-                );
-=======
                 .add(AnyVideoFilter::new(
                     None,
                     title_regex.map(|r| r.unwrap()),
                     channel_regex.map(|r| r.unwrap()),
                 ));
->>>>>>> Stashed changes
         }
     }
 

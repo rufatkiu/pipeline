@@ -90,17 +90,7 @@ pub mod imp {
                 #[weak]
                 obj,
                 move |_, _| {
-<<<<<<< Updated upstream
-                    let filter = obj
-                        .imp()
-                        .filter
-                        .borrow()
-                        .as_ref()
-                        .map(|s| s.filter())
-                        .flatten();
-=======
                     let filter = obj.imp().filter.borrow().as_ref().and_then(|s| s.filter());
->>>>>>> Stashed changes
                     let filter_group = obj.imp().filter_group.borrow_mut();
                     if let Some(filter) = filter {
                         filter_group

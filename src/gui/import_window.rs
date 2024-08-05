@@ -35,7 +35,7 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
             let filter = FileFilter::new();
             filter.add_mime_type("application/json");
             let chooser = FileDialog::builder()
-                .title(&gettextrs::gettext("Select NewPipe subscriptions file"))
+                .title(gettextrs::gettext("Select NewPipe subscriptions file"))
                 .modal(true)
                 .default_filter(&filter)
                 .build();
@@ -52,8 +52,8 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
                             log::trace!("User picked file to import from");
                             if let Err(e) = crate::import::import_newpipe(&joiner, file) {
                                 let dialog = AlertDialog::builder()
-                                    .heading(&gettextrs::gettext("Failure to import subscriptions"))
-                                    .body(&format!("{}", e))
+                                    .heading(gettextrs::gettext("Failure to import subscriptions"))
+                                    .body(format!("{}", e))
                                     .build();
                                 dialog.present(Some(&parent));
                             }
@@ -69,7 +69,7 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
             let filter = FileFilter::new();
             filter.add_mime_type("text/csv");
             let chooser = FileDialog::builder()
-                .title(&gettextrs::gettext("Select YouTube subscription file"))
+                .title(gettextrs::gettext("Select YouTube subscription file"))
                 .modal(true)
                 .default_filter(&filter)
                 .build();
@@ -86,8 +86,8 @@ fn handle_response(joiner: &Joiner, response: &str, parent: &crate::gui::window:
                             log::trace!("User picked file to import from");
                             if let Err(e) = crate::import::import_youtube(&joiner, file) {
                                 let dialog = AlertDialog::builder()
-                                    .heading(&gettextrs::gettext("Failure to import subscriptions"))
-                                    .body(&format!("{}", e))
+                                    .heading(gettextrs::gettext("Failure to import subscriptions"))
+                                    .body(format!("{}", e))
                                     .build();
                                 dialog.present(Some(&parent));
                             }

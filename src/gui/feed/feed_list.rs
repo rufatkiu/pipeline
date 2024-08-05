@@ -197,7 +197,7 @@ impl FeedList {
         let model = &imp.model;
         let loaded_count = &imp.loaded_count;
 
-        let _ = items.borrow_mut().insert(0, new_item.clone());
+        items.borrow_mut().insert(0, new_item.clone());
         model.borrow_mut().insert(0, &new_item);
         loaded_count.set(loaded_count.get() + 1);
 
@@ -219,7 +219,7 @@ impl FeedList {
                 })
                 .unwrap_or_else(|i| i);
 
-            let _ = items.insert(idx, new_item.clone());
+            items.insert(idx, new_item.clone());
             if idx <= model.n_items() as usize {
                 model.insert(idx as u32, &new_item);
                 loaded_count.set(loaded_count.get() + 1);

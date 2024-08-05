@@ -38,7 +38,6 @@ pub fn download<
         if let Ok(output) = output {
             callback(Ok(output
                 .lines()
-                .into_iter()
                 .rev()
                 .find(|s| s.starts_with(DOWNLOAD_MERGE) || s.starts_with(DOWNLOAD_DESTINATION))
                 .map(|s| s.strip_prefix(DOWNLOAD_MERGE).unwrap_or(s))
@@ -60,13 +59,13 @@ pub fn open_with_output<
     callback: F,
 ) {
     thread::spawn(move || {
-        let mut command_iter = command.split(" ");
+        let mut command_iter = command.split(' ');
         let program = command_iter
             .next()
             .expect("The command should have a program");
         let args: Vec<String> = command_iter.map(|s| s.to_string()).collect();
 
-        let out = Command::new(&program).args(args).arg(url).output();
+        let out = Command::new(program).args(args).arg(url).output();
 
         if let Ok(out) = out {
             callback(Ok(String::from_utf8_lossy(&out.stdout).to_string()));

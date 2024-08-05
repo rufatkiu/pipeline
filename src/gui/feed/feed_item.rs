@@ -112,7 +112,7 @@ pub mod imp {
                 #[strong(rename_to = playlist_manager)]
                 self.playlist_manager,
                 move |_, _| {
-                    let video = video.borrow().as_ref().map(|v| v.video()).flatten();
+                    let video = video.borrow().as_ref().and_then(|v| v.video());
                     if let Some(video) = video {
                         let mut playlist_manager = playlist_manager.borrow_mut();
                         playlist_manager
@@ -188,6 +188,8 @@ pub mod imp {
                 }
             ));
             let action_information = SimpleAction::new("information", None);
+            // Currently not sure how to fix that lint.
+            #[allow(clippy::await_holding_refcell_ref)]
             action_information.connect_activate(clone!(
                 #[strong(rename_to = video)]
                 self.video,

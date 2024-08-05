@@ -35,7 +35,7 @@ impl FeedPage {
     pub fn setup(&self, playlist_manager: PlaylistManager<String, AnyVideo>, joiner: Joiner) {
         self.imp().playlist_manager.replace(Some(playlist_manager));
         self.imp().joiner.replace(Some(joiner));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 
     pub fn reload(&self) {
@@ -166,7 +166,7 @@ pub mod imp {
                 error_store,
                 move |_| {
                     log::debug!("Reloading");
-                    obj.set_property("reloading", &true);
+                    obj.set_property("reloading", true);
 
                     let mut sender = sender.clone();
                     let joiner = joiner.clone();
@@ -212,7 +212,7 @@ pub mod imp {
                             .collect::<Vec<_>>();
 
                         obj.imp().feed_list.get().set_items(video_objects);
-                        obj.set_property("reloading", &false);
+                        obj.set_property("reloading", false);
                     }
                 }
             ));

@@ -21,7 +21,7 @@ use std::{
     convert::{TryFrom, TryInto},
     fs::OpenOptions,
     marker::PhantomData,
-    path::PathBuf,
+    path::{Path, PathBuf},
 };
 
 use csv::{ReaderBuilder, StringRecord, WriterBuilder};
@@ -40,12 +40,12 @@ impl<T> CsvFileManager<T>
 where
     T: TryFrom<Vec<String>>,
 {
-    pub fn new<F>(path: &PathBuf, add_func: &mut F) -> Self
+    pub fn new<F>(path: &Path, add_func: &mut F) -> Self
     where
-        F: FnMut(T) -> (),
+        F: FnMut(T),
     {
         let mut manager = Self {
-            path: path.clone(),
+            path: path.to_path_buf(),
             _phantom: PhantomData,
         };
 
@@ -55,7 +55,7 @@ where
 
     fn fill<F>(&mut self, add_func: &mut F)
     where
-        F: FnMut(T) -> (),
+        F: FnMut(T),
     {
         let file_res = OpenOptions::new().read(true).write(false).open(&self.path);
 
@@ -201,8 +201,7 @@ where
                 let records_read = csv_reader.into_records();
 
                 let records: Vec<StringRecord> = records_read
-                    .filter(|s| s.is_ok())
-                    .map(|s| s.unwrap())
+                    .flatten()
                     .filter(|s| &new_record != s)
                     .collect();
 

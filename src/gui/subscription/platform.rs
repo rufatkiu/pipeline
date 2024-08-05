@@ -68,7 +68,7 @@ gtk::glib::wrapper! {
 impl PlatformObject {
     pub fn new(platform: Platform) -> Self {
         let s: Self = Object::builder::<Self>()
-            .property("name", &platform.to_string())
+            .property("name", platform.to_string())
             .build();
         s.imp().platform.swap(&RefCell::new(Some(platform)));
         s

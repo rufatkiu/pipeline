@@ -99,8 +99,7 @@ pub mod imp {
                         .subscription
                         .borrow()
                         .as_ref()
-                        .map(|s| s.subscription())
-                        .flatten();
+                        .and_then(|s| s.subscription());
                     if let Some(subscription) = subscription {
                         let mut subscription_list = subscription_list;
                         subscription_list.as_mut().unwrap().remove(subscription);

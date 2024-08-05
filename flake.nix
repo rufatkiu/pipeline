@@ -59,14 +59,13 @@
                 xmllint --format --recover data/resources/resources.gresource.xml -o data/resources/resources.gresource.xml
                 xmllint --format --recover data/${appid}.gschema.xml -o data/${appid}.gschema.xml
                 xmllint --format --recover data/${appid}.metainfo.xml -o data/${appid}.metainfo.xml
-                cleancss --format beautify -o data/resources/style.css data/resources/style.css
               '';
             in
             with pkgs;
             pkgs.mkShell {
               src = ./.;
               buildInputs = self.packages.${system}.default.buildInputs;
-              nativeBuildInputs = self.packages.${system}.default.nativeBuildInputs ++ [ rustfmt python3 nodePackages.clean-css-cli libxml2 gdb cargo-deny ] ++ [ run check format debug ];
+              nativeBuildInputs = self.packages.${system}.default.nativeBuildInputs ++ [ rustfmt python3 libxml2 gdb cargo-deny clippy ] ++ [ run check format debug ];
               shellHook = ''
                 meson setup -Dprofile=development build
               '';

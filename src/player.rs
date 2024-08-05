@@ -44,7 +44,7 @@ pub fn open_with<
     callback: F,
 ) {
     thread::spawn(move || {
-        let mut command_iter = command.split(" ");
+        let mut command_iter = command.split(' ');
         let program = command_iter
             .next()
             .expect("The command should have a program");
@@ -62,7 +62,7 @@ pub fn open_with<
             Stdio::null()
         };
 
-        let command = Command::new(&program)
+        let command = Command::new(program)
             .args(args)
             .arg(url)
             .stdout(stdout)

@@ -93,7 +93,7 @@ impl SubscriptionList {
         self.imp()
             .any_subscription_list
             .replace(Some(subscription_list));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -132,6 +132,7 @@ pub mod imp {
     use crate::gspawn_global;
     use crate::gui::subscription::subscription_item::SubscriptionItem;
     use crate::gui::subscription::subscription_item_object::SubscriptionObject;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/ui/subscription_list.ui")]
@@ -143,8 +144,7 @@ pub mod imp {
         pub(super) sorter: RefCell<Option<CustomSorter>>,
 
         pub(super) any_subscription_list: RefCell<Option<AnySubscriptionList>>,
-        _subscription_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<SubscriptionEvent> + Send>>>>>,
+        _subscription_observer: BoxedObserver<SubscriptionEvent>,
     }
 
     impl Default for SubscriptionList {

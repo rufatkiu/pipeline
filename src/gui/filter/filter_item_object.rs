@@ -68,10 +68,10 @@ gtk::glib::wrapper! {
 impl FilterObject {
     pub fn new(filter: AnyVideoFilter) -> Self {
         let s: Self = Object::builder::<Self>()
-            .property("title", &filter.title_str().unwrap_or_default().to_string())
+            .property("title", filter.title_str().unwrap_or_default().to_string())
             .property(
                 "channel",
-                &filter.subscription_str().unwrap_or_default().to_string(),
+                filter.subscription_str().unwrap_or_default().to_string(),
             )
             .build();
         s.imp().filter.swap(&RefCell::new(Some(filter)));

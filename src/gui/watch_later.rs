@@ -84,6 +84,7 @@ pub mod imp {
     use crate::gui::stack_page::StackPage;
     use crate::gui::stack_page::StackPageImpl;
     use crate::gui::utility::Utility;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate, Default)]
     #[template(resource = "/ui/watch_later.ui")]
@@ -93,8 +94,7 @@ pub mod imp {
 
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
 
-        _playlist_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<PlaylistEvent<AnyVideo>> + Send>>>>>,
+        _playlist_observer: BoxedObserver<PlaylistEvent<AnyVideo>>,
     }
 
     impl WatchLaterPage {

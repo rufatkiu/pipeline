@@ -58,18 +58,16 @@ impl Thumbnail {
 
         let thumbnail_url = video
             .as_ref()
-            .map(|v| v.property::<Option<String>>("thumbnail-url"))
-            .flatten();
+            .and_then(|v| v.property::<Option<String>>("thumbnail-url"));
         let url = video
             .as_ref()
-            .map(|v| v.property::<Option<String>>("url"))
-            .flatten();
+            .and_then(|v| v.property::<Option<String>>("url"));
         if let (Some(thumbnail_url), Some(url)) = (thumbnail_url, url) {
             let (mut sender, mut receiver) = futures::channel::mpsc::channel(1);
             tokio::spawn(async move {
                 let mut user_cache_dir = gtk::glib::user_cache_dir();
                 user_cache_dir.push("tubefeeder");
-                user_cache_dir.push(&format!("{}.jpeg", url.replace("/", "_")));
+                user_cache_dir.push(&format!("{}.jpeg", url.replace('/', "_")));
                 let path = user_cache_dir;
 
                 if !path.exists() {

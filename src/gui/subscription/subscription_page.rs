@@ -186,7 +186,7 @@ pub mod imp {
 
             self.dropdown_platform.set_selected(
                 self.platforms()
-                    .into_iter()
+                    .iter()
                     .position(|p| p == &platform)
                     .unwrap_or_default()
                     .try_into()
@@ -246,7 +246,7 @@ pub mod imp {
                 0,
                 &self
                     .platforms()
-                    .into_iter()
+                    .iter()
                     .map(|p| PlatformObject::new(p.clone()))
                     .collect::<Vec<_>>(),
             );
@@ -368,7 +368,7 @@ pub mod imp {
             ));
 
             self.obj()
-                .set_property("header-widget", &self.btn_go_back.get());
+                .set_property("header-widget", self.btn_go_back.get());
         }
 
         #[template_callback]
@@ -377,7 +377,7 @@ pub mod imp {
             self.subscription_stack.set_visible_child_name("page-sub");
 
             self.obj()
-                .set_property("header-widget", &self.btn_toggle_add_subscription.get());
+                .set_property("header-widget", self.btn_toggle_add_subscription.get());
         }
 
         #[template_callback(function)]
@@ -386,7 +386,7 @@ pub mod imp {
                 .get::<Option<Object>>()
                 .expect("Parameter must be a Object")
                 .map(|o| o.downcast().expect("Parameter must be PlatformObject"));
-            platform.as_ref().map(PlatformObject::platform).flatten() == Some(Platform::Peertube)
+            platform.as_ref().and_then(PlatformObject::platform) == Some(Platform::Peertube)
         }
 
         #[template_callback(function)]

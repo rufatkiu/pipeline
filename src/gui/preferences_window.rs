@@ -7,6 +7,12 @@ gtk::glib::wrapper! {
             gtk::ConstraintTarget, gtk::Native, gtk::Root, gtk::ShortcutManager;
 }
 
+impl Default for PreferencesWindow {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl PreferencesWindow {
     pub fn new() -> Self {
         Object::builder().build()
@@ -147,7 +153,7 @@ pub mod imp {
         fn init_predefined_player(&self) {
             let val_env = std::env::var_os("PLAYER");
             let val_settings = self.settings.string("player");
-            if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
+            if val_env.is_some() && val_env.unwrap() != val_settings.as_str() {
                 self.combo_predefined_player.set_sensitive(false);
             }
             if let Some(idx) = self
@@ -168,7 +174,7 @@ pub mod imp {
         fn init_predefined_piped_api(&self) {
             let val_env = std::env::var_os("PIPED_API_URL");
             let val_settings = self.settings.string("piped-url");
-            if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
+            if val_env.is_some() && val_env.unwrap() != val_settings.as_str() {
                 self.combo_predefined_piped_api.set_sensitive(false);
             }
             if let Some(idx) = self
@@ -195,7 +201,7 @@ pub mod imp {
             let val_env = std::env::var_os(env);
             let val_settings = self.settings.string(settings);
             entry.set_text(&val_settings);
-            if val_env.is_some() && &val_env.unwrap() != val_settings.as_str() {
+            if val_env.is_some() && val_env.unwrap() != val_settings.as_str() {
                 entry.set_editable(false);
             }
             self.settings

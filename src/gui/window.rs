@@ -25,8 +25,7 @@ use gtk::prelude::GtkWindowExt;
 use gtk::{glib::Object, prelude::WidgetExt};
 
 fn setup_joiner() -> tf_join::Joiner {
-    let joiner = tf_join::Joiner::new();
-    joiner
+    tf_join::Joiner::new()
 }
 
 gtk::glib::wrapper! {
@@ -55,7 +54,7 @@ impl Window {
         app.set_accels_for_action("win.subscriptions", &["<Control>4"]);
 
         Object::builder::<Self>()
-            .property("title", &gettextrs::gettext("Pipeline"))
+            .property("title", gettextrs::gettext("Pipeline"))
             .property("application", app)
             .build()
     }
@@ -95,9 +94,9 @@ impl Window {
 
 pub mod imp {
     use crate::config::{APP_ID, PROFILE};
-    use crate::gui::import_window;
     use crate::gui::predefined_player::PredefinedPlayer;
     use crate::gui::preferences_window::PreferencesWindow;
+    use crate::gui::{import_window, BoxedObserver};
 
     use std::cell::RefCell;
     use std::sync::Arc;
@@ -159,12 +158,9 @@ pub mod imp {
         pub(in crate::gui) joiner: RefCell<Option<Joiner>>,
         playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
         any_subscription_list: RefCell<Option<AnySubscriptionList>>,
-        _watchlater_file_manager:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<PlaylistEvent<AnyVideo>> + Send>>>>>,
-        _subscription_file_manager:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<SubscriptionEvent> + Send>>>>>,
-        _filter_file_manager:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<FilterEvent<AnyVideoFilter>> + Send>>>>>,
+        _watchlater_file_manager: BoxedObserver<PlaylistEvent<AnyVideo>>,
+        _subscription_file_manager: BoxedObserver<SubscriptionEvent>,
+        _filter_file_manager: BoxedObserver<FilterEvent<AnyVideoFilter>>,
     }
 
     impl Default for Window {

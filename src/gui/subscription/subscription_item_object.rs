@@ -70,8 +70,8 @@ gtk::glib::wrapper! {
 impl SubscriptionObject {
     pub fn new(subscription: AnySubscription) -> Self {
         let s: Self = Object::builder::<Self>()
-            .property("name", &subscription.to_string())
-            .property("platform", &subscription.platform().to_string())
+            .property("name", subscription.to_string())
+            .property("platform", subscription.platform().to_string())
             .build();
         s.imp().subscription.swap(&RefCell::new(Some(subscription)));
         s

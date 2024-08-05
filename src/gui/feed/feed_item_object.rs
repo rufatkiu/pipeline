@@ -95,21 +95,21 @@ fn format_duration(d: Duration) -> String {
 impl VideoObject {
     pub fn new(video: AnyVideo) -> Self {
         let s: Self = Object::builder::<Self>()
-            .property("title", &video.title())
-            .property("url", &video.url())
-            .property("thumbnail-url", &video.thumbnail_url())
-            .property("author", &video.subscription().to_string())
-            .property("platform", &video.platform().to_string())
+            .property("title", video.title())
+            .property("url", video.url())
+            .property("thumbnail-url", video.thumbnail_url())
+            .property("author", video.subscription().to_string())
+            .property("platform", video.platform().to_string())
             .property(
                 "date",
-                &video
+                video
                     .uploaded()
                     // Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
                     .format(&gettextrs::gettext("%F %T"))
                     .to_string(),
             )
             .property("duration", video.duration().map(format_duration))
-            .property("playing", &false)
+            .property("playing", false)
             .build();
         s.imp().duration.swap(&RefCell::new(video.duration()));
         s.imp().video.swap(&RefCell::new(Some(video)));
@@ -179,6 +179,8 @@ impl VideoObject {
         receiver_return
     }
 
+    // Currently not sure how to fix that lint.
+    #[allow(clippy::await_holding_refcell_ref)]
     pub async fn extra_info(&self) -> Result<Option<ExtraVideoInfo>, tf_join::AnyFetchError> {
         self.imp()
             .video

@@ -72,7 +72,7 @@ impl FilterList {
 
     pub fn set_filter_group(&self, filter_group: Arc<Mutex<FilterGroup<AnyVideoFilter>>>) {
         self.imp().filter_group.replace(Some(filter_group));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -107,6 +107,7 @@ pub mod imp {
     use crate::gspawn;
     use crate::gui::filter::filter_item::FilterItem;
     use crate::gui::filter::filter_item_object::FilterObject;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/ui/filter_list.ui")]
@@ -117,8 +118,7 @@ pub mod imp {
         pub(super) model: RefCell<ListStore>,
 
         pub(super) filter_group: RefCell<Option<Arc<Mutex<FilterGroup<AnyVideoFilter>>>>>,
-        _filter_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<FilterEvent<AnyVideoFilter>> + Send>>>>>,
+        _filter_observer: BoxedObserver<FilterEvent<AnyVideoFilter>>,
     }
 
     impl Default for FilterList {

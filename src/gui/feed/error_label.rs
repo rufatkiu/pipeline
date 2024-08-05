@@ -31,7 +31,7 @@ gtk::glib::wrapper! {
 impl ErrorLabel {
     pub fn set_error_store(&self, error_store: ErrorStore) {
         self.imp().error_store.replace(Some(error_store));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -61,6 +61,7 @@ pub mod imp {
 
     use crate::gspawn;
     use crate::gui::utility::Utility;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate, Default)]
     #[template(resource = "/ui/error_label.ui")]
@@ -69,7 +70,7 @@ pub mod imp {
 
         error: RefCell<Option<String>>,
 
-        _error_store_observer: RefCell<Option<Arc<Mutex<Box<dyn Observer<ErrorEvent> + Send>>>>>,
+        _error_store_observer: BoxedObserver<ErrorEvent>,
     }
 
     impl ErrorLabel {
