@@ -1,6 +1,6 @@
 stages:
+  - lint
   - build
-  - test
   - upload
 
 variables:
@@ -8,6 +8,7 @@ variables:
   BUILD_RELEASE: "build-release"
   MESON_DIST: "${BUILD_RELEASE}/meson-dist"
   MESON_NAME: "tubefeeder"
+  RUSTFLAGS: "-Dwarnings"
 
 build:
   stage: build
@@ -38,11 +39,36 @@ upload:
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file ${MESON_DIST}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz.sha256sum "${UPLOAD_URL_BASE}/${MESON_NAME}-${CI_COMMIT_TAG:1}.tar.xz.sha256sum"'
 
 test:cargo-deny:
-  stage: test
+  stage: lint
   image: archlinux:base-devel
   script:
     - pacman -Syu rustup cargo-deny --noconfirm
     - rustup default stable
     - cargo deny check
+  allow_failure: true
+
+
+test:cargo-fmt:
+  stage: lint
+  image: archlinux:base-devel
+  script:
+    - pacman -Syu rustup meson gtk4 git cmake libadwaita  blueprint-compiler --noconfirm
+    - rustup default stable
+    - rustup component add rustfmt
+    - meson setup build
+    - meson compile -C build resources_gresource
+    - cargo fmt -- --check
+  allow_failure: true
+
+test:cargo-clippy:
+  stage: lint
+  image: archlinux:base-devel
+  script:
+    - pacman -Syu rustup meson gtk4 git cmake libadwaita  blueprint-compiler --noconfirm
+    - rustup default stable
+    - rustup component add clippy
+    - meson setup build
+    - meson compile -C build resources_gresource
+    - cargo clippy --verbose
   allow_failure: true
 
