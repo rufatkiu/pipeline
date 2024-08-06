@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::{
     prelude::{Cast, ListModelExtManual},
     subclass::prelude::ObjectSubclassIsExt,
@@ -93,7 +73,7 @@ impl SubscriptionList {
         self.imp()
             .any_subscription_list
             .replace(Some(subscription_list));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -132,6 +112,7 @@ pub mod imp {
     use crate::gspawn_global;
     use crate::gui::subscription::subscription_item::SubscriptionItem;
     use crate::gui::subscription::subscription_item_object::SubscriptionObject;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/ui/subscription_list.ui")]
@@ -143,8 +124,7 @@ pub mod imp {
         pub(super) sorter: RefCell<Option<CustomSorter>>,
 
         pub(super) any_subscription_list: RefCell<Option<AnySubscriptionList>>,
-        _subscription_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<SubscriptionEvent> + Send>>>>>,
+        _subscription_observer: BoxedObserver<SubscriptionEvent>,
     }
 
     impl Default for SubscriptionList {
@@ -184,23 +164,27 @@ pub mod imp {
             self._subscription_observer.replace(Some(observer));
             obj.set(existing);
 
-            gspawn!(clone!(@strong obj => async move {
-                while let Some(subscription_event) = receiver.next().await {
-                    match subscription_event {
-                        SubscriptionEvent::Add(s) => {
-                            let subscription = SubscriptionObject::new(s);
-                            obj.add(subscription);
-                        }
-                        SubscriptionEvent::Remove(s) => {
-                            let subscription = SubscriptionObject::new(s);
-                            obj.remove(subscription);
-                        }
-                        SubscriptionEvent::Update(s) => {
-                            obj.update(s);
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                async move {
+                    while let Some(subscription_event) = receiver.next().await {
+                        match subscription_event {
+                            SubscriptionEvent::Add(s) => {
+                                let subscription = SubscriptionObject::new(s);
+                                obj.add(subscription);
+                            }
+                            SubscriptionEvent::Remove(s) => {
+                                let subscription = SubscriptionObject::new(s);
+                                obj.remove(subscription);
+                            }
+                            SubscriptionEvent::Update(s) => {
+                                obj.update(s);
+                            }
                         }
                     }
                 }
-            }));
+            ));
         }
 
         pub fn setup_list(&self) {
@@ -243,38 +227,68 @@ pub mod imp {
                 .clone()
                 .expect("AnySubscriptionList should be set up");
             let instance = self.obj();
-            factory.connect_setup(clone!(@strong instance, @strong sorter => move |_, list_item| {
-                let list_item = list_item.downcast_ref::<gtk::ListItem>().unwrap();
-                let subscription_item = SubscriptionItem::new(any_subscription_list.clone());
-                list_item.set_child(Some(&subscription_item));
+            factory.connect_setup(clone!(
+                #[strong]
+                instance,
+                #[strong]
+                sorter,
+                move |_, list_item| {
+                    let list_item = list_item.downcast_ref::<gtk::ListItem>().unwrap();
+                    let subscription_item = SubscriptionItem::new(any_subscription_list.clone());
+                    list_item.set_child(Some(&subscription_item));
 
-                subscription_item.connect_local("go-to-videos", false, clone!(@strong instance => move |args| {
-                    let sub = args[1]
-                        .get::<SubscriptionObject>()
-                        .expect("The value needs to be of type `SubscriptionObject`.");
-                    instance.emit_by_name::<()>("go-to-videos", &[&sub]);
-                    None
-                }));
+                    subscription_item.connect_local(
+                        "go-to-videos",
+                        false,
+                        clone!(
+                            #[strong]
+                            instance,
+                            move |args| {
+                                let sub = args[1]
+                                    .get::<SubscriptionObject>()
+                                    .expect("The value needs to be of type `SubscriptionObject`.");
+                                instance.emit_by_name::<()>("go-to-videos", &[&sub]);
+                                None
+                            }
+                        ),
+                    );
 
-                subscription_item.connect_notify_local(Some("subscription"), clone!(@strong sorter => move |s, _| {
-                    let item: Option<SubscriptionObject> = s.property("subscription");
-                    if let Some(item) = item {
-                        item.connect_notify_local(Some("name"), clone!(@strong sorter => move |_, _| {
-                            sorter.changed(SorterChange::Different);
-                        }));
-                    }
-                }));
+                    subscription_item.connect_notify_local(
+                        Some("subscription"),
+                        clone!(
+                            #[strong]
+                            sorter,
+                            move |s, _| {
+                                let item: Option<SubscriptionObject> = s.property("subscription");
+                                if let Some(item) = item {
+                                    item.connect_notify_local(
+                                        Some("name"),
+                                        clone!(
+                                            #[strong]
+                                            sorter,
+                                            move |_, _| {
+                                                sorter.changed(SorterChange::Different);
+                                            }
+                                        ),
+                                    );
+                                }
+                            }
+                        ),
+                    );
 
-                list_item.property_expression("item").bind(
-                    &subscription_item,
-                    "subscription",
-                    Widget::NONE,
-                );
-            }));
+                    list_item.property_expression("item").bind(
+                        &subscription_item,
+                        "subscription",
+                        Widget::NONE,
+                    );
+                }
+            ));
 
             self.subscription_list.set_single_click_activate(true);
-            self.subscription_list.connect_activate(
-                clone!(@strong instance => move |list_view, position| {
+            self.subscription_list.connect_activate(clone!(
+                #[strong]
+                instance,
+                move |list_view, position| {
                     let model = list_view.model().expect("The model has to exist.");
                     let sub = model
                         .item(position)
@@ -283,8 +297,8 @@ pub mod imp {
                         .expect("The item has to be an `Journey`.");
 
                     instance.emit_by_name::<()>("go-to-videos", &[&sub]);
-                }),
-            );
+                }
+            ));
 
             self.subscription_list.set_factory(Some(&factory));
         }

@@ -1,22 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 use std::{
     fmt::Display,
     process::{Command, Stdio},
@@ -44,7 +25,7 @@ pub fn open_with<
     callback: F,
 ) {
     thread::spawn(move || {
-        let mut command_iter = command.split(" ");
+        let mut command_iter = command.split(' ');
         let program = command_iter
             .next()
             .expect("The command should have a program");
@@ -62,7 +43,7 @@ pub fn open_with<
             Stdio::null()
         };
 
-        let command = Command::new(&program)
+        let command = Command::new(program)
             .args(args)
             .arg(url)
             .stdout(stdout)

@@ -25,7 +25,7 @@ pub fn video_information_window(
     if let Some(desc) = &video_information.description {
         let desc = desc.replace("<br>", "\n");
         let desc = desc.replace("&nbsp;", "");
-        let desc = desc.replace("&", "&amp;");
+        let desc = desc.replace('&', "&amp;");
         let label_description: gtk::Label = builder
             .object("label_description")
             .expect("video_information_window.ui to have the object label_description");

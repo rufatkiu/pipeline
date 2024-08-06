@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use tf_join::{AnyVideo, Joiner};
 use tf_playlist::PlaylistManager;
@@ -35,7 +15,7 @@ impl FeedPage {
     pub fn setup(&self, playlist_manager: PlaylistManager<String, AnyVideo>, joiner: Joiner) {
         self.imp().playlist_manager.replace(Some(playlist_manager));
         self.imp().joiner.replace(Some(joiner));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 
     pub fn reload(&self) {
@@ -157,10 +137,16 @@ pub mod imp {
             let error_store = self.error_store.borrow().clone();
             let settings = self.settings.clone();
 
-            self.btn_reload.connect_clicked(
-                clone!(@strong obj as s, @strong joiner, @strong error_store => move |_| {
+            self.btn_reload.connect_clicked(clone!(
+                #[strong]
+                obj,
+                #[strong]
+                joiner,
+                #[strong]
+                error_store,
+                move |_| {
                     log::debug!("Reloading");
-                    s.set_property("reloading", &true);
+                    obj.set_property("reloading", true);
 
                     let mut sender = sender.clone();
                     let joiner = joiner.clone();
@@ -170,12 +156,19 @@ pub mod imp {
                         let videos = joiner.generate(&error_store).await;
                         let _ = sender.send(videos).await;
                     });
-                }),
-            );
-            gspawn!(
-                clone!(@strong obj as s, @strong settings => @default-return Propagate::Stop, async move {
+                }
+            ));
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                #[weak]
+                settings,
+                #[upgrade_or_default]
+                async move {
                     while let Some(videos) = receiver.next().await {
-                        let yesterday = chrono::Local::now().date_naive() - Duration::try_days(1).expect("one day to be expressable as a duration");
+                        let yesterday = chrono::Local::now().date_naive()
+                            - Duration::try_days(1)
+                                .expect("one day to be expressable as a duration");
 
                         let only_yesterday = settings.boolean("only-videos-yesterday");
                         let remove_short = settings.boolean("remove-short-videos");
@@ -183,16 +176,26 @@ pub mod imp {
                         let video_objects = videos
                             .into_iter()
                             .map(VideoObject::new)
-                            .filter(|v| !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday))
-                            .filter(|v| !(remove_short && v.duration().map(|d| d < Duration::try_seconds(61).expect("61 seconds to be expressable as a duration")).unwrap_or_default())) // One more second padding to be sure.
+                            .filter(|v| {
+                                !only_yesterday || v.uploaded().map(|d| d.date()) == Some(yesterday)
+                            })
+                            .filter(|v| {
+                                !(remove_short
+                                    && v.duration()
+                                        .map(|d| {
+                                            d < Duration::try_seconds(61).expect(
+                                                "61 seconds to be expressable as a duration",
+                                            )
+                                        })
+                                        .unwrap_or_default())
+                            }) // One more second padding to be sure.
                             .collect::<Vec<_>>();
 
-                        s.imp().feed_list.get().set_items(video_objects);
-                        s.set_property("reloading", &false);
+                        obj.imp().feed_list.get().set_items(video_objects);
+                        obj.set_property("reloading", false);
                     }
-
-                })
-            );
+                }
+            ));
 
             // Setup Error Label
             self.error_label
@@ -205,10 +208,13 @@ pub mod imp {
         }
 
         fn setup_manage_subscriptions(&self, obj: &super::FeedPage) {
-            self.btn_manage_subscriptions
-                .connect_clicked(clone!(@weak obj => move |_| {
+            self.btn_manage_subscriptions.connect_clicked(clone!(
+                #[weak]
+                obj,
+                move |_| {
                     obj.emit_by_name::<()>("go-to-subscriptions", &[]);
-                }));
+                }
+            ));
         }
 
         pub(super) fn setup(&self, obj: &super::FeedPage) {

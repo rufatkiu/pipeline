@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use tf_core::ErrorStore;
 
@@ -31,7 +11,7 @@ gtk::glib::wrapper! {
 impl ErrorLabel {
     pub fn set_error_store(&self, error_store: ErrorStore) {
         self.imp().error_store.replace(Some(error_store));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -61,6 +41,7 @@ pub mod imp {
 
     use crate::gspawn;
     use crate::gui::utility::Utility;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate, Default)]
     #[template(resource = "/ui/error_label.ui")]
@@ -69,7 +50,7 @@ pub mod imp {
 
         error: RefCell<Option<String>>,
 
-        _error_store_observer: RefCell<Option<Arc<Mutex<Box<dyn Observer<ErrorEvent> + Send>>>>>,
+        _error_store_observer: BoxedObserver<ErrorEvent>,
     }
 
     impl ErrorLabel {
@@ -90,29 +71,38 @@ pub mod imp {
             error_store.attach(Arc::downgrade(&observer));
             self._error_store_observer.replace(Some(observer));
 
-            gspawn!(clone!(@strong obj => async move {
-                while let Some(error_event) = receiver.next().await {
-                match error_event {
-                    ErrorEvent::Add(_e) => {
-                        let summary = error_store.summary();
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                async move {
+                    while let Some(error_event) = receiver.next().await {
+                        match error_event {
+                            ErrorEvent::Add(_e) => {
+                                let summary = error_store.summary();
 
-                        let message = if summary.network() > 0 {
-                            gettextrs::gettext("Error connecting to the network").to_string()
-                        } else if summary.parse() > 0 {
-                            let msg = gettextrs::ngettext("Error parsing one subscription", "Error parsing {} subscriptions", summary.parse() as u32);
-                            msg.replace("{}", &summary.parse().to_string()).to_string()
-                        } else {
-                            gettextrs::gettext("Some error occured").to_string()
-                        };
+                                let message = if summary.network() > 0 {
+                                    gettextrs::gettext("Error connecting to the network")
+                                        .to_string()
+                                } else if summary.parse() > 0 {
+                                    let msg = gettextrs::ngettext(
+                                        "Error parsing one subscription",
+                                        "Error parsing {} subscriptions",
+                                        summary.parse() as u32,
+                                    );
+                                    msg.replace("{}", &summary.parse().to_string()).to_string()
+                                } else {
+                                    gettextrs::gettext("Some error occured").to_string()
+                                };
 
-                        obj.set_property("error", &message);
-
-                    }
-                    ErrorEvent::Clear => {
-                        obj.set_property("error", "");
+                                obj.set_property("error", &message);
+                            }
+                            ErrorEvent::Clear => {
+                                obj.set_property("error", "");
+                            }
+                        }
                     }
                 }
-            }}));
+            ));
         }
     }
 

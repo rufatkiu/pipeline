@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use std::sync::{Arc, Mutex};
 
 use gdk::{
@@ -72,7 +52,7 @@ impl FilterList {
 
     pub fn set_filter_group(&self, filter_group: Arc<Mutex<FilterGroup<AnyVideoFilter>>>) {
         self.imp().filter_group.replace(Some(filter_group));
-        self.imp().setup(&self);
+        self.imp().setup(self);
     }
 }
 
@@ -107,6 +87,7 @@ pub mod imp {
     use crate::gspawn;
     use crate::gui::filter::filter_item::FilterItem;
     use crate::gui::filter::filter_item_object::FilterObject;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate)]
     #[template(resource = "/ui/filter_list.ui")]
@@ -117,8 +98,7 @@ pub mod imp {
         pub(super) model: RefCell<ListStore>,
 
         pub(super) filter_group: RefCell<Option<Arc<Mutex<FilterGroup<AnyVideoFilter>>>>>,
-        _filter_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<FilterEvent<AnyVideoFilter>> + Send>>>>>,
+        _filter_observer: BoxedObserver<FilterEvent<AnyVideoFilter>>,
     }
 
     impl Default for FilterList {
@@ -158,20 +138,24 @@ pub mod imp {
             self._filter_observer.replace(Some(observer));
             obj.set(existing);
 
-            gspawn!(clone!(@strong obj => async move {
-                while let Some(filter_event) = receiver.next().await {
-                    match filter_event {
-                        FilterEvent::Add(s) => {
-                            let filter = FilterObject::new(s);
-                            obj.add(filter);
-                        }
-                        FilterEvent::Remove(s) => {
-                            let filter = FilterObject::new(s);
-                            obj.remove(filter);
+            gspawn!(clone!(
+                #[strong]
+                obj,
+                async move {
+                    while let Some(filter_event) = receiver.next().await {
+                        match filter_event {
+                            FilterEvent::Add(s) => {
+                                let filter = FilterObject::new(s);
+                                obj.add(filter);
+                            }
+                            FilterEvent::Remove(s) => {
+                                let filter = FilterObject::new(s);
+                                obj.remove(filter);
+                            }
                         }
                     }
                 }
-            }));
+            ));
         }
 
         pub fn setup_list(&self) {

@@ -38,13 +38,13 @@
                 "*"
             ],
             "sources": [
-              {
-                "type": "git",
-                "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
-                "tag" : "v0.12.0"
-              }
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+                    "tag": "v0.12.0"
+                }
             ]
-        },  
+        },
         {
             "name": "tubefeeder",
             "buildsystem": "meson",

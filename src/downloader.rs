@@ -1,22 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 use std::{fmt::Display, process::Command, thread};
 
 const DOWNLOAD_MERGE: &str = "[Merger] Merging formats into ";
@@ -38,7 +19,6 @@ pub fn download<
         if let Ok(output) = output {
             callback(Ok(output
                 .lines()
-                .into_iter()
                 .rev()
                 .find(|s| s.starts_with(DOWNLOAD_MERGE) || s.starts_with(DOWNLOAD_DESTINATION))
                 .map(|s| s.strip_prefix(DOWNLOAD_MERGE).unwrap_or(s))
@@ -60,13 +40,13 @@ pub fn open_with_output<
     callback: F,
 ) {
     thread::spawn(move || {
-        let mut command_iter = command.split(" ");
+        let mut command_iter = command.split(' ');
         let program = command_iter
             .next()
             .expect("The command should have a program");
         let args: Vec<String> = command_iter.map(|s| s.to_string()).collect();
 
-        let out = Command::new(&program).args(args).arg(url).output();
+        let out = Command::new(program).args(args).arg(url).output();
 
         if let Ok(out) = out {
             callback(Ok(String::from_utf8_lossy(&out.stdout).to_string()));

@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use tf_join::AnyVideo;
 use tf_playlist::PlaylistManager;
@@ -71,8 +51,8 @@ pub mod imp {
 
     use gtk::subclass::prelude::*;
 
-    use gtk::CompositeTemplate;
     use adw::subclass::prelude::BinImpl;
+    use gtk::CompositeTemplate;
     use tf_join::AnyVideo;
     use tf_observer::Observer;
     use tf_playlist::PlaylistEvent;
@@ -84,6 +64,7 @@ pub mod imp {
     use crate::gui::stack_page::StackPage;
     use crate::gui::stack_page::StackPageImpl;
     use crate::gui::utility::Utility;
+    use crate::gui::BoxedObserver;
 
     #[derive(CompositeTemplate, Default)]
     #[template(resource = "/ui/watch_later.ui")]
@@ -93,8 +74,7 @@ pub mod imp {
 
         pub(super) playlist_manager: RefCell<Option<PlaylistManager<String, AnyVideo>>>,
 
-        _playlist_observer:
-            RefCell<Option<Arc<Mutex<Box<dyn Observer<PlaylistEvent<AnyVideo>> + Send>>>>>,
+        _playlist_observer: BoxedObserver<PlaylistEvent<AnyVideo>>,
     }
 
     impl WatchLaterPage {
@@ -126,20 +106,24 @@ pub mod imp {
             feed_page.set_playlist_manager(playlist_manager);
             feed_page.set_items_ordered(existing);
 
-            gspawn!(clone!(@strong feed_page => async move {
-                while let Some(playlist_event) = receiver.next().await {
-                    match playlist_event {
-                        PlaylistEvent::Add(v) => {
-                            let video = VideoObject::new(v);
-                            feed_page.insert_ordered_time(video);
-                        }
-                        PlaylistEvent::Remove(v) => {
-                            let video = VideoObject::new(v);
-                            feed_page.remove(video);
+            gspawn!(clone!(
+                #[strong]
+                feed_page,
+                async move {
+                    while let Some(playlist_event) = receiver.next().await {
+                        match playlist_event {
+                            PlaylistEvent::Add(v) => {
+                                let video = VideoObject::new(v);
+                                feed_page.insert_ordered_time(video);
+                            }
+                            PlaylistEvent::Remove(v) => {
+                                let video = VideoObject::new(v);
+                                feed_page.remove(video);
+                            }
                         }
                     }
                 }
-            }));
+            ));
         }
     }
 

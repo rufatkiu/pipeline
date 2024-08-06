@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use futures::{SinkExt, StreamExt};
 use gdk::{glib::clone, prelude::ObjectExt, subclass::prelude::ObjectSubclassIsExt};
 
@@ -58,18 +38,16 @@ impl Thumbnail {
 
         let thumbnail_url = video
             .as_ref()
-            .map(|v| v.property::<Option<String>>("thumbnail-url"))
-            .flatten();
+            .and_then(|v| v.property::<Option<String>>("thumbnail-url"));
         let url = video
             .as_ref()
-            .map(|v| v.property::<Option<String>>("url"))
-            .flatten();
+            .and_then(|v| v.property::<Option<String>>("url"));
         if let (Some(thumbnail_url), Some(url)) = (thumbnail_url, url) {
             let (mut sender, mut receiver) = futures::channel::mpsc::channel(1);
             tokio::spawn(async move {
                 let mut user_cache_dir = gtk::glib::user_cache_dir();
                 user_cache_dir.push("tubefeeder");
-                user_cache_dir.push(&format!("{}.jpeg", url.replace("/", "_")));
+                user_cache_dir.push(&format!("{}.jpeg", url.replace('/', "_")));
                 let path = user_cache_dir;
 
                 if !path.exists() {
@@ -84,13 +62,16 @@ impl Thumbnail {
                 let _ = sender.send(path).await;
             });
 
-            gspawn!(
-                clone!(@strong thumbnail => @default-return ControlFlow::Continue, async move {
+            gspawn!(clone!(
+                #[weak]
+                thumbnail,
+                #[upgrade_or_default]
+                async move {
                     while let Some(path) = receiver.next().await {
                         thumbnail.set_filename(Some(&path));
                     }
-                })
-            );
+                }
+            ));
         }
     }
 }
@@ -143,9 +124,13 @@ pub mod imp {
             self.parent_constructed();
             obj.connect_notify_local(
                 Some("video"),
-                clone!(@strong obj => move |_, _| {
-                    obj.load_thumbnail();
-                }),
+                clone!(
+                    #[strong]
+                    obj,
+                    move |_, _| {
+                        obj.load_thumbnail();
+                    }
+                ),
             );
         }
 
