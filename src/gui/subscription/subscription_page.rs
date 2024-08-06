@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gdk_pixbuf::prelude::Cast;
 use gtk::prelude::WidgetExt;
@@ -186,7 +166,7 @@ pub mod imp {
 
             self.dropdown_platform.set_selected(
                 self.platforms()
-                    .into_iter()
+                    .iter()
                     .position(|p| p == &platform)
                     .unwrap_or_default()
                     .try_into()
@@ -196,7 +176,7 @@ pub mod imp {
             self.entry_name_id.set_text("");
 
             let window = self.obj().window();
-            self.dialog_add.present(&window);
+            self.dialog_add.present(Some(&window));
 
             // XXX: Duplicated logic with `url_visible`.
             if platform == Platform::Peertube {
@@ -207,16 +187,20 @@ pub mod imp {
         }
 
         fn setup_toggle_add_subscription(&self, obj: &super::SubscriptionPage) {
-            self.btn_toggle_add_subscription
-                .connect_clicked(clone!(@strong obj as s,
-                                        => move |_| {
-                    s.present_subscribe();
-                }));
-            self.btn_add_subscription
-                .connect_clicked(clone!(@strong obj as s,
-                                        => move |_| {
-                    s.present_subscribe();
-                }));
+            self.btn_toggle_add_subscription.connect_clicked(clone!(
+                #[weak]
+                obj,
+                move |_| {
+                    obj.present_subscribe();
+                }
+            ));
+            self.btn_add_subscription.connect_clicked(clone!(
+                #[weak]
+                obj,
+                move |_| {
+                    obj.present_subscribe();
+                }
+            ));
         }
 
         fn platforms(&self) -> &'static [Platform] {
@@ -242,7 +226,7 @@ pub mod imp {
                 0,
                 &self
                     .platforms()
-                    .into_iter()
+                    .iter()
                     .map(|p| PlatformObject::new(p.clone()))
                     .collect::<Vec<_>>(),
             );
@@ -299,21 +283,28 @@ pub mod imp {
             });
 
             let obj = self.obj();
-            gspawn!(
-                clone!(@strong self.any_subscription_list as list, @strong obj => async move {
-                while let Some(sub) = receiver.next().await {
-                       if let Some(sub) = sub {
-                           list.borrow().as_ref().expect("SubscriptionList should be set up").add(sub);
-                           obj.emit_by_name::<()>("subscription-added", &[]);
-                       } else {
-                           log::error!("Failed to get subscription with supplied data");
+            gspawn!(clone!(
+                #[strong(rename_to = list)]
+                self.any_subscription_list,
+                #[strong]
+                obj,
+                async move {
+                    while let Some(sub) = receiver.next().await {
+                        if let Some(sub) = sub {
+                            list.borrow()
+                                .as_ref()
+                                .expect("SubscriptionList should be set up")
+                                .add(sub);
+                            obj.emit_by_name::<()>("subscription-added", &[]);
+                        } else {
+                            log::error!("Failed to get subscription with supplied data");
                             let window = obj.window();
                             let dialog_error = &obj.imp().dialog_error;
-                            dialog_error.present(&window);
-                       }
+                            dialog_error.present(Some(&window));
+                        }
                     }
-                })
-            );
+                }
+            ));
         }
 
         #[template_callback]
@@ -340,17 +331,24 @@ pub mod imp {
                 let _ = sender.send(videos).await;
             });
             let obj = self.obj();
-            gspawn!(
-                clone!(@strong obj as s => @default-return ControlFlow::Continue, async move {
+            gspawn!(clone!(
+                #[weak]
+                obj,
+                #[upgrade_or_default]
+                async move {
                     while let Some(videos) = receiver.next().await {
-                        let video_objects = videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
-                        s.imp().subscription_video_list.get().set_items(video_objects);
+                        let video_objects =
+                            videos.into_iter().map(VideoObject::new).collect::<Vec<_>>();
+                        obj.imp()
+                            .subscription_video_list
+                            .get()
+                            .set_items(video_objects);
                     }
-                })
-            );
+                }
+            ));
 
             self.obj()
-                .set_property("header-widget", &self.btn_go_back.get());
+                .set_property("header-widget", self.btn_go_back.get());
         }
 
         #[template_callback]
@@ -359,7 +357,7 @@ pub mod imp {
             self.subscription_stack.set_visible_child_name("page-sub");
 
             self.obj()
-                .set_property("header-widget", &self.btn_toggle_add_subscription.get());
+                .set_property("header-widget", self.btn_toggle_add_subscription.get());
         }
 
         #[template_callback(function)]
@@ -368,7 +366,7 @@ pub mod imp {
                 .get::<Option<Object>>()
                 .expect("Parameter must be a Object")
                 .map(|o| o.downcast().expect("Parameter must be PlatformObject"));
-            platform.as_ref().map(PlatformObject::platform).flatten() == Some(Platform::Peertube)
+            platform.as_ref().and_then(PlatformObject::platform) == Some(Platform::Peertube)
         }
 
         #[template_callback(function)]

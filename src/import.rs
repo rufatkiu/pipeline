@@ -48,7 +48,7 @@ pub fn import_newpipe(joiner: &Joiner, file: gio::File) -> Result<(), Box<dyn st
 
     for uuid in uuids.difference(&available_subscriptions) {
         log::trace!("Subscribing to channel with id {}", uuid);
-        let sub = YTSubscription::new(&uuid).into();
+        let sub = YTSubscription::new(uuid).into();
         subscription_list.add(sub);
     }
     Ok(())
@@ -85,7 +85,7 @@ pub fn import_youtube(joiner: &Joiner, file: gio::File) -> Result<(), Box<dyn st
 
     for uuid in uuids.difference(&available_subscriptions) {
         log::trace!("Subscribing to channel with id {}", uuid);
-        let sub = YTSubscription::new(&uuid).into();
+        let sub = YTSubscription::new(uuid).into();
         subscription_list.add(sub);
     }
     Ok(())

@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use std::sync::{Arc, Mutex};
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
@@ -86,13 +66,22 @@ pub mod imp {
 
         fn setup_actions(&self, obj: &super::FilterItem) {
             let action_remove = SimpleAction::new("remove", None);
-            action_remove.connect_activate(clone!(@weak obj => move |_, _| {
-                let filter = obj.imp().filter.borrow().as_ref().map(|s| s.filter()).flatten();
-                let filter_group = obj.imp().filter_group.borrow_mut();
-                if let Some(filter) = filter {
-                    filter_group.as_ref().expect("FilterGroup to be set up").lock().expect("FilterGroup to be lockable").remove(&filter);
+            action_remove.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let filter = obj.imp().filter.borrow().as_ref().and_then(|s| s.filter());
+                    let filter_group = obj.imp().filter_group.borrow_mut();
+                    if let Some(filter) = filter {
+                        filter_group
+                            .as_ref()
+                            .expect("FilterGroup to be set up")
+                            .lock()
+                            .expect("FilterGroup to be lockable")
+                            .remove(&filter);
+                    }
                 }
-            }));
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));

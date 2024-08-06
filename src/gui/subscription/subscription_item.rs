@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use gdk::subclass::prelude::ObjectSubclassIsExt;
 use gtk::glib::Object;
 use tf_join::AnySubscriptionList;
@@ -89,23 +69,34 @@ pub mod imp {
 
         fn setup_actions(&self, obj: &super::SubscriptionItem) {
             let action_remove = SimpleAction::new("remove", None);
-            action_remove.connect_activate(
-                clone!(@weak obj => move |_, _| {
+            action_remove.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
                     let subscription_list = obj.imp().subscription_list.borrow_mut();
-                    let subscription = obj.imp().subscription.borrow().as_ref().map(|s| s.subscription()).flatten();
+                    let subscription = obj
+                        .imp()
+                        .subscription
+                        .borrow()
+                        .as_ref()
+                        .and_then(|s| s.subscription());
                     if let Some(subscription) = subscription {
                         let mut subscription_list = subscription_list;
                         subscription_list.as_mut().unwrap().remove(subscription);
                     }
-                }),
-            );
-            let action_view_videos = SimpleAction::new("view-videos", None);
-            action_view_videos.connect_activate(clone!(@strong obj => move |_, _| {
-                let subscription = obj.imp().subscription.borrow();
-                if let Some(sub) = subscription.as_ref() {
-                    obj.emit_by_name::<()>("go-to-videos", &[&sub]);
                 }
-            }));
+            ));
+            let action_view_videos = SimpleAction::new("view-videos", None);
+            action_view_videos.connect_activate(clone!(
+                #[weak]
+                obj,
+                move |_, _| {
+                    let subscription = obj.imp().subscription.borrow();
+                    if let Some(sub) = subscription.as_ref() {
+                        obj.emit_by_name::<()>("go-to-videos", &[&sub]);
+                    }
+                }
+            ));
 
             let actions = SimpleActionGroup::new();
             obj.insert_action_group("item", Some(&actions));

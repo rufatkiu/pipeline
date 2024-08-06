@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use std::sync::{Arc, Mutex};
 
 use gdk::subclass::prelude::ObjectSubclassIsExt;
@@ -101,18 +81,24 @@ pub mod imp {
             self.entry_title.set_text("");
 
             let window = self.obj().window();
-            self.dialog_add.present(&window);
+            self.dialog_add.present(Some(&window));
         }
 
         fn setup_toggle_add_filter(&self, obj: &super::FilterPage) {
-            self.btn_toggle_add_filter
-                .connect_clicked(clone!(@strong obj as s => move |_| {
-                    s.imp().present_filter();
-                }));
-            self.btn_add_filter
-                .connect_clicked(clone!(@strong obj as s => move |_| {
-                    s.imp().present_filter();
-                }));
+            self.btn_toggle_add_filter.connect_clicked(clone!(
+                #[strong]
+                obj,
+                move |_| {
+                    obj.imp().present_filter();
+                }
+            ));
+            self.btn_add_filter.connect_clicked(clone!(
+                #[strong]
+                obj,
+                move |_| {
+                    obj.imp().present_filter();
+                }
+            ));
         }
 
         #[template_callback]
@@ -156,14 +142,11 @@ pub mod imp {
                 .expect("Filter List should be set up")
                 .lock()
                 .expect("Filter List should be lockable")
-                .add(
-                    AnyVideoFilter::new(
-                        None,
-                        title_regex.map(|r| r.unwrap()),
-                        channel_regex.map(|r| r.unwrap()),
-                    )
-                    .into(),
-                );
+                .add(AnyVideoFilter::new(
+                    None,
+                    title_regex.map(|r| r.unwrap()),
+                    channel_regex.map(|r| r.unwrap()),
+                ));
         }
     }
 

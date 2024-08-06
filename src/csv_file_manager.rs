@@ -1,27 +1,8 @@
-/*
- * Copyright 2021 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline-extractor.
- *
- * Pipeline-extractor is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline-extractor is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline-extractor.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 use std::{
     convert::{TryFrom, TryInto},
     fs::OpenOptions,
     marker::PhantomData,
-    path::PathBuf,
+    path::{Path, PathBuf},
 };
 
 use csv::{ReaderBuilder, StringRecord, WriterBuilder};
@@ -40,12 +21,12 @@ impl<T> CsvFileManager<T>
 where
     T: TryFrom<Vec<String>>,
 {
-    pub fn new<F>(path: &PathBuf, add_func: &mut F) -> Self
+    pub fn new<F>(path: &Path, add_func: &mut F) -> Self
     where
-        F: FnMut(T) -> (),
+        F: FnMut(T),
     {
         let mut manager = Self {
-            path: path.clone(),
+            path: path.to_path_buf(),
             _phantom: PhantomData,
         };
 
@@ -55,7 +36,7 @@ where
 
     fn fill<F>(&mut self, add_func: &mut F)
     where
-        F: FnMut(T) -> (),
+        F: FnMut(T),
     {
         let file_res = OpenOptions::new().read(true).write(false).open(&self.path);
 
@@ -201,8 +182,7 @@ where
                 let records_read = csv_reader.into_records();
 
                 let records: Vec<StringRecord> = records_read
-                    .filter(|s| s.is_ok())
-                    .map(|s| s.unwrap())
+                    .flatten()
                     .filter(|s| &new_record != s)
                     .collect();
 

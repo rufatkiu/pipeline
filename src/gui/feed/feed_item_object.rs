@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use std::cell::RefCell;
 
 use chrono::Duration;
@@ -95,21 +75,21 @@ fn format_duration(d: Duration) -> String {
 impl VideoObject {
     pub fn new(video: AnyVideo) -> Self {
         let s: Self = Object::builder::<Self>()
-            .property("title", &video.title())
-            .property("url", &video.url())
-            .property("thumbnail-url", &video.thumbnail_url())
-            .property("author", &video.subscription().to_string())
-            .property("platform", &video.platform().to_string())
+            .property("title", video.title())
+            .property("url", video.url())
+            .property("thumbnail-url", video.thumbnail_url())
+            .property("author", video.subscription().to_string())
+            .property("platform", video.platform().to_string())
             .property(
                 "date",
-                &video
+                video
                     .uploaded()
                     // Translators: How to display the uploaded date. This is a date format corresponding to <https://docs.rs/chrono/latest/chrono/format/strftime/index.html#specifiers>. E.g. ``%F %T` can expand to "2024-07-08 12:34:30".
                     .format(&gettextrs::gettext("%F %T"))
                     .to_string(),
             )
             .property("duration", video.duration().map(format_duration))
-            .property("playing", &false)
+            .property("playing", false)
             .build();
         s.imp().duration.swap(&RefCell::new(video.duration()));
         s.imp().video.swap(&RefCell::new(Some(video)));
@@ -135,11 +115,17 @@ impl VideoObject {
                 let _ = sender.send(r);
             },
         );
-        gspawn!(clone!(@weak self as s => async move {
-            let r = receiver.await.expect("Video play receiver to not be cancelled");
-            s.set_property("playing", false);
-            let _ = sender_return.send(r);
-        }));
+        gspawn!(clone!(
+            #[weak(rename_to = s)]
+            self,
+            async move {
+                let r = receiver
+                    .await
+                    .expect("Video play receiver to not be cancelled");
+                s.set_property("playing", false);
+                let _ = sender_return.send(r);
+            }
+        ));
 
         receiver_return
     }
@@ -154,19 +140,27 @@ impl VideoObject {
                 let _ = sender.send(r);
             },
         );
-        gspawn!(clone!(@weak self as s => async move {
-            let r = receiver.await.expect("Video play receiver to not be cancelled");
-            s.set_property("downloading", false);
-            if let Ok(local_path) = &r {
-                s.set_property("local-path", local_path);
-                s.notify("is-local");
+        gspawn!(clone!(
+            #[weak(rename_to = s)]
+            self,
+            async move {
+                let r = receiver
+                    .await
+                    .expect("Video play receiver to not be cancelled");
+                s.set_property("downloading", false);
+                if let Ok(local_path) = &r {
+                    s.set_property("local-path", local_path);
+                    s.notify("is-local");
+                }
+                let _ = sender_return.send(r.map(|_| ()));
             }
-            let _ = sender_return.send(r.map(|_| ()));
-        }));
+        ));
 
         receiver_return
     }
 
+    // Currently not sure how to fix that lint.
+    #[allow(clippy::await_holding_refcell_ref)]
     pub async fn extra_info(&self) -> Result<Option<ExtraVideoInfo>, tf_join::AnyFetchError> {
         self.imp()
             .video

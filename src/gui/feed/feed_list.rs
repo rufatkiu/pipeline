@@ -1,23 +1,3 @@
-/*
- * Copyright 2021 - 2022 Julian Schmidhuber <github@schmiddi.anonaddy.com>
- *
- * This file is part of Pipeline.
- *
- * Pipeline is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Pipeline is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Pipeline.  If not, see <https://www.gnu.org/licenses/>.
- *
- */
-
 use std::{
     cmp::{min, Reverse},
     time::Duration,
@@ -53,19 +33,27 @@ gtk::glib::wrapper! {
 impl FeedList {
     fn add_actions(&self) {
         let action_more = SimpleAction::new("more", None);
-        action_more.connect_activate(clone!(@strong self as s => move |_, _| {
-            let imp = s.imp();
-            let items = &imp.items.borrow();
-            let model = &imp.model.borrow();
-            let loaded_count = &imp.loaded_count.get();
+        action_more.connect_activate(clone!(
+            #[strong(rename_to = s)]
+            self,
+            move |_, _| {
+                let imp = s.imp();
+                let items = &imp.items.borrow();
+                let model = &imp.model.borrow();
+                let loaded_count = &imp.loaded_count.get();
 
-            let to_load = min(LOAD_COUNT, items.len() - loaded_count);
+                let to_load = min(LOAD_COUNT, items.len() - loaded_count);
 
-            model.splice(model.n_items(), 0, &items[*loaded_count..(loaded_count + to_load)]);
-            imp.loaded_count.set(loaded_count + to_load);
+                model.splice(
+                    model.n_items(),
+                    0,
+                    &items[*loaded_count..(loaded_count + to_load)],
+                );
+                imp.loaded_count.set(loaded_count + to_load);
 
-            s.set_more_available();
-        }));
+                s.set_more_available();
+            }
+        ));
 
         let actions = SimpleActionGroup::new();
         self.insert_action_group("feed", Some(&actions));
@@ -134,21 +122,31 @@ impl FeedList {
 
     fn setup_autoload(&self) {
         let adj = self.imp().scrolled_window.vadjustment();
-        adj.connect_changed(clone!(@weak self as s => move |adj| {
-            s.load_if_screen_not_filled(adj);
-        }));
+        adj.connect_changed(clone!(
+            #[weak(rename_to = s)]
+            self,
+            move |adj| {
+                s.load_if_screen_not_filled(adj);
+            }
+        ));
     }
 
     fn load_if_screen_not_filled(&self, adj: &Adjustment) {
         let ctx = glib::MainContext::default();
-        ctx.spawn_local(clone!(@weak self as s, @weak adj => async move {
-            // Add timeout, otherwise there are some critical errors (not sure why).
-            glib::timeout_future(Duration::from_millis(100)).await;
-            if s.property("more-available") && adj.upper() <= adj.page_size() {
-                // The screen is not yet filled.
-                let _ = s.activate_action("feed.more", None);
+        ctx.spawn_local(clone!(
+            #[weak(rename_to = s)]
+            self,
+            #[weak]
+            adj,
+            async move {
+                // Add timeout, otherwise there are some critical errors (not sure why).
+                glib::timeout_future(Duration::from_millis(100)).await;
+                if s.property("more-available") && adj.upper() <= adj.page_size() {
+                    // The screen is not yet filled.
+                    let _ = s.activate_action("feed.more", None);
+                }
             }
-        }));
+        ));
     }
 
     pub fn set_items(&self, new_items: Vec<VideoObject>) {
@@ -179,7 +177,7 @@ impl FeedList {
         let model = &imp.model;
         let loaded_count = &imp.loaded_count;
 
-        let _ = items.borrow_mut().insert(0, new_item.clone());
+        items.borrow_mut().insert(0, new_item.clone());
         model.borrow_mut().insert(0, &new_item);
         loaded_count.set(loaded_count.get() + 1);
 
@@ -201,7 +199,7 @@ impl FeedList {
                 })
                 .unwrap_or_else(|i| i);
 
-            let _ = items.insert(idx, new_item.clone());
+            items.insert(idx, new_item.clone());
             if idx <= model.n_items() as usize {
                 model.insert(idx as u32, &new_item);
                 loaded_count.set(loaded_count.get() + 1);
@@ -343,8 +341,10 @@ pub mod imp {
             self.feed_list.set_factory(Some(&factory));
             self.feed_list.set_single_click_activate(true);
 
-            self.feed_list
-                .connect_activate(clone!(@weak self as s => move |list_view, position| {
+            self.feed_list.connect_activate(clone!(
+                #[weak(rename_to = s)]
+                self,
+                move |list_view, position| {
                     let model = list_view.model().expect("The model has to exist.");
                     let video_object = model
                         .item(position)
@@ -358,22 +358,32 @@ pub mod imp {
                         if let Err(e) = receiver.await.expect("Video receiver to not fail") {
                             log::error!("Failed to play video: {}", e);
                             let window = s.obj().window();
-                            s.dialog_error.present(&window);
+                            s.dialog_error.present(Some(&window));
                         }
                     });
-                }));
+                }
+            ));
 
             let key_events = gtk::EventControllerKey::new();
-            key_events.connect_key_pressed(
-                clone!(@strong self.feed_list as feed_list => @default-return Propagation::Proceed, move |_, key, _, _| {
+            key_events.connect_key_pressed(clone!(
+                #[weak(rename_to = feed_list)]
+                self.feed_list,
+                #[upgrade_or]
+                Propagation::Proceed,
+                move |_, key, _, _| {
                     if key == gdk::Key::Menu {
-                        feed_list.focus_child().and_then(|w| w.first_child()).and_dynamic_cast::<FeedItem>().expect("FeedList to have highlighted FeedItem").click();
+                        feed_list
+                            .focus_child()
+                            .and_then(|w| w.first_child())
+                            .and_dynamic_cast::<FeedItem>()
+                            .expect("FeedList to have highlighted FeedItem")
+                            .click();
                         Propagation::Stop
                     } else {
                         Propagation::Proceed
                     }
-                }),
-            );
+                }
+            ));
             self.feed_list.add_controller(key_events);
 
             self.obj().setup_autoload();

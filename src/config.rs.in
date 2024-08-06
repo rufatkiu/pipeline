@@ -4,4 +4,7 @@ pub const LOCALEDIR: &str = @LOCALEDIR@;
 pub const PROFILE: &str = @PROFILE@;
 // pub const VERSION: &str = @VERSION@;
 pub const FLATPAK: bool = @FLATPAK@;
-pub const RESOURCES_BYTES: &[u8] = include_bytes!(concat!(@BUILD_DIR@, "/data/resources/resources.gresource"));
+pub const RESOURCES_BYTES: &[u8] = include_bytes!(concat!(
+    @BUILD_DIR@,
+    "/data/resources/resources.gresource"
+));
